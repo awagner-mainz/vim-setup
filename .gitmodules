@@ -7,3 +7,6 @@
 [submodule "bundle/vim-latex-suite"]
 	path = bundle/vim-latex-suite
 	url = https://github.com/gerw/vim-latex-suite.git
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = http://github.com/tpope/vim-fugitive.git
