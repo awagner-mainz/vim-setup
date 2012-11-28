@@ -1,0 +1,325 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+  <link rel="Stylesheet" type="text/css" href="/css/style.css" >
+  <title>mru.vim - Plugin to manage Most Recently Used (MRU) files : vim online</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="KEYWORDS" content="Vim, Vi IMproved, text editor, home, documentation, tips, scripts, news">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/vim_shortcut.ico">
+</head>
+
+<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="#ffffff"> 
+
+<!-- HEADER, SPONSOR IMAGE, VIM IMAGE AND BOOK AD -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tr>
+    <td colspan="4" class="lightbg"><img src="/images/spacer.gif" width="1" height="5" alt=""></td>
+  </tr>
+  <tr>
+  <td class="lightbg">&nbsp;&nbsp;&nbsp;</td>
+  <td class="lightbg" align="left"><a href="/sponsor/index.php"><img src="/images/sponsorvim.gif" alt="sponsor Vim development" border="0"></a></td>
+    <td class="lightbg" align="center"><a href="/index.php"><img src="/images/vim_header.gif" border="0" alt="Vim logo"></a></td>
+    <td class="lightbg" align="right"><a href="http://iccf-holland.org/click5.html"><img src="/images/buyhelplearn.gif" alt="Vim Book Ad" border="0"></a></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="lightbg"><img src="/images/spacer.gif" width="1" height="5" alt=""></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="darkbg"><img src="/images/spacer.gif" width="1" height="10" alt=""></td>
+  </tr>
+</table>
+<!-- THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+  <col width="180">
+  <col width="1">
+
+  <tr valign="top">
+    <td class="sidebar">
+      <table width="180" cellpadding="4" cellspacing="0" border="0">
+        <tr valign="top">
+          <td class="sidebar">
+
+<!-- INCLUDE THE PAGE NAVIGATION -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+    <tr>
+        <td><small>not logged in (<a href="/login.php">login</a>)</small></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="1"></td>
+    </tr>
+    <tr>
+        <td class="darkbg"><img src="/images/spacer.gif" alt='' border="0" height="3"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="2"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/index.php">Home</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/search.php">Search</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/about.php">About Vim</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/community.php">Community</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/news/news.php">News</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/sponsor/index.php">Sponsoring</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/trivia.php">Trivia</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/docs.php">Documentation</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/download.php">Download</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/scripts/index.php">Scripts</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/tips/index.php">Tips</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/account/index.php">My Account</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/huh.php">Site Help</a></td>
+        </tr>
+</table>
+
+            <table width="172" cellpadding="0" cellspacing="0" border="0">
+              <tr><td><img src="/images/spacer.gif" alt="" border="0" width="1" height="8"></td></tr>
+              <tr><td class="darkbg"><img src="/images/spacer.gif" width="1" height="3" alt=""></td></tr>
+            </table>
+            <br>
+
+<!-- INCLUDE THE PAGE SIDEBAR TEXT -->
+&nbsp;
+
+          </td>
+        </tr>
+      </table>
+    </td>
+
+    <td class="darkbg"><img src="/images/spacer.gif" width="1" height="1" border="0" alt=""><br></td>
+    <td>
+      <table width="100%" cellpadding="10" cellspacing="0" border="0" bordercolor="red">
+        <tr>
+          <td valign="top">
+
+<span class="txth1">mru.vim : Plugin to manage Most Recently Used (MRU) files</span> 
+
+<br>
+<br>
+
+<!-- karma table -->
+<table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+<tr>
+  <td class="lightbg"><b>&nbsp;script karma&nbsp;</b></td>
+  <td>
+    Rating <b>238/85</b>,
+    Downloaded by 2708  </td>
+</tr>
+</table>
+<p>
+
+<table cellspacing="0" cellpadding="0" border="0">
+<tr><td class="prompt">created by</td></tr>
+<tr><td><a href="/account/profile.php?user_id=244">Yegappan Lakshmanan</a></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td class="prompt">script type</td></tr>
+<tr><td>utility</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td class="prompt">description</td></tr>
+<tr><td>Overview<br><br>The Most Recently Used (MRU) plugin provides an easy access to a list of<br>recently opened/edited files in Vim. This plugin automatically stores the<br>file names as you open/edit them in Vim.<br><br>This plugin will work on all the platforms where Vim is supported. This<br>plugin will work in both console and GUI Vim.<br><br>The recently used filenames are stored in a file specified by the Vim<br>MRU_File variable.<br><br>Installation<br><br>1. Copy the mru.vim script to the $HOME/.vim/plugin or the<br>&nbsp;&nbsp; $HOME/vimfiles/plugin or the $VIM/vimfiles directory.&nbsp;&nbsp;Refer to the<br>&nbsp;&nbsp; ':help add-plugin', ':help add-global-plugin' and ':help runtimepath'<br>&nbsp;&nbsp; topics for more details about Vim plugins.<br>2. Set the MRU_File Vim variable in the .vimrc file to the location of a<br>&nbsp;&nbsp; file to store the most recently edited file names.<br>3. Restart Vim.<br>4. You can use the &quot;:MRU&quot; command to list and edit the recently used files.<br>&nbsp;&nbsp; In GUI Vim, you can use the 'File-&gt;Recent Files' menu to access the<br>&nbsp;&nbsp; recently used files.<br><br>Usage<br><br>You can use the &quot;:MRU&quot; command to list all the most recently edited file<br>names. The file names will be listed in a temporary Vim window. If the MRU<br>window is already opened, then the MRU list displayed in the window will be<br>refreshed.<br><br>If you are using GUI Vim, then the names of the recently edited files are<br>added to the &quot;File-&gt;Recent Files&quot; menu. You can select the name of a file<br>from this sub-menu to edit the file.<br><br>You can use the normal Vim commands to move around the MRU window. You<br>cannot make changes in the MRU window.<br><br>You can select a file name to edit by pressing the &lt;Enter&gt; key or by double<br>clicking the left mouse button on a file name.&nbsp;&nbsp;The selected file will be<br>opened.<br><br>You can press the 'o' key to open the file name under the cursor in the<br>MRU window in a new window.<br><br>You can press the 'u' key in the MRU window to update the file list. This is<br>useful if you keep the MRU window open.<br><br>You can close the MRU window by pressing the 'q' key or using one of the Vim<br>window commands.<br><br>You can use the &quot;:MRUedit&quot; command to edit files from the MRU list. This<br>command supports completion of file names from the MRU list. You can specify<br>the file either by the name or by the location in the MRU list.<br><br>Whenever the MRU list changes, the MRU file is updated with the latest MRU<br>list. When you have multiple instances of Vim running at the same time, the<br>latest MRU list will show up in all the instances of Vim.<br><br>Configuration<br><br>By changing the following variables you can configure the behavior of this<br>plugin. Set the following variables in your .vimrc file using the 'let'<br>command.<br><br>The list of recently edit file names is stored in the file specified by the<br>MRU_File variable.&nbsp;&nbsp;The default setting for this variable is<br>$HOME/.vim_mru_files for Unix systems and $VIM/_vim_mru_files for non-Unix<br>systems. You can change this variable to point to a file by adding the<br>following line to the .vimrc file:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let MRU_File = 'd:\myhome\_vim_mru_files'<br><br>By default, the plugin will remember the names of the last 10 used files.<br>As you edit more files, old file names will be removed from the MRU list.<br>You can set the 'MRU_Max_Entries' variable to remember more file names. For<br>example, to remember 20 most recently used file names, you can use<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let MRU_Max_Entries = 20<br><br>By default, all the edited file names will be added to the MRU list. If you<br>want to exclude file names matching a list of patterns, you can set the<br>MRU_Exclude_Files variable to a list of Vim regular expressions. By default,<br>this variable is set to an empty string. For example, to not include files<br>in the temporary (/tmp, /var/tmp and d:\temp) directories, you can set the<br>MRU_Exclude_Files variable to<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'&nbsp;&nbsp;&quot; For Unix<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let MRU_Exclude_Files = '^c:\\temp\\.*'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot; For MS-Windows<br><br>The specified pattern should be a Vim regular expression pattern.<br><br>The default height of the MRU window is 8. You can set the MRU_Window_Height<br>variable to change the window height.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let MRU_Window_Height = 15<br><br>By default, when the :MRU command is invoked, the MRU list will be displayed<br>in a new window. Instead, if you want the MRU plugin to reuse the current<br>window, then you can set the 'MRU_Use_Current_Window' variable to one.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let MRU_Use_Current_Window = 1<br><br>The MRU plugin will reuse the current window. When a file name is selected,<br>the file is also opened in the current window.<br><br>When you select a file from the MRU window, the MRU window will be<br>automatically closed and the selected file will be opened in the previous<br>window. You can set the 'MRU_Auto_Close' variable to zero to keep the MRU<br>window open.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let MRU_Auto_Close = 0</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td class="prompt">install details</td></tr>
+<tr><td>1. Copy the mru.vim script to the $HOME/.vim/plugin or the<br>&nbsp;&nbsp; $HOME/vimfiles/plugin or the $VIM/vimfiles directory.&nbsp;&nbsp;Refer to the<br>&nbsp;&nbsp; ':help add-plugin', ':help add-global-plugin' and ':help runtimepath'<br>&nbsp;&nbsp; topics for more details about Vim plugins.<br>2. Set the MRU_File Vim variable in the .vimrc file to the location of a<br>&nbsp;&nbsp; file to store the most recently edited file names.<br>3. Restart Vim.<br>4. You can use the &quot;:MRU&quot; command to list and edit the recently used files.</td></tr>
+<tr><td>&nbsp;</td></tr>
+</table>
+
+<!-- rating table -->
+<form name="rating">
+<input type="hidden" name="script_id" value="521">
+<table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+<tr>
+  <td class="lightbg"><b>rate this script</b></td>
+  <td valign="middle">
+    <input type="radio" name="rating" value="life_changing">Life Changing
+    <input type="radio" name="rating" value="helpful">Helpful
+    <input type="radio" name="rating" value="unfulfilling">Unfulfilling&nbsp;
+    <input type="submit" value="rate">
+  </td>
+</tr>
+</table>
+</form>
+<span class="txth2">script versions</span> (<a href="add_script_version.php?script_id=521">upload new version</a>)
+<p>
+Click on the package to download.
+<p>
+
+<table cellspacing="2" cellpadding="4" border="0" width="100%">
+<tr class='tableheader'>
+        <th valign="top">package</th>
+    <th valign="top">script version</th>
+    <th valign="top">date</th>
+    <th valign="top">Vim version</th>
+    <th valign="top">user</th>
+    <th valign="top">release notes</th>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=5798">mru.vim</a></td>
+    <td class="rowodd" valign="top" nowrap><b>2.3</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2006-06-03</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=244">Yegappan Lakshmanan</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Escape single quote characters in filenames. Use exact match while searching for open files.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=5788">mru.vim</a></td>
+    <td class="roweven" valign="top" nowrap><b>2.2</b></td>
+    <td class="roweven" valign="top" nowrap><i>2006-05-30</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=244">Yegappan Lakshmanan</a></i></td>
+    <td class="roweven" valign="top" width="2000">1. Save the list of MRU files to the MRU db file as soon as the list is changed.<br>2. Escape space characters in file names.<br>3. Add the :MRUedit command to edit files from the MRU list.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=4235">mru.vim</a></td>
+    <td class="rowodd" valign="top" nowrap><b>2.1</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2005-05-03</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=244">Yegappan Lakshmanan</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Fixed a problem with handling space characters in the name of the MRU file. Modified the plugin to work in Vi compatible mode.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=4084">mru.vim</a></td>
+    <td class="roweven" valign="top" nowrap><b>2.0</b></td>
+    <td class="roweven" valign="top" nowrap><i>2005-03-26</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=244">Yegappan Lakshmanan</a></i></td>
+    <td class="roweven" valign="top" width="2000">Fixed the problem with one Vim session overwritting the MRU list from another Vim session. Added the MRU file list to the File menu in GUI Vim. Instead of using a Vim global variable to store the MRU list, used a separate file to store the MRU list.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=2172">mru.vim</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.6</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2003-07-19</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=244">Yegappan Lakshmanan</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Fixed the following bugs: Some filenames are added more than once to the MRU list and the MRU window is not closed when a file which already opened in one of the windows is selected from the MRU window.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=2124">mru.vim</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.5</b></td>
+    <td class="roweven" valign="top" nowrap><i>2003-07-02</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=244">Yegappan Lakshmanan</a></i></td>
+    <td class="roweven" valign="top" width="2000">Open the selected file from the MRU list in the window from which the MRU window was opened.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=1940">mru.vim</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.4</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2003-04-25</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=244">Yegappan Lakshmanan</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Fixed a bug in opening a file from the MRU window by double clicking the file name.</td>
+</tr>
+</table>
+<!-- finish off the framework -->
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!-- END OF THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1" height="5" alt=""></td></tr>
+  <tr><td colspan="4" bgcolor="#000000"><img src="/images/spacer.gif" height="2" width="1" alt=""></td></tr>
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1" height="5" alt=""></td></tr>
+  <tr>
+    <td><img src="/images/spacer.gif" width="5" height="1" alt=""></td>
+
+    <td align="left" valign="top"><small>
+      If you have questions or remarks about this site, visit the
+      <a href="http://vimonline.sf.net">vimonline development</a> pages.
+      Please use this site responsibly.
+      <br> 
+      
+      Questions about <a href="http://www.vim.org/about.php">Vim</a> should go
+      to vim@vim.org after searching
+      <a href="http://groups.yahoo.com/group/vim">the archive</a>.
+      Help Bram <a href="http://iccf-holland.org/">help Uganda</a>.
+      </small>
+	&nbsp;
+	&nbsp;
+
+	<!-- Start of StatCounter Code -->
+	<script type="text/javascript" language="javascript">
+	var sc_project=1417324; 
+	var sc_invisible=1; 
+	var sc_partition=11; 
+	var sc_security="d41633bc"; 
+	</script>
+
+	<script type="text/javascript" language="javascript" src="http://www.statcounter.com/counter/counter.js"></script><noscript><a href="http://www.statcounter.com/" target="_blank"><img  src="http://c12.statcounter.com/counter.php?sc_project=1417324&java=0&security=d41633bc&invisible=0" alt="free tracking" border="0"></a> </noscript>
+	<!-- End of StatCounter Code -->
+	<small>
+	<a href="http://my.statcounter.com/project/standard/stats.php?project_id=1417324&guest=1">stats</a>
+	</small>
+    </td>
+
+    <td align="right" valign="top">
+      	<a href="http://www.webconceptgroup.net"><img src="/images/logo_sponsor_wcg.jpg" width="131" height="30" border="0" alt="Sponsored by Web Concept Group Inc."></a>
+	<a href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=8&type=1" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>
+    </td>
+
+    <td><img src="/images/spacer.gif" width="5" height="1" alt=""></td>
+  </tr>
+
+    
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1" height="5" alt=""></td>
+  
+  </tr>
+</table>
+
+</body>
+</html>
+

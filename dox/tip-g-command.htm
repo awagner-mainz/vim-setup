@@ -1,0 +1,371 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+  <link rel="Stylesheet" type="text/css" href="/css/style.css" >
+  <title>Tip #227 - Power of :g : vim online</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="KEYWORDS" content="Vim, Vi IMproved, text editor, home, documentation, tips, scripts, news">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/vim_shortcut.ico">
+</head>
+
+<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="#ffffff"> 
+
+<!-- HEADER, SPONSOR IMAGE, VIM IMAGE AND BOOK AD -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tr>
+    <td colspan="4" class="lightbg"><img src="/images/spacer.gif" width="1" height="5" alt=""></td>
+  </tr>
+  <tr>
+  <td class="lightbg">&nbsp;&nbsp;&nbsp;</td>
+  <td class="lightbg" align="left"><a href="/sponsor/index.php"><img src="/images/sponsorvim.gif" alt="sponsor Vim development" border="0"></a></td>
+    <td class="lightbg" align="center"><a href="/index.php"><img src="/images/vim_header.gif" border="0" alt="Vim logo"></a></td>
+    <td class="lightbg" align="right"><a href="http://iccf-holland.org/click5.html"><img src="/images/buyhelplearn.gif" alt="Vim Book Ad" border="0"></a></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="lightbg"><img src="/images/spacer.gif" width="1" height="5" alt=""></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="darkbg"><img src="/images/spacer.gif" width="1" height="10" alt=""></td>
+  </tr>
+</table>
+<!-- THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+  <col width="180">
+  <col width="1">
+
+  <tr valign="top">
+    <td class="sidebar">
+      <table width="180" cellpadding="4" cellspacing="0" border="0">
+        <tr valign="top">
+          <td class="sidebar">
+
+<!-- INCLUDE THE PAGE NAVIGATION -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+    <tr>
+        <td><small>not logged in (<a href="/login.php">login</a>)</small></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="1"></td>
+    </tr>
+    <tr>
+        <td class="darkbg"><img src="/images/spacer.gif" alt='' border="0" height="3"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="2"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/index.php">Home</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/search.php">Search</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/about.php">About Vim</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/community.php">Community</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/news/news.php">News</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/sponsor/index.php">Sponsoring</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/trivia.php">Trivia</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/docs.php">Documentation</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/download.php">Download</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/scripts/index.php">Scripts</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/tips/index.php">Tips</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/account/index.php">My Account</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/huh.php">Site Help</a></td>
+        </tr>
+</table>
+
+            <table width="172" cellpadding="0" cellspacing="0" border="0">
+              <tr><td><img src="/images/spacer.gif" alt="" border="0" width="1" height="8"></td></tr>
+              <tr><td class="darkbg"><img src="/images/spacer.gif" width="1" height="3" alt=""></td></tr>
+            </table>
+            <br>
+
+<!-- INCLUDE THE PAGE SIDEBAR TEXT -->
+&nbsp;
+
+          </td>
+        </tr>
+      </table>
+    </td>
+
+    <td class="darkbg"><img src="/images/spacer.gif" width="1" height="1" border="0" alt=""><br></td>
+    <td>
+      <table width="100%" cellpadding="10" cellspacing="0" border="0" bordercolor="red">
+        <tr>
+          <td valign="top">
+
+
+
+<h1><img src="images/intermediate.gif" alt="intermediate">&nbsp;Tip #227: Power of :g</h1>
+
+<!-- karma table -->
+<table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+<tr>
+  <td class="lightbg"><b>&nbsp;tip karma&nbsp;</b></td>
+  <td>
+    &nbsp;Rating <b>382/151</b>, Viewed by 10977&nbsp;
+  </td>
+</tr>
+</table>
+
+<br>
+
+<table cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td class="prompt">created:</td>
+    <td>&nbsp;</td>
+    <td>March 24, 2002 3:15</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="prompt">complexity:</td>
+    <td>&nbsp;</td>
+    <td>intermediate</td>
+  </tr>
+  <tr>
+    <td class="prompt">author:</td>
+    <td>&nbsp;</td>
+    <td>Arun Easi</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="prompt">as of Vim:</td>
+    <td>&nbsp;</td>
+    <td>5.7</td>
+  </tr>
+</table>
+
+<p><code>:g is something very old and which is very powerful. I just wanted to illustrate the use of it <br>with some examples. Hope, it will be useful for someone.<br><br>Brief explanation for &quot;:g&quot;<br>-------------------------<br>Syntax is:<br>&nbsp;&nbsp;&nbsp;&nbsp;:[range]:g/&lt;pattern&gt;/[cmd]<br>You can think the working as, for the range (default whole file), execute<br>the colon command(ex) &quot;cmd&quot; for the lines matching &lt;pattern&gt;. Also, for all<br>lines that matched the pattern, &quot;.&quot; is set to that particular line (for<br>certain commands if line is not specified &quot;.&quot; (current line) is assumed).<br><br>Some examples<br>-------------<br>Display context (5 lines) for all occurences of a pattern<br>&nbsp;&nbsp;&nbsp;&nbsp;:g/&lt;pattern&gt;/z#.5<br>&nbsp;&nbsp;&nbsp;&nbsp;:g/&lt;pattern&gt;/z#.5|echo &quot;==========&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;&lt; same as first, but with some beautification &gt;&gt;<br>Delete all lines matching a pattern<br>&nbsp;&nbsp;&nbsp;&nbsp;:g/&lt;pattern&gt;/d<br>Delete all blank lines (just an example for above)<br>&nbsp;&nbsp;&nbsp;&nbsp;:g/^\s*$/d<br>Double space the file<br>&nbsp;&nbsp;&nbsp;&nbsp;:g/^/pu =\&quot;\n\&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;:g/^/pu _<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;&lt; the above one also works &gt;&gt;<br>Copy all lines matching a pattern to end of file<br>&nbsp;&nbsp;&nbsp;&nbsp;:g/&lt;pattern&gt;/t$<br>Yank all lines matching a pattern to register 'a'<br>&nbsp;&nbsp;&nbsp;&nbsp;0&quot;ay0:g/&lt;pattern&gt;/y A<br>Increment the number items from current line to end-of-document by one<br>&nbsp;&nbsp;&nbsp;&nbsp;:.,$g/^\d/exe &quot;normal! \&lt;c-a&gt;&quot;<br>Comment (C) lines containing &quot;DEBUG&quot; statements<br>&nbsp;&nbsp;&nbsp;&nbsp;g/^\s*DEBUG/exe &quot;norm! I/* \&lt;Esc&gt;A */\&lt;Esc&gt;&quot;<br>A Reverse lookup for records<br>(eg: An address book, with Name on start-of-line and fields after a space)<br>&nbsp;&nbsp;&nbsp;&nbsp;:g/&lt;patern&gt;?^\w?p&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;if only name is interested<br>&nbsp;&nbsp;&nbsp;&nbsp;:g/&lt;patern&gt;/ka|?^\w?p|'ap&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;if name and the lookup-line is interested<br>&nbsp;&nbsp;&nbsp;&nbsp;:g/&lt;patern&gt;/?^\w?|+,/^[^ ]/-1p&nbsp;&nbsp;&quot;if entire record is interested<br>Reverse a file (just to show the power of 'g')<br>&nbsp;&nbsp;&nbsp;&nbsp;:g/^/m0<br><br>Foot note 1: use :v to negate the search pattern<br>Foot note 2: Some explanation of commonly used commands with :g<br> :2,8co15 =&gt; Copy lines 2 through 8 after line 15<br> :4,15t$&nbsp;&nbsp;=&gt; Copy linesa 4 through 15 towards end of document (t == co)<br>&nbsp;&nbsp;&nbsp;&nbsp;:-t$&nbsp;&nbsp;=&gt; Copy previous line to end of document<br>&nbsp;&nbsp;&nbsp;&nbsp; :m0&nbsp;&nbsp;=&gt; Move current line to the top of the document<br>:.,+3m$-1 =&gt; Move current line through cur-line+3 to the last but one line<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; of the document<br>Foot note 3: Commands used with :g are ex commands, so a help search should<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; be,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:help :&lt;help-topic&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;eg. :help :k<br></code></p>
+
+<!-- rating table -->
+<form name="rating">
+  <input type="hidden" name="tip_id" value="227">
+  <table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+    <tr>
+      <td class="lightbg"><b>&nbsp;rate this tip&nbsp;</b></td>
+      <td valign="middle">
+	<input type="radio" name="rating" value="life_changing">Life Changing
+	<input type="radio" name="rating" value="helpful">Helpful
+	<input type="radio" name="rating" value="unfulfilling">Unfulfilling&nbsp;
+	<input type="submit" value="rate">
+      </td>
+    </tr>
+  </table>
+</form>
+<p>
+
+    <small>
+          <a href="tip.php?tip_id=226">&lt;&lt;Edit file under cursor after a horizontal split</a> | 
+                <a href="tip.php?tip_id=228">Deleting nested reply threads in emails &gt;&gt;</a> 
+    </small>
+
+<br>
+<br>
+<h1>Additional Notes</h1>
+
+<form method="get" action="add_tip_note.php">
+<input type='hidden' name='tip_id' value="227">
+<table width="100%" cellpadding="3" cellspacing="4" border="0">
+    	<tr>
+	  <td class="lightbg">
+	    	    david@tvis.co.uk, 
+	    	    <font size='-1'> March 28, 2002 7:10 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>Thanx Karma for extending my g// knowledge<br><br>Here's a very useful g// for day to day use<br><br>:'a,'bg/pattern/s/pattern2/string3/gi<br><br>zzapper</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    Hal Atherton, 
+	    	    <font size='-1'> April 23, 2002 10:12 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>g WITH CONFIRM c<br><br>Here's something very curious:<br><br>:%s/foo/bar/gc<br>is of course a substitution effective for the entire file<br>with confirm on each occurrence of &quot;foo&quot;<br>with the option of quitting at any point.<br><br>However, using something similar,<br><br>:g/foo/s//bar/gc<br>using the global g to effect the entire file --<br>does NOT allow quitting at any point <br>(even with the use of &lt;ESC&gt;).<br><br>If there are hundreds of &quot;foo&quot; -- it's an important fine point...<br><br>Invite further comments...</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    Arun Easi, 
+	    	    <font size='-1'> April 23, 2002 23:33 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>g/foo/s//bar/gc =&gt; run the command s//bar/gc for each of the line <br>matching foo. It is like running multiple &quot;s//&quot; commands (Hence<br>you have to press q for each of the invocation). The<br>g in &quot;s///gc&quot; does not imply entire file, it just implies all occurence<br>on a line (or else, it would have substituted only the first)</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    dyang@entropia.com, 
+	    	    <font size='-1'> May 30, 2002 9:04 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>Here is one that deletes every other line (adjusting double spaced files):<br><br>:g/.*/norm jdd<br></tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    pagaltzis()gmx_de, 
+	    	    <font size='-1'> August 6, 2002 15:12 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>This can be done much simpler:<br><br>:%norm jdd</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    mra@frogne.dk, 
+	    	    <font size='-1'> February 10, 2003 4:49 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>Another cool g feature is to count the number of lines matching /regexp/<br><br>let x=0 | g/regexp/let x=x+1<br>echo x<br><br>Great, if you are editing data files.<br><br>Regards<br>Mike</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    setanta5@excite.com, 
+	    	    <font size='-1'> March 27, 2003 2:14 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>Reverse all the lines in a file:<br><br>:g/^/m0<br><br>I have found that useful . . . honest!<br><br>PK<br></tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    kkgahlot@yahoo.com, 
+	    	    <font size='-1'> September 3, 2003 5:06 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>Can I do something like this using &quot;:g&quot; (or anything else)<br><br>I have a file which contains following kind of lines<br><br>abc123=1,2,3<br>bcd123=100,200,300<br>abcb123=1,3,4<br><br>I want to convert this to following<br><br>abc123=1,abc,2,abc,3,abc<br>bcd123=100,bcd,200,bcd,300,bcd<br>abcb123=1,abcb,3,abcb,4,abcb<br><br>Basically I want to replace each comma in a line with first few letters, which are coming before 123, of that line surrounded by 2 commas.</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    <b>Anonymous</b>, 
+	    	    <font size='-1'> September 3, 2003 12:45 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>To answer&nbsp;&nbsp;kkgahlot's question:<br><br>global // execute &quot;s/\\([=,][^,]*\\)/\\1, &quot; . matchstr (getline (&quot;.&quot;), &quot;^.\\{-}\\(123\\)\\@=&quot;) . &quot;/g&quot;<br><br><br>To make the whole thing a little more transparent some explanations (from the inside out):<br><br>We want to execute on each line a command like <br><br>s/\([=,][^,]*\)/\1, abc/g<br><br> for each line, but abc gets changed on each line.<br><br>The function <br><br>matchstr (getline (&quot;.&quot;), &quot;^.\\{-}\\(123\\)\\@=&quot;)<br><br>returns the string that matches the pattern /^.\{-}\(123)\@=/ on the current line. In the given examples this is the text preceding 123= at the beginning of the line. Depending on the actual requierements, a simpler expression like /^[a-z]*/ could work too.<br><br>The command<br><br>execute &quot;s/\\([=,][^,]*\\)/\\1, &quot; . matchstr (getline (&quot;.&quot;), &quot;^.\\{-}\\(123\\)\\@=&quot;) . &quot;/g&quot; <br><br>assembles the desired substitute command for the current line by joining some static text with the return value of the matchstr function and then executes it.<br><br>As execute works only on the current line, the command<br><br>global // execute ...<br><br>applies it to all line. If only certain lines should be proecessed replace // with some other pattern.<br><br></tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    utzb@gmx.de, 
+	    	    <font size='-1'> November 21, 2003 10:39 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>Reverting lines in a file can also be done via<br>:%!tac<br><br>instead of tac, you can also use sort, xxd, xxd -r, cut, your-own-filter</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    <b>Anonymous</b>, 
+	    	    <font size='-1'> March 29, 2004 7:18 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>too bad :g does not have a /c parameter for confirmed execution of ex commands. Something like the /c used in :&lt;range&gt;s/&lt;PAT&gt;/&lt;REPL&gt;/c for replacing only confirmed pattern locations.<br><br>or does it ??</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    jdimpson@yahoo.com, 
+	    	    <font size='-1'> April 14, 2004 10:06 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>I just want to add that the :g command in vi/ed is the basis for the name for the Unix grep command, i.e. Global Regular Expression Print.&nbsp;&nbsp;The &quot;Print&quot; part described the default behaviour of :g when no command was given.&nbsp;&nbsp;Obviously this behaviour was more useful when using ed.</tt></td>
+	</tr>
+        <tr>
+      <td>
+	<input type="submit" name="Add Note" value="Add Note">
+      </td>
+    </tr>
+</table>
+</form>
+<!-- finish off the framework -->
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!-- END OF THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1" height="5" alt=""></td></tr>
+  <tr><td colspan="4" bgcolor="#000000"><img src="/images/spacer.gif" height="2" width="1" alt=""></td></tr>
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1" height="5" alt=""></td></tr>
+  <tr>
+    <td><img src="/images/spacer.gif" width="5" height="1" alt=""></td>
+
+    <td align="left" valign="top"><small>
+      If you have questions or remarks about this site, visit the
+      <a href="http://vimonline.sf.net">vimonline development</a> pages.
+      Please use this site responsibly.
+      <br> 
+      
+      Questions about <a href="http://www.vim.org/about.php">Vim</a> should go
+      to vim@vim.org after searching
+      <a href="http://groups.yahoo.com/group/vim">the archive</a>.
+      Help Bram <a href="http://iccf-holland.org/">help Uganda</a>.
+      </small>
+    </td>
+
+    <td align="right" valign="top">
+	<a href="http://www.webconceptgroup.net"><img src="/images/logo_sponsor_wcg.jpg" width="131" height="30" border="0" alt="Sponsored by Web Concept Group Inc."></a>
+	<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=8&type=1" width="88" height="31" border="0" alt="SourceForge Logo"></a>
+    </td>
+
+    <td><img src="/images/spacer.gif" width="5" height="1" alt=""></td>
+  </tr>
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1" height="5" alt=""></td></tr>
+</table>
+
+</body>
+</html>
+

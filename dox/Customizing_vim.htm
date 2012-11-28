@@ -1,0 +1,969 @@
+<html>
+ <head>
+  <title>Welcome to JustLinux: Wanna learn Linux?</title>
+  <meta NAME="description" CONTENT="Welcome to JustLinux: Wanna learn linux?">
+  <meta NAME="keywords" CONTENT="newbie, help me, winmodem,
+   gimp, enlightenment, e, windowmaker, kde, linux, debian, caldera, redhat,
+   minix, sco, free bsd, mklinux, SUSE, unix, solaris, networking, samba,
+   xf86, sgi, linus, NT, OS, win95, transition, newbie, new, turb linux,
+   begin, beginner, caldera, slackware, help, org, new,
+   computers, internet, start, red hat, hardware modem, networking, kppp,
+   ppp, internet, linux, mandrake, mount, xwindows, kde, gnome, linuxhelp">
+  <META Name="author" Content="JustLinux - http://www.justlinux.com">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" link="#000066" alink="#0000FF" vlink="#999966" ><script><!--
+function PrivoxyWindowOpen(){return(null);}
+//--></script>
+<center>
+<A HREF="http://www.justlinux.com/RealMedia/ads/click_lx.cgi/intm/linux/www.justlinux.com/index/763124988/house_ribbon/House_Internet_Planet_1a/ip-2004-ribbon.gif/64396561383565663430383638623730" target="_top"><IMG SRC="http://www.justlinux.com/RealMedia/ads/Creatives/House_Internet_Planet_1a/ip-2004-ribbon.gif"  ALT="Growing Business Online"  BORDER="0"></A><br><br>
+<IFRAME SRC="http://ad.de.doubleclick.net/adi/N1120.Internetcomde/B1348586.2;sz=728x90;ord=1238622598?" WIDTH=730 HEIGHT=92 MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 SCROLLING=no BORDERCOLOR='#000000'>
+<SCRIPT language='JavaScript1.1' SRC="http://ad.de.doubleclick.net/adj/N1120.Internetcomde/B1348586.2;abr=!ie;sz=728x90;ord=1238622598?">
+</SCRIPT>
+<NOSCRIPT>
+<A HREF="http://ad.de.doubleclick.net/jump/N1120.Internetcomde/B1348586.2;abr=!ie4;abr=!ie5;sz=728x90;ord=1238622598?">
+<IMG SRC="http://ad.de.doubleclick.net/ad/N1120.Internetcomde/B1348586.2;abr=!ie4;abr=!ie5;sz=728x90;ord=1238622598?" BORDER=0 WIDTH=728 HEIGHT=90 ALT="Click Here!">Click Here!</A>
+</NOSCRIPT>
+</IFRAME></center>
+<br>
+<table bgcolor="#FFFFFF" cellspacing="2" cellpadding="2" border="0" width="90%" align="center">
+ <tr>
+  <td> 
+   <a href="/"><img src="http://config.privoxy.org/send-banner?type=auto" title="Killed-/ln.gif-by-size" width="468" height=60></a>
+   <div align="right">
+    <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000">
+     Wed, 21-Apr-2004 14:55:58 UTC    </font>
+    <br>
+    <a href="http://www.internet.com"><img src="/icom-logo-micro.gif" width="125"  height="24" border="0" alt="internet.com"></a>
+<br>Forum: 
+<a href="/forum/register.php?action=signup">Registered</a>
+Users: <b>59693</b>, <A href="/forum/online.php">Online:</a> 
+<b>70</b>
+<br clear=all>
+   <a href="/nhf/"><img src="/nhf.gif" alt="nhfs" border="0"></a>
+   <a href="/forum/usercp.php"><img src="/forum/images/top_profile.gif" alt="Here you can view your subscribed threads, work with private messages and edit your profile and preferences" border="0"></a>
+   <a href="/forum/register.php?action=signup"><img src="/forum/images/top_register.gif" alt="Registration is free!" border="0"></a>
+   <a href="/forum/calendar.php"><img src="/forum/images/top_calendar.gif" alt="Calendar" border="0"></a>
+   <a href="/forum/memberlist.php"><img src="/forum/images/top_members.gif" alt="Find other members" border="0"></a>
+   <a href="/forum/misc.php?action=faq"><img src="/forum/images/top_faq.gif" alt="Frequently Asked Questions" border="0"></a>
+   <a href="/forum/search.php"><img src="/forum/images/top_search.gif" alt="Search" border="0"></a>
+   <a href="/forum/index.php"><img src="/forum.gif" alt="Home" border="0"></a>
+   <a href="/index.php"><img src="/forum/images/top_home.gif" alt="Home" border="0"></a>
+   </div>
+  </td>
+</table>
+
+<table border=0 width="100%")
+<tr>
+ <td valign="top" align="center">
+
+ <table border=0 width="80%"><tr><td align=left>
+<div align="left">
+
+<h2><font color="#9E0D08">Help File Library:</font> Customizing vim</h2>
+<br>
+<b>Written By</b>: Danny "Strike" DiPaolo
+
+<p>
+This article is intended for the following types of Linux users:<p>
+<ul>
+<li>programmers (from novices to hobbyists to seasoned coders)
+<li>people who use markup languages like HTML and/or LaTeX
+<li>anybody who really loves their vim and wants to make it even better
+</ul>
+
+<p>
+That being said, I'm going to assume you are one of the above people if 
+you are reading this article.  However, keep in mind that I use vim for
+all of the above reasons, so disregard anything that you think may not
+apply to your needs.
+<p>
+This article will also assume that you are at least fairly familiar with
+the vim editor.  I'm not sure how far back this Help File will apply in terms of
+the format of the config files, but I am using 5.6.11 right now (5.7 is
+the most recent, I believe).  If you are unsure, just get a new version by
+navigating their website at http://www.vim.org .  But, for example, you
+ought to know that vim is not a mode-less editor, and you should at least
+be somewhat familiar with both command mode and input mode as well as
+entering commands at the vim prompt (the colon [:], like :wq for writing
+and quitting).
+<h3>
+<i>---Organization---</i></h3>
+Note - what I'm suggesting here is exactly that, a suggestion, nothing 
+more. There may be better ways of organizing things, but this is the way I
+like to do it because it fits in well with the rest of my directory
+structure.
+<p>
+First of all, there is one file whose place is not at all optional. This
+is your .vimrc file.  This MUST be in your home directory.  This file will
+also pretty much be the key to all of our customizations.  So, in case I
+haven't gotten this point across - this file is IMPORTANT.  If you want to
+keep your customizations, I'd suggest backing it up somewhere in case of a
+power failure which crashes your system or in case you want to move it to
+another system.
+<p>
+However, there are other configuration files that we will be using. These
+begin to grow in number pretty quickly, and I don't like having a lot of
+unsightly dot-files (files beginning with a .) in my home directory -
+there are already plenty of dot-directories - so what I did was that I
+created a directory that was designed specifically to hold my other vim
+configuration files.
+<p>
+I called this directory .vim-files because it's a good descriptive name
+and it doesn't show up on a simple ls (configuration stuff like that
+really should not in the first place).  Every other file I will talk about
+will either reside in this directory or a subdirectory of that directory.
+<p>
+To create this directory, issue the following commands:<br>
+<font color="#FF0000">cd<br>
+mkdir .vim-files</font>
+</p>
+<p>
+The first cd will just put you in your home directory, and the second 
+command actually creates the directory.
+</p>
+<p>
+Once that is set up, we are ready to start digging into the .vimrc for 
+some serious configuration goodness!
+</p>
+<h3><i>---The ~/.vimrc file---</i></h3></br>
+Before we get too deeply involved, I want to give you an idea of just how 
+configurable vim is.  So, fire up a session of vim in a terminal window. 
+Get to the colon prompt and type "set " (with a space) and then hit
+&lt;TAB&gt;. If you weren't aware of this feature before, vim has
+tab-autocompletion for all of its commands as well as filenames and such.
+But, you should get something like "set all" (that's what I get).  Hit
+&lt;TAB&gt; again, and again, and again.  Hold down &lt;TAB&gt; for a
+while.  What you see whizzing by are all the different options that you
+can set for vim.  Some of them are usually pretty obvious and have 
+reasonable defaults.  Some of them are highly dependent upon what the
+user is accustomed to.  Some of them are highly esoteric and generally
+aren't ever even worried about.  But, sure enough, there are a lot of
+them.
+<p>
+If you want to take full control of your vim sessions, here is what I 
+suggest you do before proceeding.  Do the procedure I outlined above, but
+more slowly - read each option as it goes by, and if there are ones that
+you are interested in using for your configuration, jot them down.  The
+same goes for ones you aren't sure of the meaning for (like "what does
+'set cscopeprg' mean?").  Once you have these lists, get back to a colon
+prompt and just type ":h " and then the option that you were curious
+about.  ":h" is the online help in vim.  It is VERY extensive, and you are
+highly encouraged to poke around the help files they provide.  Make sure
+that you keep a list of things you are interested in setting as well as
+any particular values that you need to set them as.  This is essentially
+what I did to create my own .vimrc, and it has paid off.
+<p>
+Of course, these are just options to be set.  We will be doing a little 
+bit more than that in this Help File, because ... well, because we can and
+because it makes vim a much more powerful tool.
+<p>
+Now, I'm sure that if you are one of the people I described as the type 
+who should be reading this Help File that you have at least had at least a
+little bit of experience with configuration files like this before.  But,
+one way that this one is a little different is that it can basically be
+thought of as a script. Honestly, I could delete my .vimrc file from my
+computer if I was willing to enter all 40+ commands manually at the colon
+prompt every time I started up a session of vim.  But, trust me, that
+won't happen.  However, the fact that vim simply executes all of your
+.vimrc commands at the startup as if you were entering them manually is
+helpful to us because of the feature I mentioned earlier - command
+tab-autocompletion.  This, combined with the very extensive online help
+that vim provides will make you able to take what I show you here and add
+any other interesting command that you want.
+<p>
+I know what you are thinking - you want to go ahead and dig in already, 
+right? Good, me too.  There's just one more thing I have left to mention
+before I show you all my current ~/.vimrc file, and that is the comment
+character.  The comment character in the ~/.vimrc file is the double
+quotation mark ("). Every character after that one on a line is considered
+a comment and will not be part of the script.  There are no block comments
+in ~/.vimrc files.
+<p>
+Okay, enough of that, here is my lovely ~/.vimrc file:
+<p>
+----------------------------
+<font color="#0000FF" size="1">
+<pre>
+" Formatting
+set tabstop=4                   " tabs are 4 spaces
+set bs=2                                " backspace over everything in
+insert mode
+set smartindent                 " does C-style stuff
+
+" Mouse stuff
+set mousehide                   " hides mouse after characters are typed
+set mousefocus                  " no real reason for this
+set mouse=a                             " mouse in all modes
+set mousem=popup                " Right mouse button pops up a menu.
+Shift-left extends selection      
+
+" Other stuff
+set autowrite                   " writes on make and shell commands, etc
+set     ruler                           " Turn the ruler on
+set nohlsearch                  " Highlighting found search items is
+annoying
+set nocompatible                " vi compatibility is weak
+
+" set suffixes to ignore in command-line completion
+set
+suffixes=.bak,~,.o,.h,.info,.swp,.aux,.bbl,.blg,.dvi,.lof,.log,.lot,.ps,.toc
+
+" run ispell on current file
+" map #fi :w<CR>:!ispell %<CR>:e %<CR>
+" 
+" I'm not sure what key that is mapping to, or if it is just the key
+" sequence specified ..
+
+" Remove ALL auto-commands.  This avoids having the autocommands twice
+" in case the .vimrc file gets sourced more than once.
+autocmd!
+
+" LaTeX autocmds
+autocmd BufRead                 *.tex   source ~/.vim-files/.vimrc.latex
+autocmd BufNewFile              *.tex   source ~/.vim-files/.vimrc.latex
+" C autocmds
+autocmd BufRead                 *.c             source
+~/.vim-files/.vimrc.c
+autocmd BufNewFile              *.c             source
+~/.vim-files/.vimrc.c
+" asm autocmds
+autocmd BufRead                 *.s,*.S,*.asm   source
+~/.vim-files/.vimrc.asm
+autocmd BufNewFile              *.s,*.S,*.asm   0r
+~/.vim-files/skeletons/skel.asm      
+autocmd BufNewFile              *.s,*.S,*.asm   source
+~/.vim-files/.vimrc.asm
+" HTML autocmds
+autocmd BufRead                 *.htm,*.html    source
+~/.vim-files/.vimrc.html
+autocmd BufNewFile              *.htm,*.html    0r
+~/.vim-files/skeletons/skel.html
+autocmd BufNewFile              *.htm,*.html    source
+~/.vim-files/.vimrc.html
+" Perl autocmds
+autocmd BufRead                 *.pl    source  ~/.vim-files/.vimrc.perl
+autocmd BufNewFile              *.pl    0r ~/.vim-files/skeletons/skel.pl
+autocmd BufNewFile              *.pl    source ~/.vim-files/.vimrc.perl
+autocmd BufWrite                *.pl    !chmod +x %
+" Java autocmds
+autocmd BufRead                 *.java  source ~/.vim-files/.vimrc.java
+autocmd BufNewFile              *.java  source ~/.vim-files/.vimrc.java
+
+" Only do this for Vim version 5.0 and later.
+if version >= 500
+
+if has("terminfo")
+  set t_Co=8
+  set t_Sf=[3%p1%dm
+  set t_Sb=[4%p1%dm
+else
+  set t_Co=8
+  set t_Sf=[3%dm
+  set t_Sb=[4%dm
+endif
+
+endif
+
+" And of course, the ever important syntax highlighting
+" This has to go last because of the if stuff above
+syntax on
+</pre>
+</font>
+-----------------------------------------------------
+
+<p>
+This is actually just a preliminary version, I know that it will grow to
+be much larger than it is now simply because I haven't added all of the
+languages I code in to this one yet (most notably, C++ is missing).
+<p>
+I'm pretty liberal with my comments in here, because some of the options I
+set were ones that I just looked up once and forgot after that.  So, if
+I'm ever tempted to delete certain lines, most of them have a description
+that will tell me what I'd be deleting by doing so.  It's also a good idea
+to break it up into logical blocks, setting options that are similar in
+the same blocks, instead of just all over the place.  
+<p>
+A quick look at the options reveals a fair amount about how I like my vim
+working environment.  But, truth be told, setting the options for vim is
+hardly the most exciting and/or versatile thing we will be doing.  So,
+pardon me if I simply gloss over them.  Besides, I explained before of a
+good way to find new options to set and how to set them.
+<p>
+The real strength in my .vimrc lies in the autocmd section.  You may be 
+saying, "What are autocmd's?"  Well, a quick ":h autocmd" (remember, if
+it's in our .vimrc file, it's just a command, and we can get help for
+commands with the online help with ":h &lt;command&gt;") puts us in the
+autocmd.txt help file which tells us:
+<p>
+--------
+<br>
+<font color="#0000FF">
+You can specify commands to be executed automatically for when reading or 
+writing a file, when entering or leaving a buffer or window, and when 
+exiting Vim.  For example, you can create an autocommand to set the
+'cindent' option for files matching *.c.  You can also use autocommands to
+implement advanced features, such as editing compressed files (see
+|gzip-example|).  The usual place to put autocommands is in your .vimrc or
+.exrc file.
+<p>
+WARNING: Using autocommands is very powerful, and may lead to unexpected 
+side effects.  Be careful not to destroy your text.
+</font>
+<p>
+If you didn't believe me before when I said that autocmds are the real 
+strength, hopefully you do now - even the authors acknowledge the power
+of autocmd's.
+<p>
+Now, if you do what I did above (":h autocmd"), you will get to a great 
+source of help for autocmd's.  But, if you don't want to pour through
+that very very comprehensive help file, we'll take a look at exactly what
+I've decided to do for my own setup and leave the help-file perusing for
+later.
+<p>
+Now, it's pretty obvious that I have 7 major sections of autocmd's in
+this file.
+<p>
+The first section is this:
+</p>
+<p>
+------------
+<font color="#0000FF">
+<pre>
+autocmd!
+</pre>
+</font>
+------------
+
+<p>
+That's it.  And, like the comment above it says, this just removes all 
+currently defined autocommands just so that we know exactly what is going 
+on, in case a separate autocommand got stuck in the process somewhere. 
+After all, that's what this Help File is all about - controlling our vim 
+environment and harnessing the power behind it.
+<p>
+The next six sections are each for their own specific language - LaTeX,
+C, asm, HTML, Perl, and Java.  They all follow the same rules, so I'm
+just going to work with the section that is most complex - my Perl
+section.
+<p>
+Here it is again:
+<p>
+------------------
+<font color="#0000FF" size="1">
+<pre>
+" Perl autocmds
+autocmd BufRead                 *.pl    source  ~/.vim-files/.vimrc.perl
+autocmd BufNewFile              *.pl    0r ~/.vim-files/skeletons/skel.pl
+autocmd BufNewFile              *.pl    source ~/.vim-files/.vimrc.perl
+autocmd BufWrite                *.pl    !chmod +x %
+</pre>
+</font>
+------------------
+<p>
+Now, what do each of these mean?  Well, let's take it line by line (and, 
+for the sake of saving time, we'll go ahead and skip the very first line 
+[the comment that says "Perl autocmds").
+<p>
+First line:
+<pre>
+<font color="#0000FF" size="1">
+autocmd BufRead         *.pl    source ~/.vim-files/.vimrc.perl
+</font>
+</pre>
+<p>
+Well, we already know what an autocmd is (from above).  Now we have to 
+figure out what "BufRead" means.  And, it's not that difficult - it's a 
+lot like you would expect.  It means that this autocommand applies every 
+time a buffer is read.
+<p>
+The next part is pretty easy if you are a programmer (or at least know 
+that Perl files have .pl extensions usually).  This basically defines
+what KIND of buffers this autocommand will apply to.  In particular, this
+one will only apply to files ending in .pl.
+<p>
+The very last part is the actual command to be executed.  What this 
+command does is that it sources a SECOND .vimrc file - one that stores my 
+Perl-specific macro definitions and such.  This is one of those files
+that I mentioned lived in my .vim-files directory.  And, like I said, this
+is essentially another .vimrc to bbe sourced.  But, since they are 
+Perl-specific macros that I have defined in there, I only source them 
+either when I'm editing a Perl script or creating a new one.
+<p>
+As it turns out, this autocommand line handles half of that situation -
+it applies to when I'm editing existing Perl scripts, but not to when I 
+create new ones (you can't read in a buffer of something that doesn't 
+exist yet). But, I of course took care of that with a different autocmd 
+two lines down.  It is the exact same as the first one, only that this 
+time we used "BufNewFile" instead of "BufRead" - that means this 
+autocommand will apply every time a new file is created (with the further 
+constraint that it has to be a file ending in .pl, since it has the
+"*.pl" as well).
+<p>
+So, that covers half of this section (the first and third autocmds). Next 
+up is the second one:
+<pre>
+<font color="#0000FF" size="1">
+autocmd BufNewFile              *.pl    0r ~/.vim-files/skeletons/skel.pl
+</font>
+</pre>
+<p>
+Well, we just learned how to interpret most of this.  The first three 
+columns signify that this command is to take place every time a new file 
+is created with a .pl extension.  The only thing left to decipher is the 
+command itself. Well, this command (and you may already know it if you 
+have used it in vim before) will place the cursor at the beginning of the 
+file (which is supposed to be blank since we are dealing with new files), 
+and then reads the contents of ~/.vim-files/skeletons/skel.pl into the 
+file.  Now, keep in mind, you are never editing that file, it just dumps 
+that file's contents into the current buffer, which in this case is a new 
+Perl script.
+<p>
+But what exactly is in that file?  Well, in this specific file is nothing 
+more than a simple two-line header that has been going on all of my Perl 
+scripts as I've began to learn Perl:
+<p>
+------------------
+<pre>
+<font color="#0000FF">
+#/usr/bin/perl -w
+use strict;
+</font>
+</pre>
+------------------
+<p>
+Instead of having to type this every time I create a new Perl script, I 
+simply created a "skeleton" file that contained nothing but that and I 
+decided I'd just dump the contents of that file in every new Perl script
+I write.  So, if you have a specific task which requires several files
+that use the same sort of basic skeleton, then I'd suggest that you make
+this same sort of skeleton file technique.
+<p>
+Now we get to the last autocommand in the sequence (having already
+covered the third one above):
+<pre>
+<font color="#0000FF">
+autocmd BufWrite                *.pl    !chmod +x %
+</font>
+</pre>
+<p>
+By now, I'm sure the first three are pretty easy to figure out even
+though we haven't explicitly talked about the "BufWrite" condition.  It's
+pretty much any time that you write (save) the file, this action takes
+place.
+<p>
+The command, however, may or may not come so easily.  The first
+character, the exclamation point (!) signals vim to invoke a shell to run
+the commands that follow.  Hopefully you are familiar enough with *nix 
+command-line utilities to know that "chmod +x" will make a file
+executable (but, if not, now you do know). However, the last character is
+a bit of a mystery.  The chmod command requires a filename, but this
+percent sign isn't the name of our current file. However, this is one of
+the special vim characters.  In vim commands, a percent symbol will always
+be replaced with the current filename.  Another handy substitution like
+that is to use %&lt; whenever you want the extension removed from the
+filename.  If you follow it up with a different extension, it will append
+that new extension to the filename.  For example, if you are working with
+a file named foo.tex and you want to output a file named foo.ps, then you
+could specify foo.ps by using %&lt;.ps - sounds pretty simple, huh?  Well,
+hopefully it is fairly simple.  After all, we've just covered one file so
+far.
+<p>
+Well, with that said, we've more or less covered the biggest parts of the
+main ~/.vimrc file, and I think it's about time we move into some of
+those other files that we were sourcing.
+<h3><i>--other .vimrc files---</i></h3><br>
+You might be wondering, "Why have other .vimrc files?  We've set all the 
+options in the first .vimrc file, right?"  Well, the answer to that is
+yes and no. The options that we set in the ~/.vimrc ARE indeed global and
+will apply to every file we edit in vim.  However, we can do ever so much
+more with vim.  Just wait and see.
+<p>
+There is really only one thing I am going to cover for putting into your 
+task-specific .vimrc files, and that is macros.  For all you LaTeX users 
+out there, tell me how this sounds.  To run LaTeX on a file while STILL 
+editing it all you have to do is type ,rl (just a key sequence I chose 
+that's easy to remember, for "run LaTeX").  Then, to create a PS 
+(PostScript) file out of it, all you to type is ,cps (again, an arbitrary
+key sequence chosen to signify "create PS").  And finally, all you have
+to do to view that file is type ,gv (used since gv is just short for 
+Ghostview, but it was still chosen arbitrarily).  In fact, you don't even 
+have to wait for one to finish to do the next.  So, to get a PostScript 
+file from your LaTeX source file, all you have to do is type ,rl,cps,gv.
+In fact, you could make your own macro to do all of these at once if you 
+want to.
+<p>
+Moving right along, there are two major types of macros I'm going to
+cover - command mode macros and input mode macros.  The only big
+difference is when they are invoked.  There are also subtleties in the way
+you write them as well, as we will see.
+<h4>:::Command Mode Macros:::</h4>
+<br>
+These are kind of like the autocommand commands we specified earlier, only
+these are not automatic for certain events, but rather they are invoked
+when you hit a certain sequence of keys.  But, you must write them as they
+would be invoked in command mode, and NOT from the colon command prompt
+like we did for the autocommand commands (also, this is different from
+input mode macros, as you will see).  Let's take a look at an example or
+two.  These are the LaTeX macros I alluded to earlier:
+<p>
+-------------------------------
+<font color="#0000FF">
+<pre>
+map ,rl :w<CR>:!latex %<CR>
+map ,cps :!dvips %<.dvi -t letter -o %<.ps<CR>
+map ,gv :!ghostview %<.ps &<CR>
+</pre>
+</font>
+-------------------------------
+<p>
+Obviously, the key word to define these macros is "map".  The next entry 
+is the key sequence needed to invoke the macro (which is easily figured 
+out just by rereading three paragraphs up).  The last entry is, of
+course, the actual sequence of commands to run as soon as the preceding
+key sequence is entered in command mode.
+<p>
+Let's take a look at the first one.  It looks semi-straightforward to me, 
+but that's not exactly an unbiased opinion.  Basically all you have to 
+think of to come up with these macros is what keys you would normally hit
+to get whatever it is you are trying to program done.  So, with this 
+macro, what happens is first the colon command prompt is invoked (by 
+hitting : just like you would do in command mode), and then we write the 
+file by typing "w" and then hitting Enter (or carriage return, 
+&lt;CR&gt;).  Once it is written, we want to run the LaTeX compiler on the
+current document.  So, we get into command mode (:), and run the LaTeX 
+compiler in a shell on the current file (!latex %&lt;CR&gt;). Simple,
+huh?
+<p>
+Well, even if it isn't, it comes with practice.  The next one is fairly 
+similar. It simply runs "dvips foo.dvi -t letter -o foo.ps" (assuming we 
+were working on foo.tex).  That produces a PostScript file from the DVI 
+file that we created with our LaTeX compiler.  There's nothing new in
+this macro, really.  Just remember that %&lt; is the current filename
+minus the  extension, and that you can then put any extension you want
+after it.
+<p>
+The last command, as explained earlier, simply runs ghostview on the newly
+created PostScript file.  The only subtlety about this one is that it 
+makes sure to run it in the background so that we can play around in 
+Ghostview while still playing around in vim.  The other commands put a
+lot of output on the screen (with potential errors), so we didn't run
+these in the background.
+<p>
+Let's take a look at one last set before moving onto input macros. This 
+set of examples is for editing assembler:
+<p>
+-----------------------
+<font color="#0000FF">
+<pre>
+" This will run nasm
+map             ,n              :w<CR>:!nasm -f elf %<CR>
+" and ld
+map             ,l              :w<CR>:!ld -s -o %< %<.o<CR>
+" and the executable
+map             ,r              :w<CR>:!%<<CR>
+" or do the whole thing in one shot
+map             ,a              ,n,l,r
+</pre>
+</font>
+<p>
+Don't forget, the comments can be used in these files as well.  The main
+macro I wanted to use as an example was the last one.  Remember before
+with the LaTeX example when I said you could run all of those commands in
+one?  Well, this is a really simple way of doing it.  The ",a" macro in
+this set of macros (which resides in my ~/.vim-files/.vimrc.asm file that
+is referred to in my main ~/.vimrc above) simply runs the first three
+macros in order.  Another way I could have done this would have been to
+actually take all three of the commands used in the other three macros and
+to concatenate them all together.  But, it's much much shorter to just run
+the three things we have already defined. So, instead of having to type
+,n,l,r we can save ourselves some keystrokes by just typing ,a instead.
+Kinda neat, huh?
+<p>
+Okay, that is about all of the really neat stuff to do with command mode
+macros that I have to show you guys, so the next (and final) step is ...
+<h4>:::Input mode macros:::</h4>
+These are very closely related to the command mode macros, but with their 
+own tiny little subtleties.  Let's take a look at some examples, this time
+some examples I use in my C macro file:
+<p>
+-----------------------
+<font color="#0000FF">
+<pre>
+map!    ]if             if () {^[o}^[keei
+map!    ]for    for () {^[o}^[keei
+map!    ]while  while () {^[o}^[keei
+map!    ]inc    #include <.h>^[hhi
+</pre>
+</font>
+-----------------------
+<p>
+Now these probably look incredibly cryptic.  Part of them may look 
+somewhat straightforward, but if you can get them from just looking at
+them, I'd be very impressed.
+<p>
+An important point to reiterate is that these macros are all entered while
+you are actually still in input mode.  For example, if I were to type
+"]if" in input mode, it would perform the first macro (which I will get to
+the meaning of in a bit).  In the same vein, typing something like "]ifa"
+would first expand the first macro and then put an "a" wherever the cursor
+ended up after the macro was complete.  So, it is important to choose
+things that you are not likely to actually type in whatever you are
+typing, because otherwise they will expand to the macros you defined.
+This is why my macros begin with the "]" character.  I don't use the "]"
+character for anything in C except for arrays, and it is rarely ever
+followed by words like "if", "for", etc.  And even if it was, I do not
+think it is ever necessary to use it in that fashion - these letter 
+combinations can pretty much always be avoided.  However, I also like
+them to be fairly easy to remember as well, and I think these examples
+exemplify that as well.
+<p>
+As you may have noticed, we are no longer using "map" to define our 
+macros, but "map!" instead.  Well, this is what defines an input mode
+macro.  "map" is only for command mode macros.  I generally put these in a
+separate section from my command mode macros so as not to clutter up my
+.vimrc files too much so that I can further customize them later.
+<p>
+Okay, with all of that covered, let's tackle what these macros expand to.
+Much like the command mode macros, you basically think of what keys you
+want to be pressed, remembering that you start in input mode.  Well, I'll
+go ahead and tell you ahead of time what each of these macros is for in
+case you haven't already figured it out.  The first three are basic macros
+to create a syntactically correct if/for/while loop quickly.  The last one
+is simply a shortcut for including files, and you will see how it works.
+<p>
+'s take a look at the first one.  Let's assume we are editing the source
+code for something and we have these definitions sourced.  I'm in input
+mode and I'm ready to begin an if statement.  Normally, I'd just start
+typing something that might look like this:
+<p>
+-----------------------
+<pre>
+        if (a <=
+</pre>
+-----------------------
+<p>
+But the problem here is this, I've already decided that I want to use an
+if statement, but I can't focus entirely on the process that needs to take
+place within that if statement because I have to remember to close the
+loop in order to follow syntax correctly.  In fact, with normal typing
+methods, closing the if statement is the last thing you do even though it
+is the first thing you decide with regards to that program block.  True,
+you could simply type out a basic if statement first so that it was
+syntactically correct and then fill in the appropriate statements, but
+that doesn't really apply here now does it?
+<p>
+Actually, yes it does, very much so.  In fact, that is exactly what we are
+going to do.  But we will take it one step further.  We will reduce that
+step to a much smaller number of keystrokes (as you will see).  Now, a
+syntactically correct if statement looks like this:
+<p>
+-----------------------
+<pre>
+        if (<condition>) {
+                        <program statements>    
+        }
+</pre>
+----------------------
+<p>
+where the &lt;condition&gt; and &lt;program statements&gt; vary from task
+to task.  So, we want to insert this little bit:
+<p>
+----------------
+<pre>
+        if () {
+        }
+</pre>
+----------------
+<p>
+and then prepare ourselves to start thinking of the condition we want to
+put in this particular if statement.  So, we've got our problem nailed
+down now. Next we'll see how my macro does exactly what we want.
+<p>
+It's pretty obvious (now that you know what input mode macros do) that 
+most of this is fairly trivial.  In fact, the entire first line is very
+simple, it's just the part that reads "if () {" - since we are in input
+mode, hitting those keys simply puts them in the file like we want.
+However, now we have a bit of a problem.  We have to move the cursor down
+a line and input a final "}" and THEN we have to move the cursor back on
+top of the second parentheses and drop ourselves back into input mode (for
+the most seamless behavior - we start in input mode, we should end in
+input mode, we did the same for command mode macros too).  Well, there are
+two ways to advance to the next line, actually.
+<p>
+One is fairly easy, and the other a little tougher but more illustrative. 
+The "fairly easy" method would be to simply to hit Enter and then insert
+the final brace.  However, I prefer the latter method because it is more
+illustrative. This method is to escape OUT of input mode (yes, into
+command mode), to begin a new line in input mode with the vi command "o",
+and to insert the final brace. But, how does one enter in &lt;Esc&gt; as a
+character into a macro?  The only way to do it is to hit CTRL-V while in
+input mode and then hit the &lt;Esc&gt; key.  It produces two characters
+like this ^[ but it isn't the same if you just type those two characters
+in (if you do, then you will have a "}^[" at the end of your if statement
+at this point in time.
+<p>
+Okay, now that we have gotten all the characters in place we have two 
+objectives left to accomplish - positioning the cursor so that we are in
+between the parentheses (realistically, on top of the second paren), and
+to make sure we end up in input mode for our seamless transition.
+<p>
+First, let's remember what we've done and where we are.  This is what our
+setup looks like right now:
+<p>
+-------------------
+<pre>
+        if () {
+        }_
+
+        ---INSERT---
+</pre>
+-------------------
+<br>
+(the underscore represents the current cursor position)
+<p>
+Well, now we are going to position the cursor, but there is not any way
+of moving up a line in input mode, so we have to escape out again.  That
+is what the next ^[ in the sequence is for.  This will put the cursor back
+one spot, directly on top of the curly brace (on the second line).  We
+then want to move the cursor up one line using the vi navigation keys HJKL
+- the appropriate one for this one is of course, "k".  Now our cursor is
+on top of the "i" in "if" - we have to move it forward to the end of the
+"word" after it (well, this "word" is just the set of two parentheses, but
+it will do).  So, we put it at the end of "if" by telling it to go to the
+end of that word (e) and then we tell it to go to the end of the next
+"word" (e).  Now we are in the right position, but have one thing left to
+do - return to input mode.  And any seasoned vi user can tell you that "i"
+will put you back into input mode from command mode.
+<p>
+You string those all together, you get:
+<p>
+--------------------
+<pre>
+for () {^[o}^]keei
+</pre>
+--------------------
+<p>
+You may have noticed that using "e" to go to the end of "if" in the last
+example was unnecessary and could have been done by moving right one
+instead with "l". Well, that is true for "if" because it is a two-letter
+word.  Examine the macros I use for for and while and notice how they can
+be almost identical because of the usage of "e" instead of simple
+direction keys.  In fact, now is a good time to take a good look over
+those and notice the similarities.
+<p>
+Once you are satisfied with what you see (and maybe even comfortable, but
+that may be aiming too high), we'll proceed to the final exercise which is
+simply analyzing that last macro (a trivial process now that we just did a
+more difficult one.
+<p>The last macro reads:
+<p>
+--------------------
+<pre>
+map!    ]inc    #include <.h>^[hhi
+</pre>
+--------------------
+<p>
+Any C programmer would notice right away that that looks a lot like an 
+#include line for inclusion of a header file, but it's missing a name.
+Well, the rationale behind this one is similar to the one I used in
+justifying the whole skeleton file idea.  Basically, every #include'd file
+follows the same format, only varying in one tiny bit (the part of the
+filename before the .h).  So, instead of typing stuff like this:
+
+<p>
+-------------------
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;errno.h&gt;
+#include &lt;string.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;netinet/in.h&gt;
+#include &lt;sys/socket.h&gt;
+#include &lt;sys/time.h&gt;
+#include &lt;sys/wait.h&gt;
+#include &lt;unistd.h&gt;
+</pre>
+------------------
+<br>
+(this is an actual set of #includes from a small sockets program)
+<p>
+I just wrote a macro that will print out
+<p>
+------------------
+<pre>
+#include <.h>
+</pre>
+------------------
+<p>
+and then put me in input mode before the ".h", with a construct like that
+in place, writing all the includes is a trivial process that becomes much 
+faster.
+<p>
+Let's analyze what we need to do.  First, we need to output what is shown
+above, and then we need to simply position the cursor on the period and go
+back into input mode.  Like I said, after what we just did, this is pretty
+trivial.
+<p>
+The first part is easy, it's just the text ("#include &lt;.h&gt;"). Next
+we escape out of insert mode so we can move the cursor ("^[", our cursor
+is now on the "&gt;").  Then, we move it on top of the "." by moving it
+left twice ("hh").  And, finally, we put ourselves back into input mode
+("i").  And &lt;begin cheerleader voice&gt; What's that spell?
+&lt;/cheerleader&gt;
+<p>"#include &lt;.h&gt;^[hhi" !!!
+<p>
+Excellent!  You now have a few more tools in your vim toolbox to get you
+started on customizing vim to your needs.  For more info, read the online
+help or just experiment.  There is a ton of other stuff you can do, but
+this is enough to keep you (and me) busy enough for a while.  Enjoy!</div>
+ </td></tr></table>
+
+ </td>
+ <td align=left valign=top width="125">
+    <center>
+    <IFRAME SRC="http://ad.de.doubleclick.net/adi/N1120.Internetcomde/B1348586.3;sz=120x600;ord=815188045?" WIDTH=122 HEIGHT=602 MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 SCROLLING=no BORDERCOLOR='#000000'>
+<SCRIPT language='JavaScript1.1' SRC="http://ad.de.doubleclick.net/adj/N1120.Internetcomde/B1348586.3;abr=!ie;sz=120x600;ord=815188045?">
+</SCRIPT>
+<NOSCRIPT>
+<A HREF="http://ad.de.doubleclick.net/jump/N1120.Internetcomde/B1348586.3;abr=!ie4;abr=!ie5;sz=120x600;ord=815188045?">
+<img src="http://config.privoxy.org/send-banner?type=auto" title="Killed-http://ad.de.doubleclick.net/ad/N1120.Internetcomde/B1348586.3;abr=!ie4;abr=!ie5;sz=120x600;ord=815188045?-by-size" WIDTH=120 HEIGHT=600>Click Here!</A>
+</NOSCRIPT>
+</IFRAME>    </center>
+    <br>
+	<!--Start internet.com-->
+        <img src="/img/icomtop.gif" width="148"  height="19" alt="internet.com"><br>
+        <table width="148" border="0" cellspacing="0" cellpadding="0" background="">
+          <tr> 
+            <td bgcolor="#000000" width="1" rowspan="2"></td>
+            <td bgcolor="#000000" height="1"></td>
+
+            <td width="1" bgcolor="#000000" rowspan="2"></td>
+          </tr>
+          <tr> 
+            <td width="146" bgcolor="#FFFFFF" background=""> 
+              <table width="100%" border="0" cellspacing="3" cellpadding="0" background="">
+                <tr> 
+                  <td><font face="Verdana, Arial, Helvetica, sans-serif" size="-2">						
+   						
+<A HREF="http://www.internet.com/sections/webdev.html" CLASS="icomtb">Developer</A><BR>
+<A HREF="http://www.internet.com/sections/downloads.html" CLASS="icomtb">Downloads</A><BR>
+<A HREF="http://www.internet.com/sections/international.html" CLASS="icomtb">International</A><BR>
+<A HREF="http://www.internet.com/sections/lists.html" CLASS="icomtb">Internet Lists</A><BR>
+<A HREF="http://www.internet.com/sections/news.html" CLASS="icomtb">Internet News</A><BR>
+<A HREF="http://www.internet.com/sections/resources.html" CLASS="icomtb">Internet Resources</A><BR>
+<A HREF="http://www.internet.com/sections/it.html" CLASS="icomtb">IT</A><BR>
+<A HREF="http://www.internet.com/sections/linux.html" CLASS="icomtb">Linux/Open Source</A><BR>
+<A HREF="http://www.internet.com/sections/sb.html" CLASS="icomtb">Small Business</A> <BR>
+<A HREF="http://www.internet.com/sections/win.html" CLASS="icomtb">Windows Technology</A><BR>
+<A HREF="http://www.internet.com/sections/wireless.html" CLASS="icomtb">Wireless Internet</A><BR>
+<A HREF="http://www.internet.com/sections/xsp.html" CLASS="icomtb">xSP Resources</A> <BR>
+<BR>
+<A HREF="http://search.internet.com" CLASS="icomtb">Search internet.com</A><BR>
+<A HREF="http://www.internet.com/mediakit/" CLASS="icomtb">Advertise</A><BR>
+<A HREF="http://www.jupitermedia.com/corporate/" CLASS="icomtb">Corporate Info</A><BR>
+<A HREF="http://e-newsletters.internet.com/" CLASS="icomtb">Newsletters</A><BR>
+<A HREF="http://jobs.internet.com/" CLASS="icomtb">Tech Jobs</A><BR>
+<A HREF="http://e-newsletters.internet.com/mailinglists.html" CLASS="icomtb">E-mail Offers</A><BR>
+                  </font></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr> 
+            <td bgcolor="#000000" width="1" colspan="3"></td>
+          </tr>
+        </table>
+        <!--End internet.com-->
+<!--Start commerce-->
+        <img src="/img/commercetop.gif" width="148"  height="19" alt="internet.commerce"><br>
+        <table width="148" border="0" cellspacing="0" cellpadding="0" background="">
+          <tr> 
+            <td bgcolor="#000000" width="1" rowspan="2"></td>
+            <td bgcolor="#000000" height="1"></td>
+            <td width="1" bgcolor="#000000" rowspan="2"></td>
+          </tr>
+          <tr> 
+            <td width="146" bgcolor="#FFFFFF"> 
+              <table width="100%" border="0" cellspacing="3" cellpadding="0" background="">
+
+                <tr> 
+                  <td><font face="Verdana, Arial, Helvetica, sans-serif" size="-2"><a href="http://www.internet.com/partners/">Be a Commerce Partner</a><br>
+<a href="http://www.justlinux.com/RealMedia/ads/click_lx.cgi/intm/linux/www.justlinux.com/index/908200281/cp1/Paessler_7d/RoutertrafficMonitor.html/64396561383565663430383638623730">Routertraffic Monitor</a>
+<br><a href="http://www.justlinux.com/RealMedia/ads/click_lx.cgi/intm/linux/www.justlinux.com/index/309786175/cp2/MagPortal_1e/NewsFeeds.html/64396561383565663430383638623730">News Feeds</a>
+<br><a href="http://hardwarecentral.dealtime.com/xPP-Flat_Panel_Televisions~linkin_id-3030445">Save on Flat Panel TVs</a>
+<br><a href="http://www.justlinux.com/RealMedia/ads/click_lx.cgi/intm/linux/www.justlinux.com/index/1762733906/cp4/Reserve_Travel_1d/discount.html/64396561383565663430383638623730">Discount Hotel Rooms</a>
+<br><a href="http://www.justlinux.com/RealMedia/ads/click_lx.cgi/intm/linux/www.justlinux.com/index/1104083362/cp5/ValueWeb_2a/CheapWebHosting.html/64396561383565663430383638623730">Cheap Web Hosting</a>
+<br><A href="http://www.patrickgavin.com">Search Optimization</a>
+
+<br><a href="http://www.tripadvisor.com">Vacations</a>
+
+<br><a href="http://www.justlinux.com/RealMedia/ads/click_lx.cgi/intm/linux/www.justlinux.com/index/537863719/cp8/AIT_8d/DedicatedHosting.html/64396561383565663430383638623730">Dedicated Hosting</a>
+
+
+
+
+<br><a href="http://www.roses-nationwide.com">Flower Delivery</a>
+<br><a href="http://www.host-web-hosting.com">Website Hosting</a>
+
+</font></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr> 
+            <td bgcolor="#000000" width="1" colspan="3"></td>
+
+          </tr>
+        </table>
+        <!--End commerce-->
+ </td>
+ </tr>
+</table>
+
+<br>
+<center>
+<A HREF="http://www.justlinux.com/RealMedia/ads/click_lx.cgi/intm/linux/www.justlinux.com/index/1643817044/468x60-2/ISP_Com_2k/ban750x100_1.gif/64396561383565663430383638623730" target="_top"><IMG SRC="http://www.justlinux.com/RealMedia/ads/Creatives/ISP_Com_2k/ban750x100_1.gif"  ALT=""  BORDER="0"></A><center>
+<br>
+<BR CLEAR="all"><center><table border="0" cellspacing="0" cellpadding="5" bgcolor="#FFFFFF">
+                <tr> 
+                  <form method="POST" action="http://search.internet.com/www.jupiterweb.com">
+                    <td align="center"><font size="-2" face="verdana, arial, helvetica"><b>JupiterWeb networks:</b></font> 
+                      <p> <a href="http://www.internet.com"><img src="/icom_includes/footers/icom_foot.gif" width="97" alt="internet.com"  height="15" hspace="0" border="0" align="absmiddle"></a><img src="/icom_includes/footers/ruledivide_foot.gif" width="1" alt=""  height="25" hspace="10" border="0" align="absmiddle"><a href="http://www.earthweb.com"><img src="/icom_includes/footers/earthweb_foot2.gif" alt="earthweb.com" width="93" height="12" hspace="5" border="0" align="absmiddle"></a><img src="/icom_includes/footers/ruledivide_foot.gif" width="1" alt=""  height="25" hspace="10" border="0" align="absmiddle"><a href="http://www.devx.com"><img src="/icom_includes/footers/devx_foot2.gif" alt="Devx.com" width="35" height="30" hspace="0" border="0" align="absmiddle"></a><img src="/icom_includes/footers/ruledivide_foot.gif" width="1" alt=""  height="25" hspace="10" border="0" align="absmiddle"><a href="http://www.clickz.com"><img src="/icom_includes/footers/clickz_foot2.gif" alt="ClickZ" width="55" height="24" hspace="0" border="0" align="absmiddle"></a>
+                      <p> 
+                      <font size="-2" face="verdana, arial, helvetica"><b>Search JupiterWeb:</b> 
+                      <input type="HIDDEN" name="IC_Summary" value="1">
+                      <input type="HIDDEN" name="IC_StartNumber" value="0">
+                      <input type="HIDDEN" name="IC_BatchSize" value="10">
+                      <input type="HIDDEN" name="IC_RelevanceThreshold" value="50">
+                      <input type="hidden" name="IC_QueryDatabase" value="all">
+                      <input type="text" name="IC_QueryText" size="50">
+                      <input type="image" border="0" value="Find" name="SUBMIT" src="/icom_includes/footers/but_find.gif" width="41" height="20" align="absmiddle">
+                      </font>
+                      <p>
+                      <font size="-2" face="verdana, arial, helvetica">
+                     <a href="http://www.jupitermedia.com/"> Jupitermedia Corporation</a> has four divisions:
+                      <br><a href="http://www.jupiterweb.com/">JupiterWeb</a>, <a href="http://www.jupiterresearch.com/">JupiterResearch</a>, <a href="http://www.jupiterevents.com/">JupiterEvents</a> and <a href="http://www.jupiterimages.com/">JupiterImages</a>
+                      <p>
+                      <span class="foot">Copyright  2004Jupitermedia Corporation All Rights Reserved.<br>
+                        <a href="http://www.jupitermedia.com/corporate/legal.html" class="foot">Legal 
+                        Notices</a>, <a href="http://www.jupitermedia.com/corporate/reprints.html#Licensing1" class="foot">Licensing</a>, 
+                        <a href="http://www.jupitermedia.com/corporate/reprints.html#Reprints1" class="foot">Reprints</a>, 
+                        & <a href="http://www.jupitermedia.com/corporate/reprints.html#Permissions" class="foot">Permissions</a>, 
+                        <a href="http://www.jupitermedia.com/corporate/privacy/privacypolicy.html" class="foot">Privacy 
+                        Policy</a>. </font>
+                      <p> <font size="-2" face="verdana, arial, helvetica"><a href="http://www.jupitermedia.com/corporate/" class="foot">Jupitermedia Corporate 
+                        Info</a> | <a href="http://e-newsletters.internet.com/" class="foot">Newsletters</a> 
+                        | <a href="http://jobs.internet.com/" class="foot">Tech 
+                        Jobs</a> | <a href="http://e-newsletters.internet.com/mailinglists.html" class="foot">E-mail 
+                        Offers</a></span></font>
+
+                    </td>
+                  </form>
+                </tr>
+              </table></center>
+<script><!--
+function PrivoxyWindowOpen(a, b, c){return(window.open(a, b, c));}
+//--></script></body>
+</html>
+

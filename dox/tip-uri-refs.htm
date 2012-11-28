@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+  <title>Inserting references in emails with VIM</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/base">
+  <meta http-equiv="Content-Type" content="text/html">
+  <meta name="keywords"
+  content="email, emails, URI, URIs, URL, URLs, reference, references, insert references, inserting references, VIM">
+  <style type="text/css">
+  pre { color: black; background-color: silver;
+	       margin: 1em; padding: 1em }
+  </style>
+</head>
+
+<body>
+<h1>Inserting references in emails with VIM</h1>
+
+<h2>Why use references to URIs?</h2>
+
+<p>Inline URIs in emails make the text around them obscure. This is
+why I recommend using <a href="../../../2000/03/email#uri">references
+to URIs</a>.</p>
+
+<p>For example, I find the following:</p>
+<pre>You will find information about our company at &lt;http://www.example.com/&gt;
+and our products are at
+&lt;http://www.example.com/products/this_is_a_very_long_uri_isnt_it?&gt;.
+Have a good day!
+
+-- 
+Hugo</pre>
+
+<p>far less readable than:</p>
+<pre>You will find information about our company at [1] and our products are
+at [2]. Have a good day!
+
+  1. http://www.example.com/
+  2. http://www.example.com/products/this_is_a_very_long_uri_isnt_it?
+
+-- 
+Hugo</pre>
+
+<h2>The drawback of using references</h2>
+
+<p>However, writing emails with references is sometimes a pain because:</p>
+<ul>
+  <li>You have to keep track of the numbering.</li>
+  <li>You need to go at the end of the email, put the reference, and then go
+    back to where you were editing the email.</li>
+</ul>
+
+<p>I write my emails with <a href="http://www.vim.org/">VIM</a> because it is
+powerful and fast, and yet pretty light. The only thing that I needed to be
+completely happy was an easy way to add references, so I wrote a few functions
+and macros to do the job.</p>
+
+<h2>What do the functions and macros do?</h2>
+
+<p>The <a href="http://www.vim.org/">VIM</a> code I wrote does the
+following:</p>
+<ul>
+  <li>It scans the email being edited to find any existing reference and so
+    that the numbering does not clash, in case you are replying to
+  somebody.</li>
+  <li>It allows the user to insert a referent while in insert mode, with a
+    single keystroke.</li>
+  <li>It allows the user to convert inline URIs into references.</li>
+</ul>
+
+<h2>Download the code</h2>
+
+<p>Download the <a href="uri-ref-20010910.vim">September 10, 2001
+version</a>.</p>
+
+<p>The <a href="uri-ref-20010223.vim">February 23, 2001
+version</a> had different behaviors for the insert reference function
+and the conversion error, which has been fixed.</p>
+
+<h2>Documentation</h2>
+
+<p>The current key mapping does the following:</p>
+<dl>
+  <dt><kbd>&lt;F5&gt;</kbd></dt>
+    <dd>Insert a reference at the cursor position in insert mode.</dd>
+  <dt><kbd>&lt;F6&gt;</kbd></dt>
+    <dd>Convert a URI of the form <samp>&lt;http://www.example.com/&gt;</samp>
+      to a reference.</dd>
+</dl>
+
+<p>Note that the mode only works on an email which has headers and a
+signature. In <a href="http://www.mutt.org/">Mutt</a>, you need to set the
+following option: <code>set edit_headers</code>.</p>
+
+<h3>Inserting a reference at the cursor position</h3>
+
+<p>While in insert mode, press <kbd>&lt;F5&gt;</kbd> and enter the URI of the
+reference you want to include at the prompt:</p>
+
+<pre class="screen">
+From: Hugo Haas &lt;hugo@larve.net&gt;
+To: test@example.com
+Cc: 
+Bcc: 
+Subject: I am spamming you!
+Reply-To: 
+
+You will find information about our company at 
+
+-- 
+Hugo
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+Reference: http://www.example.com/
+</pre>
+
+<p>Enter the reference number (enter for the default):</p>
+
+<pre class="screen">
+From: Hugo Haas &lt;hugo@larve.net&gt;
+To: test@example.com
+Cc: 
+Bcc: 
+Subject: I am spamming you!
+Reply-To: 
+
+You will find information about our company at 
+
+-- 
+Hugo
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+Reference number (1): 
+</pre>
+
+<p>Continue the editing:</p>
+
+<pre class="screen">
+From: Hugo Haas &lt;hugo@larve.net&gt;
+To: test@example.com
+Cc: 
+Bcc: 
+Subject: I am spamming you!
+Reply-To: 
+
+You will find information about our company at [1]
+
+  1. http://www.example.com/
+-- 
+Hugo
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+-- INSERT --
+</pre>
+
+<h3>Converting a URI to a reference</h3>
+
+<p>In command mode, go on a URI between angle branckets:</p>
+
+<pre class="screen">
+From: Hugo Haas &lt;hugo@larve.net&gt;
+To: test@example.com
+Cc: 
+Bcc: 
+Subject: I am spamming you!
+Reply-To: 
+
+You will find information about our company at [1] and our products 
+are at &lt;http://www.example.com/products/this_is_a_very_long_uri_isnt_it?&gt;.
+
+  1. http://www.example.com/
+-- 
+Hugo
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+
+</pre>
+
+<p>Press <kbd>&lt;F6&gt;</kbd> and enter of reference number at the
+prompt:</p>
+
+<pre class="screen">
+From: Hugo Haas &lt;hugo@larve.net&gt;
+To: test@example.com
+Cc: 
+Bcc: 
+Subject: I am spamming you!
+Reply-To: 
+
+You will find information about our company at [1] and our products 
+are at &lt;http://www.example.com/products/this_is_a_very_long_uri_isnt_it?>.
+
+  1. http://www.example.com/
+-- 
+Hugo
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+Reference number (2): 
+</pre>
+
+<p>You are back in command mode with the URI replaced by a reference:</p>
+
+<pre class="screen">
+From: Hugo Haas &lt;hugo@larve.net&gt;
+To: test@example.com
+Cc: 
+Bcc: 
+Subject: I am spamming you!
+Reply-To: 
+
+You will find information about our company at [1] and our products 
+are at [2].
+
+  1. http://www.example.com/
+  2. http://www.example.com/products/this_is_a_very_long_uri_isnt_it?
+-- 
+Hugo
+~
+~
+~
+~
+~
+~
+~
+~
+~
+
+</pre>
+
+<h2>Comments, bugs</h2>
+
+<p>Please <a href="mailto:hugo@larve.net">send comments and bugs to
+hugo@larve.net</a>.</p>
+<hr>
+<address>
+  <a href="/people/hugo/">Hugo Haas</a> &lt;<a
+  href="mailto:hugo@larve.net">hugo@larve.net</a>&gt;<br>
+  $Id: index.html,v 1.7 2001/10/28 13:11:48 hugo Exp $
+</address>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+  <link rel="Stylesheet" type="text/css" href="/css/style.css" >
+  <title>Tip #342 - Remap <ESC> : vim online</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="KEYWORDS" content="Vim, Vi IMproved, text editor, home, documentation, tips, scripts, news">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/vim_shortcut.ico">
+</head>
+
+<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="#ffffff"> 
+
+<!-- HEADER, SPONSOR IMAGE, VIM IMAGE AND BOOK AD -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tr>
+    <td colspan="4" class="lightbg"><img src="/images/spacer.gif" width="1" height="5" alt=""></td>
+  </tr>
+  <tr>
+  <td class="lightbg">&nbsp;&nbsp;&nbsp;</td>
+  <td class="lightbg" align="left"><a href="/sponsor/index.php"><img src="/images/sponsorvim.gif" alt="sponsor Vim development" border="0"></a></td>
+    <td class="lightbg" align="center"><a href="/index.php"><img src="/images/vim_header.gif" border="0" alt="Vim logo"></a></td>
+    <td class="lightbg" align="right"><a href="http://iccf-holland.org/click5.html"><img src="/images/buyhelplearn.gif" alt="Vim Book Ad" border="0"></a></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="lightbg"><img src="/images/spacer.gif" width="1" height="5" alt=""></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="darkbg"><img src="/images/spacer.gif" width="1" height="10" alt=""></td>
+  </tr>
+</table>
+<!-- THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+  <col width="180">
+  <col width="1">
+
+  <tr valign="top">
+    <td class="sidebar">
+      <table width="180" cellpadding="4" cellspacing="0" border="0">
+        <tr valign="top">
+          <td class="sidebar">
+
+<!-- INCLUDE THE PAGE NAVIGATION -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+    <tr>
+        <td><small>not logged in (<a href="/login.php">login</a>)</small></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="1"></td>
+    </tr>
+    <tr>
+        <td class="darkbg"><img src="/images/spacer.gif" alt='' border="0" height="3"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="2"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/index.php">Home</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/search.php">Search</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/about.php">About Vim</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/community.php">Community</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/news/news.php">News</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/sponsor/index.php">Sponsoring</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/trivia.php">Trivia</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/docs.php">Documentation</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/download.php">Download</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/scripts/index.php">Scripts</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/tips/index.php">Tips</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/account/index.php">My Account</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/huh.php">Site Help</a></td>
+        </tr>
+</table>
+
+            <table width="172" cellpadding="0" cellspacing="0" border="0">
+              <tr><td><img src="/images/spacer.gif" alt="" border="0" width="1" height="8"></td></tr>
+              <tr><td class="darkbg"><img src="/images/spacer.gif" width="1" height="3" alt=""></td></tr>
+            </table>
+            <br>
+
+<!-- INCLUDE THE PAGE SIDEBAR TEXT -->
+&nbsp;
+
+          </td>
+        </tr>
+      </table>
+    </td>
+
+    <td class="darkbg"><img src="/images/spacer.gif" width="1" height="1" border="0" alt=""><br></td>
+    <td>
+      <table width="100%" cellpadding="10" cellspacing="0" border="0" bordercolor="red">
+        <tr>
+          <td valign="top">
+
+
+
+<h1><img src="images/intermediate.gif" alt="intermediate">&nbsp;Tip #342: Remap &lt;ESC&gt;</h1>
+
+<!-- karma table -->
+<table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+<tr>
+  <td class="lightbg"><b>&nbsp;tip karma&nbsp;</b></td>
+  <td>
+    &nbsp;Rating <b>22/15</b>, Viewed by 1990&nbsp;
+  </td>
+</tr>
+</table>
+
+<br>
+
+<table cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td class="prompt">created:</td>
+    <td>&nbsp;</td>
+    <td>October 11, 2002 13:54</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="prompt">complexity:</td>
+    <td>&nbsp;</td>
+    <td>intermediate</td>
+  </tr>
+  <tr>
+    <td class="prompt">author:</td>
+    <td>&nbsp;</td>
+    <td>mrts</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="prompt">as of Vim:</td>
+    <td>&nbsp;</td>
+    <td>6.0</td>
+  </tr>
+</table>
+
+<p><code>Tired of hunting down &lt;ESC&gt; at upper-left of your keyboard while using a keyboard with useless Windows keys?<br><br>Well, remap them -- use xmodmap. I'm using Debian and my xmodmap config file is in /etc/X11/xinit/xmodmap, ymmv. <br>You may have to use xmodmap directly (from ~/.xinitrc&nbsp;&nbsp;in *BSD or whatever).<br><br>Anyway, here's my xmodmap:<br>[ .. other irrelevant mappings skipped ... ]<br>keycode 115 = braceleft<br>keycode 116 = Escape<br>keycode 117 = braceright<br><br>Btw, the keys are:<br>&nbsp;&nbsp;&nbsp;&nbsp;* 115 - Windows key, between the left-hand Ctrl and Alt keys<br>&nbsp;&nbsp;&nbsp;&nbsp;* 116 - Windows key, to the right of the AltGr key<br>&nbsp;&nbsp;&nbsp;&nbsp;* 117 - Menu key, to the left of the right-hand Ctrl key<br><br>Valid for all environments with X, on *BSD as well as on Linux.<br>You get the same mappings under ordinary console by modifying the console keymap file (pretty self-explanatory), in my case it's <br>/usr/share/keymaps/i386/qwerty/et.kmap.gz.<br><br>I'm using mapping braces to winkeys because of my Estonian keyboard.<br></code></p>
+
+<!-- rating table -->
+<form name="rating">
+  <input type="hidden" name="tip_id" value="342">
+  <table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+    <tr>
+      <td class="lightbg"><b>&nbsp;rate this tip&nbsp;</b></td>
+      <td valign="middle">
+	<input type="radio" name="rating" value="life_changing">Life Changing
+	<input type="radio" name="rating" value="helpful">Helpful
+	<input type="radio" name="rating" value="unfulfilling">Unfulfilling&nbsp;
+	<input type="submit" value="rate">
+      </td>
+    </tr>
+  </table>
+</form>
+<p>
+
+    <small>
+          <a href="tip.php?tip_id=341">&lt;&lt;switch color schemes</a> | 
+                <a href="tip.php?tip_id=343">Faster loading of large files &gt;&gt;</a> 
+    </small>
+
+<br>
+<br>
+<h1>Additional Notes</h1>
+
+<form method="get" action="add_tip_note.php">
+<input type='hidden' name='tip_id' value="342">
+<table width="100%" cellpadding="3" cellspacing="4" border="0">
+    	<tr>
+	  <td class="lightbg">
+	    	    <b>Anonymous</b>, 
+	    	    <font size='-1'> October 12, 2002 11:58 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>I have remapped Caps Lock to Esc. Who use Caps Lock any way?</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    <b>Anonymous</b>, 
+	    	    <font size='-1'> October 12, 2002 15:00 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>I think users with german, slavic (and probably some other) keyboards will have better things to do with the windows key - because we need additional keys for &quot;umlauts&quot; like &ouml etc. or other language-specific letters, some of the important signs, namely {[]}\ are the &quot;third-function&quot; of number keys 7 and above. You have to type those with the right hand, while simultaneously pressing &quot;Alt Ctr&quot; located right of the spacebar which at least I never learned to do properly, you can't do that without changing the position of the hand, and I keep hitting the wrong key. I've been raging about this stupid mapping for a long time without it ever occurring to me that there's a free key you could map to Alt Ctr and use it with your left hand. So I guess not only the mapping is stupid.<br><br>Cheers<br>Horror Vacui<br></tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    <b>Anonymous</b>, 
+	    	    <font size='-1'> October 12, 2002 19:09 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>I don't understand the term &quot;useless&quot;, if XFree86 is configured correctly for a 104 key PC keyboard, the penguin keys are mapped to Meta_L and Meta_R and the Menu key is mapped to Menu.&nbsp;&nbsp;No need to use xmodmap.<br></tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    <b>Anonymous</b>, 
+	    	    <font size='-1'> October 13, 2002 8:11 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>Doh... useless for a vim user...</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    mrts, 
+	    	    <font size='-1'> October 14, 2002 2:38 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>Horror Vacui: <br>why don't you map <br>* left winkey -&gt; {<br>* shift+left winkey -&gt; [<br>* right winkey -&gt; &lt;ESC&gt;<br>* right winmenu -&gt; }<br>* shift+right winmenu ]<br><br>Solves all my problems :)<br><br>mrts</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    <b>Anonymous</b>, 
+	    	    <font size='-1'> October 14, 2002 11:51 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>Ctrl+[ is already mapped to escape...</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    frew@myrealbox.com, 
+	    	    <font size='-1'> October 15, 2002 14:52 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>Arg, I am stuck on a windows box at school and even though it is nice that I can use vim, I cannot use xmodmap...:-/</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    frew@myrealbox.com, 
+	    	    <font size='-1'> October 15, 2002 14:52 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>Arg, I am stuck on a windows box at school and even though it is nice that I can use vim, I cannot use xmodmap...:-/</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    remapESCkey@isForBitches, 
+	    	    <font size='-1'> October 16, 2002 23:50 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>hmm, ESC key is in the wrong place, eh? . . . hah hahhah hah hah!!<br></tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    daniel@brot.t0c.de, 
+	    	    <font size='-1'> October 18, 2002 5:30 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>is there a way to remap capslock for the console, too?<br>(talking about linux)<br>i´m not using xfree very often.. indeed perhaps 10minutes/day for surfing.<br>and btw: ^c is mapped to esc, too. I´m using only ^c, but caps would<br>be even faster.<br>thanks, Daniel</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    dan@mojavelinux.com, 
+	    	    <font size='-1'> October 23, 2002 17:22 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>The answer to this last question is YES, if you are using KDE3...just go into the control panel under keyboard and choose to make the CapsLock another control key.&nbsp;&nbsp;then you can use capslock-[ the way it was originally intended to be used in VIM (because stupid Microsoft put the capslock where the control key existed to help little ol' ladies to data entry on a windows box) and it is fluid as hell.&nbsp;&nbsp;Forget you ever knew escape.</tt></td>
+	</tr>
+        <tr>
+      <td>
+	<input type="submit" name="Add Note" value="Add Note">
+      </td>
+    </tr>
+</table>
+</form>
+<!-- finish off the framework -->
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!-- END OF THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1" height="5" alt=""></td></tr>
+  <tr><td colspan="4" bgcolor="#000000"><img src="/images/spacer.gif" height="2" width="1" alt=""></td></tr>
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1" height="5" alt=""></td></tr>
+  <tr>
+    <td><img src="/images/spacer.gif" width="5" height="1" alt=""></td>
+
+    <td align="left" valign="top"><small>
+      If you have questions or remarks about this site, visit the
+      <a href="http://vimonline.sf.net">vimonline development</a> pages.
+      Please use this site responsibly.
+      <br> 
+      
+      Questions about <a href="http://www.vim.org/about.php">Vim</a> should go
+      to vim@vim.org after searching
+      <a href="http://groups.yahoo.com/group/vim">the archive</a>.
+      Help Bram <a href="http://iccf-holland.org/">help Uganda</a>.
+      </small>
+    </td>
+
+    <td align="right" valign="top">
+	<a href="http://www.webconceptgroup.net"><img src="/images/logo_sponsor_wcg.jpg" width="131" height="30" border="0" alt="Sponsored by Web Concept Group Inc."></a>
+	<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=8&type=1" width="88" height="31" border="0" alt="SourceForge Logo"></a>
+    </td>
+
+    <td><img src="/images/spacer.gif" width="5" height="1" alt=""></td>
+  </tr>
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1" height="5" alt=""></td></tr>
+</table>
+
+</body>
+</html>
+

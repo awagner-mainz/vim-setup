@@ -1,0 +1,285 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+  <link rel="Stylesheet" type="text/css" href="/css/style.css" >
+  <title>Tip #388 - Insert C++, LaTeX, and other comments easily : vim online</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="KEYWORDS" content="Vim, Vi IMproved, text editor, home, documentation, tips, scripts, news">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/vim_shortcut.ico">
+</head>
+
+<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="#ffffff"><script><!--
+function PrivoxyWindowOpen(){return(null);}
+//--></script> 
+
+<!-- HEADER, SPONSOR IMAGE, VIM IMAGE AND BOOK AD -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tr>
+    <td colspan="4" class="lightbg"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td>
+  </tr>
+  <tr>
+  <td class="lightbg">&nbsp;&nbsp;&nbsp;</td>
+  <td class="lightbg" align="left"><a href="/sponsor/index.php"><img src="/images/sponsorvim.gif" alt="sponsor Vim development" border="0"></a></td>
+    <td class="lightbg" align="center"><a href="/index.php"><img src="/images/vim_header.gif" border="0" alt="Vim logo"></a></td>
+    <td class="lightbg" align="right"><a href="http://iccf-holland.org/click5.html"><img src="/images/buyhelplearn.gif" alt="Vim Book Ad" border="0"></a></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="lightbg"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="darkbg"><img src="/images/spacer.gif" width="1"  height="10" alt=""></td>
+  </tr>
+</table>
+<!-- THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+  <col width="180">
+  <col width="1">
+
+  <tr valign="top">
+    <td class="sidebar">
+      <table width="180" cellpadding="4" cellspacing="0" border="0">
+        <tr valign="top">
+          <td class="sidebar">
+
+<!-- INCLUDE THE PAGE NAVIGATION -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+    <tr>
+        <td><small>not logged in (<a href="/login.php">login</a>)</small></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="darkbg"><img src="/images/spacer.gif" alt='' border="0" height="3"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="2"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/index.php">Home</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/search.php">Search</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/about.php">About Vim</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/community.php">Community</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/news/news.php">News</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/sponsor/index.php">Sponsoring</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/trivia.php">Trivia</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/docs.php">Documentation</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/download.php">Download</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/scripts/index.php">Scripts</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/tips/index.php">Tips</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/account/index.php">My Account</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/huh.php">Site Help</a></td>
+        </tr>
+</table>
+
+            <table width="172" cellpadding="0" cellspacing="0" border="0">
+              <tr><td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="8"></td></tr>
+              <tr><td class="darkbg"><img src="/images/spacer.gif" width="1"  height="3" alt=""></td></tr>
+            </table>
+            <br>
+
+<!-- INCLUDE THE PAGE SIDEBAR TEXT -->
+&nbsp;
+
+          </td>
+        </tr>
+      </table>
+    </td>
+
+    <td class="darkbg"><br></td>
+    <td>
+      <table width="100%" cellpadding="10" cellspacing="0" border="0" bordercolor="red">
+        <tr>
+          <td valign="top">
+
+
+
+<h1><img src="images/basic.gif" alt="basic">&nbsp;Tip #388: Insert C++, LaTeX, and other comments easily</h1>
+
+<!-- karma table -->
+<table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+<tr>
+  <td class="lightbg"><b>&nbsp;tip karma&nbsp;</b></td>
+  <td>
+    &nbsp;Rating <b>106/50</b>, Viewed by 3297&nbsp;
+  </td>
+</tr>
+</table>
+
+<br>
+
+<table cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td class="prompt">created:</td>
+    <td>&nbsp;</td>
+    <td>December 16, 2002 4:40</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="prompt">complexity:</td>
+    <td>&nbsp;</td>
+    <td>basic</td>
+  </tr>
+  <tr>
+    <td class="prompt">author:</td>
+    <td>&nbsp;</td>
+    <td>Pavel</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="prompt">as of Vim:</td>
+    <td>&nbsp;</td>
+    <td>6.0</td>
+  </tr>
+</table>
+
+<p><code>Visual selection combined with powerful replace (:s) command can be used for fast inserting C++ (//), LaTeX (%), and other comments at the beginning of a block of lines. <br><br>If you have, for example, paragraph in a LaTeX file and you want to comment it (so that it does not appear in the output anymore), then you have to insert the percent sign '%' at the beginning of every line. An easy way to do this is to select visually the block of text, press ':' for entering a vim command (which automatically expands to :'&lt;,'&gt;) and to use substitute <br><br>s/^/%/<br><br>The whole command then looks like<br><br>:'&lt;,'&gt;s/^/&lt;your comment here&gt;/<br><br>So just press enter and the comment will be inserted at the beginning of all the selected lines. <br><br>If you want to delete it later, just use column blocks (Control-V starts blockwise visual selection) to select first column(s) and d to delete them.<br><br></code></p>
+
+<!-- rating table -->
+<form name="rating">
+  <input type="hidden" name="tip_id" value="388">
+  <table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+    <tr>
+      <td class="lightbg"><b>&nbsp;rate this tip&nbsp;</b></td>
+      <td valign="middle">
+	<input type="radio" name="rating" value="life_changing">Life Changing
+	<input type="radio" name="rating" value="helpful">Helpful
+	<input type="radio" name="rating" value="unfulfilling">Unfulfilling&nbsp;
+	<input type="submit" value="rate">
+      </td>
+    </tr>
+  </table>
+</form>
+<p>
+
+    <small>
+          <a href="tip.php?tip_id=387">&lt;&lt;A way to quickly prefix a char(or chars) to a parameter list, via :s</a> | 
+                <a href="tip.php?tip_id=389">search only in unfold text(intend to work with diff) &gt;&gt;</a> 
+    </small>
+
+<br>
+<br>
+<h1>Additional Notes</h1>
+
+<form method="get" action="add_tip_note.php">
+<input type='hidden' name='tip_id' value="388">
+<table width="100%" cellpadding="3" cellspacing="4" border="0">
+    	<tr>
+	  <td class="lightbg">
+	    	    SBrueggemann&lt;somewhere at&gt;gmx.net, 
+	    	    <font size='-1'> December 16, 2002 8:03 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>Have a look at <a href="/tips/tip.php?tip_id=194">vimtip #194</a>.</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    vim@affenmann.de, 
+	    	    <font size='-1'> December 18, 2002 3:18 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>Another way to do the same thing goes as follows:<br>Mark the area which is to be commented using the *blockwise* visual mode (CTRL-V, in Windows this is CTRL-Q). Then press I (capital i) and write the text you want to prepend to each line of the selected block, e.g. %. Then press ESC and the text will be inserted to the left of each line of the selected block.<br><br>This also works to insert something in the middle of the line, though I mostly use it to add LaTex comments.</tt></td>
+	</tr>
+        <tr>
+      <td>
+	<input type="submit" name="Add Note" value="Add Note">
+      </td>
+    </tr>
+</table>
+</form>
+<!-- finish off the framework -->
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!-- END OF THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td></tr>
+  <tr><td colspan="4" bgcolor="#000000"><img src="/images/spacer.gif" width="1" height="2"  alt=""></td></tr>
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td></tr>
+  <tr>
+    <td><img src="/images/spacer.gif" width="5"  height="1" alt=""></td>
+
+    <td align="left" valign="top"><small>
+      If you have questions or remarks about this site, visit the
+      <a href="http://vimonline.sf.net">vimonline development</a> pages.
+      Please use this site responsibly.
+      <br> 
+      
+      Questions about <a href="http://www.vim.org/about.php">Vim</a> should go
+      to vim@vim.org after searching
+      <a href="http://groups.yahoo.com/group/vim">the archive</a>.
+      Help Bram <a href="http://iccf-holland.org/">help Uganda</a>.
+      </small>
+    </td>
+
+    <td align="right" valign="top">
+	<a href="http://www.webconceptgroup.net"><img src="/images/logo_sponsor_wcg.jpg" width="131"  height="30" border="0" alt="Sponsored by Web Concept Group Inc."></a>
+	<a href="http://sourceforge.net"><img src="http://config.privoxy.org/send-banner?type=auto" title="Killed-http://sourceforge.net/sflogo.php?group_id=8&type=1-by-size" width="88" height="31"></a>
+    </td>
+
+    <td><img src="/images/spacer.gif" width="5"  height="1" alt=""></td>
+  </tr>
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td></tr>
+</table>
+
+<script><!--
+function PrivoxyWindowOpen(a, b, c){return(window.open(a, b, c));}
+//--></script></body>
+</html>
+

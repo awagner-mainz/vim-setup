@@ -1,0 +1,506 @@
+ =================================================================
+ UNIX Editor vi 				      - 15.09.92 -
+ =================================================================
+
+ Der "full screen fähige" Editor vi  ist unter allen UNIX-Systemen
+ verfügbar  und kann  von allen  Bildschirmgeräten aus	aufgerufen
+ werden (eines der highlights von vi). Er eignet sich für komplexe
+ Edierarbeiten, da sein Befehlsvorrat umfangreich ist.	"Neulinge"
+ empfinden seine Bedienung  bisweilen kompliziert  und die Befehle
+ kryptographisch. Der Editor ist nicht an Fenstertechnik angepaßt.
+ Er ist jedoch sehr gut über Resource-Dateien  an unterschiedliche
+ Bedürfnisse anzupassen und kann nach entsprechendem Aufwand  sehr
+ problemgerecht und "griffig" konfiguriert werden.
+
+ -----------------------------------------------------------------
+ Aufruf des Editor vi
+ -----------------------------------------------------------------
+
+      vi	     Aufruf ohne Dateispezifikation
+      vi  fn	     Eingabe/Edieren einer Datei fn
+      vi  -R fn      Inspizieren einer Datei fn im read only Modus
+
+ Beispiele:
+ ----------
+
+      vi  -R .exrc   Inspizieren der Datei .exrc  (s.u.)
+      vi  *.da??     Bearbeiten aller Dateien, deren Namen mit den
+		     gesetzten "wildcards" korrespondieren.
+
+ Der Editor  ist nach Aufruf immer im "Auftext-Modus" (s.u.).  Die
+ Arbeit mit dem Editor wird im Auftext-Modus beendet. Die dazu be-
+ nötigten Kommandos  stehen unter "Tasten und Funktionen",  Absatz
+ "Editor-Kommandos und Beenden der Arbeit".
+
+ -----------------------------------------------------------------
+ Organisation des Editor vi
+ -----------------------------------------------------------------
+
+ /usr/bin/vi	     Editor
+ $HOME/.exrc	     Resource-Datei mit Editor-Einstellungen
+ /etc/d.exrc	     (default) Alternative, wenn &HOME/.exrc fehlt
+
+ Der vi bearbeitet bei Aufruf die Datei $HOME/.exrc, in der Optio-
+ nen, Tastenbelegung und Abkürzungen  individuell eingestellt wer-
+ den können.  Fehlt die Datei,	so wird die Datei /etc/d.exrc  ge-
+ nutzt (s. Absatz "Resource-Datei .exrc").
+
+ -----------------------------------------------------------------
+ Literatur über den vi
+ -----------------------------------------------------------------
+
+ Über den Editor  vi  existiert eine umfangreiche Literatur. Teil-
+ weise ist sie integriert in Bücher  über die Grundlagen von UNIX.
+
+ <1>  Hewlett-Packard Company,
+      The Ultimative Guide to the VI and EX Text Editors,
+      the Benjamin/Cummings Publishing Company, Inc. 1990,
+      ISBN 0-8053-4460-8
+
+ <2>  Joachim Christ,
+      TerminalBuch vi, Oldenbourg 1989
+
+ <3>  The Waite Group,
+      Unix lernen, nutzen, beherrschen, Systema 1991
+
+ <4>  Hans-Josef Heck,
+      Standard Betriebssystem Unix, eine Strukturierte Einführung,
+      rororo 1990
+
+ <5>  manual page: man vi
+	      und: man ex
+
+ -----------------------------------------------------------------
+ Arbeits-Modi des Editor vi
+ -----------------------------------------------------------------
+
+ Der vi arbeite in drei Modi:
+ ----------------------------
+
+ - "Eingabe-Modus"   Der Eingabe-Modus dient der Texteingabe.
+ - "Auftext-Modus"   Im Auftext-Modus werden Kommandos eingegeben,
+		     die die Bearbeitung des Textes an der cursor-
+		     Position, in der cursor-Zeile oder ab cursor-
+		     Position veranlassen.
+ - "Kommando-Modus"  Im Kommando-Modus	werden Kommandos  zur Ver-
+		     waltung der Datei	und zum Bearbeiten der Da-
+		     tei insgesamt (wie Suchen/ Ersetzen) gegeben.
+
+   (Nach dem Starten des vi befindet man sich im Auftextmodus.)
+
+ Modus-Wechsel:
+ --------------
+
+ Auftext-Modus	---> Kommando-Modus	:
+					/ oder	? (Such-Kommandos)
+
+ Kommando-Modus ---> Auftext-Modus	nach Ausführen	eines Kom-
+					mandos automatisch, sonst:
+					<Esc>
+
+ Auftext-Modus	---> Eingabe-Modus	durch  Ausführen  von Kom-
+					mandos wie i,I,a,A,o,O ...
+
+ Eingabe-Modus	---> Auftext-Modus	<Esc>
+
+ Eingabe-Modus	---> Kommando-Modus	ein unmittelbarer  Wechsel
+					ist nicht möglich; man ge-
+					langt  über den Auftextmo-
+					dus  in den  Kommandomodus
+					durch:
+					<Esc>	und anschließendes
+					:  bzw.  /  oder  ? (s.o.)
+
+ Anmerkung zum Einfügen bzw. Überschreiben/Löschen:
+ --------------------------------------------------
+
+ Einfügen:				(default)
+ Überschreiben/ Löschen:		nur  im  Auftext-Modus mit
+					vi-Kommandos wie r,R,x ...
+ innerhalb einer Zeile: 		durch die Taste backspace
+
+ Per backspace	gelöschter Text  bleibt auf dem Bildschirm stehen,
+ ist aber im Speicher gelöscht! Der am Bildschirm verbliebene Text
+ kann anschließend überschrieben werden.
+
+ -----------------------------------------------------------------
+ Tasten und Funktionen
+ -----------------------------------------------------------------
+
+ Bewegen des cursor (im Auftext-Modus)
+
+ nach rechts				l    oder    Pfeil_rechts
+ nach links				h    oder    Pfeil_links
+ nach oben				k    oder    Pfeil_oben
+ nach unten				j    oder    Pfeil_unten
+ an den Beginn des nächsten Wortes	w    bzw.    W
+ an den Beginn des vorangeg. Wortes	b    bzw.    B
+ an das Ende des nächsten Wortes	e    bzw.    E
+ an den Textanfang der Zeile		^
+ an die 0.te Spalte der Zeile		0
+ an das Zeilenende			$
+ an den Anfang des Satzes		(
+ an das Ende des Satzes 		)
+ in die 1. Zeile der Datei		1G
+ in die n.te Zeile der Datei		nG
+ in die letzte Zeile der Datei		G
+ auf das nächste Zeichen x (rechts)	fx
+ auf das nächste Zeichen x (links)	Fx
+ Wiederholen des f/F-Kommandos		;
+  ""  (in die andere Richtung)		.
+ an den Beginn der Bildschirmseite	H    oder    home
+ an das Ende der Bildschirmseite	L
+ in die Bildschirm-Mitte		M
+
+ "Blättern"
+ um eine Bildschirmseite zurück 	Seite_oben
+ um eine Bildschirmseite vor		Seite_unten
+
+ Anmerkungen:
+ ------------
+
+ (zu w/W, b/B, e/E):
+ Bei den Kommandos in Kleinbuchstaben  wird ein Sonderzeichen  wie
+ ein einzelnes Wort interpretiert;  bei den Kommandos in Großbuch-
+ staben ist ein Wort freistehend  (d.h. mit Trennzeichen  wie tab,
+ blank oder Zeilensprung umschlossen).
+
+ Die Kommandos zur cursor-Bewegung haben Repetierfunktion,
+
+ Die Maus kann im vi nicht zur Positionierung des cursor verwendet
+ werden.
+
+ Zeile an der cursor-Position trennen
+
+ cursor zuvor an die Trennstelle
+ plazieren				i  Return
+
+ Zwei Zeilen verbinden
+
+ den cursor zuvor in die Zeile pla-
+ zieren, mit der die Folgezeile ver-
+ bunden werden soll, dann		J
+
+ Löschen von Text
+
+ Gelöschter Text kommt in einen temporären namenlosen Puffer; s.
+ auch "Arbeiten mit gepufferten Textpassagen".
+
+ das Zeichen  an der cursor-Position	x
+ das Zeichen vor der cursor-Position	X
+ n Zeichen ab der cursor-Position	nx
+ Wort-Rest, in dem der cursor steht	dw
+ n Wörter ab der cursor-Position incl.	ndw
+ die Zeile, in der der cursor steht	dd
+ n Zeilen ab der cursor-Zeile incl.	ndd
+ den Rest der Zeile ab cursor-Pos.	D
+ den Anfang der Zeile bis cursor-Pos.	d^
+
+ Text einfügen
+
+ Nach Eingabe des Kommandos  wird der Eingabe-Modus  eingeleitet;
+ er wird nach der Texteingabe verlassen durch <Esc>.
+
+ vor den cursor 			i
+ nach dem cursor			a
+ am Zeilenende				A
+ am Zeilenanfang			I
+ unter dem cursor Leerzeile einfügen
+ (und mit Text füllen)			o
+ über dem cursor Leerzeile einfügen
+ (und mit Text füllen)			O
+ Pufferinhalt nach cursor-Pos.		p
+ Pufferinhalt vor cursor-Pos.		P
+
+ Überschreiben (im Auftext-Modus)
+
+ das Zeichen an der cursor-Position
+ mit char überschreiben 		rchar
+ den Rest der Zeile ab cursor-Pos.
+ mit string ersetzen			Cstring  <Esc>
+ die gesamte Zeile durch string
+ ersetzen				Sstring  <Esc>
+ den Text ab cursor-Pos. mit string
+ überschreiben				Rstring  <Esc>
+
+ ACHTUNG!
+ --------
+ Überschreiben von Text wird wie das Einfügen von Text (s.o) durch
+ Drücken von <Esc> (Eintritt in den Auftext-Modus) beendet (Ausnah-
+ me: Ersetzen eines einzelnen Zeichens per r). Bei der Texteingabe
+ kann ein "Positionswechsel der Eingabestelle"	durch Bewegen  des
+ cursor mit Hilfe der Pfeiltasten vorgenommen werden.
+
+ Widerrufen von Kommandos
+
+ das letzte Kommando widerrufen 	u
+ alle Änderungen in der aktuellen
+ Zeile widerrufen			U
+
+ Suchen im Text
+
+ nach
+ einer korrespondierenden Klammer	%
+ nach der Zeichenkette muster in
+      Richtung Dateiende		/muster  Return
+      Richtung Dateianfang		?muster  Return
+ Wiederholen der Suche			n
+ ""   in die andere Richtung		N
+ Suchen und Ersetzen zwischen
+ Zeilen n und m 			n,ms/alt/neu/  Return
+ Suchen und Ersetzen zwischen der
+ cursor-Zeile und dem Dateiende
+ (pro Zeile auch mehrfach Ersetzen;
+ das Ersetzen mit Bestätigung)		.,$s/alt/neu/gc  Return
+
+ Arbeiten mit gepufferten Textpassagen
+
+ Text kann über temporäre oder benannte (permanente) Puffer kopiert
+ und/oder zum weiteren Gebrauch gespeichert werden:
+
+ buf ist der Name eine Puffers (Buchstabe  a .. z)
+ n (Anzahl) hat (default) den Wert 1
+
+ nyy	      Puffere n Zeilen in temporären Puffer
+ nyw	      Puffere n Wörter in temporären Puffer
+ y$	      Puffere den Rest der Zeile in temporären Puffer
+ y^	      Puffere den Anfang der Zeile in temporären Puffer
+ p	      Kopiere den Inhalt des temporären Puffers nach cursor
+ P	      Kopiere den Inhalt des temporären Puffers vor cursor
+
+ "bufnyy      Puffere n Zeilen in Puffer buf
+ "bufnyw      Puffere n Wörter in Puffer buf
+ "bufy$       Puffere den Rest der Zeile in Puffer buf
+ "bufy^       Puffere den Anfang der Zeile in Puffer buf
+ "bufp	      Kopiere den Inhalt des Puffers buf nach cursor
+ "bufP	      Kopiere den Inhalt des Puffers buf vor cursor
+
+ Anm.:	 Temporäre (unbenannte) Puffer werden auch beim Löschen von
+ Textpassagen gefüllt (s.o. "Löschen von Text")
+
+ Markieren von Textstellen
+
+ Textstellen können mit Marken markiert werden; die Marken können
+ jederzeit zum Positionieren des cursor verwendet werden.
+
+ marke ist ein Buchstabe a .. z
+
+  mmarke      Markiere die aktuelle Zeile/Spalte
+  'marke      Positioniere den cursor auf die markierte Zeile
+  `marke      Positioniere den cursor spaltengenau (Shift)
+  ''	      Zurück zur Zeile vor der Positionierung
+  ``	      "" spaltengenau (Shift)
+
+ Editor-Kommandos und Beenden der Arbeit
+
+ Die folgenden Editor-Kommandos  werden aus dem Kommando-Modus ge-
+ geben.
+     .............................................................
+     zur Erinnerung:;
+     ---------------
+     Vom  Auftext-Modus  gelangt man  in den Kommando-Modus  durch
+     Eingabe von  :
+     Vom  Eingabe-Modus  gelangt man  in den Kommando-Modus  durch
+     Drücken der Taste	<Esc>
+     .............................................................
+
+ Save und Quit				wq   oder   x
+ Save (kein Quit)			w
+ Save auf file (kein Quit)		w file
+ von Zeile n bis m  Save auf file	n,mw file
+ Quit, kein Save von Änderungen 	q!
+ Quit (wurde Text geändert, so wird
+ eine WARNUNG ausgegeben)		q
+ Einfügen der Datei file ab der
+ cursor-Zeile				r file
+ Aufruf von shell-Kommandos		!command
+ Bearbeiten der nächsten aller im
+ Aufruf von vi angegebenen Dateien	n
+ Bearbeiten der ersten aller im
+ Aufruf von vi angegebenen Dateien	rew
+ erneutes Bearbeiten der selben
+ Datei; der aktuelle Stand seit dem
+ letzten Save geht verloren		e!
+
+ Positionieren des cursor auf Zeile n	n	(n=Zahl; z.B.: 32)
+
+ Praktische Hinweise
+
+ Kopieren mit der Maus:
+
+ -   "Überfahren" des zu kopierenden Textes  bei gedrückter linker
+     Maustaste;
+ -   Positionieren des cursor an die Stelle, an der die Kopie ein-
+     gefügt werden soll  (die cursor-Positionierung  ist nicht per
+     Maustaste möglich,  sondern per Auftext-Kommandos	l, h, k, j
+     oder durch Pfeiltasten im Auftext-Modus!). Anm.: Der markier-
+     te Bereich darf dabei nicht "durchlaufen" werden (->"Ent-Mar-
+     kierung")!
+ -   Eingabe eines Kommandos  zum Text Einfügen oder Ersetzen  wie
+     o,O, i,I, a,A, r,R ...
+     ACHTUNG:
+     Wird  ein solches Kommando vergessen,  so wird der gepufferte
+     Text bei seiner "Freigabe" durch Klick auf die mittlere Maus-
+     taste als Kommando  im Auftext-Modus interpretiert;  das kann
+     je nach Text fatale Folgen haben!
+ -   Klick mit mittlerer Maustaste (je nach Kommando Überschreiben
+     oder Einfügen des gepufferten Textes an entspr. Position).
+ -   Falls  automatisches Einrücken  (set autoindent)  eingestellt
+     wurde, ist dieses ggf. (per set noautoindent) zurückzusetzen,
+     um ein "Addieren" der Einrückungen auszuschließen.
+
+ -----------------------------------------------------------------
+ Resource-Datei .exrc
+ -----------------------------------------------------------------
+
+ Bei Aufruf des  vi  wird die  ihn konfigurierende  Resource-Datei
+  .exrc  ausgewertet.  In die Datei  können Optionen  mit dem set-
+ Kommando, Abkürzungen mit dem	ab-Kommando und Tastaturbelegungen
+ mit dem map-Kommando eingetragen werden:
+
+ Beispiele zum set-Kommando:
+ ---------------------------
+
+ set showmode		 Anzeige des Eingabe-Modus
+ set number		 Zeilennumerierung
+ set autoindent 	 Automatisches Einrücken
+ set report=1		 Meldung,  nachdem eine Zeile geändert ist
+ set novice		 Ausführliche Fehlermeldungen
+ set wrapmargin=8	 Zeilenumbruch 8 Zeichen vor Zeilenende
+			 = Rechter Rand auf 8 Zeichen Breite
+ set ignorecase 	 Ignoriere Klein-/Großschreibung bei Suche
+ set shiftwidth=n	 Linker Rand auf n Zeichen
+
+ Gibt man  set all  im Kommando-Modus des  vi  ein, so werden alle
+ möglichen Optionen  von set aufgezeigt.  Gesetzte Optionen können
+ mit dem Präfix no gelöscht werden: set nonumber   bzw.   set noic
+ Die per set aufrufbaren Optionen sind im Detail beschrieben unter
+ man ex, Seite 3 ff.
+
+ Beispiele zum ab-Kommando:
+ --------------------------
+ Für Textpassagen  können  Abkürzungen definiert  werden.  Bei der
+ Eingabe von Text im Eingabe-Modus wird das Kürzel durch die Text-
+ passage ersetzt (und ergänzende vi-Kommandos/ Modi-Wechsel ausge-
+ führt).
+
+ ab sr	 SUBROUTINE
+ ab cfor   for (  =  ;	<   ;  ++)
+ ab cbfor  for ( i=0 ; i<   ; i++)^M{^M}^[kA^M
+
+ Erläuterung zum letzten Beispiel:
+ Substituiere für cbfor den Text 'for ( i=0 ; i<   ; i++)',  führe
+ Enter aus, d.h. erzeuge einen Zeilensprung (^M), ergänze den Text
+ um { ; führe erneut Enter aus, ergänze den text }, schalte in den
+ Auftext-Modus (^[),  bewege den cursor  eine Zeile  nach oben (k)
+ und schalte  in den Eingabe-Modus  am Ende  der Zeile (A),  führe
+ Enter aus). Es entsteht letztendlich folgendes Bild  bei der Ein-
+ gabe von cbfor:
+
+    for ( i=0 ; i<   ; i++)
+    {
+     _
+    }
+
+    Hinweis zum Erzeugen der Zeichen ^M und ^[ etc.
+    -----------------------------------------------
+    Das Zeichen ^M  oder ^[  ist ein einziges Zeichen.	Es wird im
+    Eingabe-Modus des vi wie folgt eingegeben:
+    KTRL drücken,
+    v hinzu drücken,
+    v loslassen
+    m hinzudrücken     bzw.   [ hinzudrücken
+
+ Die jeweils per ab definierten Kürzel können im Kommandomodus des
+ vi erfragt werden durch  ab.
+
+ Beispiele zum map-Kommando:
+ ---------------------------
+ Tasten können per map mit Folgen von Editor-Kommandos belegt wer-
+ den;  hiermit wird ein mächtiges Werkzeug  zum individuellen Ein-
+ stellen/ Anpassen des Editor an spezielle Belange bereitgestellt.
+
+ map  ^E   "ayy"ap
+ map! ^E ^["ayy"ap
+
+ map arbeitet  vom Auftext-Modus aus,  map!  vom Eingabe-Modus aus
+ <KTRL>e  (^E) wird belegt mit "ayy (= speichere die aktuelle Zei-
+ le in den Puffer a)  und   "ap (= kopiere den Inhalt von Puffer a
+ unter die aktuelle Zeile). Wird die Tastenkombination vom Eingabe-
+ Modus aus betätigt, so muß die Kommando-Sequenz um den Wechsel in
+ den AuftextModus (^[) ergänzt werden.
+
+ map  ^Y    for ( i=0 ; i<   ; i++)^M{^M}^[kA^M
+ map! ^Y  ^[for ( i=0 ; i<   ; i++)^M{^M}^[kA^M
+
+ Belegen der Tasten <KTRL>y  mit dem Textfragment für eine C Lauf-
+ anweisung (s. Beispiel zum Kommando ab).
+
+ Die jeweils eingestellte Belegung von Tasten(kombinationen)  kann
+ im Kommando-Modus des	vi erfragt werden durch map.
+ Weitere Details: man vi , Seite 13 ff.
+
+ Programmierbare Tasten:
+ -----------------------
+ Die teilweise vorhandene Vorbelegung kann überschrieben werden.
+
+ KTRL  W
+ KTRL  E  Eine Zeile aufwärts
+ KTRL  R
+ KTRL  T
+ KTRL  Z
+ KTRL  U  Halbe Seite aufwärts
+ KTRL  O
+ KTRL  P  Eine Zeile aufwärts
+
+ KTRL  A
+ KTRL  F  Eine Seite abwärts (Konflikt mit Cursor-Taste)
+ KTRL  G  Aktuelle Zeilennummer
+ KTRL  H  backspace
+ KTRL  K
+ KTRL  L  Neuaufbau Bildschirm
+
+ KTRL  Y  Eine Zeile aufwärts
+ KTRL  X
+ KTRL  B  Eine Seite aufwärts (Konflikt mit Cursor-Taste)
+ KTRL  N  Eine Zeile abwärts
+
+ Nicht programmierbare Tasten:
+ -----------------------------
+ KTRL  Q
+ KTRL  I  Tabulator
+ KTRL  ü
+
+ KTRL> S
+ KTRL> D  Halbe Seite abwärts
+ KTRL> J
+ KTRL> Ö
+ KTRL> Ä
+
+ KTRL> C
+ KTRL> V
+ KTRL> M  Neue Zeile
+
+ HINWEIS:
+ --------
+
+ Soll vom Werkzeug "Resource-Datei"  intensiv Gebrauch gemacht wer-
+ den, so kann das nur mit Kenntnis aller vi-Kommandos und der Namen
+ für Tasten und Modi geschehen. Die dazu nötigen Informationen ent-
+ nimmt man am besten  der oben angegebenen Literatur <2>  (Benutzer
+ orientiert) und <5> (für schon Versierte).
+
+ Interessierte	finden ein etwas umfangreicheres Beispiel  für eine
+ Resource-Datei unter /usr/pub/vi.exrc
+
+ Natürlich können mehrere Resource-Dateien  für je verschiedene An-
+ wendungen  (z.B. die Eingabe  von FORTRAN- bzw. C-Quelltexten, die
+ Tex-Eingabe etc.) konzipiert werden und je nach Bedarf beim Aufruf
+ des vi spezifiziert werden:
+
+ Dazu ruft man die jeweilige Kommandodatei im Kommando-Modus des vi
+ wie folgt auf:
+ :so  resource_datei_name
+
+ Beim  Aufruf des Editors  kann sie ebenso  angegeben werden durch:
+ vi +":so resource_datei_name" ...

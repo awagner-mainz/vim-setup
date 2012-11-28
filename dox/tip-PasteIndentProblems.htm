@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="robots" content="index,follow" />
+<meta name="description" content="&lt;absolon&gt; I made myself a nice mapping for this.  Put the following in your .vimrc, and if you paste and the indentation gets fscked just press C-a." />
+<meta name="keywords" content="Paste Indent Problems, Vi-IMproved Wiki" />
+<meta name="language" content="en" />
+<meta name="document-type" content="Public" />
+<meta name="document-rating" content="General" />
+<meta name="generator" content="PhpWiki" />
+<meta name="PHPWIKI_VERSION" content="1.3.9" />
+<base href="http://vi-improved.com/wiki/index.php/" />
+<link rel="shortcut icon" href="../themes/default/images/favicon.ico" />
+<link rel="home" title="HomePage" href="HomePage" />
+<link rel="help" title="HowToUseWiki" href="HowToUseWiki" />
+<link rel="copyright" title="GNU General Public License" href="http://www.gnu.org/copyleft/gpl.html#SEC1" />
+<link rel="author" title="The PhpWiki Programming Team" href="http://phpwiki.sourceforge.net/phpwiki/ThePhpWikiProgrammingTeam" />
+<link rel="search" title="FindPage" href="FindPage" />
+<link rel="alternate" title="View Source: PasteIndentProblems" href="PasteIndentProblems?action=viewsource&amp;version=9" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="RecentChanges?format=rss" />
+
+<link rel="bookmark" title="SandBox" href="SandBox" />
+<link rel="bookmark" title="WikiWikiWeb" href="WikiWikiWeb" />
+
+
+
+<link rel="stylesheet" type="text/css" charset="iso-8859-1" href="../themes/Wordpress/Wordpress.css" />
+<link rel="alternate stylesheet" type="text/css" charset="iso-8859-1" href="../themes/default/phpwiki-printer.css" title="Printer" />
+<link rel="alternate stylesheet" type="text/css" charset="iso-8859-1" href="../themes/default/phpwiki-modern.css" title="Modern" />
+<link rel="alternate stylesheet" type="text/css" charset="iso-8859-1" href="../themes/default/phpwiki.css" title="PhpWiki" />
+<title>Vi-IMproved Wiki - Paste Indent Problems</title>
+</head>
+
+<!-- $Id: body.tmpl,v 1.1 2004/04/10 08:02:22 rurban Exp $ -->
+<body>
+
+<!-- Page title -->
+<h1 id="header">Wiki: <a href="PasteIndentProblems?action=BackLinks" class="backlinks" title="BackLinks for PasteIndentProblems" onmouseover="window.status=&quot;BackLinks for PasteIndentProblems&quot;; return true;" onmouseout="window.status='';return true;">Paste Indent Problems</a></h1>
+
+<!-- Page title and logo -->
+<!--
+<h1><a class="wikilink" 
+       href="HomePage"
+       ><img src="../themes/default/images/logo.png"
+             border="0" alt="Vi-IMproved Wiki: HomePage" 
+             align="bottom" /></a> <a href="PasteIndentProblems?action=BackLinks" class="backlinks" title="BackLinks for PasteIndentProblems" onmouseover="window.status=&quot;BackLinks for PasteIndentProblems&quot;; return true;" onmouseout="window.status='';return true;">Paste Indent Problems</a></h1>
+-->
+<!-- $Id: browse.tmpl,v 1.1 2004/04/10 08:02:22 rurban Exp $ -->
+
+<br clear="all" class="clear-floats" />
+
+
+<div class="wikitext"><p class="tightenable top">&lt;cgreen&gt; trying to cut a paste from shell running VIM to another shell running VIM, indents are all screwed</p>
+<p class="tightenable">&lt;<a href="morbuz" class="wiki">morbuz</a>&gt; :set paste</p>
+<p class="tightenable">&lt;<a href="morbuz" class="wiki">morbuz</a>&gt; then :set nopaste when you're done</p>
+<p class="tightenable">&lt;cgreen&gt; I have tried :set noai but editing python code and need to maintain idents of pasted text</p>
+<p class="tightenable">&lt;<a href="morbuz" class="wiki">morbuz</a>&gt; turns off autoindenting and stuff like that</p>
+<hr />
+<p class="tightenable">&lt;ar&gt; use :set paste! to toggle and then use the command scrollback buffer</p>
+<hr />
+<p class="tightenable">&lt;absolon&gt; I made myself a nice mapping for this.  Put the following in your .vimrc, and if you paste and the indentation gets fscked just press C-a.</p>
+<p class="tightenable bottom">&lt;absolon&gt; inoremap &lt;silent&gt; &lt;C-a&gt; &lt;ESC&gt;u:set paste&lt;CR&gt;.:set nopaste&lt;CR&gt;gi</p>
+</div>
+<hr />
+
+<font size=-1><p>Copyright 2003 Robert Melton<br>
+
+Send questions and comments to <a href="mailto:vim@metacosm.dhs.org" tabindex="5"><font color='black'>vim@<b>metacosm</b>.dhs.org</font></a><br>
+Last updated April 14th, 2004</p></font>
+<!-- $Id: actionbar.tmpl,v 1.1 2004/04/10 08:02:22 rurban Exp $ -->
+<div id="actionbar">
+
+
+ <ul>
+   <li><a class="wikilink" href="/"><font color="#602b39">VI-Improved.com</font></a>
+     <ul>
+	<li><a href="/rules.php"><font color="#602b39">#Vim Rules</font></a>
+	<li><a href="/ops.php"><font color="#602b39">#Vim OPs</font></a>
+	<li><a href="/tutorial.php"><font color="#602b39">Vim Tutorial</font></a>
+	<li><a href="/vimrc.php"><font color="#602b39">Vimrc Example</font></a>
+	<li><a href="/gvimrc.php"><font color="#602b39">Gvimrc Example</font></a>
+     </ul>
+     <hr>
+
+   <li><a class="wikilink" href="HomePage">Vi-IMproved Wiki</a>
+     <ul>
+       <li>
+         <a href="HomePage" class="wiki">HomePage</a>       </li>
+       <li>
+         <a href="RecentChanges" class="wiki">RecentChanges</a>       </li>
+       <li>
+         <a href="VimRegulars" class="wiki">VimRegulars</a>       </li>
+	<hr width='50%'>
+       <li>
+         <a href="HowTo" class="wiki">HowTo</a>       </li>
+       <li>
+         <a href="CommonProblems" class="wiki">CommonProblems</a>       </li>
+       <li>
+         <a href="NewToVim" class="wiki">NewToVim</a>       </li>
+       <li>
+         <a href="BestTips" class="wiki">BestTips</a>       </li>
+       <li>
+         <a href="WeeklyScriptingCompetition" class="wiki">WeeklyScriptingCompetition</a>       </li>
+                                </ul>
+   </li>
+     <hr>
+   <li>Editing
+     <ul>
+       <li>
+         <a href="PasteIndentProblems?action=edit" class="wikiaction">Edit this page</a> 
+       </li>
+            </ul>
+   </li>
+     <hr>
+   <li>Information
+     <ul>
+       <li>
+         <a href="PasteIndentProblems?action=diff&amp;version=9" >
+         Last edited on April 23, 2004.</a>
+       </li>
+       <li>
+          <a href="PasteIndentProblems?action=PageHistory" class="wikiaction">PageHistory</a>         </li>
+       <li> <a href="PasteIndentProblems?action=PageInfo" class="wikiaction">PageInfo</a> </li>
+                  <li>
+            <a href="PasteIndentProblems?action=DebugInfo" class="wikiaction">DebugInfo</a> <!-- For debugging only, really -->
+         </li>
+         
+     </ul>
+   </li>
+   <li>Search
+     <ul>
+       <li>
+         <form action="TitleSearch" method="get" class="wikiaction" accept-charset="iso-8859-1">
+<div class="wikiaction"><input name="s" value="" type="text" size="20" title="Search the titles of all pages in this wiki." onmouseover="window.status=&quot;Search the titles of all pages in this wiki.&quot;; return true;" onmouseout="window.status='';return true;" /><input type="submit" class="button" value="TitleSearch" /></div>
+</form>
+       </li>
+       <li>
+         <form action="FullTextSearch" method="get" class="wikiaction" accept-charset="iso-8859-1">
+<div class="wikiaction"><input name="s" value="" type="text" size="20" title="Search the content of all pages in this wiki." onmouseover="window.status=&quot;Search the content of all pages in this wiki.&quot;; return true;" onmouseout="window.status='';return true;" /><input type="submit" class="button" value="FullTextSearch" /></div>
+</form>
+       </li>
+       <li>
+                    <a href="PasteIndentProblems?action=LikePages" class="wikiaction">LikePages</a>                </li>
+     </ul>
+   </li>
+   <li>User info
+     <ul>
+        <li>
+  <form method="post" action="PasteIndentProblems?action=browse" accept-charset="iso-8859-1" name="signin">
+  <input type="hidden" name="pagename" value="PasteIndentProblems" /><input type="hidden" name="action" value="browse" />  <script type="text/javascript"> <!--
+    function SignIn(form) {
+            form.submit();
+    }
+    //-->
+  </script>
+  <input type="submit" value="Sign in as:" name="auth[login]" class="wikiaction" />  <input type="text" name="auth[userid]" size="12" maxlength="256" onchange="SignIn(this.form);" title="Enter your UserId to sign in" onmouseover="window.status=&quot;Enter your UserId to sign in&quot;; return true;" onmouseout="window.status='';return true;" />  <noscript>
+    <input type="submit" value="Sign In" name="auth[login]" class="wikiaction" />  </noscript>
+
+
+  </form>
+ </li>
+ 
+     </ul>
+   </li>
+ </ul>
+</div>
+<!-- The bottom navigation/search bar -->
+<!-- $Id: navbar.tmpl,v 1.1 2004/04/10 08:02:22 rurban Exp $ -->
+<!-- The bottom navigation/search bar -->
+
+<!-- RELATEDPAGES were here. -->
+
+
+</body>
+</html>

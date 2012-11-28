@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+  <link rel="Stylesheet" type="text/css" href="/css/style.css" >
+  <title>Tip #361 - Use xdvi (or kdvi) in conjunction with gvim (or vim) and converse : vim online</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="KEYWORDS" content="Vim, Vi IMproved, text editor, home, documentation, tips, scripts, news">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/vim_shortcut.ico">
+</head>
+
+<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="#ffffff"><script><!--
+function PrivoxyWindowOpen(){return(null);}
+//--></script> 
+
+<!-- HEADER, SPONSOR IMAGE, VIM IMAGE AND BOOK AD -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tr>
+    <td colspan="4" class="lightbg"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td>
+  </tr>
+  <tr>
+  <td class="lightbg">&nbsp;&nbsp;&nbsp;</td>
+  <td class="lightbg" align="left"><a href="/sponsor/index.php"><img src="/images/sponsorvim.gif" alt="sponsor Vim development" border="0"></a></td>
+    <td class="lightbg" align="center"><a href="/index.php"><img src="/images/vim_header.gif" border="0" alt="Vim logo"></a></td>
+    <td class="lightbg" align="right"><a href="http://iccf-holland.org/click5.html"><img src="/images/buyhelplearn.gif" alt="Vim Book Ad" border="0"></a></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="lightbg"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="darkbg"><img src="/images/spacer.gif" width="1"  height="10" alt=""></td>
+  </tr>
+</table>
+<!-- THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+  <col width="180">
+  <col width="1">
+
+  <tr valign="top">
+    <td class="sidebar">
+      <table width="180" cellpadding="4" cellspacing="0" border="0">
+        <tr valign="top">
+          <td class="sidebar">
+
+<!-- INCLUDE THE PAGE NAVIGATION -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+    <tr>
+        <td><small>not logged in (<a href="/login.php">login</a>)</small></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="darkbg"><img src="/images/spacer.gif" alt='' border="0" height="3"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="2"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/index.php">Home</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/search.php">Search</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/about.php">About Vim</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/community.php">Community</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/news/news.php">News</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/sponsor/index.php">Sponsoring</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/trivia.php">Trivia</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/docs.php">Documentation</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/download.php">Download</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/scripts/index.php">Scripts</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/tips/index.php">Tips</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/account/index.php">My Account</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/huh.php">Site Help</a></td>
+        </tr>
+</table>
+
+            <table width="172" cellpadding="0" cellspacing="0" border="0">
+              <tr><td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="8"></td></tr>
+              <tr><td class="darkbg"><img src="/images/spacer.gif" width="1"  height="3" alt=""></td></tr>
+            </table>
+            <br>
+
+<!-- INCLUDE THE PAGE SIDEBAR TEXT -->
+&nbsp;
+
+          </td>
+        </tr>
+      </table>
+    </td>
+
+    <td class="darkbg"><br></td>
+    <td>
+      <table width="100%" cellpadding="10" cellspacing="0" border="0" bordercolor="red">
+        <tr>
+          <td valign="top">
+
+
+
+<h1><img src="images/intermediate.gif" alt="intermediate">&nbsp;Tip #361: Use xdvi (or kdvi) in conjunction with gvim (or vim) and converse</h1>
+
+<!-- karma table -->
+<table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+<tr>
+  <td class="lightbg"><b>&nbsp;tip karma&nbsp;</b></td>
+  <td>
+    &nbsp;Rating <b>16/4</b>, Viewed by 1069&nbsp;
+  </td>
+</tr>
+</table>
+
+<br>
+
+<table cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td class="prompt">created:</td>
+    <td>&nbsp;</td>
+    <td>November 5, 2002 14:07</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="prompt">complexity:</td>
+    <td>&nbsp;</td>
+    <td>intermediate</td>
+  </tr>
+  <tr>
+    <td class="prompt">author:</td>
+    <td>&nbsp;</td>
+    <td>Christine Noot-Huyghe</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="prompt">as of Vim:</td>
+    <td>&nbsp;</td>
+    <td>6.0</td>
+  </tr>
+</table>
+
+<p><code>source: the xdvi man page<br><br>For recent xdvi versions (&gt;= 22.38), (or recent Unix/Linux versions), xdvi can<br>interact with any editor provided with a client-server mode. We explain <br>here how to use xdvi in conjunction with vim (compiled with the client-server <br>option) or gvim (mostly compiled with this option). I have tested that <br>with Linux Mandrake 9.0. On that system, gvim is compiled with the <br>client-server option and vim is not.<br><br>0-Check that your xdvi version provides the &quot;source-special&quot; functions, <br>by typing 'xdvi -version' or 'man xdvi'<br><br>1-Configuration of the source file (file.tex)<br>Put the following line at the beginning of the latex file:<br>\usepackage[active]{srcltx}<br>or the following line at the beginning of the tex file<br>\include{srctex}<br><br>2-Configuration of xdvi<br>xdvi has to be called with the following options<br>xdvi -editor 'gvim --remote-wait +%l %f' file.dvi &<br>(or with 'xterm -e vim --remote-wait +%l %f' if vim has <br>been compiled with the client-server option).<br><br>To make it easier to use you can define an environement <br>variable XEDITOR to set the value of 'editor' or add <br>the following line in your .Xdefaults<br>xdvi.editor: gvim --remote-wait +%l %f<br>Launch 'xrdb -load ~/.Xdefaults' to make sure that <br>xdvi.editor is set to the good value.<br>If you have defined such a variable, xdvi will always be launched <br>with the -editor option. To avoid this unsafe behavior, <br>launch 'xdvi -safer'.<br><br>3-Conversely, if you call xdvi within gvim with the -sourceposition <br>option, cursor is placed in the dvi file on the corresponding position.<br>Syntax is:<br>xdvi -sourceposition l:cfile.tex file.dvi<br>l is the line number, c is the column number<br>(Be carefull: there is no space between &quot;c&quot; (column number) and <br>file.tex).<br>To make it easier to use, you can do the following<br>First create a file named for example &quot;xdvi_source.vim&quot;<br>with following lines<br>&quot; This script calls xdvi source and puts cursor in xdvi viewer at <br>&quot; the position corresponding to the position in the source file<br>&quot; <br>:exec &quot;silent !xdvi -sourceposition &quot;.line(&quot;.&quot;).':'.col(&quot;.&quot;).&quot;%&quot;.' '.&quot;%:r.dvi&quot;<br><br>Then launch the following command within gvim editing the .tex <br>source file. Pressing simultaneously &lt;CTRL&gt; and -&gt; will open <br>the dvi file at the right position:<br>:noremap &lt;buffer&gt; &lt;C-Right&gt; :so xdvi_source.vim&lt;CR&gt;<br></code></p>
+
+<!-- rating table -->
+<form name="rating">
+  <input type="hidden" name="tip_id" value="361">
+  <table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+    <tr>
+      <td class="lightbg"><b>&nbsp;rate this tip&nbsp;</b></td>
+      <td valign="middle">
+	<input type="radio" name="rating" value="life_changing">Life Changing
+	<input type="radio" name="rating" value="helpful">Helpful
+	<input type="radio" name="rating" value="unfulfilling">Unfulfilling&nbsp;
+	<input type="submit" value="rate">
+      </td>
+    </tr>
+  </table>
+</form>
+<p>
+
+    <small>
+          <a href="tip.php?tip_id=360">&lt;&lt;':e &lt;dir&gt;' enter files and directories</a> | 
+                <a href="tip.php?tip_id=362">matchit.vim and coldfusion (and perhaps others) &gt;&gt;</a> 
+    </small>
+
+<br>
+<br>
+<h1>Additional Notes</h1>
+
+<form method="get" action="add_tip_note.php">
+<input type='hidden' name='tip_id' value="361">
+<table width="100%" cellpadding="3" cellspacing="4" border="0">
+    	<tr>
+	  <td class="lightbg">
+	    	    <b>Anonymous</b>, 
+	    	    <font size='-1'> November 19, 2002 23:04 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>Seems it doesn't work for multiple tex source files.</tt></td>
+	</tr>
+        <tr>
+      <td>
+	<input type="submit" name="Add Note" value="Add Note">
+      </td>
+    </tr>
+</table>
+</form>
+<!-- finish off the framework -->
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!-- END OF THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td></tr>
+  <tr><td colspan="4" bgcolor="#000000"><img src="/images/spacer.gif" width="1" height="2"  alt=""></td></tr>
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td></tr>
+  <tr>
+    <td><img src="/images/spacer.gif" width="5"  height="1" alt=""></td>
+
+    <td align="left" valign="top"><small>
+      If you have questions or remarks about this site, visit the
+      <a href="http://vimonline.sf.net">vimonline development</a> pages.
+      Please use this site responsibly.
+      <br> 
+      
+      Questions about <a href="http://www.vim.org/about.php">Vim</a> should go
+      to vim@vim.org after searching
+      <a href="http://groups.yahoo.com/group/vim">the archive</a>.
+      Help Bram <a href="http://iccf-holland.org/">help Uganda</a>.
+      </small>
+    </td>
+
+    <td align="right" valign="top">
+	<a href="http://www.webconceptgroup.net"><img src="/images/logo_sponsor_wcg.jpg" width="131"  height="30" border="0" alt="Sponsored by Web Concept Group Inc."></a>
+	<a href="http://sourceforge.net"><img src="http://config.privoxy.org/send-banner?type=auto" title="Killed-http://sourceforge.net/sflogo.php?group_id=8&type=1-by-size" width="88" height="31"></a>
+    </td>
+
+    <td><img src="/images/spacer.gif" width="5"  height="1" alt=""></td>
+  </tr>
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td></tr>
+</table>
+
+<script><!--
+function PrivoxyWindowOpen(a, b, c){return(window.open(a, b, c));}
+//--></script></body>
+</html>
+

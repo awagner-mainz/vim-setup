@@ -1,0 +1,263 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head><script>function PrivoxyWindowOpen(){return(null);}</script>
+  <link rel="Stylesheet" type="text/css" href="/css/style.css" >
+  <title>Tip #747 - Easily keep runtime files up to date : vim online</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="KEYWORDS" content="Vim, Vi IMproved, text editor, home, documentation, tips, scripts, news">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/vim_shortcut.ico">
+</head>
+
+<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="#ffffff"> 
+
+<!-- HEADER, SPONSOR IMAGE, VIM IMAGE AND BOOK AD -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tr>
+    <td colspan="4" class="lightbg"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td>
+  </tr>
+  <tr>
+  <td class="lightbg">&nbsp;&nbsp;&nbsp;</td>
+  <td class="lightbg" align="left"><a href="/sponsor/index.php"><img src="/images/sponsorvim.gif" alt="sponsor Vim development" border="0"></a></td>
+    <td class="lightbg" align="center"><a href="/index.php"><img src="/images/vim_header.gif" border="0" alt="Vim logo"></a></td>
+    <td class="lightbg" align="right"><a href="http://iccf-holland.org/click5.html"><img src="/images/buyhelplearn.gif" alt="Vim Book Ad" border="0"></a></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="lightbg"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="darkbg"><img src="/images/spacer.gif" width="1"  height="10" alt=""></td>
+  </tr>
+</table>
+<!-- THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+  <col width="180">
+  <col width="1">
+
+  <tr valign="top">
+    <td class="sidebar">
+      <table width="180" cellpadding="4" cellspacing="0" border="0">
+        <tr valign="top">
+          <td class="sidebar">
+
+<!-- INCLUDE THE PAGE NAVIGATION -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+    <tr>
+        <td><small>not logged in (<a href="/login.php">login</a>)</small></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="darkbg"><img src="/images/spacer.gif" alt='' border="0" height="3"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="2"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/index.php">Home</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/search.php">Search</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/about.php">About Vim</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/community.php">Community</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/news/news.php">News</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/sponsor/index.php">Sponsoring</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/trivia.php">Trivia</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/docs.php">Documentation</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/download.php">Download</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/scripts/index.php">Scripts</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/tips/index.php">Tips</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/account/index.php">My Account</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/huh.php">Site Help</a></td>
+        </tr>
+</table>
+
+            <table width="172" cellpadding="0" cellspacing="0" border="0">
+              <tr><td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="8"></td></tr>
+              <tr><td class="darkbg"><img src="/images/spacer.gif" width="1"  height="3" alt=""></td></tr>
+            </table>
+            <br>
+
+<!-- INCLUDE THE PAGE SIDEBAR TEXT -->
+&nbsp;
+
+          </td>
+        </tr>
+      </table>
+    </td>
+
+    <td class="darkbg"><br></td>
+    <td>
+      <table width="100%" cellpadding="10" cellspacing="0" border="0" bordercolor="red">
+        <tr>
+          <td valign="top">
+
+
+
+<h1><img src="images/intermediate.gif" alt="intermediate">&nbsp;Tip #747: Easily keep runtime files up to date</h1>
+
+<!-- karma table -->
+<table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+<tr>
+  <td class="lightbg"><b>&nbsp;tip karma&nbsp;</b></td>
+  <td>
+    &nbsp;Rating <b>6/5</b>, Viewed by 277&nbsp;
+  </td>
+</tr>
+</table>
+
+<br>
+
+<table cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td class="prompt">created:</td>
+    <td>&nbsp;</td>
+    <td>June 17, 2004 5:37</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="prompt">complexity:</td>
+    <td>&nbsp;</td>
+    <td>intermediate</td>
+  </tr>
+  <tr>
+    <td class="prompt">author:</td>
+    <td>&nbsp;</td>
+    <td>Michael Jarvis</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="prompt">as of Vim:</td>
+    <td>&nbsp;</td>
+    <td>6.0</td>
+  </tr>
+</table>
+
+<p><code>I try to always keep up to date on the latest and greatest patches and runtime files.&nbsp;&nbsp;It's pretty easy to install the patches against the source code, but there are no patches for the runtime files.<br><br>What I do is use an FTP mirroring tool (with a shell script wrapper) that keeps the runtime directory in my source code up-to-date.&nbsp;&nbsp;I personally use the fmirror tool (from <a target="_blank" href="ftp://ftp.sunet.se/pub/nir/ftp/utilities/fmirror/">ftp://ftp.sunet.se/pub/nir/ftp/utilities/fmirror/</A>) but I would think any decent tool would work.&nbsp;&nbsp;Every so often, usually when applying a source patch, I run this script, and watch the output to see if any of the runtime files have been updated.&nbsp;&nbsp;If so, I change into the vim63/src directory (or whatever version we're at) and do a &quot;make installruntime&quot;.<br><br>Here's the command I use for fmirror:<br><br>/usr/bin/fmirror -k \<br>&nbsp;&nbsp;&nbsp;&nbsp;-l $HOME/src/vim63/runtime \<br>&nbsp;&nbsp;&nbsp;&nbsp;-p user@domain.com \<br>&nbsp;&nbsp;&nbsp;&nbsp;-r /pub/vim/runtime \<br>&nbsp;&nbsp;&nbsp;&nbsp;-s ftp.vim.org \<br>&nbsp;&nbsp;&nbsp;&nbsp;-S -V3<br><br>If there are no changes, I see something like this:<br><br>07:36:06 /pub/vim/runtime @ ftp.vim.org -&gt; /home/michael/src/vim63/runtime<br>07:36:06 Connecting to ftp.vim.org...<br>07:36:06 Connected.<br>07:36:08 Remote timezone: -119 minutes from GMT<br>07:36:11 Mirror finished.<br><br>If there are changes, I see the files being downloaded.<br><br>Then it's as simple as &quot;cd vim63/src && make installruntime&quot;.<br><br>Pretty simple and it works for me!&nbsp;&nbsp;:-)<br></code></p>
+
+<!-- rating table -->
+<form name="rating">
+  <input type="hidden" name="tip_id" value="747">
+  <table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+    <tr>
+      <td class="lightbg"><b>&nbsp;rate this tip&nbsp;</b></td>
+      <td valign="middle">
+	<input type="radio" name="rating" value="life_changing">Life Changing
+	<input type="radio" name="rating" value="helpful">Helpful
+	<input type="radio" name="rating" value="unfulfilling">Unfulfilling&nbsp;
+	<input type="submit" value="rate">
+      </td>
+    </tr>
+  </table>
+</form>
+<p>
+
+    <small>
+          <a href="tip.php?tip_id=746">&lt;&lt;change cursor color in different modes</a> | 
+                <a href="tip.php?tip_id=748">Get bright background colors in linux console (framebuffer) &gt;&gt;</a> 
+    </small>
+
+<br>
+<br>
+<h1>Additional Notes</h1>
+
+<form method="get" action="add_tip_note.php">
+<input type='hidden' name='tip_id' value="747">
+<table width="100%" cellpadding="3" cellspacing="4" border="0">
+        <tr>
+      <td>
+	<input type="submit" name="Add Note" value="Add Note">
+      </td>
+    </tr>
+</table>
+</form>
+<!-- finish off the framework -->
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!-- END OF THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td></tr>
+  <tr><td colspan="4" bgcolor="#000000"><img src="/images/spacer.gif" width="1" height="2"  alt=""></td></tr>
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td></tr>
+  <tr>
+    <td><img src="/images/spacer.gif" width="5"  height="1" alt=""></td>
+
+    <td align="left" valign="top"><small>
+      If you have questions or remarks about this site, visit the
+      <a href="http://vimonline.sf.net">vimonline development</a> pages.
+      Please use this site responsibly.
+      <br> 
+      
+      Questions about <a href="http://www.vim.org/about.php">Vim</a> should go
+      to vim@vim.org after searching
+      <a href="http://groups.yahoo.com/group/vim">the archive</a>.
+      Help Bram <a href="http://iccf-holland.org/">help Uganda</a>.
+      </small>
+    </td>
+
+    <td align="right" valign="top">
+	<a href="http://www.webconceptgroup.net"><img src="/images/logo_sponsor_wcg.jpg" width="131"  height="30" border="0" alt="Sponsored by Web Concept Group Inc."></a>
+	<a href="http://sourceforge.net"><img src="http://config.privoxy.org/send-banner?type=auto" border="\0" title="Killed-http://sourceforge.net/sflogo.php?group_id=8&type=1-by-size" width="88" height="31"></a>
+    </td>
+
+    <td><img src="/images/spacer.gif" width="5"  height="1" alt=""></td>
+  </tr>
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td></tr>
+</table>
+
+</body>
+<script>function PrivoxyWindowOpen(a, b, c){return(window.open(a, b, c));}</script></html>
+

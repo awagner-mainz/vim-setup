@@ -1,0 +1,375 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+  <link rel="Stylesheet" type="text/css" href="/css/style.css" >
+  <title>Tip #94 - Questions & Answers about using tags with Vim : vim online</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="KEYWORDS" content="Vim, Vi IMproved, text editor, home, documentation, tips, scripts, news">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/vim_shortcut.ico">
+</head>
+
+<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="#ffffff"><script><!--
+function PrivoxyWindowOpen(){return(null);}
+//--></script> 
+
+<!-- HEADER, SPONSOR IMAGE, VIM IMAGE AND BOOK AD -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tr>
+    <td colspan="4" class="lightbg"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td>
+  </tr>
+  <tr>
+  <td class="lightbg">&nbsp;&nbsp;&nbsp;</td>
+  <td class="lightbg" align="left"><a href="/sponsor/index.php"><img src="/images/sponsorvim.gif" alt="sponsor Vim development" border="0"></a></td>
+    <td class="lightbg" align="center"><a href="/index.php"><img src="/images/vim_header.gif" border="0" alt="Vim logo"></a></td>
+    <td class="lightbg" align="right"><a href="http://iccf-holland.org/click5.html"><img src="/images/buyhelplearn.gif" alt="Vim Book Ad" border="0"></a></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="lightbg"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="darkbg"><img src="/images/spacer.gif" width="1"  height="10" alt=""></td>
+  </tr>
+</table>
+<!-- THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+  <col width="180">
+  <col width="1">
+
+  <tr valign="top">
+    <td class="sidebar">
+      <table width="180" cellpadding="4" cellspacing="0" border="0">
+        <tr valign="top">
+          <td class="sidebar">
+
+<!-- INCLUDE THE PAGE NAVIGATION -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+    <tr>
+        <td><small>not logged in (<a href="/login.php">login</a>)</small></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="darkbg"><img src="/images/spacer.gif" alt='' border="0" height="3"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="2"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/index.php">Home</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/search.php">Search</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/about.php">About Vim</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/community.php">Community</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/news/news.php">News</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/sponsor/index.php">Sponsoring</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/trivia.php">Trivia</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/docs.php">Documentation</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/download.php">Download</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/scripts/index.php">Scripts</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/tips/index.php">Tips</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/account/index.php">My Account</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/huh.php">Site Help</a></td>
+        </tr>
+</table>
+
+            <table width="172" cellpadding="0" cellspacing="0" border="0">
+              <tr><td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="8"></td></tr>
+              <tr><td class="darkbg"><img src="/images/spacer.gif" width="1"  height="3" alt=""></td></tr>
+            </table>
+            <br>
+
+<!-- INCLUDE THE PAGE SIDEBAR TEXT -->
+&nbsp;
+
+          </td>
+        </tr>
+      </table>
+    </td>
+
+    <td class="darkbg"><br></td>
+    <td>
+      <table width="100%" cellpadding="10" cellspacing="0" border="0" bordercolor="red">
+        <tr>
+          <td valign="top">
+
+
+
+<h1><img src="images/basic.gif" alt="basic">&nbsp;Tip #94: Questions & Answers about using tags with Vim</h1>
+
+<!-- karma table -->
+<table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+<tr>
+  <td class="lightbg"><b>&nbsp;tip karma&nbsp;</b></td>
+  <td>
+    &nbsp;Rating <b>288/118</b>, Viewed by 9476&nbsp;
+  </td>
+</tr>
+</table>
+
+<br>
+
+<table cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td class="prompt">created:</td>
+    <td>&nbsp;</td>
+    <td>August 3, 2001 11:18</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="prompt">complexity:</td>
+    <td>&nbsp;</td>
+    <td>basic</td>
+  </tr>
+  <tr>
+    <td class="prompt">author:</td>
+    <td>&nbsp;</td>
+    <td>Yegappan Lakshmanan</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="prompt">as of Vim:</td>
+    <td>&nbsp;</td>
+    <td>5.7</td>
+  </tr>
+</table>
+
+<p><code>Using tags file with Vim<br>------------------------<br>This document gives you a idea about the various facilities available<br>in Vim for using a tags file to browse through program source files.<br>You can read the Vim online help, which explains in detail the tags<br>support, using :help tagsearch.txt.&nbsp;&nbsp;You can also use the help<br>keywords mentioned in this document to read more about a particular<br>command or option.&nbsp;&nbsp;To read more about a particular command or option<br>use, :help &lt;helpkeyword&gt; in Vim.<br><br>1. How do I create a tags file?<br><br>&nbsp;&nbsp; You can create a tags file either using the ctags utility or using<br>&nbsp;&nbsp; a custom script or utility.<br><br>&nbsp;&nbsp; Help keyword(s): tag<br><br>2. Where can I download the tools to generate the tags file?<br><br>&nbsp;&nbsp; There are several utilities available to generate the tags file.<br>&nbsp;&nbsp; Depending on the programming language, you can use any one of them.<br><br>&nbsp;&nbsp; 1. Exuberant ctags generates tags for the following programming<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language files: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assembler, AWK, ASP, BETA, Bourne/Korn/Zsh Shell, C, C++, COBOL,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Eiffel, Fortran, Java, Lisp, Make, Pascal, Perl, PHP, Python,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REXX, Ruby, S-Lang, Scheme, Tcl, and Vim.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can download exuberant ctags from<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://ctags.sourceforge.net/">http://ctags.sourceforge.net/</A><br><br>&nbsp;&nbsp; 2. On Unix, you can use the /usr/bin/ctags utility.&nbsp;&nbsp;This utility<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is present in most of the Unix installations.<br>&nbsp;&nbsp; <br>&nbsp;&nbsp; 3. You can use jtags for generating tags file for java programs.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can download jtags from: <a target="_blank" href="http://www.fleiner.com/jtags/">http://www.fleiner.com/jtags/</A><br><br>&nbsp;&nbsp; 4. You can use ptags for generating tags file for perl programs.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can download ptags from:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://www.eleves.ens.fr">http://www.eleves.ens.fr</A>:8080/home/nthiery/Tags/<br><br>&nbsp;&nbsp; 5. You can download scripts from the following links for<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;generating tags file for verilog files:<br>&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://www.probo.com/vtags.htm">http://www.probo.com/vtags.htm</A><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://www.cs.albany.edu/~mosh/Perl/veri-tags">http://www.cs.albany.edu/~mosh/Perl/veri-tags</A><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://www.verilog.net/vrtags.txt">http://www.verilog.net/vrtags.txt</A><br><br>&nbsp;&nbsp; 6. You can download Hdrtag from the following linke:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://www.erols.com/astronaut/vim/index.html#Tags">http://www.erols.com/astronaut/vim/index.html#Tags</A><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This utility generates tags file for the following programming<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;languages: assembly, c/c++, header files, lex, yacc,LaTeX, vim,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and Maple V.<br><br>&nbsp;&nbsp; 7. You can also use the following scripts which are part of the Vim<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;runtime files:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pltags.pl - Create tags file for perl code<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tcltags - Create tags file for TCL code<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shtags.pl - Create tags file for shell script<br><br>&nbsp;&nbsp; Help keyword(s): ctags<br><br>3. How do I generate a tags file using ctags?<br><br>&nbsp;&nbsp; You can generate a tags file for all the C files in the current<br>&nbsp;&nbsp; directory using the following command:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ ctags *.c<br><br>&nbsp;&nbsp; You can generate tags file for all the files in the current<br>&nbsp;&nbsp; directory and all the sub-directories using (this applies only to<br>&nbsp;&nbsp; exuberant ctags):<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ ctags -R .<br><br>&nbsp;&nbsp; You can generate tags file for all the files listed in a text file<br>&nbsp;&nbsp; named flist using (this applies only to exuberant ctags)<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ ctags -L flist<br><br>4. How do I configure Vim to locate a tags file?<br><br>&nbsp;&nbsp; You can set the 'tags' option in Vim to specify a particular tags<br>&nbsp;&nbsp; file.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set tags=/my/dir/tags<br><br>&nbsp;&nbsp; Help keyword(s): 'tags', tags-option<br><br>5. How do I configure Vim to use multiple tags files?<br><br>&nbsp;&nbsp; The 'tags' option can specify more than one tags file.&nbsp;&nbsp;The tag<br>&nbsp;&nbsp; filenames are separated using either comma or spaces.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set tags=/my/dir1/tags, /my/dir2/tags<br><br>6. How do I configure Vim to locate a tags file in a directory tree?<br><br>&nbsp;&nbsp; Note that the following will work only in Vim 6.0 and above.&nbsp;&nbsp;You<br>&nbsp;&nbsp; can set the 'tags' option to make Vim search for the tags file in a<br>&nbsp;&nbsp; directory tree.&nbsp;&nbsp;For example, if the 'tags' option is set like<br>&nbsp;&nbsp; this:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set tags=tags;/<br><br>&nbsp;&nbsp; Vim will search for the file named 'tags', starting with the<br>&nbsp;&nbsp; current directory and then going to the parent directory and then<br>&nbsp;&nbsp; recursively to the directory one level above, till it either<br>&nbsp;&nbsp; locates the 'tags' file or reaches the root '/' directory.<br><br>&nbsp;&nbsp; Help keyword(s): file-searching<br><br>7. How do I jump to a tag?<br><br>&nbsp;&nbsp; There are several ways to jump to a tag location.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. You can use the 'tag' ex command.&nbsp;&nbsp;For example,<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :tag &lt;tagname&gt;<br>&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; will jump to the tag named &lt;tagname&gt;.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. You can position the cursor over a tag name and then press<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ctrl-].<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. You can visually select a text and then press Ctrl-] to<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jump to the tag matching the selected text.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. You can click on the tag name using the left mouse button,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while pressing the &lt;Ctrl&gt; key.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. You can press the g key and then click on the tag name<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; using the left mouse button.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6. You can use the 'stag' ex command, to open the tag in a new<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; window.&nbsp;&nbsp;For example,<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:stag func1<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; will open the func1 definition in a new window.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7. You can position the cursor over a tag name and then press<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ctrl-W ].&nbsp;&nbsp;This will open the tag location in a new window.<br><br>&nbsp;&nbsp; Help keyword(s): :tag, Ctrl-], v_CTRL_], &lt;C-LeftMouse&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g&lt;LeftMouse&gt;, :stag, Ctrl-W_]<br><br>8. How do I come back from a tag jump?<br><br>&nbsp;&nbsp; There are several ways to come back to the old location from a tag<br>&nbsp;&nbsp; jump.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. You can use the 'pop' ex command.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. You can press Ctrl-t.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. You can click the right mouse button, while pressing the<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Ctrl&gt; key.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. You can press the g key and then click the right mouse<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; button.<br><br>&nbsp;&nbsp; Help keyword(s): :pop, Ctrl-T, &lt;C-RightMouse&gt;, g&lt;RightMouse&gt;<br><br>9. How do I jump again to a previously jumped tag location?<br><br>&nbsp;&nbsp; You can use the 'tag' ex command to jump to a previously jumped tag<br>&nbsp;&nbsp; location, which is stored in the tag stack.<br><br>&nbsp;&nbsp; Help keyword(s): tag<br><br>10. How do I list the contents of the tag stack?<br><br>&nbsp;&nbsp; Vim remembers the location from which you jumped to a tag in the<br>&nbsp;&nbsp; tag stack.&nbsp;&nbsp;You can list the current tag stack using the 'tags' ex<br>&nbsp;&nbsp; command.<br><br>&nbsp;&nbsp; Help keyword(s): :tags, tagstack<br><br>11. How do I jump to a particular tag match, if there are multiple<br>&nbsp;&nbsp;&nbsp;&nbsp;matching tags?<br><br>&nbsp;&nbsp;&nbsp;&nbsp;In some situations, there can be more than one match for a tag.<br>&nbsp;&nbsp;&nbsp;&nbsp;For example, a C function or definition may be present in more<br>&nbsp;&nbsp;&nbsp;&nbsp;than one file in a source tree.&nbsp;&nbsp;There are several ways to jump to<br>&nbsp;&nbsp;&nbsp;&nbsp;a specific tag from a list of matching tags.<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. You can use the 'tselect' ex command to list all the tag<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; matches.&nbsp;&nbsp;For example,<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:tselect func1<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will list all the locations where func1 is defined.&nbsp;&nbsp;You can<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then enter the number of a tag match to jump to that<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;location.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. You can position the cursor over the tag name and press g]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to get a list of matching tags.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. You can visually select a text and press g] to get a list<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; of matching tags.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. You can use the 'stselect' ex command.&nbsp;&nbsp;This will open the<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; selected tag from the tag list in a new window.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. You can position the cursor over the tag name and press<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ctrl-W g] to do a :stselect.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;Help keyword(s): tag-matchlist, :tselect, g], v_g], :stselect,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ctrl-W_g]<br><br>12. I want to jump to a tag, if there is only one matching tag,<br>&nbsp;&nbsp;&nbsp;&nbsp;otherwise a list of matching tags should be displayed.&nbsp;&nbsp;How do I<br>&nbsp;&nbsp;&nbsp;&nbsp;do this? <br><br>&nbsp;&nbsp;&nbsp;&nbsp;There are several ways to make Vim to jump to a tag directly, if<br>&nbsp;&nbsp;&nbsp;&nbsp;there is only one tag match, otherwise present a list of tag<br>&nbsp;&nbsp;&nbsp;&nbsp;matches.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. You can use the 'tjump' ex command.&nbsp;&nbsp;For example,<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:tjump func1<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; will jump to the definition func1, if it is defined only<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; once.&nbsp;&nbsp;If func1 is defined multiple times, a list of<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; matching tags will be presented.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. You can position the cursor over the tag and press g<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ctrl-].<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. You can visually select a text and press g Ctrl-] to jump<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; or list the matching tags.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. You can use the 'stjump' ex command.&nbsp;&nbsp;This will open the<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; matching or selected tag from the tag list in a new window.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. You can press Ctrl-W g Ctrl-] to do a :stjump.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;Help keyword(s): :tjump, g_Ctrl-], v_g_CTRL-], :stjump,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ctrl-W_g_Ctrl-]<br><br>13. How do browse through a list of multiple tag matches?<br><br>&nbsp;&nbsp;&nbsp;&nbsp;If there are multiple tag matches, you can browse through all of<br>&nbsp;&nbsp;&nbsp;&nbsp;them using several of the Vim ex commands.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;1. To go to the first tag in the list, use the 'tfirst' or<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'trewind' ex command.<br>&nbsp;&nbsp;&nbsp;&nbsp;2. To go to the last tag in the list, use the 'tlast' ex command.<br>&nbsp;&nbsp;&nbsp;&nbsp;3. To go to the next matching tag in the list, use the 'tnext' ex<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; command.<br>&nbsp;&nbsp;&nbsp;&nbsp;4. To go to the previous matching tag in the list, use the<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'tprevious' or 'tNext' ex command.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;Help keyword(s): :tfirst, :trewind, :tlast, :tnext, :tprevious,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :tNext<br><br>14. How do I preview a tag?<br><br>&nbsp;&nbsp;&nbsp;&nbsp;You can use the preview window to preview a tag, without leaving<br>&nbsp;&nbsp;&nbsp;&nbsp;the original window.&nbsp;&nbsp;There are several ways to preview a tag:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. You can use the 'ptag' ex command to open a tag in the<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; preview window.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. You can position the cursor on a tag name and press Ctrl-W<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } to open the tag in the preview window.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. You can use the 'ptselect' ex command to do the equivalent<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; of the 'tselect' ex command in the preview window.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. You can use the 'ptjump' ex command to do the equivalent of<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the 'tjump' ex command in the preview window.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. You can position the cursor on the tag and press Ctrl-W g}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to do a :ptjump on the tag.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;Help keyword(s): :preview-window, :ptag, Ctrl-W_}, :ptselect,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :ptjump, Ctrl-W_g}<br><br>15. How do I browse through the tag list in a preview window?<br><br>&nbsp;&nbsp;&nbsp;&nbsp;If there are multiple tag matches, you can browse through all of<br>&nbsp;&nbsp;&nbsp;&nbsp;them in the preview window using several of the Vim ex commands.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;1. To go to the first tag in the list, use the 'ptfirst' or<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'ptrewind' ex command.<br>&nbsp;&nbsp;&nbsp;&nbsp;2. To go to the last tag in the list, use the 'ptlast' ex command.<br>&nbsp;&nbsp;&nbsp;&nbsp;3. To go to the next matching tag in the list, use the 'ptnext' ex<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; command.<br>&nbsp;&nbsp;&nbsp;&nbsp;4. To go to the previous matching tag in the list, use the<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'ptprevious' or 'ptNext' ex command.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;Help keyword(s): :ptfirst, :ptrewind, :ptlast, :ptnext,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :ptprevious, :ptNext<br><br>16. How do I start Vim to start editing a file at a given tag match?<br><br>&nbsp;&nbsp;&nbsp;&nbsp;While starting Vim, you can use the command line option '-t' to<br>&nbsp;&nbsp;&nbsp;&nbsp;supply a tag name.&nbsp;&nbsp;Vim will directly jump to the supplied tag<br>&nbsp;&nbsp;&nbsp;&nbsp;location.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;Help keyword(s): -t<br><br>17. How do I list all the tags matching a search pattern?<br><br>&nbsp;&nbsp;&nbsp;&nbsp;There are several ways to go through a list of all tags matching a<br>&nbsp;&nbsp;&nbsp;&nbsp;pattern.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. You can list all the tags matching a particular regular<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; expression pattern by prepending the tag name with the '/'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; search character.&nbsp;&nbsp;For example,<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:tag /&lt;pattern&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:stag /&lt;pattern&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:ptag /&lt;pattern&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:tselect /&lt;pattern&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:tjump /&lt;pattern&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:ptselect /&lt;pattern&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:ptjump /&lt;pattern&gt;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2. If you have the 'wildmenu' option set, then you can press<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the &lt;Tab&gt; key to display a list of all the matching tags<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in the status bar.&nbsp;&nbsp;You can use the arrow keys to move<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;between the tags and then use the &lt;Enter&gt; key to select a<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tag.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3. If you don't have the 'wildmenu' option set, you can still<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;use the &lt;Tab&gt; key to browse through the list of matching<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tags.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;Help keyword(s): tag-regexp, wildmenu<br><br>18. What options are available to control how Vim handles the tags<br>&nbsp;&nbsp;&nbsp;&nbsp;file?<br><br>&nbsp;&nbsp;&nbsp;&nbsp;You can use the following options to control the handling of tags<br>&nbsp;&nbsp;&nbsp;&nbsp;file by Vim:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;1. 'tagrelative' - Controls how the file names in the tags file<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; are treated.&nbsp;&nbsp;When on, the filenames are<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; relative to the directory where the tags file<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; is present.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;2. 'taglength' -&nbsp;&nbsp;Controls the number of significant characters<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;used for recognizing a tag.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;3. 'tagbsearch' - Controls the method used to search the tags file<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for a tag.&nbsp;&nbsp;If this option is on, binary search<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is used to search the tags file.&nbsp;&nbsp;Otherwise,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linear search is used.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;4. 'tagstack' - Controls how the tag stack is used.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;Help keyword(s): 'tagrelative', 'taglength', 'tagbsearch',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'tagstack'<br><br>19. Is it possible to highlight all the tags in the current file?<br><br>&nbsp;&nbsp;&nbsp;&nbsp;Yes.&nbsp;&nbsp;Read the Vim online help on &quot;tag-highlight&quot;.<br><br>20. Is it possible to create a menu with all the tags in the current<br>&nbsp;&nbsp;&nbsp;&nbsp;file?<br><br>&nbsp;&nbsp;&nbsp;&nbsp;Yes.&nbsp;&nbsp;It is possible to create a menu with all the tags in the<br>&nbsp;&nbsp;&nbsp;&nbsp;current file using a Vim script.&nbsp;&nbsp;Download the TagsMenu.vim script<br>&nbsp;&nbsp;&nbsp;&nbsp;from the following link: <br><br>&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://members.home.net/jayglanville/tagsmenu/TagsMenu.html">http://members.home.net/jayglanville/tagsmenu/TagsMenu.html</A><br><br>21. Is there a workaround to make the Ctrl-] key not to be treated as<br>&nbsp;&nbsp;&nbsp;&nbsp;the telnet escape character?<br><br>&nbsp;&nbsp;&nbsp;&nbsp;The default escape characters for telnet in Unix systems is<br>&nbsp;&nbsp;&nbsp;&nbsp;Ctrl-].&nbsp;&nbsp;While using Vim in a telnet session, if you use Ctrl-] to<br>&nbsp;&nbsp;&nbsp;&nbsp;jump to a tag, you will get the telnet prompt.&nbsp;&nbsp;There are two ways<br>&nbsp;&nbsp;&nbsp;&nbsp;to avoid this problem:<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;1. Map the telnet escape character to some other character using<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the &quot;-e &lt;escape character&gt;&quot; telnet command line option<br><br>&nbsp;&nbsp;&nbsp;&nbsp;2. Disable the telnet escape character using the &quot;-E&quot; telnet<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; command line option.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;Help keyword(s): telnet-CTRL-]<br><br></code></p>
+
+<!-- rating table -->
+<form name="rating">
+  <input type="hidden" name="tip_id" value="94">
+  <table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+    <tr>
+      <td class="lightbg"><b>&nbsp;rate this tip&nbsp;</b></td>
+      <td valign="middle">
+	<input type="radio" name="rating" value="life_changing">Life Changing
+	<input type="radio" name="rating" value="helpful">Helpful
+	<input type="radio" name="rating" value="unfulfilling">Unfulfilling&nbsp;
+	<input type="submit" value="rate">
+      </td>
+    </tr>
+  </table>
+</form>
+<p>
+
+    <small>
+          <a href="tip.php?tip_id=93">&lt;&lt;if you use 'highlight search' feature, map a key to :noh</a> | 
+                <a href="tip.php?tip_id=95">How do I pipe the output from ex commands into the text buffer? &gt;&gt;</a> 
+    </small>
+
+<br>
+<br>
+<h1>Additional Notes</h1>
+
+<form method="get" action="add_tip_note.php">
+<input type='hidden' name='tip_id' value="94">
+<table width="100%" cellpadding="3" cellspacing="4" border="0">
+    	<tr>
+	  <td class="lightbg">
+	    	    sunda4u@yahoo.com, 
+	    	    <font size='-1'> March 29, 2002 4:32 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>ctags is a great tool..I'm wondering how I havent come across like these tools earlier</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    <b>Anonymous</b>, 
+	    	    <font size='-1'> February 27, 2003 12:21 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>How do I list where all the tags referenced. All the tag commands in vim are designed<br>to search for a tag but not find the references to it. If any one knows the trick, could<br>you please share it.</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    asdf@asdf.com, 
+	    	    <font size='-1'> April 27, 2003 11:07 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>You are looking for cscope.<br>:he cscope<br><a target="_blank" href="http://cscope.sourceforge.net">http://cscope.sourceforge.net</A></tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    kallumama, 
+	    	    <font size='-1'> July 24, 2003 11:30 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>Heres an excellent tutorial on using cscope with vim ; right from installing to becoming an expert.<br><br><a target="_blank" href="http://cscope.sourceforge.net/cscope_vim_tutorial.html">http://cscope.sourceforge.net/cscope_vim_tutorial.html</A></tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    ryan@trigger.co.za, 
+	    	    <font size='-1'> October 22, 2003 2:35 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>Um, for some reason - I couldn't get recursive lookup of tags to work with just the<br><br>set tags=tags;/ <br><br>line - changing it to <br><br>set tags=./tags;/<br><br>works just fine - the only time I've EVER come across the need to use the ./ thing...</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    molotov1134@hotmail.com, 
+	    	    <font size='-1'> October 31, 2003 11:42 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>Howabout for support of C++ tags?&nbsp;&nbsp;Specificly, if I have a function named foo() in class A and class B, vim goes to the first match of foo(), it could be A::foo() or B::foo().&nbsp;&nbsp;Is there any way to resolve the C++ (or java) class name as part of jumping to a tag?&nbsp;&nbsp;This would be supremely helpful.&nbsp;&nbsp;I sometimes have tag lists of 20 possible matches, and its annoying.<br><br>Thanks.</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    vlb@cfcl.com, 
+	    	    <font size='-1'> November 10, 2003 14:27 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>The TagsMenu link is no longer correct</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    seth, 
+	    	    <font size='-1'> January 15, 2004 10:36 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>TagMenu has been moved to <a target="_blank" href="http://members.rogers.com/jayglanville/tagsmenu/">http://members.rogers.com/jayglanville/tagsmenu/</A></tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    tomgun6@charter.net, 
+	    	    <font size='-1'> February 10, 2004 20:25 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>How do I configure Vim to load tags files automagically so that I don't have to explicitly enter set tags=/yadda/yadda, /blah/blah every time I'm viewing/editing a source file?</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    tomgun6, 
+	    	    <font size='-1'> February 10, 2004 21:44 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>Note to self: next time, RTFM!&nbsp;&nbsp;vimrc, duh!&nbsp;&nbsp;Sorry about the wasted post.&nbsp;&nbsp;Just delete it if you want.</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    rsharat@ti.com, 
+	    	    <font size='-1'> March 1, 2004 0:59 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>Ctags is a real cool tool.Really life changing</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    davidxyr@hotmail.com, 
+	    	    <font size='-1'> March 14, 2004 22:47 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>How do I use tag function to write Java program? Especially in the case when I can only get the Java doc rather than the java source code.</tt></td>
+	</tr>
+        <tr>
+      <td>
+	<input type="submit" name="Add Note" value="Add Note">
+      </td>
+    </tr>
+</table>
+</form>
+<!-- finish off the framework -->
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!-- END OF THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td></tr>
+  <tr><td colspan="4" bgcolor="#000000"><img src="/images/spacer.gif" width="1" height="2"  alt=""></td></tr>
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td></tr>
+  <tr>
+    <td><img src="/images/spacer.gif" width="5"  height="1" alt=""></td>
+
+    <td align="left" valign="top"><small>
+      If you have questions or remarks about this site, visit the
+      <a href="http://vimonline.sf.net">vimonline development</a> pages.
+      Please use this site responsibly.
+      <br> 
+      
+      Questions about <a href="http://www.vim.org/about.php">Vim</a> should go
+      to vim@vim.org after searching
+      <a href="http://groups.yahoo.com/group/vim">the archive</a>.
+      Help Bram <a href="http://iccf-holland.org/">help Uganda</a>.
+      </small>
+    </td>
+
+    <td align="right" valign="top">
+	<a href="http://www.webconceptgroup.net"><img src="/images/logo_sponsor_wcg.jpg" width="131"  height="30" border="0" alt="Sponsored by Web Concept Group Inc."></a>
+	<a href="http://sourceforge.net"><img src="http://config.privoxy.org/send-banner?type=auto" title="Killed-http://sourceforge.net/sflogo.php?group_id=8&type=1-by-size" width="88" height="31"></a>
+    </td>
+
+    <td><img src="/images/spacer.gif" width="5"  height="1" alt=""></td>
+  </tr>
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td></tr>
+</table>
+
+<script><!--
+function PrivoxyWindowOpen(a, b, c){return(window.open(a, b, c));}
+//--></script></body>
+</html>
+

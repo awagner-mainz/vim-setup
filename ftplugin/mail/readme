@@ -1,0 +1,57 @@
+NOTE: There's no need to patch abook version 0.4.14 or later.
+NOTE2: The command in abook is 'Q' not 'P'.
+
+--- Original message from Brian Medley <brian.medley@verizon.net> ---
+Hi,
+
+I am trying to make abook work better (for me) within vim.  I am doing
+this because I have 'autoedit' and 'edit_headers' set in mutt.  This
+means I would like to have easy access to my abook addressbook (from
+within the editor).
+
+To accomplish this I have written a vim plugin (it will need vim 6.0)
+and have patched abook.  Both are included.  The patch is against abook
+0.4.13.
+
+Amongst other things, they allow me to obtain an address listing from
+abook and perform a mutt query using abook.  Below is an example.
+
+Suppose I have the following line (the cursor is at the caret):
+    To: 
+        ^
+I can now hit '\al' to lauch abook.  Once inside, I can highlight the
+people I want to email.  Then I hit 'P'.  Their email addresses now
+appear.  Next, suppose I have:
+    To: john
+            ^
+My plugin allows the command '\aq' to perform an alias mutt query using
+abook.  It uses the word under the cursor, so "john" will be looked up
+inside of abook.  Next, his email address will appear.  
+
+Summary:
+    \aq => alias query
+    \al => alias list
+
+Note:
+    - \ is actually LocalLeader
+    - I am aware that abook can do these things from within *mutt*, but
+      I want to do them from within vim.
+    - This plugin does other stuff, as well (like deleting signatures,
+      and positioning the cursor when you start) because I stole code
+      from Cedric Duval's mail vimrc.
+    - Improvements / comments are welcome.
+
+Todo:
+    - Documentation :)
+    - I tried to write this so that another alias query program could be
+      used (e.g. ldap), but I have not implemented this.  
+
+Bugs:
+    - I had trouble getting this to work in gvim.  I used vim in a
+      console.
+
+Basic Installation:
+    - patch and install abook
+    - place the mail.vim plugin in ~/.vim/after/ftplugin
+
+--- ---

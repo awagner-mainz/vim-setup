@@ -1,0 +1,152 @@
+" Formatting
+set tabstop=4                   " tabs are 4 spaces
+set bs=2                                " backspace over everything in
+insert mode
+set smartindent                 " does C-style stuff
+
+" Mouse stuff
+set mousehide                   " hides mouse after characters are typed
+set mousefocus                  " no real reason for this
+set mouse=a                             " mouse in all modes
+set mousem=popup                " Right mouse button pops up a menu.
+Shift-left extends selection      
+
+" Other stuff
+set autowrite                   " writes on make and shell commands, etc
+set     ruler                           " Turn the ruler on
+set nohlsearch                  " Highlighting found search items is
+annoying
+set nocompatible                " vi compatibility is weak
+
+" set suffixes to ignore in command-line completion
+set
+suffixes=.bak,~,.o,.h,.info,.swp,.aux,.bbl,.blg,.dvi,.lof,.log,.lot,.ps,.toc
+
+" run ispell on current file
+" map #fi :w:!ispell %:e %
+" 
+" I'm not sure what key that is mapping to, or if it is just the key
+" sequence specified ..
+
+" Remove ALL auto-commands.  This avoids having the autocommands twice
+" in case the .vimrc file gets sourced more than once.
+autocmd!
+
+" LaTeX autocmds
+autocmd BufRead                 *.tex   source ~/.vim-files/.vimrc.latex
+autocmd BufNewFile              *.tex   source ~/.vim-files/.vimrc.latex
+" C autocmds
+autocmd BufRead                 *.c             source
+~/.vim-files/.vimrc.c
+autocmd BufNewFile              *.c             source
+~/.vim-files/.vimrc.c
+" asm autocmds
+autocmd BufRead                 *.s,*.S,*.asm   source
+~/.vim-files/.vimrc.asm
+autocmd BufNewFile              *.s,*.S,*.asm   0r
+~/.vim-files/skeletons/skel.asm      
+autocmd BufNewFile              *.s,*.S,*.asm   source
+~/.vim-files/.vimrc.asm
+" HTML autocmds
+autocmd BufRead                 *.htm,*.html    source
+~/.vim-files/.vimrc.html
+autocmd BufNewFile              *.htm,*.html    0r
+~/.vim-files/skeletons/skel.html
+autocmd BufNewFile              *.htm,*.html    source
+~/.vim-files/.vimrc.html
+" Perl autocmds
+autocmd BufRead                 *.pl    source  ~/.vim-files/.vimrc.perl
+autocmd BufNewFile              *.pl    0r ~/.vim-files/skeletons/skel.pl
+autocmd BufNewFile              *.pl    source ~/.vim-files/.vimrc.perl
+autocmd BufWrite                *.pl    !chmod +x %
+" Java autocmds
+autocmd BufRead                 *.java  source ~/.vim-files/.vimrc.java
+autocmd BufNewFile              *.java  source ~/.vim-files/.vimrc.java
+
+" Only do this for Vim version 5.0 and later.
+if version >= 500
+
+if has("terminfo")
+  set t_Co=8
+  set t_Sf=[3%p1%dm
+  set t_Sb=[4%p1%dm
+else
+  set t_Co=8
+  set t_Sf=[3%dm
+  set t_Sb=[4%dm
+endif
+
+endif
+
+" And of course, the ever important syntax highlighting
+" This has to go last because of the if stuff above
+syntax on
+
+
+
+
+#####################
+
+### ~/.vimrc 
+
+
+" just load the main syntax file when Vim was compiled with "+syntax" 
+  if has("syntax") 
+      " The following sources the main syntax file, 
+      " ie. "$VIM/syntax/syntax.vim", see ":help :syn-on": 
+      syntax on 
+      " Redefine the color for "Comment": 
+      hi! Comment term=bold ctermfg=cyan guifg=Blue 
+  endif 
+" 
+" für bestimmte Dateitypen jeweilige .vimrc laden 
+
+
+  autocmd FileType mutt source ~/.vim/mutt 
+  autocmd FileType html source ~/.vim/html 
+  autocmd FileType tex source ~/.vim/latex 
+### Ende Ausschnitt 
+
+
+### ~/.vim/mutt 
+
+
+" MUTT: Auto-kill signatures for replies 
+  map ,kqs G?^> *-- $<C-M>d} 
+  autocmd BufNewFile,BufRead .followup,.letter,mutt* :normal ,kqs 
+" 
+### Ende Ausschnitt 
+
+
+Wenn ich ,kqs per Hand eingebe, dann geht es, es wird aber nicht 
+automatisch gestartet... kann man hieraus sehen, wieso nicht ? Und 
+ja, ~/.vim/mutt wird geladen. 
+
+
+> > Wie stellt vim denn "FileType mail" fest ? Dateiendung ? 
+> 
+> Dateianfang! ;) Mails heißen bei mutt: mutt-Rechnername-irgendwas. 
+
+
+Oder für eigene Dateitypen aus ~/.vim/filetype.vim (aus :help FileType) 
+
+
+### ~/.vim/filetypes.vim 
+
+
+" my filetypes 
+augroup filetypedetect 
+  au! BufRead,BufNewFile mutt-* setfiletype mutt 
+  au! BufRead,BufNewFile *.tex setfiletype latex 
+  au! BufRead,BufNewFile *.html setfiletype html 
+augroup END 
+### 
+
+
+Irgendwelche Tips ? 
+
+
+Gruß, 
+
+
+Sebastian

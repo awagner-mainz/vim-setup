@@ -1,0 +1,596 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+
+<!-- <Proxomitron filter="Prox: Start-Filterskript einfuegen [P]"> -->
+<!-- URL: http://www.vim.org/scripts/script.php?script_id=42 -->
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript">
+var ProxSuccessStartCode="HeadGeladen"; var ProxSuccessEndCode=false; var ProxJSVer="Head:P3.0.0,"; if(!window.ProxSK_windowAlert){window.ProxSK_windowAlert=window.alert;} if(!window.document.ProxSK_write){window.document.ProxSK_write=window.document.write;} if(!window.ProxSK_windowSetTimeout){window.ProxSK_windowSetTimeout=window.setTimeout;}
+var ProxConfSC = "FktWinMovRes,FktWinFocBlu,PrpStatus,EHWinMoveRes,EHPageUnload,EHAbortLoad,EHMouseDownUpElem,EHMouseDownUp,WOCActive,WOCAllowOnClick,WOCForceCon,";
+</script>
+<link rel="stylesheet" type="text/css" href="http://local.ptron/ProxCSS.css" /> <script type="text/javascript" src="http://local.ptron/ProxJSStart.js"></script>
+<style type="text/css">
+</style>
+<!-- </Proxomitron> -->
+
+<link rel="Stylesheet" type="text/css" href="/css/style.css" >
+  <title>bufexplorer.zip - Easily switch between buffers without knowing their numbers : vim online</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="KEYWORDS" content="Vim, Vi IMproved, text editor, home, documentation, tips, scripts, news">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/vim_shortcut.ico">
+</head>
+
+<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="#ffffff"> 
+
+<!-- HEADER, SPONSOR IMAGE, VIM IMAGE AND BOOK AD -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tr>
+    <td colspan="4" class="lightbg"><img src="/images/spacer.gif" width="1" height="5" alt=""></td>
+  </tr>
+  <tr>
+  <td class="lightbg">&nbsp;&nbsp;&nbsp;</td>
+  <td class="lightbg" align="left"><a href="/sponsor/index.php"><img src="/images/sponsorvim.gif" alt="sponsor Vim development" border="0"></a></td>
+    <td class="lightbg" align="center"><a href="/index.php"><img src="/images/vim_header.gif" border="0" alt="Vim logo"></a></td>
+    <td class="lightbg" align="right"><a href="http://iccf-holland.org/click5.html"><img src="/images/buyhelplearn.gif" alt="Vim Book Ad" border="0"></a></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="lightbg"><img src="/images/spacer.gif" width="1" height="5" alt=""></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="darkbg"><img src="/images/spacer.gif" width="1" height="10" alt=""></td>
+  </tr>
+</table>
+<!-- THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+  <col width="180">
+  <col width="1">
+
+  <tr valign="top">
+    <td class="sidebar">
+      <table width="180" cellpadding="4" cellspacing="0" border="0">
+        <tr valign="top">
+          <td class="sidebar">
+
+<!-- INCLUDE THE PAGE NAVIGATION -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+    <tr>
+        <td><small>not logged in (<a href="/login.php">login</a>)</small></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="1"></td>
+    </tr>
+    <tr>
+        <td class="darkbg"><img src="/images/spacer.gif" alt='' border="0" height="3"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="2"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/index.php">Home</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/search.php">Search</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/about.php">About Vim</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/community.php">Community</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/news/news.php">News</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/sponsor/index.php">Sponsoring</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/trivia.php">Trivia</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/docs.php">Documentation</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/download.php">Download</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/scripts/index.php">Scripts</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/tips/index.php">Tips</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/account/index.php">My Account</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/huh.php">Site Help</a></td>
+        </tr>
+</table>
+
+            <table width="172" cellpadding="0" cellspacing="0" border="0">
+              <tr><td><img src="/images/spacer.gif" alt="" border="0" width="1" height="8"></td></tr>
+              <tr><td class="darkbg"><img src="/images/spacer.gif" width="1" height="3" alt=""></td></tr>
+            </table>
+            <br>
+
+<!-- INCLUDE THE PAGE SIDEBAR TEXT -->
+&nbsp;
+
+          </td>
+        </tr>
+      </table>
+    </td>
+
+    <td class="darkbg"><img src="/images/spacer.gif" width="1" height="1" border="0" alt=""><br></td>
+    <td>
+      <table width="100%" cellpadding="10" cellspacing="0" border="0" bordercolor="red">
+        <tr>
+          <td valign="top">
+
+<span class="txth1">bufexplorer.zip : Easily switch between buffers without knowing their numbers</span> 
+
+<br>
+<br>
+
+<!-- karma table -->
+<table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+<tr>
+  <td class="lightbg"><b>&nbsp;script karma&nbsp;</b></td>
+  <td>
+    Rating <b>1174/401</b>,
+    Downloaded by 19307  </td>
+</tr>
+</table>
+<p>
+
+<table cellspacing="0" cellpadding="0" border="0">
+<tr><td class="prompt">created by</td></tr>
+<tr><td><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td class="prompt">script type</td></tr>
+<tr><td>utility</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td class="prompt">description</td></tr>
+<tr><td>With bufexplorer, you can quickly switch between buffers by using '\be' to open the explorer or '\bs' to open the explorer in a split horizontal window or \bv to open the explorer in a split vertical window. These are the default values, but these can be changed to what ever you would like. Once the explorer is open you can perform various operations on the buffers. You can sort (by MRU (default), buffer number, buffer name, or full file path) in forward or reverse order. You can delete buffers. You as see toggle the full directory paths on your buffers. You can select a buffer to open by using the keyboard to select the buffer or by double-clicking the mouse on the selected buffer. You can even open the selected buffer in a new window is you would like. If you need help while in the explorer press the '?' key. And finally to quit the explorer, press the &lt;esc&gt; key...<br><br>If you would like more detailed information, please take a look at the supplied documentation.<br><br>NOTE: Version 6.3.0 and above will ONLY work with 6.3 and above of Vim.</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td class="prompt">install details</td></tr>
+<tr><td>Simply unzip bufexplorer.zip into a directory in your 'runtimepath', usually ~/.vim or c:\vimfiles, and restart Vim. This zip file contains plugin\bufexplorer.vim and doc\bufexplorer.txt.&nbsp;&nbsp;See ':help add-local-help' on how to add bufexplorer.txt to vim's help system.<br><br>NOTE: Version 6.3.0 and above will ONLY work with 6.3 and above of Vim.</td></tr>
+<tr><td>&nbsp;</td></tr>
+</table>
+
+<!-- rating table -->
+<form name="rating">
+<input type="hidden" name="script_id" value="42">
+<table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+<tr>
+  <td class="lightbg"><b>rate this script</b></td>
+  <td valign="middle">
+    <input type="radio" name="rating" value="life_changing">Life Changing
+    <input type="radio" name="rating" value="helpful">Helpful
+    <input type="radio" name="rating" value="unfulfilling">Unfulfilling&nbsp;
+    <input type="submit" value="rate">
+  </td>
+</tr>
+</table>
+</form>
+<span class="txth2">script versions</span> (<a href="add_script_version.php?script_id=42">upload new version</a>)
+<p>
+Click on the package to download.
+<p>
+
+<table cellspacing="2" cellpadding="4" border="0" width="100%">
+<tr class='tableheader'>
+        <th valign="top">package</th>
+    <th valign="top">script version</th>
+    <th valign="top">date</th>
+    <th valign="top">Vim version</th>
+    <th valign="top">user</th>
+    <th valign="top">release notes</th>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=5409">bufexplorer.zip</a></td>
+    <td class="rowodd" valign="top" nowrap><b>7.0.11</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2006-03-10</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Fixed a couple of highlighting bugs, reported by David Eggum. He also changed passive voice to active on a couple of warning messages.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=5353">bufexplorer.zip</a></td>
+    <td class="roweven" valign="top" nowrap><b>7.0.10</b></td>
+    <td class="roweven" valign="top" nowrap><i>2006-03-02</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="roweven" valign="top" width="2000">Fixed bug report by Xiangjiang Ma. If the 'ssl' option is set, the slash character used when displaying the path was incorrect. Thanks Xiangjiang!<br></td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=5337">bufexplorer.zip</a></td>
+    <td class="rowodd" valign="top" nowrap><b>7.0.9</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2006-02-28</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Martin Grenfell found and eliminated an annoying bug in the bufexplorer/winmanager integration. The bug was were an annoying message would be displayed when a window was split or a new file was opened in a new window. Thanks Martin!</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=4993">bufexplorer.zip</a></td>
+    <td class="roweven" valign="top" nowrap><b>7.0.8</b></td>
+    <td class="roweven" valign="top" nowrap><i>2006-01-18</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="roweven" valign="top" width="2000">Thanks to Mike Li for catching a bug in the WinManager integration. The bug was related to the incorrect displaying of the buffer explorer's window title.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=4904">bufexplorer.zip</a></td>
+    <td class="rowodd" valign="top" nowrap><b>7.0.7</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2005-12-19</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Thanks to Jeremy Cowgar for adding a new enhancement. This enhancement allows the user to press 'S', that is capital S, which will open the buffer under the cursor in a newly created split window.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=4775">bufexplorer.zip</a></td>
+    <td class="roweven" valign="top" nowrap><b>7.0.6</b></td>
+    <td class="roweven" valign="top" nowrap><i>2005-11-18</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="roweven" valign="top" width="2000">Thanks to Larry Zhang for finding a bug in the &quot;split&quot; buffer code. If you force set g:bufExplorerSplitType='v' in your vimrc, and if you tried to do a \bs to split the bufexplorer window, it would always split horizontal, not vertical. He also found that I had a typeo in that the variable g:bufExplorerSplitVertSize was all lower case in the documentation which was incorrect.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=4680">bufexplorer.zip</a></td>
+    <td class="rowodd" valign="top" nowrap><b>7.0.5</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2005-10-18</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Thanks to Mun Johl for pointing out a bug that if a buffer was modified, the '+' was not showing up correctly.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=4645">bufexplorer.zip</a></td>
+    <td class="roweven" valign="top" nowrap><b>7.0.4</b></td>
+    <td class="roweven" valign="top" nowrap><i>2005-10-03</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="roweven" valign="top" width="2000">Fixed a problem discovered first by Xiangjiang Ma. Well since I've been using vim 7.0 and not 6.3, I started using a function (getftype) that is not in 6.3. So for backward compatibility, I conditionaly use this function now.&nbsp;&nbsp;Thus, the g:bufExplorerShowDirectories feature is only available when using vim 7.0 and above.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=4636">bufexplorer.zip</a></td>
+    <td class="rowodd" valign="top" nowrap><b>7.0.3</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2005-09-30</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Thanks to Erwin Waterlander for finding a problem when the last buffer was deleted. This issue got me to rewrite the buffer display logic (which I've wanted to do for sometime now).<br>Also great thanks to Dave Eggum for coming up with idea for g:bufExplorerShowDirectories. Directories usually show up in the list from using a command like &quot;:e .&quot;, this controls how those are displayed.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=4072">bufexplorer.zip</a></td>
+    <td class="roweven" valign="top" nowrap><b>7.0.2</b></td>
+    <td class="roweven" valign="top" nowrap><i>2005-03-25</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="roweven" valign="top" width="2000">Thanks to Thomas Arendsen Hein for finding a problem when a user has the default help turned off and then brought up the explorer. An E493 would be displayed.<br></td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=3994">bufexplorer.zip</a></td>
+    <td class="rowodd" valign="top" nowrap><b>7.0.1</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2005-03-10</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Thanks to Erwin Waterlander for finding a couple problems. The first problem allowed a modified buffer to be deleted.&nbsp;&nbsp;Opps! The second problem occured when several files were opened, BufExplorer was started, the current buffer was deleted using the 'd' option, and then BufExplorer was exited. The deleted buffer was still visible while it is not in the buffers list. Opps again!</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=3932">bufexplorer.zip</a></td>
+    <td class="roweven" valign="top" nowrap><b>7.0.0</b></td>
+    <td class="roweven" valign="top" nowrap><i>2005-02-28</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="roweven" valign="top" width="2000">Thanks to Shankar R. for suggesting to add the ability to set the fixed width (g:bufExplorerSplitVertSize) of a new window when opening bufexplorer vertically and fixed height (g:bufExplorerSplitHorzSize) of a new window when opening bufexplorer horizontally. By default, the windows are normally split to use half the existing width or height.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=3262">bufexplorer.zip</a></td>
+    <td class="rowodd" valign="top" nowrap><b>6.3.0</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2004-07-23</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Added keepjumps so that the jumps list would not get clutered with bufexplorer related stuff.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=2937">bufexplorer.zip</a></td>
+    <td class="roweven" valign="top" nowrap><b>6.2.3</b></td>
+    <td class="roweven" valign="top" nowrap><i>2004-04-15</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="roweven" valign="top" width="2000">Thanks to Jay Logan for finding&nbsp;&nbsp;a bug in the vertical split postion of the code. When selecting that the window was to be split vertically by doing a '\bv', from then on, all splits, i.e. '\bs', were split vertically, even though g:bufExplorerSplitType was not set to 'v'.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=2652">bufexplorer.zip</a></td>
+    <td class="rowodd" valign="top" nowrap><b>6.2.2</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2004-01-09</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Thanks to Patrik Modesto for adding a small improvement. For some reason his bufexplorer window was always showing up folded. He added 'setlocal nofoldenable' and it was fixed. If you are having the same problem, this version is for you...<br></td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=2383">bufexplorer.zip</a></td>
+    <td class="roweven" valign="top" nowrap><b>6.2.1</b></td>
+    <td class="roweven" valign="top" nowrap><i>2003-10-09</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="roweven" valign="top" width="2000">Thanks goes out to Takashi Matsuo for added the 'fullPath' sorting logic and option.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=2075">bufexplorer.zip</a></td>
+    <td class="rowodd" valign="top" nowrap><b>6.2.0</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2003-06-13</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Thanks goes out to Simon Johann-Günter for spotting and fixing a problem in that the last search pattern is overriden by the search pattern for blank lines.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=1968">bufexplorer.zip</a></td>
+    <td class="roweven" valign="top" nowrap><b>6.1.6</b></td>
+    <td class="roweven" valign="top" nowrap><i>2003-05-05</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="roweven" valign="top" width="2000">Thanks to Artem Chuprina for finding a pesky bug that has been around for sometime now. The &lt;esc&gt; key mapping was causing the buffer explored to close prematurely when vim was run in an xterm. The &lt;esc&gt; key mapping is now removed.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=1948">bufexplorer.zip</a></td>
+    <td class="rowodd" valign="top" nowrap><b>6.1.5</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2003-04-28</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Thanks to Khorev Sergey. Added option to show default help or not.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=1822">bufexplorer.zip</a></td>
+    <td class="roweven" valign="top" nowrap><b>6.1.4</b></td>
+    <td class="roweven" valign="top" nowrap><i>2003-03-18</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="roweven" valign="top" width="2000">Thanks goes out to Valery Kondakoff for suggesting the addition of setlocal nonumber and foldcolumn=0. This allows for line numbering and folding to be turned off temporarily while in the explorer.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=1799">bufexplorer.zip</a></td>
+    <td class="rowodd" valign="top" nowrap><b>6.1.3</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2003-03-11</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Added the ability to force the newly split window to be temporarily vertical, which was suggested by Thomas Glanzmann. Added folding. Did some code cleanup.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=1376">bufexplorer.zip</a></td>
+    <td class="roweven" valign="top" nowrap><b>6.1.2</b></td>
+    <td class="roweven" valign="top" nowrap><i>2002-11-05</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="roweven" valign="top" width="2000">Now pressing the &lt;esc&gt; key will quit, just like 'q'. Added folds to hide winmanager configuration. If anyone had the 'C' option in their cpoptions they would receive a E10 error on startup of BufExplorer. cpo is now saved, updated and restored. Thanks to Charles E Campbell, Jr. Attempted to make sure there can only be one BufExplorer window open at a time.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=724">bufexplorer.zip</a></td>
+    <td class="rowodd" valign="top" nowrap><b>6.1.1</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2002-03-28</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Thanks to Brian D. Goodwin for adding toupper to FileNameCmp. This way buffers sorted by name will be in the correct order regardless of case.<br></td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=684">bufexplorer.zip</a></td>
+    <td class="roweven" valign="top" nowrap><b>6.0.16</b></td>
+    <td class="roweven" valign="top" nowrap><i>2002-03-14</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="roweven" valign="top" width="2000">Thanks to Andre Pang for the original patch/idea to get bufexplorer to work in insertmode/modeless mode (evim). Added Initialize and Cleanup autocommands to handle commands that need to be performed when starting or leaving bufexplorer.<br></td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=617">bufexplorer.zip</a></td>
+    <td class="rowodd" valign="top" nowrap><b>6.0.15</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2002-02-20</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Srinath Avadhanulax added a patch for winmanager.vim.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=614">bufexplorer.zip</a></td>
+    <td class="roweven" valign="top" nowrap><b>6.0.14</b></td>
+    <td class="roweven" valign="top" nowrap><i>2002-02-19</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="roweven" valign="top" width="2000">Fix a yew more bug that I thought I already had fixed. Thanks to Eric Bloodworth for adding 'Open Mode/Edit in Place'. Added vertical splitting.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=553">bufexplorer.zip</a></td>
+    <td class="rowodd" valign="top" nowrap><b>6.0.13</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2002-02-05</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Thanks to Charles E Campbell, Jr. for pointing out some embarrassing typos that I had in the documentation. I guess I need to run the spell checker more :o)</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=543">bufexplorer.zip</a></td>
+    <td class="roweven" valign="top" nowrap><b>6.0.12</b></td>
+    <td class="roweven" valign="top" nowrap><i>2002-02-04</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="roweven" valign="top" width="2000">Thanks to Madoka Machitani, for the tip on adding the augroup command around the MRUList autocommands.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=513">bufexplorer.zip</a></td>
+    <td class="rowodd" valign="top" nowrap><b>6.0.11</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2002-01-26</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Fixed bug report by Xiangjiang Ma. '&quot;=' was being added to the search history which messed up hlsearch.<br></td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=472">bufexplorer.zip</a></td>
+    <td class="roweven" valign="top" nowrap><b>6.0.10</b></td>
+    <td class="roweven" valign="top" nowrap><i>2002-01-14</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="roweven" valign="top" width="2000">Added the necessary hooks so that the winmanager.vim script could more easily integrate with this script. Now the winmanager.vim script should not have to have it's own version of bufexplorer.vim.<br>Tried to improve performance.<br>Remember to look at 'help: add-local-help' on how to add the help file into the vim help system.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=427">bufexplorer.zip</a></td>
+    <td class="rowodd" valign="top" nowrap><b>6.0.9</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2001-12-17</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Now you can sort the buffer list by most recently used (MRU). Please note that this is now a .zip file. Please unzip in your vimfiles, ~/.vim or whatever directory you store your vim stuff in. This file contains \plugin\bufexplorer.vim and \doc\bufexplorer.txt. To add the nifty help to vim look under ':help add-local-help' for more information.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=393">bufexplorer.zip</a></td>
+    <td class="roweven" valign="top" nowrap><b>6.0.8</b></td>
+    <td class="roweven" valign="top" nowrap><i>2001-12-03</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="roweven" valign="top" width="2000">Was not resetting the showcmd command correctly.<br>Added nifty help file.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=360">bufexplorer.zip</a></td>
+    <td class="rowodd" valign="top" nowrap><b>6.0.7</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2001-11-19</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Thanks to Brett Carlane for some great enhancements. Some are added, some are not, yet. Added highlighting of current and alternate filenames. Added spliting of path/filename toggle. Reworked ShowBuffers(). Changed my email address.<br></td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=154">bufexplorer.zip</a></td>
+    <td class="roweven" valign="top" nowrap><b>6.0.6</b></td>
+    <td class="roweven" valign="top" nowrap><i>2001-09-05</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="roweven" valign="top" width="2000">Fixed problem with the SortListing() function failing when there was only one buffer to display.<br></td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=93">bufexplorer.zip</a></td>
+    <td class="rowodd" valign="top" nowrap><b>6.0.5</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2001-08-10</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Fixed problems reported by David Pascoe, in that you where unable to hit 'd' on a buffer that belonged to a files that nolonger existed and that the 'yank' buffer was being overridden by the help text when the bufexplorer was opened.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=77">bufexplorer.zip</a></td>
+    <td class="roweven" valign="top" nowrap><b>6.0.4</b></td>
+    <td class="roweven" valign="top" nowrap><i>2001-07-31</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="roweven" valign="top" width="2000">Thanks to Charles Campbell for making this plugin more plugin *compliant*, adding default keymappings of &lt;Leader&gt;be and &lt;Leader&gt;bs as well as fixing the 'w:sortDirLabel not being defined' bug.<br></td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=72">bufexplorer.zip</a></td>
+    <td class="rowodd" valign="top" nowrap><b>6.0.3</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2001-07-30</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Added ability to sort buffers by 'buffer number' or 'name' in forward and reverse order.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=60">bufexplorer.zip</a></td>
+    <td class="roweven" valign="top" nowrap><b>6.0.2</b></td>
+    <td class="roweven" valign="top" nowrap><i>2001-07-25</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=97">jeff lanzarotta</a></i></td>
+    <td class="roweven" valign="top" width="2000">Initial upload</td>
+</tr>
+</table>
+<!-- finish off the framework -->
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!-- END OF THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1" height="5" alt=""></td></tr>
+  <tr><td colspan="4" bgcolor="#000000"><img src="/images/spacer.gif" height="2" width="1" alt=""></td></tr>
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1" height="5" alt=""></td></tr>
+  <tr>
+    <td><img src="/images/spacer.gif" width="5" height="1" alt=""></td>
+
+    <td align="left" valign="top"><small>
+      If you have questions or remarks about this site, visit the
+      <a href="http://vimonline.sf.net">vimonline development</a> pages.
+      Please use this site responsibly.
+      <br> 
+      
+      Questions about <a href="http://www.vim.org/about.php">Vim</a> should go
+      to vim@vim.org after searching
+      <a href="http://groups.yahoo.com/group/vim">the archive</a>.
+      Help Bram <a href="http://iccf-holland.org/">help Uganda</a>.
+      </small>
+	&nbsp;
+	&nbsp;
+
+	<!-- Start of StatCounter Code -->
+	<script type="text/javascript" language="javascript">
+	var sc_project=1417324; 
+	var sc_invisible=1; 
+	var sc_partition=11; 
+	var sc_security="d41633bc"; 
+	</script>
+
+	
+<Proxomitron filter="[MB] Ad-Filter: JavaScript (eingebettet)" />
+<sc-ript type="text/javascript" language="javascript" src="http://www.statcounter.com/counter/counter.js"></sc-ript>
+
+	<!-- End of StatCounter Code -->
+	<small>
+	<a href="http://my.statcounter.com/project/standard/stats.php?project_id=1417324&guest=1">stats</a>
+	</small>
+    </td>
+
+    <td align="right" valign="top">
+      	<a href="http://www.webconceptgroup.net"><img src="/images/logo_sponsor_wcg.jpg" width="131" height="30" border="0" alt="Sponsored by Web Concept Group Inc."></a>
+	<a href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=8&type=1" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>
+    </td>
+
+    <td><img src="/images/spacer.gif" width="5" height="1" alt=""></td>
+  </tr>
+
+    
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1" height="5" alt=""></td>
+  
+  </tr>
+</table>
+
+
+
+
+
+
+<Proxomitron filter="Prox: End-Filterskript einfuegen"> <!-- -->
+<script language="JavaScript" type="text/javascript" src="http://local.ptron/ProxJSEnd.js"></script>
+</Proxomitron>
+</body>
+</html>

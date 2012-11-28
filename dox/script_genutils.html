@@ -1,0 +1,485 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head><script>function PrivoxyWindowOpen(){return(null);}</script>
+  <link rel="Stylesheet" type="text/css" href="/css/style.css" >
+  <title>genutils.vim - General utility functions : vim online</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="KEYWORDS" content="Vim, Vi IMproved, text editor, home, documentation, tips, scripts, news">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/vim_shortcut.ico">
+</head>
+
+<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="#ffffff"> 
+
+<!-- HEADER, SPONSOR IMAGE, VIM IMAGE AND BOOK AD -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tr>
+    <td colspan="4" class="lightbg"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td>
+  </tr>
+  <tr>
+  <td class="lightbg">&nbsp;&nbsp;&nbsp;</td>
+  <td class="lightbg" align="left"><a href="/sponsor/index.php"><img src="/images/sponsorvim.gif" alt="sponsor Vim development" border="0"></a></td>
+    <td class="lightbg" align="center"><a href="/index.php"><img src="/images/vim_header.gif" border="0" alt="Vim logo"></a></td>
+    <td class="lightbg" align="right"><a href="http://iccf-holland.org/click5.html"><img src="/images/buyhelplearn.gif" alt="Vim Book Ad" border="0"></a></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="lightbg"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="darkbg"><img src="/images/spacer.gif" width="1"  height="10" alt=""></td>
+  </tr>
+</table>
+<!-- THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+  <col width="180">
+  <col width="1">
+
+  <tr valign="top">
+    <td class="sidebar">
+      <table width="180" cellpadding="4" cellspacing="0" border="0">
+        <tr valign="top">
+          <td class="sidebar">
+
+<!-- INCLUDE THE PAGE NAVIGATION -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+    <tr>
+        <td><small>not logged in (<a href="/login.php">login</a>)</small></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="darkbg"><img src="/images/spacer.gif" alt='' border="0" height="3"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="2"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/index.php">Home</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/search.php">Search</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/about.php">About Vim</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/community.php">Community</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/news/news.php">News</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/sponsor/index.php">Sponsoring</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/trivia.php">Trivia</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/docs.php">Documentation</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/download.php">Download</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/scripts/index.php">Scripts</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/tips/index.php">Tips</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/account/index.php">My Account</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/huh.php">Site Help</a></td>
+        </tr>
+</table>
+
+            <table width="172" cellpadding="0" cellspacing="0" border="0">
+              <tr><td><img src="/images/spacer.gif" width="1" alt="" border="0"  height="8"></td></tr>
+              <tr><td class="darkbg"><img src="/images/spacer.gif" width="1"  height="3" alt=""></td></tr>
+            </table>
+            <br>
+
+<!-- INCLUDE THE PAGE SIDEBAR TEXT -->
+&nbsp;
+
+          </td>
+        </tr>
+      </table>
+    </td>
+
+    <td class="darkbg"><br></td>
+    <td>
+      <table width="100%" cellpadding="10" cellspacing="0" border="0" bordercolor="red">
+        <tr>
+          <td valign="top">
+
+<span class="txth1">genutils.vim : General utility functions</span> 
+
+<br>
+<br>
+
+<!-- karma table -->
+<table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+<tr>
+  <td class="lightbg"><b>&nbsp;script karma&nbsp;</b></td>
+  <td>
+    Rating <b>98/35</b>,
+    Downloaded by 8307  </td>
+</tr>
+</table>
+<p>
+
+<table cellspacing="0" cellpadding="0" border="0">
+<tr><td class="prompt">created by</td></tr>
+<tr><td><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td class="prompt">script type</td></tr>
+<tr><td>utility</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td class="prompt">description</td></tr>
+<tr><td>The new version requires Vim 6.3.<br><br>This script provides functions that are mostly useful to script developers, but some of the functions can be easily converted to good utilities.<br><br>See script header for documented public functions with help and usage information along with the function prototypes.<br><br>This script provides many useful utility functions for buffers, windows and other misc things. I needed a place to share all the misc. utility functions so I renamed bufNwinUtils.vim and started adding these additional functions. I intend to create/collect many more useful functions and add to this script.<br><br>- Functions MakeArgumentString(), MakeArgumentList() and CreateArgString()<br>&nbsp;&nbsp;to work with and pass variable number of arguments to other functions.<br>&nbsp;&nbsp;There is also an ExtractFuncListing() function that is used by the above<br>&nbsp;&nbsp;functions to create snippets (see also breakpts.vim, ntservices.vim and<br>&nbsp;&nbsp;ntprocesses.vim for interesting ideas on how to use this function).<br>- Misc. window/buffer related functions, NumberOfWindows(),<br>&nbsp;&nbsp;FindBufferForName(), MoveCursorToWindow(), MoveCurLineToWinLine(),<br>&nbsp;&nbsp;SetupScratchBuffer(), MapAppendCascaded()<br>- Save/Restore all the window height/width settings to be restored later.<br>- Save/Restore position in the buffer to be restored later. Works like the<br>&nbsp;&nbsp;built-in marks feature, but has more to it.<br>- AddNotifyWindowClose() to get notifications *after* a window with the<br>&nbsp;&nbsp;specified buffer has been closed or the buffer is unloaded. The built-in<br>&nbsp;&nbsp;autocommands can only notify you *before* the window is closed. You can<br>&nbsp;&nbsp;use this with the Save/Restore window settings feature to restore the<br>&nbsp;&nbsp;dimensions of existing windows, after your window is closed (just like<br>&nbsp;&nbsp;how Vim does while closing help windows). See selectbuf.vim or<br>&nbsp;&nbsp;perforce.vim for examples.<br>&nbsp;&nbsp;There is also a test function called RunNotifyWindowCloseTest() that<br>&nbsp;&nbsp;demos the usage (you need to uncomment RunNotifyWindowCloseTest and<br>&nbsp;&nbsp;NotifyWindowCloseF functions).<br>- ShowLinesWithSyntax() function to echo lines with syntax coloring.<br>- ShiftWordInSpace(), CenterWordInSpace() and<br>&nbsp;&nbsp;AlignWordWithWordInPreviousLine() utility functions to move words in the<br>&nbsp;&nbsp;space without changing the width of the field. A GetSpacer() function to<br>&nbsp;&nbsp;return a spacer of specified width.<br>- A quick-sort functions QSort() that can sort a buffer contents by range<br>&nbsp;&nbsp;and QSort2() that can sort any arbitrary data and utility compare<br>&nbsp;&nbsp;methods.&nbsp;&nbsp;Binary search functions BinSearchForInsert() and<br>&nbsp;&nbsp;BinSearchForInsert2() to find the location for a newline to be inserted<br>&nbsp;&nbsp;in an already sorted buffer or arbitrary data.<br>- ExecMap function has now been separated as a plugin called execmap.vim.<br>- A sample function to extract the scriptId of a script.<br>- New CommonPath() function to extract the common part of two paths, and<br>&nbsp;&nbsp;RelPathFromFile() and RelPathFromDir() to find relative paths (useful<br>&nbsp;&nbsp;HTML href's). A side effect is the CommonString() function to find the<br>&nbsp;&nbsp;common string of two strings.<br>- UnEscape() and DeEscape() functions to reverse and Escape() to compliment<br>&nbsp;&nbsp;what built-in escape() does. There is also an EscapeCommand() function<br>&nbsp;&nbsp;to escape external command strings.<br>- Utility functions CurLineHasSign() and ClearAllSigns() to fill in the<br>&nbsp;&nbsp;gaps left by Vim.<br>- GetVimCmdOutput() function to capture the output of Vim built-in<br>&nbsp;&nbsp;commands, in a safe manner.<br>- OptClearBuffer() function to clear the contents and undo history of the<br>&nbsp;&nbsp;current buffer in an optimal manner. Ideal to be used when plugins need<br>&nbsp;&nbsp;to refresh their windows and don't care about preserving the current<br>&nbsp;&nbsp;contents (which is the most usual case).<br>- GetPreviewWinnr() function.<br>- Functions to have persistent data, PutPersistentVar() and<br>&nbsp;&nbsp;GetPersistentVar(). You don't need to worry about saving in files and<br>&nbsp;&nbsp;reading them back. To disable, set g:genutilsNoPersist in your vimrc.<br>- A function to emulate the default Vim behavior for |timestamp| changes.<br>&nbsp;&nbsp;It also provides hooks to get call backs before and after handling the<br>&nbsp;&nbsp;default FileChangedShell autocommand (effectively splitting it into a<br>&nbsp;&nbsp;Pre and a Post event). Suggested usage is to use AddToFCShellPre() or<br>&nbsp;&nbsp;AddToFCShell() and either install a default event handling mechanism for<br>&nbsp;&nbsp;all files by calling DefFCShellInstall() or create your own autocommand on<br>&nbsp;&nbsp;a matching pattern to call DefFileChangedShell() function. Most useful<br>&nbsp;&nbsp;for the source control plugins to conditionally reload a file, while<br>&nbsp;&nbsp;being able to default to the Vim's standard behavior of asking the user.<br>&nbsp;&nbsp;See perforce.vim for usage examples.<br><br>Deprecations:<br>- The g:makeArgumentString and g:makeArgumentList are obsolete and are<br>&nbsp;&nbsp;deprecated, please use MakeArgumentString() and MakeArgumentList()<br>&nbsp;&nbsp;instead.<br>- FindWindowForBuffer() function is now deprecated, as the corresponding<br>&nbsp;&nbsp;Vim bugs are fixed. Use the below expr instead:<br>&nbsp;&nbsp;&nbsp;&nbsp;bufwinnr(FindBufferForName(fileName))<br><br><br>Function Prototypes:<br>&nbsp;&nbsp;&nbsp;&nbsp;The types in prototypes of the functions mimic Java.<br>&nbsp;&nbsp;&nbsp;&nbsp;This is just a full list for a quick reference, see<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Documentation With Function Prototypes&quot; for more information on the<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;functions.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>String&nbsp;&nbsp;MakeArgumentString(...)<br>String&nbsp;&nbsp;MakeArgumentList(...)<br>String&nbsp;&nbsp;CreateArgString(String argList, String sep, ...)<br>void&nbsp;&nbsp;&nbsp;&nbsp;DebugShowArgs(...)<br>String&nbsp;&nbsp;ExtractFuncListing(String funcName, String hLines, String tLines)<br>int&nbsp;&nbsp;&nbsp;&nbsp; NumberOfWindows()<br>int&nbsp;&nbsp;&nbsp;&nbsp; FindBufferForName(String fileName)<br>String&nbsp;&nbsp;GetBufNameForAu(String bufName)<br>void&nbsp;&nbsp;&nbsp;&nbsp;MoveCursorToWindow(int winno)<br>void&nbsp;&nbsp;&nbsp;&nbsp;MoveCurLineToWinLine(int winLine)<br>void&nbsp;&nbsp;&nbsp;&nbsp;CloseWindow(int winnr, boolean force)<br>void&nbsp;&nbsp;&nbsp;&nbsp;MarkActiveWindow()<br>void&nbsp;&nbsp;&nbsp;&nbsp;RestoreActiveWindow()<br>void&nbsp;&nbsp;&nbsp;&nbsp;IsOnlyVerticalWindow()<br>void&nbsp;&nbsp;&nbsp;&nbsp;IsOnlyHorizontalWindow()<br>int&nbsp;&nbsp;&nbsp;&nbsp; GetNextWinnrInStack(char dir)<br>int&nbsp;&nbsp;&nbsp;&nbsp; GetLastWinnrInStack(char dir)<br>void&nbsp;&nbsp;&nbsp;&nbsp;MoveCursorToNextInWinStack(char dir)<br>void&nbsp;&nbsp;&nbsp;&nbsp;MoveCursorToLastInWinStack(char dir)<br>void&nbsp;&nbsp;&nbsp;&nbsp;OpenWinNoEa(String openWinCmd)<br>void&nbsp;&nbsp;&nbsp;&nbsp;CloseWinNoEa(int winnr, boolean force)<br>void&nbsp;&nbsp;&nbsp;&nbsp;SetupScratchBuffer()<br>void&nbsp;&nbsp;&nbsp;&nbsp;CleanDiffOptions()<br>boolean ArrayVarExists(String varName, int index)<br>void&nbsp;&nbsp;&nbsp;&nbsp;MapAppendCascaded(String lhs, String rhs, String mapMode)<br>void&nbsp;&nbsp;&nbsp;&nbsp;SaveWindowSettings()<br>void&nbsp;&nbsp;&nbsp;&nbsp;RestoreWindowSettings()<br>void&nbsp;&nbsp;&nbsp;&nbsp;ResetWindowSettings()<br>void&nbsp;&nbsp;&nbsp;&nbsp;SaveWindowSettings2(String sid, boolean overwrite)<br>void&nbsp;&nbsp;&nbsp;&nbsp;RestoreWindowSettings2(String scripid)<br>void&nbsp;&nbsp;&nbsp;&nbsp;ResetWindowSettings2(String scripid)<br>void&nbsp;&nbsp;&nbsp;&nbsp;SaveVisualSelection(String scripid)<br>void&nbsp;&nbsp;&nbsp;&nbsp;RestoreVisualSelection(String scripid)<br>void&nbsp;&nbsp;&nbsp;&nbsp;SaveSoftPosition(String scriptid)<br>void&nbsp;&nbsp;&nbsp;&nbsp;RestoreSoftPosition(String scriptid)<br>void&nbsp;&nbsp;&nbsp;&nbsp;ResetSoftPosition(String scriptid)<br>void&nbsp;&nbsp;&nbsp;&nbsp;SaveHardPosition(String scriptid)<br>void&nbsp;&nbsp;&nbsp;&nbsp;RestoreHardPosition(String scriptid)<br>void&nbsp;&nbsp;&nbsp;&nbsp;ResetHardPosition(String scriptid)<br>int&nbsp;&nbsp;&nbsp;&nbsp; GetLinePosition(String scriptid)<br>int&nbsp;&nbsp;&nbsp;&nbsp; GetColPosition(String scriptid)<br>boolean IsPositionSet(String scriptid)<br>String&nbsp;&nbsp;CleanupFileName(String fileName)<br>boolean OnMS()<br>boolean PathIsAbsolute(String path)<br>boolean PathIsFileNameOnly(String path)<br>void&nbsp;&nbsp;&nbsp;&nbsp;AddNotifyWindowClose(String windowTitle, String functionName)<br>void&nbsp;&nbsp;&nbsp;&nbsp;RemoveNotifyWindowClose(String windowTitle)<br>void&nbsp;&nbsp;&nbsp;&nbsp;CheckWindowClose()<br>void&nbsp;&nbsp;&nbsp;&nbsp;ShowLinesWithSyntax() range<br>void&nbsp;&nbsp;&nbsp;&nbsp;ShiftWordInSpace(int direction)<br>void&nbsp;&nbsp;&nbsp;&nbsp;CenterWordInSpace()<br>void&nbsp;&nbsp;&nbsp;&nbsp;QSort(String cmp, int direction) range<br>void&nbsp;&nbsp;&nbsp;&nbsp;QSort2(int start, int end, String cmp, int direction,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String accessor, String swapper, String context)<br>int&nbsp;&nbsp;&nbsp;&nbsp; BinSearchForInsert(int start, int end, String line, String cmp,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int direction)<br>int&nbsp;&nbsp;&nbsp;&nbsp; BinSearchForInsert2(int start, int end, line, String cmp,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int direction, String accessor, String context)<br>void&nbsp;&nbsp;&nbsp;&nbsp;BinInsertSort(String cmp, int direction) range<br>void&nbsp;&nbsp;&nbsp;&nbsp;BinInsertSort2(int start, int end, String cmp, int direction,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String accessor, String mover, String context)<br>String&nbsp;&nbsp;CommonPath(String path1, String path2)<br>String&nbsp;&nbsp;CommonString(String str1, String str2)<br>String&nbsp;&nbsp;RelPathFromFile(String srcFile, String tgtFile)<br>String&nbsp;&nbsp;RelPathFromDir(String srcDir, String tgtFile)<br>String&nbsp;&nbsp;Roman2Decimal(String str)<br>String&nbsp;&nbsp;Escape(String str, String chars)<br>String&nbsp;&nbsp;UnEscape(String str, String chars)<br>String&nbsp;&nbsp;DeEscape(String str)<br>String&nbsp;&nbsp;EscapeCommand(String cmd, String args, String pipe)<br>int&nbsp;&nbsp;&nbsp;&nbsp; GetShellEnvType()<br>String&nbsp;&nbsp;ExpandStr(String str)<br>String&nbsp;&nbsp;QuoteStr(String str)<br>boolean CurLineHasSign()<br>void&nbsp;&nbsp;&nbsp;&nbsp;ClearAllSigns()<br>String&nbsp;&nbsp;UserFileComplete(String ArgLead, String CmdLine, String CursorPos,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String smartSlash, String searchPath)<br>String&nbsp;&nbsp;UserFileExpand(String fileArgs)<br>String&nbsp;&nbsp;GetVimCmdOutput(String cmd)<br>void&nbsp;&nbsp;&nbsp;&nbsp;OptClearBuffer()<br>int&nbsp;&nbsp;&nbsp;&nbsp; GetPreviewWinnr()<br>void&nbsp;&nbsp;&nbsp;&nbsp;PutPersistentVar(String pluginName, String persistentVar,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String value)<br>void&nbsp;&nbsp;&nbsp;&nbsp;GetPersistentVar(String pluginName, String persistentVar,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String default)<br>void&nbsp;&nbsp;&nbsp;&nbsp;AddToFCShellPre(String funcName)<br>void&nbsp;&nbsp;&nbsp;&nbsp;RemoveFromFCShellPre(String funcName)<br>void&nbsp;&nbsp;&nbsp;&nbsp;AddToFCShell(String funcName)<br>void&nbsp;&nbsp;&nbsp;&nbsp;RemoveFromFCShell(String funcName)<br>void&nbsp;&nbsp;&nbsp;&nbsp;DefFCShellInstall()<br>void&nbsp;&nbsp;&nbsp;&nbsp;DefFCShellUninstall()<br>boolean DefFileChangedShell()<br>void&nbsp;&nbsp;&nbsp;&nbsp;SilentSubstitute(String pat, String cmd)<br>void&nbsp;&nbsp;&nbsp;&nbsp;SilentDelete(String pat)<br>void&nbsp;&nbsp;&nbsp;&nbsp;SilentDelete(String range, String pat)<br>String&nbsp;&nbsp;GetSpacer(int width)<br><br><br><br><br>Search_key_words: genutils variable arguments window buffer windows buffers preview save restore cursor position notify close echo syntax shift sort library typing error errors scriptid clean reset diff eatchar align word words space file filename binary search multvals Hari Krishna Dara</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td class="prompt">install details</td></tr>
+<tr><td>Drop it in the plugin directory or source it from vimrc.<br><br>Requires multvals.vim: <a href="/scripts/script.php?script_id=171">vimscript #171</a><br><br>Place the following in your vimrc if you find them useful:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>- Add the following command to your vimrc to turn off diff settings.<br>&nbsp;&nbsp;&nbsp;&nbsp;command! DiffOff :call CleanDiffOptions()<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>- Add the following commands to create simple sort commands.<br>&nbsp;&nbsp;&nbsp;&nbsp;command! -nargs=0 -range=% SortByLength &lt;line1&gt;,&lt;line2&gt;call QSort(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\ 'CmpByLineLengthNname', 1)<br>&nbsp;&nbsp;&nbsp;&nbsp;command! -nargs=0 -range=% RSortByLength &lt;line1&gt;,&lt;line2&gt;call QSort(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\ 'CmpByLineLengthNname', -1)<br>&nbsp;&nbsp;&nbsp;&nbsp;command! -nargs=0 -range=% SortJavaImports &lt;line1&gt;,&lt;line2&gt;call QSort(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\ 'CmpJavaImports', 1)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>- You might like the following mappings to adjust spacing:<br>&nbsp;&nbsp;&nbsp;&nbsp;nnoremap &lt;silent&gt; &lt;C-Space&gt; :call ShiftWordInSpace(1)&lt;CR&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;nnoremap &lt;silent&gt; &lt;C-BS&gt; :call ShiftWordInSpace(-1)&lt;CR&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;nnoremap &lt;silent&gt; \cw :call CenterWordInSpace()&lt;CR&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;nnoremap &lt;silent&gt; \va :call AlignWordWithWordInPreviousLine()&lt;CR&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>- The :find command is very useful to search for a file in path, but it<br>&nbsp;&nbsp;doesn't support file completion. Add the following command in your vimrc<br>&nbsp;&nbsp;to add this functionality:<br>&nbsp;&nbsp;&nbsp;&nbsp;command! -nargs=1 -bang -complete=custom,&lt;SID&gt;PathComplete FindInPath<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\ :find&lt;bang&gt; &lt;args&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;function! s:PathComplete(ArgLead, CmdLine, CursorPos)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return UserFileComplete(a:ArgLead, a:CmdLine, a:CursorPos, 1, &path)<br>&nbsp;&nbsp;&nbsp;&nbsp;endfunction<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>- If you are running commands that generate multiple pages of output, you<br>&nbsp;&nbsp;might find it useful to redirect the output to a new buffer. Put the<br>&nbsp;&nbsp;following command in your vimrc:<br>&nbsp;&nbsp;&nbsp;&nbsp;command! -nargs=* -complete=command Redir<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\ :new | put! =GetVimCmdOutput('&lt;args&gt;') | setl bufhidden=wipe |<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\ setl nomodified<br></td></tr>
+<tr><td>&nbsp;</td></tr>
+</table>
+
+<!-- rating table -->
+<form name="rating">
+<input type="hidden" name="script_id" value="197">
+<table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+<tr>
+  <td class="lightbg"><b>rate this script</b></td>
+  <td valign="middle">
+    <input type="radio" name="rating" value="life_changing">Life Changing
+    <input type="radio" name="rating" value="helpful">Helpful
+    <input type="radio" name="rating" value="unfulfilling">Unfulfilling&nbsp;
+    <input type="submit" value="rate">
+  </td>
+</tr>
+</table>
+</form>
+<span class="txth2">script versions</span> (<a href="add_script_version.php?script_id=197">upload new version</a>)
+<p>
+Click on the package to download.
+<p>
+
+<table cellspacing="2" cellpadding="4" border="0" width="100%">
+<tr class='tableheader'>
+        <th valign="top">package</th>
+    <th valign="top">script version</th>
+    <th valign="top">date</th>
+    <th valign="top">Vim version</th>
+    <th valign="top">user</th>
+    <th valign="top">release notes</th>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=5663">genutils.vim</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.20</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2006-05-09</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Release 1.20 for fixing an issue with my previous release. Thanks to<br>Niels, Delphin and Craig for reporting the problem. If you downloaded the latest selectbuf, please download this version of genutils.<br></td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=5658">genutils.vim</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.19</b></td>
+    <td class="roweven" valign="top" nowrap><i>2006-05-08</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="roweven" valign="top" width="2000">Now Vim7 compatible, no functionality change.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=4033">genutils.vim</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.18</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2005-03-16</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="rowodd" valign="top" width="2000">- New functions OpenWinNoEa() and CloseWinNoEa() which open and close<br>&nbsp;&nbsp;windows with minimal side effects (such as minimizing the impact on<br>&nbsp;&nbsp;the current window sizes, restoring the cursor to the original window<br>&nbsp;&nbsp;and even restoring the current-previous-window). This is a good<br>&nbsp;&nbsp;alternative to using the existing Save/RestoreWindowSettings()<br>&nbsp;&nbsp;method.<br>- GetShellEnvType() is now public. Useful in conjunction with the<br>&nbsp;&nbsp;EscapeCommand() function.<br></td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=3583">genutils.vim</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.17</b></td>
+    <td class="roweven" valign="top" nowrap><i>2004-10-28</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="roweven" valign="top" width="2000">- Minor corrections to the FindBufferForName() function to work well<br>&nbsp;&nbsp;with filenames containing backslashes (see doc).</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=3565">genutils.vim</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.16</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2004-10-20</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="rowodd" valign="top" width="2000">- Fast BinInsertSort() based on the BISort() by Peit Delport's.<br>- Slightly improved QSort().<br></td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=3559">genutils.vim</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.15</b></td>
+    <td class="roweven" valign="top" nowrap><i>2004-10-18</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="roweven" valign="top" width="2000">New functions:<br>- CloseWindow()<br>- MarkActiveWindow()<br>- RestoreActiveWindow()<br>New overloaded function for:<br>- SilentDelete()<br><br>- Fixed IsOnlyVerticalWindow() and IsOnlyHorizontalWindow() to use<br>&nbsp;&nbsp;MarkActiveWindow() and RestoreActiveWindow() to avoid corrupting the<br>&nbsp;&nbsp;&quot;previous-window&quot;.<br></td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=3317">genutils.vim</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.14</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2004-08-11</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="rowodd" valign="top" width="2000">- New functions: GetNextWinnrInStack, GetLastWinnrInStack, MoveCursorToNextInWinStack, MoveCursorToLastInWinStack based on Dr. Chip's WinStackMv() function.<br>- New functions: SaveVisualSelection, RestoreVisualSelection.<br>- FIxed a possible issue with my earlier change. You can't add to 'eventignore'&nbsp;&nbsp;if its current value is &quot;all&quot;.<br>- Some improvement to RestoreWindowSettings(). It is still not working perfectly. Actually, there are no commands available in Vim to accurately resize windows in all circumstances.<br>- Save/Restore functions for cursor positions now create marks in the buffer context. This means, you can use the same name to create marks in different buffers, without overwriting each other. This is how Vim works for lowercase marks anyway.<br>- Misc. other improvements/bugfixes.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=3211">genutils.vim</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.13</b></td>
+    <td class="roweven" valign="top" nowrap><i>2004-07-07</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="roweven" valign="top" width="2000">Now requires Vim 6.3<br><br>- More documentation. I now added a section with all the supported functions at one place so it is easy to lookup.<br>- New function GetBufNameForAU().<br>- New functions to help write custom completion functions, UserFileComplete() and UserFileExpand()<br>- Some clarifications on EscapeCommand().<br>- Improved CleanFileName() to work with Windows UNC paths.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=3148">genutils.vim</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.12</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2004-06-18</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="rowodd" valign="top" width="2000">- New function EscapeCommand() extracted from my perforce.vim plugin. This<br>&nbsp;&nbsp;makes it simpler for plugins to execute external commands passing<br>&nbsp;&nbsp;arguments literally.<br>- New functions IsOnlyHorizontalWindow(), IsOnlyVerticalWindow(),<br>&nbsp;&nbsp;QuoteStr(), SilentSubstitute(), SilentDelete()<br>- More documentation on GetPreviewWinnr(), DefFileChangedShell(),<br>&nbsp;&nbsp;MakeArgumentString(), MakeArgumentList(), UnEscape(), GetSpacer()<br></td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=2890">genutils.vim</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.11</b></td>
+    <td class="roweven" valign="top" nowrap><i>2004-03-29</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="roweven" valign="top" width="2000">- Most important change is a lot of documentation with function prototypes. Now it is not necessary to look into the code to see the help and usage information. I also documented a lot of functions that lacked documentation earlier.<br>- A few minor fixes to bugs/inconsistencies and other improvements in Escape(), RestoreSoftPosition, Notify window close related functionality. Also added a patch from Bram for persistence related funcationality.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=2608">genutils.vim</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.10</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2003-12-17</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="rowodd" valign="top" width="2000">- Fixed bugs in the RelPathFromFile and RelPathFromDir functions.<br>- The g:loaded_genutils variable now contains the version number for dependency checking (see &quot;:help v:version&quot; for format). If your plugin depends on genutils.vim, it is now easy and safe to check if the user has at least the minimum base version.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=2436">genutils.vim</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.9</b></td>
+    <td class="roweven" valign="top" nowrap><i>2003-10-30</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="roweven" valign="top" width="2000">Misc. functions added: GetSpacer, GetPreviewWinnr, ExtractFuncListing, UnEscape, GetLine/ColPosition. Removed undocumented IsPreviewWindowOpen function. See description for more details.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=2276">genutils.vim</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.8</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2003-08-28</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="rowodd" valign="top" width="2000">When disabling persistence feature using g:genutilsNoPersist, it is possible for the plugins that depend on it to fail. Fixed it.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=2263">genutils.vim</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.7</b></td>
+    <td class="roweven" valign="top" nowrap><i>2003-08-25</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="roweven" valign="top" width="2000">Misc. changes, see script for more details.<br>- The scriptlets g:makeArgumentString g:makeArgumentList have been replaced with new function MakeArgumentString() and MakeArgumentList() and the usage now is more concise. The old usage is now deprecated.<br>- New functions Escape(), GetVimCmdOutput() and OptClearBuffer()<br>- New utility functions for signs, CurLineHasSign() and ClearAllSigns().<br>- Fixed bugs in FindWindowForName().<br>- The FindWindowForBuffer() function is now redundant and is deprecated, use bufwinnr(FindBufferForName(fileName)) for the same purpose.<br>- Some improvements for Vim6.2, but it should still work with Vim6.0.<br>- Fixed a few bugs.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=1959">genutils.vim</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.6</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2003-05-02</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Minor fixes/updates. Fixed a bug in restoring line position with respect to window. Users of FileChangedShell functionality provided by the plugin (and thus the perforce plugin), should download this version only if the 6.1.220 patch is installed.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=1878">genutils.vim</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.5</b></td>
+    <td class="roweven" valign="top" nowrap><i>2003-03-30</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="roweven" valign="top" width="2000">My earlier version was using :normal instead of :normal! command, so user's mapping will interfere with it. If you have downloaded 1.4 earlier, please download it again. Thanks to David Rennalls for reporting the problem.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=1845">genutils.vim</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.4</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2003-03-23</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Some bugfixes and improvements.<br>- New UnEscape() which is more close to escape() than the old DeEscape().<br>- ExecMap() is separated as a new plugin. That is the better place for it as it is not really useful as a library function.<br>- The sort compare methods were made public as they are very useful in writing new compares.<br>- Some update on doc.<br>- Now CreateArgString() can be used with an arbitrary pattern.<br>- Fixed some bugs in MoveCurLineToWinLine(). It works better now.<br>- Added a functions to handle FileChangedShell autocommand and emulate the default vim behavior.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=1530">genutils.vim</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.3</b></td>
+    <td class="roweven" valign="top" nowrap><i>2002-12-05</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="roweven" valign="top" width="2000">GPLed it for the use by Cream project. See <a target="_blank" href="http://cream.sf.net">http://cream.sf.net</A> for information on Cream for Vim.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=1491">genutils.vim</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.2</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2002-11-26</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="rowodd" valign="top" width="2000">- Generalized Quick sort function. The sort routine is no longer tied to the<br>&nbsp;&nbsp;buffer contents (multvals.vim uses this function to sort arrays).<br>- A binary search function that can be used to incrementally update sorted<br>&nbsp;&nbsp;buffer contents (like buffer lists, tag lists etc), and a generalized variant<br>&nbsp;&nbsp;of this function which is no tied to the buffer contents.<br>- A new comparator to sort Java imports first by name and then by their length.<br>&nbsp;&nbsp;This groups the imports from the same package pretty well together.<br>- Minor fixes in FindWindowForBuffer() and FindBufferForWindow()<br></td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=1121">genutils.vim</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.1</b></td>
+    <td class="roweven" valign="top" nowrap><i>2002-08-13</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="roweven" valign="top" width="2000">New functions <br>&nbsp;&nbsp;- CenterWordInSpace(), useful if you use Align.vim and want to center the text horizontally in the boxes.<br>&nbsp;&nbsp;- Improved ShiftWordInSpace().<br>&nbsp;&nbsp;- New collection from list, CommonPath() with minor improvements. Added RelPathFromFile() and RelPathFromDir() functions.<br>&nbsp;&nbsp;- New persistence functions, PutPersistenceVar() and GetPersistenceVar() functions to save and retrieve your script variables across vim sessions without stepping on another script's name space.<br>&nbsp;&nbsp;-- Minor fixes in CleanupFileName() function.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=791">genutils.vim</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.0.24</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2002-04-12</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="rowodd" valign="top" width="2000">New function, AlignWordWithWordInPreviousLine(). Improved ExecMap(), it is now much more useful. Added new scriptlet, g:makeArgumentList and its companion function, CreateArgString().</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=731">genutils.vim</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.0.20</b></td>
+    <td class="roweven" valign="top" nowrap><i>2002-03-29</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="roweven" valign="top" width="2000">Fixed a typo in ResetWindowSettings(). Update the previous version to fix an error while quitting selectbuf or perforce help window.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=718">genutils.vim</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.0.19</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2002-03-26</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Minor changes. Fixed FindWindowForBuffer and other functions to take care of the extra backslashes in the filenames protecting the spaces etc. Save/RestoreWindowSettings functions now have a variant that takes in a key. This key can be used to call these function from multiple scripts at the same time without overwriting each other's settings. Some new functions.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=666">genutils.vim</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.0.15</b></td>
+    <td class="roweven" valign="top" nowrap><i>2002-03-08</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="roweven" valign="top" width="2000">- Fixed minor issues with makeArgumentString.<br>- New functions to do quick sort on the current window contents. A command to sort lines by their length.<br>- A Basic help/description is added at the start of the script.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=643">genutils.vim</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.0.11</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2002-02-25</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="rowodd" valign="top" width="2000">New utility to pass variable number of arugments to other functions. Ex usage:<br>&nbsp;&nbsp; fu! s:IF(...)<br>&nbsp;&nbsp;&nbsp;&nbsp; exec g:makeArgumentString<br>&nbsp;&nbsp;&nbsp;&nbsp; exec &quot;call Impl(&quot; . argumentString . &quot;)&quot;<br>&nbsp;&nbsp; endfu<br><br>New OnMS() function to check for any windoze OS. New utility ShiftWordInSpace() and SetupScratchBuffer() functions. Add the following mappings to move words in the white space:<br><br>noremap &lt;silent&gt; &lt;C-Space&gt; :call ShiftWordInSpace(1)&lt;CR&gt;<br>noremap &lt;silent&gt; &lt;C-BS&gt; :call ShiftWordInSpace(-1)&lt;CR&gt;<br></td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=549">genutils.vim</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.0.8</b></td>
+    <td class="roweven" valign="top" nowrap><i>2002-02-04</i></td>
+    <td class="roweven" valign="top" nowrap>6.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="roweven" valign="top" width="2000">Improved the save/restore position to even save/restore the line position in the window. Take a look at the set of Save/Restore/ResetSoft/HardPosition() functions.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=526">genutils.vim</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.0.7</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2002-02-01</i></td>
+    <td class="rowodd" valign="top" nowrap>6.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=292">Hari Krishna Dara</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Initial upload</td>
+</tr>
+</table>
+<!-- finish off the framework -->
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!-- END OF THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td></tr>
+  <tr><td colspan="4" bgcolor="#000000"><img src="/images/spacer.gif" width="1" height="2"  alt=""></td></tr>
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td></tr>
+  <tr>
+    <td><img src="/images/spacer.gif" width="5"  height="1" alt=""></td>
+
+    <td align="left" valign="top"><small>
+      If you have questions or remarks about this site, visit the
+      <a href="http://vimonline.sf.net">vimonline development</a> pages.
+      Please use this site responsibly.
+      <br> 
+      
+      Questions about <a href="http://www.vim.org/about.php">Vim</a> should go
+      to vim@vim.org after searching
+      <a href="http://groups.yahoo.com/group/vim">the archive</a>.
+      Help Bram <a href="http://iccf-holland.org/">help Uganda</a>.
+      </small>
+	&nbsp;
+	&nbsp;
+
+	<!-- Start of StatCounter Code -->
+	<script type="text/javascript" language="javascript">
+	var sc_project=1417324; 
+	var sc_invisible=1; 
+	var sc_partition=11; 
+	var sc_security="d41633bc"; 
+	</script>
+
+	<script type="text/javascript" language="javascript" src="http://www.statcounter.com/counter/counter.js"></script><noscript><a href="http://www.statcounter.com/" target="_blank"><img src="http://c12.statcounter.com/counter.php?sc_project=1417324&java=0&security=d41633bc&invisible=0"  alt="free tracking" border="0"></a> </noscript>
+	<!-- End of StatCounter Code -->
+	<small>
+	<a href="http://my.statcounter.com/project/standard/stats.php?project_id=1417324&guest=1">stats</a>
+	</small>
+    </td>
+
+    <td align="right" valign="top">
+      	<a href="http://www.webconceptgroup.net"><img src="/images/logo_sponsor_wcg.jpg" width="131"  height="30" border="0" alt="Sponsored by Web Concept Group Inc."></a>
+	<a href="http://sourceforge.net"><img src="http://config.privoxy.org/send-banner?type=auto" border="\0" title="Killed-http://sflogo.sourceforge.net/sflogo.php?group_id=8&type=1-by-size" width="88" height="31"></a>
+    </td>
+
+    <td><img src="/images/spacer.gif" width="5"  height="1" alt=""></td>
+  </tr>
+
+    
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1"  height="5" alt=""></td>
+  
+  </tr>
+</table>
+
+</body>
+<script>function PrivoxyWindowOpen(a, b, c){return(window.open(a, b, c));}</script></html>
+

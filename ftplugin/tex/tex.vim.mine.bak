@@ -1,0 +1,528 @@
+"=============================================================================
+" vim:ft=vim:ts=4:sw=4:noet:fdm=marker:commentstring=\"\ %s:ff=unix
+" 	   File: texrc.vim
+"      	 Author: Srinath Avadhanula
+"     	Created: Mon Apr 01 11:00 AM 2002 PST
+" 	Changed: Andreas Wagner <A.Wagner@stud.uni-frankfurt.de>
+"
+"  Description: This file contains resource configuration information for the
+"               latex-suite package. And personal adjustments for editing
+"               tex-files.
+" 
+"        NOTE: This file is best viewed with Vim-6.0+ with folding turned on.
+"=============================================================================
+
+
+" NOTE: The values of g:Tex_Flavor and g:Tex_CompilerFlags are provided as a
+"       way to make compiler/tex.vim standalone. i.e independent of the rest
+"       of latex-suite. These variables are NOT used if you define
+"       g:Tex_CompileRule_dvi below.
+"
+" specifies the current latex flavor.
+let g:Tex_Flavor = 'latex'
+
+" specifies the BibTeX flavor and if necessary options. If you use $* in this
+" setting, it will be replaced by the *root* of the main file name, i.e, if
+" the main file is "thesis.tex", $* will be "thesis".
+let g:Tex_BibtexFlavor = 'bibtex8'
+
+" specifies the MakeIndedx flavor and if necessary options. $* will be
+" replaced by the *root* of the main file name. See above.
+let g:Tex_MakeIndexFlavor = 'makeindex $*.idx'
+
+
+" ==============================================================================
+" Rules: specifications of programs for compiling and viewing {{{
+"
+" By default, when you compile a tex file using \ll, then you will be
+" generating a .dvi file. Change this line if you want to set another default.
+" NOTE: Make sure that a target for this format exists in the 'Compiler rules'
+"       section below and is set up properly for your system.
+let g:Tex_DefaultTargetFormat = 'dvi'
+
+" A comma seperated list of formats which need multiple compilations to be
+" correctly compiled.
+let g:Tex_MultipleCompileFormats = 'dvi,pdf'
+
+" Uncomment this line if you compile ps files via dvi files.
+let g:Tex_FormatDependency_ps = 'dvi,ps'
+
+" ------------------------------------------------------------------------------
+" Compiler rules {{{
+" This is the first thing you should customize. It is set up for most common
+" values, but if use some other compiler, then you will want to change this.
+" As CompileFlags value you'd perhaps like to use, e.g., '-src-specials',
+" but it is known that it can sometimes give different results in the output,
+" so use it with care.
+
+let g:Tex_EscapeChars = '{}\'
+let g:Tex_CompileRule_dvi  = 'latex -src-specials -interaction=nonstopmode $*'
+let g:Tex_CompileRule_ps   = 'dvips -Ppdf -o $*.ps $*.dvi'
+let g:Tex_CompileRule_pdf  = 'pdflatex -interaction=nonstopmode $*'
+let g:Tex_CompileRule_html = 'latex2html $*.tex'
+let g:Tex_CompileRule_bib  = g:Tex_BibtexFlavor . ' $*'
+" let g:Tex_CompileRule_bib  = 'bibtex $*'
+
+" Set Tex_UseMakefile to 0 if you want to ignore the presence of a Makefile
+" when deciding how to compile
+let g:Tex_UseMakefile = 1
+
+" }}}
+
+" ------------------------------------------------------------------------------
+" Viewer rules {{{
+" these programs are for viewing other formats.
+" NOTE: latex-suite will automatically append file.<format> to these functions
+"       when calling them. The viewer therefore cannot accept arguments after
+"       the filename.
+
+if has('win32')
+	let g:Tex_ViewRule_ps = 'gsview32'
+	let g:Tex_ViewRule_pdf = 'AcroRd32'
+	let g:Tex_ViewRule_dvi = 'windvi'
+elseif has('macunix')
+	" Let the system pick.  If you want, you can override the choice here.
+	let g:Tex_ViewRule_ps = ''
+	let g:Tex_ViewRule_pdf = ''
+	" let g:Tex_ViewRule_pdf = 'Acrobat\ Reader\ 5.1'
+	let g:Tex_ViewRule_dvi = ''
+else
+	let g:Tex_ViewRule_ps = 'gv'
+	let g:Tex_ViewRule_pdf = 'xpdf'	" or acroread or gv
+	let g:Tex_ViewRule_dvi = 'xdvi'
+	" the option below specifies an editor for the dvi viewer while starting
+	" up the dvi viewer according to Dimitri Antoniou's tip on vim.sf.net (tip
+	" #225)
+	let g:Tex_UseEditorSettingInDVIViewer = 1
+endif
+
+" let g:Tex_UseEditorSettingInDVIViewer = 'gvim --servername xdvi --remote +%l %f'
+" }}}
+
+" ------------------------------------------------------------------------------
+" }}}
+
+" ==============================================================================
+" Macros: latex-suite comes with a large number of macros to speed up typing {{{
+"         latex.
+"
+
+" Pressing " (english double quote) will insert `` or '' by making an
+" intelligent guess about whether we intended to open or close a quote.
+" Default: 1
+let g:Tex_SmartKeyQuote = 0
+
+" Users of other languages might want to change the quote characters to suit
+" their locale.  These global values will be ignored if there are buffer-local
+" versions, which may be set in the language-specific package files, such as
+" ftplugin/latex-suite/packages/german
+" let g:Tex_SmartQuoteOpen = "\frqq{}"
+" let g:Tex_SmartQuoteClose = "\flqq{}"
+
+" ==============================================================================
+" TeX Completion: {{{
+"
+" Options for preview window for ref/cite completion.
+" Height of cwindow
+" Default: 5
+let g:Tex_ViewerCwindowHeight = 5
+
+" Height of preview window
+" Default: 10
+let g:Tex_ViewerPreviewHeight = 10
+
+" Options for explorer completion.
+" Height of explorer window
+" Default: 10
+let g:Tex_ExplorerHeight = 10
+
+" Directory for images. Read |latex-completion-explorer| before changing
+" Default: ''
+let g:Tex_ImageDir = ''
+
+" whether or not searches for \cite's are cached.
+let g:Tex_RememberCiteSearch = 0
+
+" Paths to the bibliography files and custom packages.
+if has('win32')
+	let g:Tex_BIBINPUTS = 'd:\daten\aw\uni\diss\TeX'
+else
+	let g:Tex_BIBINPUTS = '/var/CD/Daten/aw/uni/Diss/TeX'
+endif
+
+" }}}
+" ==============================================================================
+" Menus: set the kinds of menus which you would like to see. {{{
+"
+" Setting this variable to zero will immediately disable _all_ menus.
+" for finer control set this to 1 and then play with the other options.
+" Default: 1
+let g:Tex_Menus = 1
+
+" The location of the main menu
+let g:Tex_MainMenuLocation = 80
+
+" Math contains a large number of tex math elemets such as arrows,
+" mathematical fonts (\mathrm), mathematical diacritics (\dot), binary
+" relational operators etc. This menu compromises about 75% of the menus.
+" Default: 1
+let g:Tex_MathMenus = 0
+
+" The following options control the "compactness" of the menus.
+"
+" Setting this option to 1 makes the Font, Counter and Dimensioning menus to
+" be collected together into a single 'Tex-Elements' menu. Setting this to 0
+" creates seperate menus for each of them.
+" Default: 1
+let g:Tex_NestElementMenus = 1
+
+" Sometimes when you are using a lot of packages with lots of options etc,
+" then a lot of time might be spent at startup loading the menus.
+" Setting the following variable to 0 will stop autoloading the packages menu.
+" You can still goto TeX-Suite.Configure Menu and load this after startup.
+" Default: 1
+let g:Tex_PackagesMenu = 1
+
+" The following option will create the packages option within the TeX-Suite
+" menu.
+" Default: 1
+let g:Tex_NestPackagesMenu = 0
+
+" This is the prefix added to the menu names created by latex suite.  Add a
+" dot to the following option to nest the menus under the menu name before the
+" dot.
+" NOTE: With a '.' as the last character of the following setting, every
+" single menu created by latex suite will be nested under the same menu.
+" Default: 'TeX-'
+let g:Tex_MenuPrefix = 'TeX-'
+
+" Use utf-8 menus. There is plenty of math symbols in LaTeX. It is hard to
+" remember them. You can display them with utf-8. Your system/GUI interface
+" have to support utf-8. This addition is necessary for resetting 'encoding'.
+let g:Tex_UseUtfMenus = 1
+
+if g:Tex_UseUtfMenus != 0 && has("gui_running")
+	set encoding=utf-8
+endif
+
+" }}}
+" ==============================================================================
+" Folding: latex-suite comes with 'fake' syntax folding. {{{
+"
+" specifies whether the MakeTeXFolds() function will be defined. If this is
+" set to zero, then esentially you have disabled all of latex-suite's folding
+" functions. no maps for refreshing folds will be set up etc.
+" NOTE: However, the function TexFoldTextFunction() is still avaiable
+"       and 'foldexpr' is set to point to it. This is so you can continue
+"       using another folding scheme but still use the fold text function.
+" let g:Tex_Folding = 1
+
+" specifies whether a latex file is automatically folded up when opened.
+" Setting this to zero means that a file is not folded up as soon as its
+" opened.
+" NOTE: the MakeTeXFolds() function will still be available (unless disabled
+"       by g:Tex_Folding), so you can do <F6> or \rf to refresh/create folds.
+let g:Tex_AutoFolding = 0
+
+" }}}
+" ==============================================================================
+" Taglist: Support for taglist.vim {{{
+"
+" LaTeX-Suite offers now support for taglist.vim, the most popular Vim
+" interface for ctags. You should use ctags version >= 5.0 and taglist >= 3.0.
+let g:Tex_TaglistSupport = 1
+
+" This option turns on definition of tags for LaTeX.
+" NOTE: In taglist window you may see duplicate entries for the same tag. It
+"       means some definitions are repeated somewhere else. You can turn off
+"       internal definitions or remove external (read ctags description
+"       where).
+let g:Tex_InternalTagsDefinitions = 1
+
+" }}}
+" ==============================================================================
+" }}}
+
+
+
+" ==============================================================================
+" Additions by me, Andreas Wagner <A.Wagner@stud.uni-frankfurt.de>...  {{{
+" latest changes on 040723...
+
+" re-enable e-acute key as per FAQ. and this works with Alt-i... {{{
+imap <buffer> <leader>item <Plug>Tex_InsertItemOnThisLine
+" }}}
+
+" External commands and additional functions {{{
+
+" make F8 call aspell {{{
+map <F8> :w!<CR>:!aspell --lang=de --mode=tex check "%"<CR>:e! "%"<CR><CR>
+" }}}
+
+" make a shortcut for rmligs {{{
+map <Leader>rml		:%!rmligs -q -f<CR>
+" }}}
+
+" Source aux2tags, a tool to make a tags base from the current aux file... {{{
+if !exists('g:aux2tags_loaded')
+	if has('win32')
+		exec 'so d:\daten\aw\vim\vimfiles\macros\aux2tags.vim'
+	else
+		exec 'so $HOME/.vim/vimfiles/macros/aux2tags.vim'
+	endif
+endif
+" }}}
+
+" {{{ Section Jumping
+" Here is a snippet I found on vim.org's tips, where section jumping works with count:
+" The search() function is used rather than // command to avoid the
+" wrap-arounds and end-of-file messages. Also, if you want to keep the
+" original search pattern, just comment out the "let @/ = pat" line.
+noremap <buffer> <silent> ]] :<c-u>call TexJump2Section( v:count1, '' )<cr>
+noremap <buffer> <silent> [[ :<c-u>call TexJump2Section( v:count1, 'b' )<cr>
+function! TexJump2Section( cnt, dir )
+    let i = 0
+    let pat = '^\\\(part\|chapter\|\(sub\)*section\|paragraph\)\>\|\%$\|\%^'
+    let flags = 'W' . a:dir
+    while  i < a:cnt && search( pat, flags ) > 0
+	let i = i+1
+    endwhile
+"   let @/ = pat
+endfunction
+" }}}
+
+" }}}
+
+" Map standard commands and environments like \frqq{}, \footcite{} etc. {{{
+
+" make Shift-F1 - F3 quick-insert citation marks, quote or quotation environment {{{
+let g:Tex_Env_citation="\\frqq{}<++>\\flqq{}<++>"
+let g:Tex_Env_footcite="\\footcite[<++>][<++>]{<++>}<++>"
+let g:Tex_HotKeyMappings='citation,quote,footcite'
+" }}}
+
+" make EFN add a footnote, make EFC add a footcite, ECT adds a cite {{{
+call IMAP('EFN',"\\footnote{<++>}<++>",'tex')
+call IMAP('EFC',"\\footcite[<++>][<++>]{<++>}<++>",'tex')
+call IMAP('ECT',"\\cite[<++>][<++>]{<++>}<++>",'tex')
+" }}}
+
+" make `CC and `CT in insert mode insert frqq{} and flqq{} {{{
+call IMAP('`CC',"\\frqq{}",'tex')
+call IMAP('`CT',"\\flqq{}",'tex')
+" }}}
+
+" make ,ct enclose visually selected text in citation marks, ,fn in a footnote {{{
+vmap <silent> ,ct 	<C-\><C-N>:call VEnclose('\frqq{}', '\flqq{}', '\frqq{}', '\flqq{}')<CR>
+vmap <silent> ,fn 	<C-\><C-N>:call VEnclose('\footnote{', '}', '\footnote{', '}')<CR>
+" }}}
+
+" }}}
+
+" }}}
+
+" New stuff: {{{
+
+" {{{ Shortcuts for text-reviews ...
+" 1. Unterordnung und -werfung -> ... "~werfung (damit nicht getrennt wird)
+" :%s/\(\_s\)-\(\a\)/\1"\~\2/gc
+
+" 2. (Miss-)Verständnis -> (Miss"~)""Verständnis; (Miss)Verständnis -> (Miss)""Verständnis
+" :%s/\(\a\)-)\(\_a\)/\1"\~)""\2/gc
+" :%s/\(\a\))\(\a\)/\1)""\2/gc
+
+" 3. neben-, hintereinander -> neben"~, hintereinander
+" :%s/\(\a\)-,/\1"\~,/gc
+
+" 4. d.h. -> d.\,h.~ -- dgl. fuer i.O.,m.E.,i.A.,u.a.,d.h., z.B., s.o., s.u.
+" :%s/\(\a\)\.\(\a\).\_s/\1.\\,\2.\~/gc
+" (das deckt nicht folgende ab: m.a.W.)
+
+" 4b. d.\,h\ -> d.\,h.~
+" :%s/\(\a\).\\,\(\a\).\_s\(\a\)/\1.\\,\2.\~\3/gc
+
+" 4c. bzw. -> bzw.~
+" :%s/bzw\.\_s/bzw.\~/gc
+" :%s/usw\.\_s/usw.\~/gc
+" :%s/gl\.\_s/gl.\~/gc
+" :%s/cf\.\_s/cf.\~/gc
+
+" 5. x/y -> x\,/\,y
+" :%s/\(\a\)\/\(\a\)/\1\\,\/\\,\2/gc
+
+" 6. x / y -> x\,/\,y
+" :%s/\(\a\)\_s\/\_s\(\a\)/\1\\,\/\\,\2/gc
+
+" 7. _-_ -> _--_
+" :%s/ -\(\_s\)/ --\1/gc
+
+" 8. S. xy -> S.~xy UND (K|Ch)ap. xy -> (K|Ch)ap.~xy
+" :%s/\.\_s\(\d\)/.\~\1/gc
+
+" 9.
+" 3. Reich -> 3.~Reich
+" :%s/\(\d\)\.\_s/\1.\~/gc
+
+" 10. >>_xyc_<< mit kl. Leerzeichen?
+
+" 11. Abkürzungen aus Grossbuchstaben kleiner als norm. Majuskeln, größer als Minuskeln -> SC-Minuskeln?
+" /\u\+
+
+" }}}
+
+" Manuell - jeweils Suchdurchgänge für . . . {{{
+" /[tz]ial
+" /ss       (sollte da ein ß stehen?)
+" /ß        (sollte da ein ss stehen?)
+" /'
+" /\\tab
+" /}[\.,;]  (Fußnoten sollen nach die Satzzeichen, nicht davor)
+" /cf       (überall vgl.)
+" /siehe    (überall vgl.)
+" /quot
+" /-
+" /{(
+" /)}
+" /\.\.\.
+" /\\ldots ohne []
+" }}}
+
+" ------
+
+" BELEGUNGS-REFERENZ: {{{
+
+" v: ,qe fuer quote
+"    ,qn fuer quotation
+"    ,ct fuer Anführungszeichen
+"    ,fn fuer in Fussnote
+"    `it fuer textit
+"    `em fuer emph
+"    _C copy to tempfile
+"
+" n: za, '-', <space> für folds öffnen/schließen
+"    F5 für Environment / package einfügen
+"    F7 fuer Kommando einfuegen
+"    F6 fuer Referenz?
+"    \rml Entfernt falsche Ligaturen (:%!rmligs -q -f<CR>)
+"    _P paste from tempfile
+"
+" i: F9 display a list of labels/bibliographic refs when in ref{xxx}/cite{xxx} (or custom command completion)
+"    EQE für quote
+"    EQN für quotation
+"    EFN fuer footnote
+"    EFC fuer footcite
+"    ECT fuer cite
+"    FEM für emph
+"    FIT für textit
+"    S-F1 für Anf.Z.
+"    S-F2 für Quote
+"    S-F3 	für Footcite
+"    `CC 		fuer oeffnende Anf.z.
+"    `CT fuer schliessende Anf.z.
+"
+" BIB
+" ---
+" i:	BBb	erstellt einen Bucheintrag
+" 	BBa	erstellt einen Artikeleintrag
+" 	BBic	erstellt einen InCollection-Eintrag
+" 	BBib	erstellt einen InBook-Eintrag
+" 	BBB	erstellt einen beliebigen Eintrag mit minimalen Feldern
+" 	BBL		" 	" 	"		mehr
+" 	BBH		"	"	"		noch mehr
+" 	BBX		"	"	"		allen
+"
+"
+" n  \rf          @<Plug>Tex_RefreshFolds
+" n  \ls          @<Plug>Tex_ForwardSearch
+" n  \lv          @<Plug>Tex_View
+" v  \ll          @<Plug>Tex_Compile
+" n  \ll          @<Plug>Tex_Compile
+" n  \rml		removeligatures
+" n  <Plug>Tex_ForwardSearch *@:call Tex_ForwardSearchLaTeX()<CR>
+" n  <Plug>Tex_View *@:call Tex_ViewLaTeX()<CR>
+" v  <Plug>Tex_Compile *@:call Tex_PartCompile()<CR>
+" n  <Plug>Tex_Compile *@:call Tex_RunLaTeX()<CR>
+" v  <F7>         @<Plug>Tex_FastCommandInsert
+" n  <S-F7>       @<Plug>Tex_FastCommandChange
+" n  <F7>         @<Plug>Tex_FastCommandInsert
+" n  <S-F5>       @<Plug>Tex_FastEnvironmentChange
+" v  <F5>         @<Plug>Tex_FastEnvironmentInsert
+" n  <F5>         @<Plug>Tex_FastEnvironmentInsert
+" n  <F1>        *@:call <SNR>32_TexHelp()<CR>
+" n  ì           *@:call <SNR>41_PutLeftRight()<CR>
+" v  ã           *@<C-C>`>a}<Esc>`<i\mathcal{<Esc>
+" v  â           *@<C-C>`>a}<Esc>`<i\mathbf{<Esc>
+"    <C-H>         <C-W>h<C-W>
+" v  <NL>          <Plug>IMAP_JumpForward
+" n  <NL>          <Plug>IMAP_JumpForward
+" o  <NL>          <C-W>j<C-W><Right>
+"    <C-K>         <C-W>k<C-W><Right>
+"    <C-L>         <C-W>l<C-W>
+"    <C-P>         :vsplit<CR><CR>:bn<CR><CR>:set scrollbind<CR><CR><C-W><C-W>:set scrollbind<CR><CR><
+" C-W><C-W>
+" v  <C-Q>         <Esc>
+"    <C-S>         :if expand("%") == ""<CR>:browse confirm W<CR>:else<CR>:confirm W<CR>:endif<CR>
+" v  ,           * :<C-U>call ExecMap(',', 'v')<CR>
+" v  ,pi         * <C-\><C-N>:call VEnclose('', '', '\begin{picture}', '\end{picture}')<CR>
+" v  ,mp         * <C-\><C-N>:call VEnclose('', '', '\begin{minipage}', '\end{minipage}')<CR>
+" v  ,lr         * <C-\><C-N>:call VEnclose('\sbox{', '}', '\begin{lrbox}', '\end{lrbox}')<CR>
+" v  ,fi         * <C-\><C-N>:call VEnclose('', '', '\begin{figure}', '\end{figure}')<CR>
+" v  ,sp         * <C-\><C-N>:call VEnclose('\subparagraph{', '}', '', '')<CR>
+" v  ,pg         * <C-\><C-N>:call VEnclose('\paragraph{', '}', '', '')<CR>
+" v  ,s2         * <C-\><C-N>:call VEnclose('\subsubsection{', '}', '', '')<CR>
+" v  ,ss         * <C-\><C-N>:call VEnclose('\subsection{', '}', '', '')<CR>
+" v  ,se         * <C-\><C-N>:call VEnclose('\section{', '}', '', '')<CR>
+" v  ,ch         * <C-\><C-N>:call VEnclose('\chapter{', '}', '', '')<CR>
+" v  ,pa         * <C-\><C-N>:call VEnclose('\part{', '}', '', '')<CR>
+" v  ,sl         * <C-\><C-N>:call VEnclose('', '', '\begin{slide}', '\end{slide}')<CR>
+" v  ,ov         * <C-\><C-N>:call VEnclose('', '', '\begin{overlay}', '\end{overlay}')<CR>
+" v  ,no         * <C-\><C-N>:call VEnclose('', '', '\begin{note}', '\end{note}')<CR>
+" v  ,tb         * <C-\><C-N>:call VEnclose('', '', '\begin{thebibliography}', '\end{thebibliography}'
+" )<CR>
+" v  ,ve         * <C-\><C-N>:call VEnclose('', '', '\begin{verse}', '\end{verse}')<CR>
+" v  ,vm         * <C-\><C-N>:call VEnclose('\verb|', '|', '\begin{verbatim}', '\end{verbatim}')<CR>
+" v  ,tp         * <C-\><C-N>:call VEnclose('', '', '\begin{titlepage}', '\end{titlepage}')<CR>
+" v  ,sb         * <C-\><C-N>:call VEnclose('', '', '\begin{sloppybar}', '\end{sloppybar}')<CR>
+" v  ,qe         * <C-\><C-N>:call VEnclose('', '', '\begin{quote}', '\end{quote}')<CR>
+" v  ,qn         * <C-\><C-N>:call VEnclose('', '', '\begin{quotation}', '\end{quotation}')<CR>
+" v  ,fr         * <C-\><C-N>:call VEnclose('{\raggedright ', '}', '\begin{flushright}', '\end{flushright}')<CR>
+" v  ,fl         * <C-\><C-N>:call VEnclose('', '', '\begin{flushleft}', '\end{flushleft}')<CR>
+" v  ,fc         * <C-\><C-N>:call VEnclose('', '', '\begin{filecontents}', '\end{filecontents}')<CR>
+" v  ,do         * <C-\><C-N>:call VEnclose('', '', '\begin{document}', '\end{document}')<CR>
+" v  ,ce         * <C-\><C-N>:call VEnclose('\centerline{', '}', '\begin{center}', '\end{center}')<CR>
+"
+" v  ,ap         * <C-\><C-N>:call VEnclose('', '', '\begin{appendix}', '\end{appendix}')<CR>
+" v  ,ab         * <C-\><C-N>:call VEnclose('', '', '\begin{abstract}', '\end{abstract}')<CR>
+" v  ,ma         * <C-\><C-N>:call VEnclose('', '', '\begin{math}', '\end{math}')<CR>
+" v  ,eq         * <C-\><C-N>:call VEnclose('', '', '\begin{equation}', '\end{equation}')<CR>
+" v  ,ea         * <C-\><C-N>:call VEnclose('', '', '\begin{eqnarray}', '\end{eqnarray}')<CR>
+" v  ,dm         * <C-\><C-N>:call VEnclose('', '', '\begin{displaymath}', '\end{displaymath}')<CR>
+" v  ,ar         * <C-\><C-N>:call VEnclose('', '', '\begin{array}', '\end{array}')<CR>
+" v  ,tr         * <C-\><C-N>:call VEnclose('', '', '\begin{tabular}', '\end{tabular}')<CR>
+" v  ,tg         * <C-\><C-N>:call VEnclose('', '', '\begin{tabbing}', '\end{tabbing}')<CR>
+" v  ,te         * <C-\><C-N>:call VEnclose('', '', '\begin{table}', '\end{table}')<CR>
+" v  ,tl         * <C-\><C-N>:call VEnclose('', '', '\begin{trivlist}', '\end{trivlist}')<CR>
+" v  ,ti         * <C-\><C-N>:call VEnclose('', '', '\begin{theindex}', '\end{theindex}')<CR>
+" v  ,it         * <C-\><C-N>:call VEnclose('', '', '\begin{itemize}', '\end{itemize}')<CR>
+" v  ,en         * <C-\><C-N>:call VEnclose('', '', '\begin{enumerate}', '\end{enumerate}')<CR>
+" v  ,de         * <C-\><C-N>:call VEnclose('', '', '\begin{description}', '\end{description}')<CR>
+" v  ,li         * <C-\><C-N>:call VEnclose('', '', '\begin{list}', '\end{list}')<CR>
+"    N             :w <CR>
+"    _g            :exe 'silent !xdvi -editor "vim --servername ' . v:servername . ' --remote +\%l \%f" -sourceposition ' . line (".") . expand("%") . " " . expand("%:r") . ".dvi &" | redraw!<CR>
+" v  `           * :<C-U>call ExecMap('`', 'v')<CR>
+" v  `em         * <C-\><C-N>:call VEnclose('\emph{', '}', '{\em', '\/}')<CR>
+" v  `it         * <C-\><C-N>:call VEnclose('\textit{', '}', '{\itshape ', '}')<CR>
+" v  `sc         * <C-\><C-N>:call VEnclose('\textsc{', '}', '{\scshape ', '}')<CR>
+" v  `sl         * <C-\><C-N>:call VEnclose('\textsl{', '}', '{\slshape ', '}')<CR>
+" v  `up         * <C-\><C-N>:call VEnclose('\textup{', '}', '{\upshape ', '}')<CR>
+" v  `rm         * <C-\><C-N>:call VEnclose('\textrm{', '}', '{\rmfamily ', '}')<CR>
+" v  `sf         * <C-\><C-N>:call VEnclose('\textsf{', '}', '{\sffamily ', '}')<CR>
+" v  `tt         * <C-\><C-N>:call VEnclose('\texttt{', '}', '{\ttfamily ', '}')<CR>
+" v  `md         * <C-\><C-N>:call VEnclose('\textmd{', '}', '{\mdseries ', '}')<CR>
+" v  `bf         * <C-\><C-N>:call VEnclose('\textbf{', '}', '{\bfseries ', '}')<CR>
+" v  `$          * <C-\><C-N>:call VEnclose('$', '$', '\[', '\]')<CR>
+" v  `{          * <C-\><C-N>:call VEnclose('\left\{ ', ' \right\}', '\left\{', '\right\}')<CR>
+" v  `[          * <C-\><C-N>:call VEnclose('\left[ ', ' \right]', '\left[', '\right]')<CR>
+" v  `(          * <C-\><C-N>:call VEnclose('\left( ', ' \right)', '\left(', '\right)')<CR>
+
+" }}}

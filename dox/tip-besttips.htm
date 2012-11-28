@@ -1,0 +1,380 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+  <link rel="Stylesheet" type="text/css" href="/css/style.css" >
+  <title>Tip #305 - Best of VIM Tips (VIM's best Features) : vim online</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="KEYWORDS" content="Vim, Vi IMproved, text editor, home, documentation, tips, scripts, news">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/vim_shortcut.ico">
+</head>
+
+<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="#ffffff"> 
+
+<!-- HEADER, SPONSOR IMAGE, VIM IMAGE AND BOOK AD -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tr>
+    <td colspan="4" class="lightbg"><img src="/images/spacer.gif" width="1" height="5" alt=""></td>
+  </tr>
+  <tr>
+  <td class="lightbg">&nbsp;&nbsp;&nbsp;</td>
+  <td class="lightbg" align="left"><a href="/sponsor/index.php"><img src="/images/sponsorvim.gif" alt="sponsor Vim development" border="0"></a></td>
+    <td class="lightbg" align="center"><a href="/index.php"><img src="/images/vim_header.gif" border="0" alt="Vim logo"></a></td>
+    <td class="lightbg" align="right"><a href="http://iccf-holland.org/click5.html"><img src="/images/buyhelplearn.gif" alt="Vim Book Ad" border="0"></a></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="lightbg"><img src="/images/spacer.gif" width="1" height="5" alt=""></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="darkbg"><img src="/images/spacer.gif" width="1" height="10" alt=""></td>
+  </tr>
+</table>
+<!-- THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+  <col width="180">
+  <col width="1">
+
+  <tr valign="top">
+    <td class="sidebar">
+      <table width="180" cellpadding="4" cellspacing="0" border="0">
+        <tr valign="top">
+          <td class="sidebar">
+
+<!-- INCLUDE THE PAGE NAVIGATION -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+    <tr>
+        <td><small>not logged in (<a href="/login.php">login</a>)</small></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="1"></td>
+    </tr>
+    <tr>
+        <td class="darkbg"><img src="/images/spacer.gif" alt='' border="0" height="3"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="2"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/index.php">Home</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/search.php">Search</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/about.php">About Vim</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/community.php">Community</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/news/news.php">News</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/sponsor/index.php">Sponsoring</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/trivia.php">Trivia</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/docs.php">Documentation</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/download.php">Download</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/scripts/index.php">Scripts</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/tips/index.php">Tips</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/account/index.php">My Account</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/huh.php">Site Help</a></td>
+        </tr>
+</table>
+
+            <table width="172" cellpadding="0" cellspacing="0" border="0">
+              <tr><td><img src="/images/spacer.gif" alt="" border="0" width="1" height="8"></td></tr>
+              <tr><td class="darkbg"><img src="/images/spacer.gif" width="1" height="3" alt=""></td></tr>
+            </table>
+            <br>
+
+<!-- INCLUDE THE PAGE SIDEBAR TEXT -->
+&nbsp;
+
+          </td>
+        </tr>
+      </table>
+    </td>
+
+    <td class="darkbg"><img src="/images/spacer.gif" width="1" height="1" border="0" alt=""><br></td>
+    <td>
+      <table width="100%" cellpadding="10" cellspacing="0" border="0" bordercolor="red">
+        <tr>
+          <td valign="top">
+
+
+
+<h1><img src="images/intermediate.gif" alt="intermediate">&nbsp;Tip #305: Best of VIM Tips (VIM's best Features)</h1>
+
+<!-- karma table -->
+<table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+<tr>
+  <td class="lightbg"><b>&nbsp;tip karma&nbsp;</b></td>
+  <td>
+    &nbsp;Rating <b>1623/515</b>, Viewed by 29648&nbsp;
+  </td>
+</tr>
+</table>
+
+<br>
+
+<table cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td class="prompt">created:</td>
+    <td>&nbsp;</td>
+    <td>August 10, 2002 6:05</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="prompt">complexity:</td>
+    <td>&nbsp;</td>
+    <td>intermediate</td>
+  </tr>
+  <tr>
+    <td class="prompt">author:</td>
+    <td>&nbsp;</td>
+    <td>zzapper</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="prompt">as of Vim:</td>
+    <td>&nbsp;</td>
+    <td>5.7</td>
+  </tr>
+</table>
+
+<p><code>Here's a necessarily cryptic list of &quot;MY&quot; Best Vim Tips that I've gleaned<br>from <a target="_blank" href="http://vim.sf.net/&nbsp;&nbsp">http://vim.sf.net/&nbsp;&nbsp</A>;& comp.editors&nbsp;&nbsp;<br><a target="_blank" href="http://groups.google.com/groups?safe=off&group=comp.editors">http://groups.google.com/groups?safe=off&group=comp.editors</A><br><br>updated version at <a target="_blank" href="http://www.rayninfo.co.uk/vimtips.html">http://www.rayninfo.co.uk/vimtips.html</A><br>------------------------------------------------------------------------------<br># Absolutely essential<br>------------------------------------------------------------------------------<br>vim.sf.net&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : Visit frequently<br>comp.editors&nbsp;&nbsp;&nbsp;&nbsp;: &quot;VIM&quot; dominated newsgroup<br>* # g* g#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: find word under cursor (forwards/backwards)<br>%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : match brackets {}[]()<br>matchit.vim&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: % now matches tags &lt;tr&gt;&lt;td&gt;&lt;script&gt; etc<br>&lt;C-N&gt; &lt;C-P&gt;&nbsp;&nbsp; : word completion in insert mode <br>&lt;C-X&gt;&lt;C-L&gt;&nbsp;&nbsp;&nbsp;&nbsp;: Line complete SUPER USEFUL<br>/&lt;C-R&gt;&lt;C-W&gt;&nbsp;&nbsp; : Pull &lt;cword&gt; onto search/command line<br>:set ignorecase # you nearly always want this<br>:syntax on&nbsp;&nbsp;&nbsp;&nbsp;: colour syntax in Perl,HTML,PHP etc<br>:h slash&lt;C-D&gt; : type control-D and get a list all help topics containing<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slash (plus use TAB for Help completion)<br>------------------------------------------------------------------------------<br># MAKE IT EASY TO UPDATE/RELOAD_vimrc <br>:nmap ,s :source $VIM/_vimrc<br>:nmap ,v :e $VIM/_vimrc<br>------------------------------------------------------------------------------<br>#VISUAL MODE Mappings<br>:vmap sb &quot;zdi&lt;b&gt;&lt;C-R&gt;z&lt;/b&gt;&lt;ESC&gt; : wrap &lt;b&gt;&lt;/b&gt; around VISUALLY selected Text<br>:vmap st &quot;zdi&lt;?= &lt;C-R&gt;z ?&gt;&lt;ESC&gt;&nbsp;&nbsp;: wrap &lt;?=&nbsp;&nbsp; ?&gt; around VISUALLY selected Text<br>------------------------------------------------------------------------------<br># Exploring<br>:Ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : file explorer note capital Ex<br>\be&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : builtin buffer explorer<br>:ls&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : list of buffers(eg following)<br>:cd ..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: move to parent directory<br>------------------------------------------------------------------------------<br># Great<br>guu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : lowercase line<br>gUU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : uppercase line<br>gf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: open file name under cursor (SUPER)<br>ga&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: display hex,ascii value of character under cursor<br>ggVGg?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: rot13 whole file<br>CTRL-A,CTRL-X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : increment,decerement number under cursor<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;win32 users must remap CNTRL-A<br>CTRL-R=5*5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: insert 25 into text<br>------------------------------------------------------------------------------<br># Makes all other tips superfluous<br>:h 42&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>:h holy-grail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>:help!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>------------------------------------------------------------------------------<br># Markers & moving about<br>'.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : jump to last modification line (SUPER)<br>`.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : jump to exact spot in last modification line<br>&lt;C-O&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: retrace your movements in file (old)<br>&lt;C-I&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: retrace your movements in file (new)<br>:ju(mps)<br>:help jump-motions<br>:history&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: list of all your commands<br>------------------------------------------------------------------------------<br># Abbreviations & maps<br>:map&nbsp;&nbsp; &lt;f7&gt;&nbsp;&nbsp; :'a,'bw! c:/aaa/x<br>:map&nbsp;&nbsp; &lt;f8&gt;&nbsp;&nbsp; :r c:/aaa/x<br>:map&nbsp;&nbsp; &lt;f9&gt;&nbsp;&nbsp; :w&lt;CR&gt;:!c:/php/php.exe %&lt;CR&gt;<br>:map&nbsp;&nbsp; &lt;f11&gt;&nbsp;&nbsp;:.w! c:/aaa/xr&lt;CR&gt;<br>:map&nbsp;&nbsp; &lt;f12&gt;&nbsp;&nbsp;:r c:/aaa/xr&lt;CR&gt;<br>:ab php&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : list of abbreviations beginning php<br>:map ,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: list of maps beginning ,<br># For use in Maps<br>&lt;CR&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : carriage Return for maps<br>&lt;ESC&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Escape<br>&lt;LEADER&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : normally \<br>&lt;BAR&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: | pipe<br>------------------------------------------------------------------------------<br># List your Registers<br>:reg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : display contents of all registers<br>&quot;1p....&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: retrieve numeric buffers<br>------------------------------------------------------------------------------<br># Useful trick<br>&quot;ayy@a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: execute &quot;Vim command&quot; in a text file <br>yy@&quot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: same thing using unnamed register <br>------------------------------------------------------------------------------<br># Get output from other commands<br>:r!ls.exe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: reads in output of ls<br>!!date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : same thing<br>:%!sort -u&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : use an external program to filter content<br>------------------------------------------------------------------------------<br># Multiple Files Management<br>:wn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: write file and move to next (SUPER)<br>:bd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: remove file from buffer list (SUPER)<br>:sav php.html&nbsp;&nbsp;&nbsp;&nbsp;: Save current file as php.html and &quot;move&quot; to php.html<br>:sp fred.txt&nbsp;&nbsp;&nbsp;&nbsp; : open fred.txt into a split<br>:e!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: return to unmodified file<br>:w c:/aaa/%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: save file elsewhere<br>:e #&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : edit alternative file<br>:e %<br>:rew&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: rewwind to first file in ARGS<br>:bn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : next file<br>:bp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : next file<br>:brew<br>------------------------------------------------------------------------------<br># Recording (BEST TIP of ALL)<br>qq&nbsp;&nbsp;# record to q<br>your commands<br>q<br>@q to execute<br>@@ to Repeat<br># editing a register/recording<br>&quot;ap<br>&lt;you can now see register contents, edit as required&gt;<br>&quot;add<br>@a<br>------------------------------------------------------------------------------<br># _vimrc essentials<br>:set incsearch : jumps to search word as you type (annoying but excellent)<br>:set wildignore=*.o,*.obj,*.bak,*.exe<br>:set shiftwidth=3<br>------------------------------------------------------------------------------<br># launching Win IE<br>:nmap ,f :update&lt;CR&gt;:silent !start c:\progra~1\intern~1\iexplore.exe file://%:p&lt;CR&gt;<br>:nmap ,i :update&lt;CR&gt;: !start c:\progra~1\intern~1\iexplore.exe &lt;cWORD&gt;&lt;CR&gt;<br>------------------------------------------------------------------------------<br># FTPing from VIM<br>cmap ,r&nbsp;&nbsp;:Nread <a target="_blank" href="ftp://209.51.134.122/public_html/index.html">ftp://209.51.134.122/public_html/index.html</A> <br>cmap ,w&nbsp;&nbsp;:Nwrite <a target="_blank" href="ftp://209.51.134.122/public_html/index.html">ftp://209.51.134.122/public_html/index.html</A><br>gvim <a target="_blank" href="ftp://209.51.134.122/public_html/index.html">ftp://209.51.134.122/public_html/index.html</A><br>------------------------------------------------------------------------------<br># appending to registers (use CAPITAL)<br># yank 5 lines into &quot;a&quot; then add a further 5<br>&quot;a5yy<br>10j<br>&quot;A5yy<br>------------------------------------------------------------------------------<br>[I&nbsp;&nbsp;&nbsp;&nbsp; : show lines matching word under cursor &lt;cword&gt;<br>------------------------------------------------------------------------------<br>#Conventional Shifting<br>:'a,'b&gt;&gt;<br># visual shifting (builtin-repeat)<br>:vnoremap &lt; &lt;gv <br>:vnoremap &gt; &gt;gv<br>------------------------------------------------------------------------------<br># searching<br>/^joe.*fred.*bill/ : normal<br>/^[A-J]\+/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : search for lines beginning A-J followed by at leat 1 A-J<br>/forum\(\_.\)*pent&nbsp;&nbsp; search over possible multiple lines<br>/fred\_s*joe/i&nbsp;&nbsp;&nbsp;&nbsp;: any whitespace including newline<br>/fred\|joe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Search for FRED OR JOE<br>------------------------------------------------------------------------------<br>#substitution<br>:%s/fred/joe/igc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: general substitute command<br>:%s/\r//g&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : Delete DOS returns ^M<br>:'a,'bg/fred/s/dick/joe/gc&nbsp;&nbsp;: VERY USEFUL<br>:s/\(.*\):\(.*\)/\2 :&nbsp;&nbsp;\1/&nbsp;&nbsp;: reverse fields separated by :<br>:%s/^.\{-}pdf/new.pdf/&nbsp;&nbsp;non greedy matching (ie to first pdf)<br>:s/fred/&lt;c-r&gt;a/g substitute &quot;fred&quot; with contents of register &quot;a&quot;<br>:%s/^\(.*\)\n\1/\1$/&nbsp;&nbsp;delete duplicate lines<br># non-greedy matching \{-} <br>:%s/^.\{-}pdf/new.pdf/<br>:help /\{-} <br>:s/fred/&lt;c-r&gt;a/g substitute &quot;fred&quot; with contents of register &quot;a&quot;<br># multiple commands<br>:%s/\f\+\.gif\&gt;/\r&\r/g | v/\.gif$/d | %s/gif/jpg/<br>:%s/suck\|buck/loopy/gc&nbsp;&nbsp;: ORing<br>:s/__date__/\=strftime(&quot;%c&quot;)/ : insert datestring<br>------------------------------------------------------------------------------<br># global command<br>:g/^\s*$/d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :delete all blank lines<br>:g!/^dd/d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: delete lines not containing string<br>:v/^dd/d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : delete lines not containing string<br>:g/fred/,/joe/d&nbsp;&nbsp;: not line based<br>:v/./.,/./-1join : compress empty lines<br>:'a,'b g/^Error/ . w &gt;&gt; errors.txt<br>:g/cmap\|form/p&nbsp;&nbsp;: ORing<br>------------------------------------------------------------------------------<br># Paste register *<br>:redir @*&nbsp;&nbsp; : redirect commands to paste<br>:redir END<br>&quot;*yy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: yank to paste<br>&quot;*p&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : insert paste buffer<br>------------------------------------------------------------------------------<br># Formatting text<br>gq&lt;CR&gt;<br>gqap&nbsp;&nbsp;(a is motion p paragraph (visual mode))<br>------------------------------------------------------------------------------<br># Operate command over multiple files<br>:argdo %s/foo/bar/<br>:bufdo %s/foo/bar/ <br>:windo %s/foo/bar/ <br>------------------------------------------------------------------------------<br># Command line tricks<br>gvim -h<br>ls | gvim -&nbsp;&nbsp; : edit a PIPE!!<br># vg.ksh (shell script)<br># vi all files in directory containing keyword $1 and jump to $1<br>gvim.exe -c &quot;/$1&quot;&nbsp;&nbsp;$(grep -isl &quot;$1&quot; *) &<br>------------------------------------------------------------------------------<br></code></p>
+
+<!-- rating table -->
+<form name="rating">
+  <input type="hidden" name="tip_id" value="305">
+  <table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+    <tr>
+      <td class="lightbg"><b>&nbsp;rate this tip&nbsp;</b></td>
+      <td valign="middle">
+	<input type="radio" name="rating" value="life_changing">Life Changing
+	<input type="radio" name="rating" value="helpful">Helpful
+	<input type="radio" name="rating" value="unfulfilling">Unfulfilling&nbsp;
+	<input type="submit" value="rate">
+      </td>
+    </tr>
+  </table>
+</form>
+<p>
+
+    <small>
+          <a href="tip.php?tip_id=304">&lt;&lt;fold braces and javadoc</a> | 
+                <a href="tip.php?tip_id=306">Open a web-browser with the URL in the current line &gt;&gt;</a> 
+    </small>
+
+<br>
+<br>
+<h1>Additional Notes</h1>
+
+<form method="get" action="add_tip_note.php">
+<input type='hidden' name='tip_id' value="305">
+<table width="100%" cellpadding="3" cellspacing="4" border="0">
+    	<tr>
+	  <td class="lightbg">
+	    	    y_ellzs@tsmc.com.tw, 
+	    	    <font size='-1'> August 11, 2002 7:36 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>test</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    david@tvis.co.uk, 
+	    	    <font size='-1'> August 14, 2002 13:35 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>Just a reminder that this is just my selection,but&nbsp;&nbsp;there's plenty of other good tips<br>in the vim tip collection<br><br># Vim traps<br>In regular expressions you must backslash + (match 1 or more)<br>/fred\+/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: matches fred/freddy but not free<br>----------------------------------------<br># \v or very magic (usually) reduces backslashing<br>/codes\(\n\|\s\)*where&nbsp;&nbsp;: normal regexp<br>/\vcodes(\n|\s)*where&nbsp;&nbsp; : very magic<br>----------------------------------------<br># pulling objects onto command/search line (SUPER)<br>CTRL-R CTRL-W Pull word under the cursor into a command line or search<br>CTRL-R -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: pull small register<br>CTRL-R [0-9a-z]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : pull named registers<br>CTRL-R %&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: pull file name (also #)<br>----------------------------------------<br># manipulating registers<br>map&nbsp;&nbsp; &lt;f11&gt; &quot;qyy:let @q=@q.&quot;zzz&quot;<br>----------------------------------------<br># help <br>:h visual&lt;C-D&gt;&lt;tab&gt;&nbsp;&nbsp;&nbsp;&nbsp; : obtain&nbsp;&nbsp;list of all visual help topics<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Then use tab to step thru them<br>----------------------------------------<br># where was an option set<br>:verbose set history&nbsp;&nbsp;&nbsp;&nbsp;: reveals value of history and where set<br>----------------------------------------<br># running file thru an external program (eg php)<br>map&nbsp;&nbsp; &lt;f9&gt;&nbsp;&nbsp; :w&lt;CR&gt;:!c:/php/php.exe %&lt;CR&gt;<br>----------------------------------------</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    david@tvis.co.uk, 
+	    	    <font size='-1'> September 13, 2002 1:45 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt># Inserting Carriage Returns<br>:%s/nubian/&lt;C-V&gt;&lt;C-M&gt;&/g&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;that's what you type<br>:%s/nubian/&lt;C-Q&gt;&lt;C-M&gt;&/g&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;for Win32<br>:%s/nubian/^M&/g&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;what you'll see where ^M is ONE character<br>----------------------------------------<br># Retrieving last command line command for copy & pasting into text<br>&lt;c-r&gt;:<br># Retrieving last Search Command for copy & pasting into text<br>&lt;c-r&gt;/<br>----------------------------------------<br># doing things over multiple lines \_ means including newline<br>/&lt;!--\_p\{-}--&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : search for multiple line comments<br>/fred\_s*joe/i&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: any whitespace including newline<br>/bugs\(\_.\)*bunny&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: bugs followed by bunny anywhere in file<br>:h \_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : help<br>----------------------------------------<br># more completions<br>&lt;C-X&gt;&lt;C-F&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :insert name of a file in current directory<br>----------------------------------------<br># help for help<br>:h visual&lt;C-D&gt;&lt;tab&gt;&nbsp;&nbsp;&nbsp;&nbsp; : obtain&nbsp;&nbsp;list of all visual help topics<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Then use tab to step thru them<br>:h ctrl&lt;C-D&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: list help of all control keys<br>:h :r&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : help for :ex command<br>:h CTRL-R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : normal mode<br>:h \r&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : what's \r in a regexp<br>:h i_CTRL-R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : help for say &lt;C-R&gt; in insert mode<br>:h c_CTRL-R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : help for say &lt;C-R&gt; in command mode<br>:h v_CTRL-V&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : visual mode<br>----------------------------------------</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    kdr_tech@yahoo.com, 
+	    	    <font size='-1'> November 3, 2002 10:23 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>This is an extension to <br># pulling objects onto command/search line <br><br>If you use <br>/CTRL-R CTRL-A <br>it brings the whole word under the cursor including any special characters.<br>For Ex:<br><br>If you are in a HTML page and the cursor is under a keyword &lt;table&gt;<br><br>/CTRL-R CTRL-A brings /&lt;table&gt;<br>/CTRL-R CTRL-W brings /table (depending on what the letter under your cursor is ... table or &lt; or &gt;<br><br>-Kdr<br></tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    zzapper@ntlworld.com, 
+	    	    <font size='-1'> December 23, 2002 11:42 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>The Buffer Explorer scripts mentioned above (\be \bs) rely on the 2nd most popular VIM script bufexplorer.vim<br><br>available at <a target="_blank" href="http://www.vim.org/script.php?script_id=42&nbsp;&nbsp;updated">http://www.vim.org/script.php?script_id=42&nbsp;&nbsp;updated</A> 05-Nov-2002 <br><br>This is a must have script.<br><br>Have recently started to appreciate taglist.vim (the most popular VIM script) it really comes into it's own with very long programs containting lots of subroutines/functions as it shows which function/sub you're in etc etc<br><br><a target="_blank" href="http://www.vim.org/script.php?script_id=273">http://www.vim.org/script.php?script_id=273</A> updated 20-dec-02<br><br>zzapper</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    wisniewski@frontiernet.net, 
+	    	    <font size='-1'> June 13, 2003 17:28 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>#ftping with vim&nbsp;&nbsp;- great functionality<br><br>for ascii file transfers add the following line to your profile<br>&nbsp;&nbsp;&nbsp;&nbsp; let g:netrw_ftpmode=&quot;ascii&quot;<br></tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    junk4todd@dogbus.org, 
+	    	    <font size='-1'> July 16, 2003 12:06 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>If you want to delete multiple duplicate lines in a sorted file:<br>:%s/^\(.*\)\n\(\1\n\)*/\1&lt;NL&gt;/<br>where &lt;NL&gt; is the character sequence that represents a return in your file type.&nbsp;&nbsp;For Windows, the easiest way to get this is to highlight a return character in another program (open a new notepad, hit return once, select all, and copy) and then use Edit -&gt; Paste in VIM to insert it.</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    shankarpj@yahoo.com, 
+	    	    <font size='-1'> January 11, 2004 21:28 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>If you want to number the lines in the file try:<br><br>:%! nl -ba</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    sx7gs7r02@sneakemail.com, 
+	    	    <font size='-1'> February 8, 2004 19:02 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>Hi,<br><br>I think rot13 of the whole file can be improved by this:<br><br>ggg?G<br><br>It's so much better to read. Saves one byte over ggVGg?<br>Also, it does not require the overhead of selecting the whole file,<br>especially if the file is huge.<br><br>Arvind</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    <b>Anonymous</b>, 
+	    	    <font size='-1'> March 4, 2004 12:42 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>In the message above by junk4todd about getting the &lt;NL&gt; character, you can get the &lt;NL&gt; character by typing:<br>&lt;Ctrl-V&gt;&lt;CR&gt;<br>The Ctrl-V character is the &quot;escape&quot;-like character and prints the literal of what the next sequence is (it works in vi, and seems to work in vim, too)</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    smp@cypress.com, 
+	    	    <font size='-1'> March 19, 2004 16:06 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>I'm confused. I'm a long time vi/vim user. I've often used ctrl-v to enter escaped characters, but I haven't done it in a while. I just tried, and ctrl-v puts me in visual mode block selection... as documented. Well, the docs also make reference to ctrl-v being used as an escape. So which is it? How can ctrl-v be documented to do both things?</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    <b>Anonymous</b>, 
+	    	    <font size='-1'> March 23, 2004 8:28 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>smp@cypress.com: control-V only lets you enter escaped characters when in insert mode...</tt></td>
+	</tr>
+    	<tr>
+	  <td class="lightbg">
+	    	    <b>Anonymous</b>, 
+	    	    <font size='-1'> April 7, 2004 12:24 </font>
+	  </td>
+	</tr>
+	<tr>
+	  <td><tt>Incredible. Before now, I used to consider myself pretty bright. Imagine, all these years of overestimating my mental abilities. I guess this new found dimness explains a few of the blunders in my life.<br><br>Anyway, thanks, I don't know how I didn't realize that I was trying to insert escaped characters when not in insert mode. (I've been using vi/vim for ~11 years)</tt></td>
+	</tr>
+        <tr>
+      <td>
+	<input type="submit" name="Add Note" value="Add Note">
+      </td>
+    </tr>
+</table>
+</form>
+<!-- finish off the framework -->
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!-- END OF THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1" height="5" alt=""></td></tr>
+  <tr><td colspan="4" bgcolor="#000000"><img src="/images/spacer.gif" height="2" width="1" alt=""></td></tr>
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1" height="5" alt=""></td></tr>
+  <tr>
+    <td><img src="/images/spacer.gif" width="5" height="1" alt=""></td>
+
+    <td align="left" valign="top"><small>
+      If you have questions or remarks about this site, visit the
+      <a href="http://vimonline.sf.net">vimonline development</a> pages.
+      Please use this site responsibly.
+      <br> 
+      
+      Questions about <a href="http://www.vim.org/about.php">Vim</a> should go
+      to vim@vim.org after searching
+      <a href="http://groups.yahoo.com/group/vim">the archive</a>.
+      Help Bram <a href="http://iccf-holland.org/">help Uganda</a>.
+      </small>
+    </td>
+
+    <td align="right" valign="top">
+	<a href="http://www.webconceptgroup.net"><img src="/images/logo_sponsor_wcg.jpg" width="131" height="30" border="0" alt="Sponsored by Web Concept Group Inc."></a>
+	<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=8&type=1" width="88" height="31" border="0" alt="SourceForge Logo"></a>
+    </td>
+
+    <td><img src="/images/spacer.gif" width="5" height="1" alt=""></td>
+  </tr>
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1" height="5" alt=""></td></tr>
+</table>
+
+</body>
+</html>
+

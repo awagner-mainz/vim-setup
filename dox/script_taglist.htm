@@ -1,0 +1,373 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <link rel="Stylesheet" type="text/css" href="tip-taglist_files/style.css">
+  
+  <title>taglist.vim - Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc) : vim online</title><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="KEYWORDS" content="Vim, Vi IMproved, text editor, home, documentation, tips, scripts, news">
+  <link rel="shortcut icon" type="image/x-icon" href="http://www.vim.org/images/vim_shortcut.ico"></head>
+
+
+<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="#ffffff"> 
+
+<!-- HEADER, SPONSOR IMAGE, VIM IMAGE AND BOOK AD -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tbody><tr>
+    <td colspan="4" class="lightbg"><img src="tip-taglist_files/spacer.gif" width="1" height="5" alt=""></td>
+  </tr>
+  <tr>
+  <td class="lightbg">   </td>
+  <td class="lightbg" align="left"><a href="http://www.vim.org/sponsor/index.php"><img src="tip-taglist_files/sponsorvim.gif" alt="sponsor Vim development" border="0"></a></td>
+    <td class="lightbg" align="center"><a href="http://www.vim.org/index.php"><img src="tip-taglist_files/vim_header.gif" border="0" alt="Vim logo"></a></td>
+    <td class="lightbg" align="right"><a href="http://iccf-holland.org/click5.html"><img src="tip-taglist_files/buyhelplearn.gif" alt="Vim Book Ad" border="0"></a></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="lightbg"><img src="tip-taglist_files/spacer.gif" width="1" height="5" alt=""></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="darkbg"><img src="tip-taglist_files/spacer.gif" width="1" height="10" alt=""></td>
+  </tr>
+</tbody></table>
+<!-- THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+  <col width="180">
+  <col width="1">
+
+  <tbody><tr valign="top">
+    <td class="sidebar">
+      <table width="180" cellpadding="4" cellspacing="0" border="0">
+        <tbody><tr valign="top">
+          <td class="sidebar">
+
+<!-- INCLUDE THE PAGE NAVIGATION -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+    <tbody><tr>
+        <td><small>not logged in (<a href="http://www.vim.org/login.php">login</a>)</small></td>
+    </tr>
+    <tr>
+        <td><img src="tip-taglist_files/spacer.gif" alt="" border="0" width="1" height="1"></td>
+    </tr>
+    <tr>
+        <td class="darkbg"><img src="tip-taglist_files/spacer.gif" alt="" border="0" height="3"></td>
+    </tr>
+    <tr>
+        <td><img src="tip-taglist_files/spacer.gif" alt="" border="0" width="1" height="2"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="http://www.vim.org/index.php">Home</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="http://www.vim.org/search.php">Search</a></td>
+        </tr>
+    <tr>
+        <td><img src="tip-taglist_files/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="tip-taglist_files/spacer.gif" alt="" border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="tip-taglist_files/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="http://www.vim.org/about.php">About Vim</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="http://www.vim.org/community.php">Community</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="http://www.vim.org/news/news.php">News</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="http://www.vim.org/sponsor/index.php">Sponsoring</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="http://www.vim.org/trivia.php">Trivia</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="http://www.vim.org/docs.php">Documentation</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="http://www.vim.org/download.php">Download</a></td>
+        </tr>
+    <tr>
+        <td><img src="tip-taglist_files/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="tip-taglist_files/spacer.gif" alt="" border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="tip-taglist_files/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="http://www.vim.org/scripts/index.php">Scripts</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="http://www.vim.org/tips/index.php">Tips</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="http://www.vim.org/account/index.php">My Account</a></td>
+        </tr>
+    <tr>
+        <td><img src="tip-taglist_files/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="tip-taglist_files/spacer.gif" alt="" border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="tip-taglist_files/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="http://www.vim.org/huh.php">Site Help</a></td>
+        </tr>
+</tbody></table>
+
+            <table width="172" cellpadding="0" cellspacing="0" border="0">
+              <tbody><tr><td><img src="tip-taglist_files/spacer.gif" alt="" border="0" width="1" height="8"></td></tr>
+              <tr><td class="darkbg"><img src="tip-taglist_files/spacer.gif" width="1" height="3" alt=""></td></tr>
+            </tbody></table>
+            <br>
+
+<!-- INCLUDE THE PAGE SIDEBAR TEXT -->
+ 
+
+          </td>
+        </tr>
+      </tbody></table>
+    </td>
+
+    <td class="darkbg"><img src="tip-taglist_files/spacer.gif" width="1" height="1" border="0" alt=""><br></td>
+    <td>
+      <table width="100%" cellpadding="10" cellspacing="0" border="0" bordercolor="red">
+        <tbody><tr>
+          <td valign="top">
+
+<span class="txth1">taglist.vim : Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc)</span> 
+
+<br>
+<br>
+
+<!-- karma table -->
+<table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+<tbody><tr>
+  <td class="lightbg"><b> script karma </b></td>
+  <td>
+    Rating <b>2339/717</b>,
+    Downloaded by 17354  </td>
+</tr>
+</tbody></table>
+<p>
+
+<table cellspacing="0" cellpadding="0" border="0">
+<tbody><tr><td class="prompt">created by</td></tr>
+<tr><td><a href="http://www.vim.org/account/profile.php?user_id=244">Yegappan Lakshmanan</a></td></tr>
+<tr><td> </td></tr>
+<tr><td class="prompt">script type</td></tr>
+<tr><td>utility</td></tr>
+<tr><td> </td></tr>
+<tr><td class="prompt">description</td></tr>
+<tr><td>The "Tag List" plugin is a source code browser plugin for Vim and
+<br>provides an overview of the structure of source code files and allows
+<br>you to efficiently browse through source code files for different
+<br>programming languages.  You can visit the taglist plugin home page for
+<br>more information:
+<br>
+<br>      <a target="_blank" href="http://www.geocities.com/yegappan/taglist">http://www.geocities.com/yegappan/taglist</a>
+<br>
+<br>You can subscribe to the taglist mailing list to post your questions
+<br>or suggestions for improvement or to report bugs. Visit the following
+<br>page for subscribing to the mailing list:
+<br>
+<br>      <a target="_blank" href="http://groups.yahoo.com/group/taglist/">http://groups.yahoo.com/group/taglist/</a>
+<br>
+<br>For more information about using this plugin, after installing the
+<br>taglist plugin, use the ":help taglist" command.</td></tr>
+<tr><td> </td></tr>
+<tr><td class="prompt">install details</td></tr>
+<tr><td>1. Download the taglist.zip file and unzip the files to the $HOME/.vim
+<br>   or the $HOME/vimfiles or the $VIM/vimfiles directory. This should
+<br>   unzip the following two files (the directory structure should be
+<br>   preserved):
+<br>
+<br>      plugin/taglist.vim - main taglist plugin file
+<br>      doc/taglist.txt    - documentation (help) file
+<br>
+<br>   Refer to the 'add-plugin', 'add-global-plugin' and 'runtimepath'
+<br>   Vim help pages for more details about installing Vim plugins.
+<br>2. Change to the $HOME/.vim/doc or $HOME/vimfiles/doc or
+<br>   $VIM/doc/vimfiles directory, start Vim and run the ":helptags ."
+<br>   command to process the taglist help file.
+<br>3. Set the Tlist_Ctags_Cmd variable to point to the location of the
+<br>   exuberant ctags utility (not to the directory) in the .vimrc file.
+<br>4. If you are running a terminal/console version of Vim and the
+<br>   terminal doesn't support changing the window width then set the
+<br>   'Tlist_Inc_Winwidth' variable to 0 in the .vimrc file.
+<br>5. Restart Vim.
+<br>6. You can now use the ":Tlist" command to open/close the taglist
+<br>   window. You can use the ":help taglist" command to get more
+<br>   information about using the taglist plugin.</td></tr>
+<tr><td> </td></tr>
+</tbody></table>
+
+<!-- rating table -->
+</p><form name="rating">
+<input type="hidden" name="script_id" value="273">
+<table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+<tbody><tr>
+  <td class="lightbg"><b>rate this script</b></td>
+  <td valign="middle">
+    <input type="radio" name="rating" value="life_changing">Life Changing
+    <input type="radio" name="rating" value="helpful">Helpful
+    <input type="radio" name="rating" value="unfulfilling">Unfulfilling 
+    <input type="submit" value="rate">
+  </td>
+</tr>
+</tbody></table>
+</form>
+<span class="txth2">script versions</span> (<a href="http://www.vim.org/scripts/add_script_version.php?script_id=273">upload new version</a>)
+<p>
+Click on the package to download.
+</p><p>
+
+<table cellspacing="2" cellpadding="4" border="0" width="100%">
+<tbody><tr class="tableheader">
+        <th valign="top">package</th>
+    <th valign="top">script version</th>
+    <th valign="top">date</th>
+    <th valign="top">Vim version</th>
+    <th valign="top">user</th>
+    <th valign="top">release notes</th>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap="nowrap"><a href="http://www.vim.org/scripts/download_script.php?src_id=3091">taglist.zip</a></td>
+    <td class="rowodd" valign="top" nowrap="nowrap"><b>3.3</b></td>
+    <td class="rowodd" valign="top" nowrap="nowrap"><i>2004-06-01</i></td>
+    <td class="rowodd" valign="top" nowrap="nowrap">6.0</td>
+    <td class="rowodd" valign="top"><i><a href="http://www.vim.org/account/profile.php?user_id=244">Yegappan Lakshmanan</a></i></td>
+    <td class="rowodd" valign="top" width="2000">1. If Tlist_Ctags_Cmd variable is not set, on startup, check for the
+<br>   presence of exuberant-ctags or ctags or tags in the PATH and set
+<br>   Tlist_Ctags_Cmd variable accordingly. If none of the executable is
+<br>   found, then the taglist plugin will not be not loaded.
+<br>2. Added a new configuration variable Tlist_Enable_Fold_Column to
+<br>   enable or disable fold columns in the taglist window.
+<br>3. Added support for setting the taglist application name used by the
+<br>   winmanager plugin and the cream package.
+<br>4. Two new key mappings ([[ and ]]) are added to the taglist window to
+<br>   move between files.
+<br>5. When a file is modified, the taglist window will be automatically
+<br>   updated (after going to some other window or buffer and then coming
+<br>   to the modified buffer).
+<br>6. Made the Tlist_Update_File_Tags() function as a global function.
+<br>   This function can be used to add or update the tags for a new file.
+<br>7. Updated the Tlist_Get_Tag_Prototype_By_Line() and the 
+<br>   Tlist_Get_Tagname_By_Line() functions to get the tag name and tag
+<br>   prototype for the specified line in a file.
+<br></td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap="nowrap"><a href="http://www.vim.org/scripts/download_script.php?src_id=2978">taglist.zip</a></td>
+    <td class="roweven" valign="top" nowrap="nowrap"><b>3.2</b></td>
+    <td class="roweven" valign="top" nowrap="nowrap"><i>2004-04-25</i></td>
+    <td class="roweven" valign="top" nowrap="nowrap">6.0</td>
+    <td class="roweven" valign="top"><i><a href="http://www.vim.org/account/profile.php?user_id=244">Yegappan Lakshmanan</a></i></td>
+    <td class="roweven" valign="top" width="2000">Added
+support for closing the tags tree for inactive files, removing the tags
+tree for deleted buffers, processing the tags when the taglist window
+is not opened, disabling the automatic highlighting of the current tag,
+displaying name of the current tag.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap="nowrap"><a href="http://www.vim.org/scripts/download_script.php?src_id=2444">taglist.zip</a></td>
+    <td class="rowodd" valign="top" nowrap="nowrap"><b>3.1</b></td>
+    <td class="rowodd" valign="top" nowrap="nowrap"><i>2003-11-02</i></td>
+    <td class="rowodd" valign="top" nowrap="nowrap">6.0</td>
+    <td class="rowodd" valign="top"><i><a href="http://www.vim.org/account/profile.php?user_id=244">Yegappan Lakshmanan</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Added
+support for saving and restoring taglist sessions. Separated the
+taglist documentation into a separate file in Vim help format.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap="nowrap"><a href="http://www.vim.org/scripts/download_script.php?src_id=2353">taglist.vim</a></td>
+    <td class="roweven" valign="top" nowrap="nowrap"><b>3.0</b></td>
+    <td class="roweven" valign="top" nowrap="nowrap"><i>2003-09-24</i></td>
+    <td class="roweven" valign="top" nowrap="nowrap">6.0</td>
+    <td class="roweven" valign="top"><i><a href="http://www.vim.org/account/profile.php?user_id=244">Yegappan Lakshmanan</a></i></td>
+    <td class="roweven" valign="top" width="2000">Added support for displaying tags defined in multiple files.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap="nowrap"><a href="http://www.vim.org/scripts/download_script.php?src_id=2334">taglist.vim</a></td>
+    <td class="rowodd" valign="top" nowrap="nowrap"><b>2.8</b></td>
+    <td class="rowodd" valign="top" nowrap="nowrap"><i>2003-09-14</i></td>
+    <td class="rowodd" valign="top" nowrap="nowrap">6.0</td>
+    <td class="rowodd" valign="top"><i><a href="http://www.vim.org/account/profile.php?user_id=244">Yegappan Lakshmanan</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Added information about the taglist mailing list.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap="nowrap"><a href="http://www.vim.org/scripts/download_script.php?src_id=2250">taglist.vim</a></td>
+    <td class="roweven" valign="top" nowrap="nowrap"><b>2.7</b></td>
+    <td class="roweven" valign="top" nowrap="nowrap"><i>2003-08-21</i></td>
+    <td class="roweven" valign="top" nowrap="nowrap">6.0</td>
+    <td class="roweven" valign="top"><i><a href="http://www.vim.org/account/profile.php?user_id=244">Yegappan Lakshmanan</a></i></td>
+    <td class="roweven" valign="top" width="2000">1. Added TlistUpdate command to update the taglist window.
+<br>2. Made the taglist highlight groups user configurable.
+<br>3. Fixed a problem in the taglist integration with the winmanager plugin</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap="nowrap"><a href="http://www.vim.org/scripts/download_script.php?src_id=2054">taglist.vim</a></td>
+    <td class="rowodd" valign="top" nowrap="nowrap"><b>2.6</b></td>
+    <td class="rowodd" valign="top" nowrap="nowrap"><i>2003-06-09</i></td>
+    <td class="rowodd" valign="top" nowrap="nowrap">6.0</td>
+    <td class="rowodd" valign="top"><i><a href="http://www.vim.org/account/profile.php?user_id=244">Yegappan Lakshmanan</a></i></td>
+    <td class="rowodd" valign="top" width="2000">1. Added support for previewing a tag.
+<br>2. Added the TlistClose command to close the taglist window
+<br>3. Added the Tlist_Exit_OnlyWindow option to close the taglist window if only that window is open.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap="nowrap"><a href="http://www.vim.org/scripts/download_script.php?src_id=1941">taglist.vim</a></td>
+    <td class="roweven" valign="top" nowrap="nowrap"><b>2.5</b></td>
+    <td class="roweven" valign="top" nowrap="nowrap"><i>2003-04-25</i></td>
+    <td class="roweven" valign="top" nowrap="nowrap">6.0</td>
+    <td class="roweven" valign="top"><i><a href="http://www.vim.org/account/profile.php?user_id=244">Yegappan Lakshmanan</a></i></td>
+    <td class="roweven" valign="top" width="2000">Added support for highlighting the tag scope. Added support for displaying namespaces in C++ files. Updated the comments.</td>
+</tr>
+</tbody></table>
+<!-- finish off the framework -->
+          </p></td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+<!-- END OF THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tbody><tr><td colspan="4"><img src="tip-taglist_files/spacer.gif" width="1" height="5" alt=""></td></tr>
+  <tr><td colspan="4" bgcolor="#000000"><img src="tip-taglist_files/spacer.gif" height="2" width="1" alt=""></td></tr>
+  <tr><td colspan="4"><img src="tip-taglist_files/spacer.gif" width="1" height="5" alt=""></td></tr>
+  <tr>
+    <td><img src="tip-taglist_files/spacer.gif" width="5" height="1" alt=""></td>
+
+    <td align="left" valign="top"><small>
+      If you have questions or remarks about this site, visit the
+      <a href="http://vimonline.sf.net/">vimonline development</a> pages.
+      Please use this site responsibly.
+      <br> 
+      
+      Questions about <a href="http://www.vim.org/about.php">Vim</a> should go
+      to vim@vim.org after searching
+      <a href="http://groups.yahoo.com/group/vim">the archive</a>.
+      Help Bram <a href="http://iccf-holland.org/">help Uganda</a>.
+      </small>
+    </td>
+
+    <td align="right" valign="top">
+	<a href="http://www.webconceptgroup.net/"><img src="tip-taglist_files/logo_sponsor_wcg.jpg" width="131" height="30" border="0" alt="Sponsored by Web Concept Group Inc."></a>
+	<a href="http://sourceforge.net/"><img src="tip-taglist_files/sflogo.png" width="88" height="31" border="0" alt="SourceForge Logo"></a>
+    </td>
+
+    <td><img src="tip-taglist_files/spacer.gif" width="5" height="1" alt=""></td>
+  </tr>
+  <tr><td colspan="4"><img src="tip-taglist_files/spacer.gif" width="1" height="5" alt=""></td></tr>
+</tbody></table>
+
+</body></html>

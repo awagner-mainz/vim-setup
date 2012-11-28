@@ -1,0 +1,955 @@
+<HTML>
+<HEAD>
+  <TITLE>Dr Chip's Vim Page</TITLE>
+  <META NAME="rating"      CONTENT="general">
+  <META NAME="author"      CONTENT="Charles E. Campbell, Jr.">
+  <META NAME="copyright"   CONTENT="1999,2000, Charles E. Campbell, Jr.">
+  <META NAME="description" CONTENT="vim-related files">
+  <META NAME="keywords"    CONTENT="vim, utilities, scripts, syntax, align, alignment, tables, flist, tags, macros, maps, english, spell, spelling, checker, hint, hints, colorscheme, colorschemes">
+</HEAD>
+<BODY bgcolor="#000000"
+      background="../pix/sky699.gif"
+      text="#40ff40"
+      link="#00ffff"
+      vlink="#888888"><script><!--
+function PrivoxyWindowOpen(){return(null);}
+//--></script>
+<H1>
+ <CENTER>
+ <IMG src=../pix/vim.hopfner.vim_icon_transparent.gif>
+ <FONT color=white>Dr Chip's Vim Page</FONT>
+ <IMG src=../pix/vim.hopfner.vim_icon_transparent.gif>
+ </CENTER>
+ </H1>
+<HR>
+<P>
+<CENTER><TABLE>
+   <TR><TD> <font color=cyan><a href="ftp://ftp.home.vim.org/pub/vim/unix/">Latest Release</a></font>   </TD><TD> Vim 6.2  </TD></TR>
+   <TR><TD> <font color=cyan><a href="ftp://ftp.home.vim.org/pub/vim/patches/">Patches</a></font> </TD><TD> 001-488  </TD></TR>
+</TABLE></CENTER>
+<P>
+<img src=../pix/grndraghd.gif><font size="+1">
+Welcome to my Vim Page.  Herein you'll find a number of scripts, some
+source code (needs compiling, but I do have pre-compiled executables for
+you PC types), and Vim syntax files.  If you'd like
+to know more about Vim, check out <a href=http://vim.sf.net/>Vim Online</a>.
+For more about vi, click on the
+<a href=http://www.thomer.com/thomer/vi/vi.html> vi lovers home page</a>.
+The syntax files below are often snapshots of my working copies, so
+sometimes they may be works-in-progress.  Usually such files will say
+<code>NOT RELEASED</code> somewhere in the top four lines of the file.
+<P>
+<font color=magenta><em>Layout</em></font>:
+This admittedly long page is organized into the following format:
+Contents, Subpages, and Links.  Subpages, which cover specific topics, are separated by horizontal
+lines and have links to the Contents and Links at their bottom right.
+A few subpages also provide links to more complete webpages (ex. "Color Scheme").
+Typically subpages will also provide a link to "Links" in or near their
+first sentence; this Link goes near where the associated
+script, code, etc is in the Links section.
+<P>
+<font size="-1">
+<font color=magenta><em>Netscape Users</em></font>:
+(on the PC) Some versions of Netscape on the PC have
+this unfortunate "feature" that causes files to be renamed which have more than one period in them
+(the periods become underscores).  As a consequence, WinZip doesn't know what to do with
+the downloaded file.  Just pay attention and fix up the name Netscape
+gives in its saving/downloading dialog box (ie. restore the name to what it was).
+WinZip should then be able to understand what to do with the files.
+</font>
+<P>
+<CENTER><a name="Contents">
+<H2><FONT color=cyan>Contents</FONT></H2>
+<FONT size="+1">
+<P>
+<TABLE>
+  <TR><TD> <font color=yellow><EM>Section</EM></font>                           </TD><TD></TR>
+  <TR><TD> <a href=#CAbbrv>     "Abbreviations" for C                      </a> </TD><TD></TR>
+  <TR><TD> <a href=#Ccb>        C/C++ Code Beautifier                      </a> </TD><TD></TR>
+  <TR><TD> <a href=#Cfunc>      C/C++ Functions: prototypes, hints, etc    </a> </TD><TD></TR>
+  <TR><TD> <a href=#Colors>     Color Scheme                               </a> </TD><TD></TR>
+  <TR><TD> <a href=#Columns>    Columnizing                                </a> </TD><TD></TR>
+  <TR><TD> <a href=#VimOnline>  DrChip's Online Tips and Scripts           </a> </TD><TD></TR>
+  <TR><TD> <a href=#Patch>      Patches                                    </a> </TD><TD></TR>
+  <TR><TD> <a href=#Pcexe>      PC: Pre-Compiled Executables               </a> </TD><TD></TR>
+  <TR><TD> <a href=#VimCmds>    Short Vim Command List                     </a> </TD><TD></TR>
+  <TR><TD> <a href=#Spelling>   Spelling Checker                           </a> </TD><TD></TR>
+  <TR><TD> <a href=#Tags>       Tag Generation                             </a> </TD><TD></TR>
+  <TR><TD> <a href=#Align>      Text and Declarations Alignment            </a> </TD><TD></TR>
+  <TR><TD> <a href=#Maps>       Useful Maps                                </a> </TD><TD></TR>
+  <TR><TD> <a href=vimfeat.html>Vim Versions and Features                  </a> </TD><TD></TR>
+  <TR><TD> <a href=#VimFuncs>   Vim Functions, Plugs, and Stubs            </a> </TD><TD></TR>
+  <TR><TD> <a href=#vimlinks><B>Links</B></a>                                   </TD><TD></TR>
+</TABLE></CENTER>
+<P>
+<CENTER><TABLE width=90%><TR><TD align=left> <font size="-1"><a href=..>Home Page</a></font></TD>
+		              <TD align=right><font size="-1"><a href=#Contents>Contents</a>&#032;&#032;&#032;&#032;&#032;
+				                                      <a href=#vimlinks>Links</a></font></TD></TR>
+</TABLE></CENTER>
+<HR>
+<!-- ======================================================================== -->
+
+<P><a name="CAbbrv"></a>
+<H2><FONT color=cyan>"Abbreviations" for C</FONT></H2>
+<FONT size="+1">
+Normally with abbreviations one has to type a space to kick off the abbreviation.
+I wanted to put in stub-like bits of code for common C constructs such as
+if, for, etc.  Well, instead of an abbreviation, I rather like the following solution:
+use an inoremap on <FONT size="+2">"<FONT color=yellow>`</FONT>"</FONT>
+and have it examine the previous word to decide what to do.
+If you'd like to try it out, click on <a href=vimscript/drcstubs.vim>Dr Chip's C Abbreviations</a>
+(also in <a href="#vimlinks_scripts">Links</a> below).
+<P>
+<CENTER><TABLE>
+  <TR><TD> <font color=yellow>Shorthand</font> </TD><TD> Longhand </TD></TR>
+  <TR><TD> <font color=yellow>Map</font>       </TD><TD> Map      </TD></TR>
+  <TR><TD> i`                                  </TD><TD> if`      </TD></TR>
+  <TR><TD> e`                                  </TD><TD> else`    </TD></TR>
+  <TR><TD> ei`                                 </TD><TD> elif`    </TD></TR>
+  <TR><TD> f`                                  </TD><TD> for`     </TD></TR>
+  <TR><TD> w`                                  </TD><TD> while`   </TD></TR>
+  <TR><TD> s`                                  </TD><TD> switch`  </TD></TR>
+  <TR><TD> c`                                  </TD><TD> case`    </TD></TR>
+  <TR><TD> d`                                  </TD><TD> default` </TD></TR>
+  <TR><TD>                                     </TD><TD> do`      </TD></TR>
+</TABLE></CENTER>
+<P>
+There are also maps for E`, R`, and D` which generate <a href="../drchipdbg.html">DrChip's debugger</a> calls.
+<P>
+This approach allows your cinoptions to be effective, so you get the
+indentation style you prefer (abbreviations prevent this).  So,
+if you use my stubs file, you probably should set the <EM>cino</EM> option.  That way
+the stub will be indented in your style.  I've included a copy of my cinoptions below;
+feel free to incorporate them (my style is the best, of course!) and change them as
+you will (aw, shucks).
+<P>
+<FONT color=yellow size="-1"><PRE>set cino=&gt;s,e0,n0,f0,{0,}4,^-1s,:0,=s,g0,h1s,p2,t0,+2,(2,)20,*30</PRE></FONT>
+<CENTER><TABLE>
+  <TR><TD><font color=yellow>&gt;s</font></TD><TD> add 1 shiftwidth on normal indent</TD></TR>
+  <TR><TD><font color=yellow>e0   </font></TD><TD> add 0 to prevailing-indent if '{' not at start-of-line</TD></TR>
+  <TR><TD><font color=yellow>n0   </font></TD><TD> add 0 to prevailing-indent for statements after if/while/etc, if statements not inside {}</TD></TR>
+  <TR><TD><font color=yellow>f0   </font></TD><TD> first opening { of a function/block is placed in column 0</TD></TR>
+  <TR><TD><font color=yellow>{0   </font></TD><TD> opening braces are placed 0 characters from prevailing indent</TD></TR>
+  <TR><TD><font color=yellow>}4   </font></TD><TD> closing braces are placed 4 characters from the matching opening {'s indent</TD></TR>
+  <TR><TD><font color=yellow>^-1s </font></TD><TD> add -1 space to prevailing-indent if opening brace is in column 0</TD></TR>
+  <TR><TD><font color=yellow>:0   </font></TD><TD> case labels are placed 0 characters from switch()'s indent</TD></TR>
+  <TR><TD><font color=yellow>=s   </font></TD><TD> statements after a case label are placed 1 shiftwidth from indent of label</TD></TR>
+  <TR><TD><font color=yellow>g0   </font></TD><TD> c++ scope (public, private, etc) placed 0 chars from indent of block they're in</TD></TR>
+  <TR><TD><font color=yellow>h1s  </font></TD><TD> c++ statements after public/private/etc 1shiftwidth in</TD></TR>
+  <TR><TD><font color=yellow>p2   </font></TD><TD> k&amp;r function-argument parameter declarations placed 2chars in from margin</TD></TR>
+  <TR><TD><font color=yellow>t0   </font></TD><TD> types for function declaration indented flush with margin</TD></TR>
+  <TR><TD><font color=yellow>+2   </font></TD><TD> continuation lines (split lines) are indented an additional 2 spaces</TD></TR>
+  <TR><TD><font color=yellow>(2   </font></TD><TD> when in unclosed parentheses, indent two spaces</TD></TR>
+  <TR><TD><font color=yellow>)20  </font></TD><TD> unclosed parentheses will be searched for at most 20 lines away</TD></TR>
+  <TR><TD><font color=yellow>*30  </font></TD><TD> unclosed comments will be searched for 30 lines away</TD></TR>
+</TABLE></CENTER>
+<P>
+<CENTER><TABLE width=90%><TR><TD align=left> <font size="-1"><a href=..>Home Page</a></font></TD>
+		              <TD align=right><font size="-1"><a href=#Contents>Contents</a>&#032;&#032;&#032;&#032;&#032;
+				                                      <a href=#vimlinks>Links</a></font></TD></TR>
+</TABLE></CENTER>
+<HR>
+<!-- ======================================================================== -->
+
+<P><a name="Ccb"></a>
+<H2><FONT color=cyan>C/C++ Code Beautifier</FONT></H2>
+<FONT size="+1">
+The &lt;<FONT color=yellow>ccb</FONT>&gt; program (see <a href="#vimlinks_src">Links</a> below)
+beautifies C and C++ code.  Be careful -- this program does change indentation and
+can move curly braces around, but if it still has a bad bug, it could damage your source
+if you use the <FONT color=yellow>-r</FONT> flag (replace).
+That's why this program is labelled <FONT color=yellow> Use At Your Own Risk!</FONT>
+The <FONT color=yellow>-s</FONT>
+flag is much safer; it saves the beautified versions in *.cb files.  Make sure that the
+beautified source is ok before doing anything irretrievable with your original source code.
+That said, it does work
+for me, and normally produces output close to my own preferred style.  The "standard" cb
+style can be obtained with <FONT color=yellow>-cdfi</FONT>.  Now that I've released it
+to the World, I expect some bug reports to crop up (hopefully no really awful ones).
+<P>
+<font size="-1"><em>ccb</em> has been on my website since May 25, 2000 with no runtime bugs reported!</font>
+<P>
+<CENTER><TABLE width=90%><TR><TD align=left> <font size="-1"><a href=..>Home Page</a></font></TD>
+		              <TD align=right><font size="-1"><a href=#Contents>Contents</a>&#032;&#032;&#032;&#032;&#032;
+				                                      <a href=#vimlinks>Links</a></font></TD></TR>
+</TABLE></CENTER>
+<HR>
+<!-- ======================================================================== -->
+
+<P><a name="Cfunc"></a>
+<H2><FONT color=cyan>C/C++ Functions: prototypes, hints, etc.</FONT></H2>
+<FONT size="+1">
+<P>
+<font color=magenta><em>Intro</em></font>: <font color=yellow>Flist</font>
+is a program which does a
+number of things with C/C++ source files' functions: use it to generate
+listings of functions, prototypes, calling trees, tags, and more (see
+<a href="#vimlinks_src">Links</a>)!  You may find the maps in
+<a href=vimscript/flistmaps.vim.gz>flistmaps.vim.gz</a> a help in using flist with the
+current file in Vim.
+<P>
+<font color=magenta><em>Hints</em></font>: Flist's <em>-h</em> option makes <font color=yellow>&lt;hints&gt;</font> files.
+After you've used flist to generate your hints file, just source it into
+your editing session or put the following code into your
+&lt;.vimrc&gt; for automatic sourcing of hints:
+<P>
+<FONT color=yellow size="1"><PRE>
+if filereadable(expand("hints"))
+  au BufNewFile,BufReadPost *.c,*.C,*.cpp,*.CPP,*.cxx  so hints&lt;CR&gt;
+endif</PRE></FONT>
+<P>
+The result?  Every time you type a function name, a prototype for it will
+appear on the information line.  In order to see it, you should set your
+cmdheight to 2 or more (:set ch=2) and possibly have showmode off (:set nosmd).
+<P>
+<!-- <font color=magenta><em>Hints for Python</em></font>: Kevin Dahlhausen says "Flist is great! Thanks so much... Flist motivated me -->
+<!-- to write a program that creates a hints file for Python source."  You can -->
+<!-- download his code for generating a -->
+<!-- <a href=http://kpd.twu.net/ddir/pyhints.zip>Python hints file</a>. -->
+<!-- <P> -->
+<font color=magenta><em>Maps</em></font>: Along with flist itself I've
+provided a small set of maps which use flist.  The maps take the form
+\[px][pxgs]: prototype or extern, and prototype, extern, global, and static.
+The map invokes flist against the current file and inserts a list of
+(global/static/both) prototypes or extern-style function declarations.  The \pc
+map inserts a list of prototypes suitable for inclusion in a comment.
+<P>
+<font color=magenta><em>Source Trees</em></font>: Flist's <em>-Tg</em> option builds a tree-like graph of function use.
+Coupled with the <em>Flist-based Tree</em> plugin for vim 6.0 or later,
+one can browse the calling tree on the left hand side of the screen,
+select a function to edit by putting the cursor on its line, and hitting
+return.  Put &lt;FlistTree.vim&gt; into your plugin directory; you may then use the
+command <em>:Flist [filename(s)]</em> to begin graph-tree editing.  See the
+usage notes in &lt;FlistTree.vim&gt; for more commands!  Click for a
+<a href=http://www.ee.cua.edu/~cec/flistgraph.gif>screenshot</a> if you'd
+like to see it first.
+<P>
+<font color=magenta><em>Dummy Functions</em></font>: Flist includes a <em>-D</em> option, which generates "dummy" function
+definitions.  In order to make trees, flist makes a pass over all the source
+files to determine what functions are present, and then a second pass to
+determine what functions are called by what functions.  Thus common functions
+(such as printf) are ignored, and the structure of your program is usually
+better revealed.  However, if you want to know where such functions are called,
+or functions that were defined in your own personal library, you may wish
+to set up a <dummy.c> file containing a list of such functions with no
+body (or even arguments).  That way flist will process the dummy file
+quickly.  The -D option allows one to generate such a dummy file easily
+from real ones.
+<P>
+<CENTER><TABLE>
+  <TR><TD> <EM> Calling Options </EM> </TD><TD> <EM> Explanation</EM>                        </TD></TR>
+  <TR><TD> flist    *.c               </TD><TD> list functions in files                      </TD></TR>
+  <TR><TD> flist -d *.c               </TD><TD> generate a &lt;ctags&gt; file                </TD></TR>
+  <TR><TD> flist -e *.c               </TD><TD> generate an &lt;etags&gt; file               </TD></TR>
+  <TR><TD> flist -h *.c               </TD><TD> generate a &lt;hints&gt; file                </TD></TR>
+  <TR><TD> flist -p *.c               </TD><TD> list prototypes                              </TD></TR>
+  <TR><TD> flist -t *.c               </TD><TD> list of functions for inclusion in a comment </TD></TR>
+  <TR><TD> flist -x *.c               </TD><TD> list functions as externs                    </TD></TR>
+  <TR><TD> flist -Ta *.c              </TD><TD> list calling tree, all roots                 </TD></TR>
+  <TR><TD> flist -Tg *.c              </TD><TD> "graphical" calling tree                     </TD></TR>
+  <TR><TD> flist -Tf *.c              </TD><TD> functions found report                       </TD></TR>
+  <TR><TD> flist -Tu *.c              </TD><TD> functions used/called-by report              </TD></TR>
+  <TR><TD> flist "?"                  </TD><TD> help                                         </TD></TR>
+</TABLE></CENTER> <!-- IMG src=../pix/newscroll.gif -->
+<CENTER><TABLE width=90%><TR><TD align=left> <font size="-1"><a href=..>Home Page</a></font></TD>
+		              <TD align=right><font size="-1"><a href=#Contents>Contents</a>&#032;&#032;&#032;&#032;&#032;
+				                                      <a href=#vimlinks>Links</a></font></TD></TR>
+</TABLE></CENTER>
+<HR>
+<!-- ======================================================================== -->
+
+<P><a name="Colors"></a>
+<H2><FONT color=cyan>Color Scheme</FONT></H2>
+<FONT size="+1">
+<P>
+I've included Vim-script which implements my choice for syntax
+highlighting.  Please check out my page on <a href=colors/index.html>DrChip's colorscheme</a>
+for the colorscheme I use.  I like keeping the same colorscheme for both
+gui (gvim) and console (vim); the latter restricts the number of colors available, so such dual-use
+colorschemes must needs be designed for the limitations of the console.
+<CENTER><TABLE width=90%><TR><TD align=left> <font size="-1"><a href=..>Home Page</a></font></TD>
+		              <TD align=right><font size="-1"><a href=#Contents>Contents</a>&#032;&#032;&#032;&#032;&#032;
+				                                      <a href=#vimlinks>Links</a></font></TD></TR>
+</TABLE></CENTER>
+<HR>
+<!-- ======================================================================== -->
+
+<P><a name="Columns"></a>
+<H2><FONT color=cyan>Columnizing</FONT></H2>
+<FONT size="+1">
+<P>
+Ever wished to convert a list of words into a multi-column list
+(such as ls produces)?  Mcol will do that for you (see <a href="#vimlinks_src">Links</a> below),
+and check out some of my mcol-using scripts in <tt>mcol.vim</tt>.
+<FONT color=yellow size="-1"><CENTER><PRE>
++---------+------------------------------------------------------+
+|Original |   Using ma on "one", moving to "six", and typing \mn3|
+|List     |            map \mn3  0!'amcol -n3&lt;CR&gt;                |
++---------+------------------------------------------------------+
+|one      |                                                      |
+|two      |                                                      |
+|three    |            one      three      five                  |
+|four     |            two      four       six                   |
+|five     |                                                      |
+|six      |                                                      |
++---------+------------------------------------------------------+
+</PRE></CENTER></FONT>
+<CENTER><TABLE width=90%><TR><TD align=left> <font size="-1"><a href=..>Home Page</a></font></TD>
+		              <TD align=right><font size="-1"><a href=#Contents>Contents</a>&#032;&#032;&#032;&#032;&#032;
+				                                      <a href=#vimlinks>Links</a></font></TD></TR>
+</TABLE></CENTER>
+<HR>
+<!-- ======================================================================== -->
+
+<P><a name="VimOnline"></a>
+<H2><FONT color=cyan>DrChip's Online Tips and Scripts</FONT></H2>
+<FONT size="+1">
+<P>
+<CENTER><TABLE>
+  <TR><TD> Script </TD><TD> <a href="http://vim.sourceforge.net/scripts/script.php?script_id=294">Align.vim </a>                                                </TD></TR>
+  <TR><TD> Script </TD><TD> <a href="http://vim.sourceforge.net/scripts/script.php?script_id=302">AnsiEsc.vim </a>                                              </TD></TR>
+  <TR><TD> Script </TD><TD> <a href="http://vim.sourceforge.net/scripts/script.php?script_id=915">AsNeeded.vim </a>                                              </TD></TR>
+  <TR><TD> Script </TD><TD> <a href="http://vim.sourceforge.net/scripts/script.php?script_id=122">astronaut.vim </a>                                            </TD></TR>
+  <TR><TD> Script </TD><TD> <a href="http://vim.sourceforge.net/scripts/script.php?script_id=884">AutoAlign.vim </a>                                            </TD></TR>
+  <TR><TD> Script </TD><TD> <a href="http://vim.sourceforge.net/scripts/script.php?script_id=104">blockhl.vim  </a>                                             </TD></TR>
+  <TR><TD> Script </TD><TD> <a href="http://vim.sourceforge.net/scripts/script.php?script_id=120">Decho.vim </a>                                                </TD></TR>
+  <TR><TD> Script </TD><TD> <a href="http://vim.sourceforge.net/scripts/script.php?script_id=40" >DrawIt.tar.gz </a>                                            </TD></TR>
+  <TR><TD> Script </TD><TD> <a href="http://vim.sourceforge.net/scripts/script.php?script_id=451">EasyAccents.vim </a>                                          </TD></TR>
+  <TR><TD> Script </TD><TD> <a href="http://vim.sourceforge.net/scripts/script.php?script_id=195">engspchk.vim </a>                                             </TD></TR>
+  <TR><TD> Script </TD><TD> <a href="http://vim.sourceforge.net/scripts/script.php?script_id=642">GetLatestVimScripts.vim </a>                                  </TD></TR>
+  <TR><TD> Script </TD><TD> <a href="http://vim.sourceforge.net/scripts/script.php?script_id=877">gvcolors.vim </a>                                              </TD></TR>
+  <!-- <TR><TD> Script </TD><TD> <a href="http://vim.sourceforge.net/scripts/script.php?script_id=364">Help.vim </a>                                            </TD></TR> -->
+  <TR><TD> Script </TD><TD> <a href="http://vim.sourceforge.net/scripts/script.php?script_id=748">HelpExtractor.vim </a>                                        </TD></TR>
+  <TR><TD> Script </TD><TD> <a href="http://vim.sourceforge.net/scripts/script.php?script_id=555">HiCurLine : Highlights the current line</a>                   </TD></TR>
+  <TR><TD> Script </TD><TD> <a href="http://vim.sourceforge.net/scripts/script.php?script_id=489">Manpageview.vim </a>                                          </TD></TR>
+  <TR><TD> Script </TD><TD> <a href="http://vim.sourceforge.net/scripts/script.php?script_id=551">Mines.vim </a>                                                </TD></TR>
+  <TR><TD> Script </TD><TD> <a href="http://vim.sourceforge.net/scripts/script.php?script_id=514">mrswin.vim </a>                                               </TD></TR>
+  <TR><TD> Script </TD><TD> <a href="http://vim.sourceforge.net/scripts/script.php?script_id=670">visincr.vim </a>                                              </TD></TR>
+  <TR><TD> Script </TD><TD> <a href="http://vim.sourceforge.net/scripts/script.php?script_id=628">SeeTab.vim </a>                                               </TD></TR>
+  <TR><TD> Script </TD><TD> <a href="http://vim.sourceforge.net/scripts/script.php?script_id=508">ZoomWin.vim </a>                                              </TD></TR>
+  <TR><TD> Tip    </TD><TD> <a href="http://vim.sourceforge.net/tips/tip.php?tip_id=63">  Applying substitutes to a visual block</a>                            </TD></TR>
+  <TR><TD> Tip    </TD><TD> <a href="http://vim.sourceforge.net/tips/tip.php?tip_id=80">  Restore cursor to file position in previous editing session</a>       </TD></TR>
+  <TR><TD> Tip    </TD><TD> <a href="http://vim.sourceforge.net/tips/tip.php?tip_id=99">  How to tell what syntax highlighting group *that* is!</a>             </TD></TR>
+  <TR><TD> Tip    </TD><TD> <a href="http://vim.sourceforge.net/tips/tip.php?tip_id=126"> How do I get rid of that bold stuff with my xterm?</a>                </TD></TR>
+  <TR><TD> Tip    </TD><TD> <a href="http://vim.sourceforge.net/tips/tip.php?tip_id=139"> Alignment: =, LaTeX tables, declarations, etc</a>                     </TD></TR>
+  <TR><TD> Tip    </TD><TD> <a href="http://vim.sourceforge.net/tips/tip.php?tip_id=147"> How to write a plugin</a>                                             </TD></TR>
+  <TR><TD> Tip    </TD><TD> <a href="http://vim.sourceforge.net/tips/tip.php?tip_id=150"> Generating a column of increasing numbers</a>                         </TD></TR>
+  <TR><TD> Tip    </TD><TD> <a href="http://vim.sourceforge.net/tips/tip.php?tip_id=152"> Spelling checkers: Dutch, English, German, Hungarian, and Yiddish</a> </TD></TR>
+  <TR><TD> Tip    </TD><TD> <a href="http://vim.sourceforge.net/tips/tip.php?tip_id=167"> Using vim as a man-page viewer under Unix</a>                         </TD></TR>
+  <TR><TD> Tip    </TD><TD> <a href="http://vim.sourceforge.net/tips/tip.php?tip_id=177"> Highlight matching brackets as one moves in normal mode</a>           </TD></TR>
+  <TR><TD> Tip    </TD><TD> <a href="http://vim.sourceforge.net/tips/tip.php?tip_id=200"> Bouncing Parentheses (during insertion)</a>                           </TD></TR>
+  <TR><TD> Tip    </TD><TD> <a href="http://vim.sourceforge.net/tips/tip.php?tip_id=329"> A map for swapping words</a>                                          </TD></TR>
+  <TR><TD> Tip    </TD><TD> <a href="http://vim.sourceforge.net/tips/tip.php?tip_id=411"> How to initialize plugins</a>                                         </TD></TR>
+  <TR><TD> Tip    </TD><TD> <a href="http://vim.sourceforge.net/tips/tip.php?tip_id=573"> Repeating a substitute from current cursor position</a>               </TD></TR>
+  <TR><TD> Tip    </TD><TD> <a href="http://vim.sourceforge.net/tips/tip.php?tip_id=588"> How to sort using visual blocks</a>                                   </TD></TR>
+  <TR><TD> Tip    </TD><TD> <a href="http://vim.sourceforge.net/tips/tip.php?tip_id=607"> Opening gvim atop a console window</a>                                </TD></TR>
+  <TR><TD> Tip    </TD><TD> <a href="http://vim.sourceforge.net/tips/tip.php?tip_id=622">Deleting a buffer without changing your window layout</a>              </TD></TR>
+  
+</table></center>
+<P>
+<CENTER><TABLE width=90%><TR><TD align=left> <font size="-1"><a href=..>Home Page</a></font></TD>
+		              <TD align=right><font size="-1"><a href=#Contents>Contents</a>&#032;&#032;&#032;&#032;&#032;
+				                                      <a href=#vimlinks>Links</a></font></TD></TR>
+</TABLE></CENTER>
+<HR>
+<!-- ======================================================================== -->
+<P><a name="Patch"></a>
+<H2><FONT color=cyan>Patches</FONT></H2>
+<FONT size="+1">
+<P>
+<ul>
+  <li><a href=patch/ptch.delmark.bz2>delmark</a> This patch implements the
+  		 :delmark ex command.
+         <center><table with=90%>
+		  <tr><td align=left>:delmark </td><td> deletes all marks from current buffer </td></tr>
+		  <tr><td> :delmark abc       </td><td> deletes specified marks a, b, and c   </td></tr>
+		  <tr><td> :delmark a b c     </td><td> deletes specified marks a, b, and c   </td></tr>
+		  <tr><td> :delmark a,b,c     </td><td> deletes specified marks a, b, and c   </td></tr>
+		  <tr><td> :delmark a-c       </td><td> deletes specified marks a, b, and c   </td></tr>
+		  <tr><td> :delmark a-c       </td><td> deletes specified marks a, b, and c   </td></tr>
+		  <tr><td> :delmark ^.[]      </td><td> deletes specified marks ^ . [ ]       </td></tr>
+         </table></center>
+  <li><a href=patch/ptch.markclear>markclear</a> This patch implements the
+         markclear(bufname[,markname]) function.  If no markname is present, then
+		 the function will clear all marks for the given buffer.
+  </li>
+  <li><a href=patch/ptch.startreplace>startreplace</a> This patch implements :startreplace.
+         Starts replace mode just after executing this command; it works like typing "R"
+		 in Normal mode.  See :help :startinsert for a similar command.
+  </li>
+  <li><a href=patch/ptch.visualmode>visualmode(0)</a> This patch enhances the visualmode() function.
+         <center><table with=90%>
+		 <tr><td align=left>:echo visualmode(0)   </td><td>                                             </td></tr>
+		 <tr><td>  will return "-", "-v", or "-^V"</td><td> indicating the last selected visual mode    </td></tr>
+		 <tr><td>                                 </td><td> and that that mode is not currently active. </td></tr>
+		 <tr><td>  will return "+", "+v", or "+^V"</td><td> indicating the last selected visual mode    </td></tr>
+		 <tr><td>                                 </td><td> and that that mode is currently active.     </td></tr>
+         </table></center>
+  </li>
+</ul>
+<P>
+<CENTER><TABLE width=90%><TR><TD align=left> <font size="-1"><a href=..>Home Page</a></font></TD>
+		              <TD align=right><font size="-1"><a href=#Contents>Contents</a>&#032;&#032;&#032;&#032;&#032;
+				                                      <a href=#vimlinks>Links</a></font></TD></TR>
+</TABLE></CENTER>
+<HR>
+
+<P><a name="Pcexe"></a>
+<H2><FONT color=cyan>PC: Pre-Compiled Executables</FONT></H2>
+<FONT size="+1">
+<P>
+I've included some pre-compiled executables for the PC for which I used a Borland
+C/C++ compiler (under <EM>Miscellaneous</EM> in the <a href="#vimlinks_misc">Links</a>).
+As a bonus, I've thrown in my calculator program, too.  You should
+still get the source code distributions; if you have ansi escape sequences enabled
+for your MS-DOS windows, and have &lt;rdcolor.dat&gt;, prompts and help will come
+up in color.  The copyright notices associated with the source distributions also
+still apply to the executables.
+<CENTER><TABLE width=90%><TR><TD align=left> <font size="-1"><a href=..>Home Page</a></font></TD>
+		              <TD align=right><font size="-1"><a href=#Contents>Contents</a>&#032;&#032;&#032;&#032;&#032;
+				                                      <a href=#vimlinks>Links</a></font></TD></TR>
+</TABLE></CENTER>
+<HR>
+<!-- ======================================================================== -->
+
+<P><a name="VimCmds"></a>
+<H2><FONT color=cyan>Short Vim Command List</FONT></H2>
+<FONT size="+1">
+<P>
+If you've gotten here, I'm sure you realize that Vim has a large
+number of commands -- that is, commands that one can do while
+in normal mode.  That's not counting the command mode commands!
+Check out the <a href=vimcmd.txt.gz>Real Short Vim Normal-Mode List of Commands</a>.
+<CENTER><TABLE width=90%><TR><TD align=left> <font size="-1"><a href=..>Home Page</a></font></TD>
+		              <TD align=right><font size="-1"><a href=#Contents>Contents</a>&#032;&#032;&#032;&#032;&#032;
+				                                      <a href=#vimlinks>Links</a></font></TD></TR>
+</TABLE></CENTER>
+<HR>
+<!-- ======================================================================== -->
+<P><a name="Spelling"></a>
+<H2><FONT color=cyan>Spelling Checker</FONT></H2>
+<FONT size="+1">
+<P>
+The <font color=yellow><EM>English spelling checker </EM></font>
+(under <EM>Scripts</EM> in the <a href="#vimlinks_scripts">Links</a>)
+uses Vim's native syntax highlighting ability to make
+misspelled (English) words show up as an "Error" (usually white on a red
+background).  The Vim-based English spell checker also supports entering words
+that the cursor is on into a temporary or permanent dictionary and allows one
+to skip to the previous or subsequent spelling error (if any).  It co-exists
+quite well with TeX, LaTeX, Html, and other such specialized text, and can
+be used to check the spelling inside comments in various programming languages.
+<P>
+<font color=magenta><em>Getting Started</em></font>:
+<P>
+The English spelling checker now comes as a "tarball":
+bunzip2 the file &lt;engspchk.tar.bz2&gt; and
+<tt>tar -oxvf engspchk.tar</tt> in the .vim or _vimfiles
+directory.
+<P>
+The English spelling checker is a plugin; it
+does a quick load and makes a map for &#092;ec (actually the &#092;
+is &lt;Leader&gt; which can be changed; see :he mapleader).
+The dictionary isn't loaded until one types &#092;ec.
+It also creates a menu item to load the spelling checker for gvim
+(the gui).
+<P>
+The custom user dictionary and optional Webster's 1913 dictionary
+is stored using the path specified by the vim variable <tt>g:cvimsyn</tt>,
+settable in the &lt;.vimrc&gt;.
+If that variable isn't set, then the <TT>CVIMSYN</TT> environment
+variable, if it exists, is used.
+<P>
+If you want to use the environment variable approach:
+<P>
+<table border="0">
+  <TR><TD> sh                  </TD><TD> CVIMSYN="path";export CVIMSYN      </TD></TR>
+  <TR><TD> csh                 </TD><TD> setenv CVIMSYN "path"              </TD></TR>
+  <TR><TD> ksh                 </TD><TD> export CVIMSYN="path"              </TD></TR>
+  <TR><TD> Windows 95,98       </TD><TD> in &lt;autoexec.bat&gt;:           </TD></TR>
+  <TR><TD>                     </TD><TD> set CVIMSYN=..path..               </TD></TR>
+  <TR><TD> Windows 2000,NT,etc </TD><TD> Right click on &lt;My Computer&gt; </TD></TR>
+  <TR><TD>                     </TD><TD> Choose &lt;Properties&gt;          </TD></TR>
+  <TR><TD>                     </TD><TD> Click &lt;System Properties&gt;    </TD></TR>
+  <TR><TD>                     </TD><TD> Click &lt;Advanced&gt; tab         </TD></TR>
+</table>
+<P>
+<font color=magenta><em>Moving</em></font>:
+For Vim versions 5.04 and later, the &lt;engspchk.vim&gt;
+file additionally provides two maps (\en and \ep) to move to the next and preceding
+spelling error, if any.  I suggest you upgrade if you haven't already, because
+Vim's functions are powerful!
+<P>
+<font color=magenta><em>Custom Dictionary</em></font>:
+Engspchk allows the user to temporarily save (\et) or to
+permanently save (\es) words the user uses but somehow isn't in
+Engspchk's dictionary.  A temporary save only affects the current
+vim editing session; a permanent save writes the word to a custom user dictionary
+which is automatically loaded in the future.
+<P>
+<font color=magenta><em>Alternatives</em></font>:
+For Vim version 6.0 and later, &lt;engspchk.vim&gt;
+provides the (\ea) map which brings up a one-line alternatives window for the
+word under the cursor.  Move left and right with the full power of Vim, and
+when the cursor lies on the desired substitute word, a simple carriage return
+will cause replacement.  You'll also need to have the
+<a href=ftp://sunsite.unc.edu/pub/Linux/utils/text/agrep-2.04.tar.Z>agrep</a>
+program to do this (there's a pre-compiled for Windows version available using
+<a href=http://www.tgries.de/agrep>this link</a>).  The first use of (\ea)
+takes longer than subsequent use because the script that gets invoked constructs
+a plain list of words from the engspchk file.
+<P>
+<font color=magenta><em>No Flashing</em></font>:
+With Vim version 6.0y and later and starting with version 2.04 of
+engspchk no longer will Error highlighting flash on and off while you're
+typing.  Thanks go to Chase Tingley (with emendations by Bram Moolenaar) who
+wrote the changes to Vim to make this possible.
+<P>
+<font color=magenta><em>More Words</em></font>:  Previously the
+&lt;<em>wb1913_engspchk.vim</em>&gt; file was provided separately, but it is
+now provided in the &lt;engsphck.tar.gz&gt; tarball.  still optional if you'd
+rather not load it.  Webster has provided an electronic copy of the words from
+its 1913 edition; those words that appear in that dictionary that don't appear
+in &lt;engspchk.vim&gt;'s dictionary itself are provided in the
+&lt;wb1913_engsphck.vim&gt; file.  If the file appears in the directory
+specified by the g:cvimsyn variable (or by the CVIMSYN environment variable)
+then it is loaded automatically.
+<P>
+<font color=magenta><em>Other Languages</em></font>: There are now variants of
+&lt;engspchk.vim&gt; for Dutch, German, Hungarian, Polish, and Yiddish.  If your native
+language isn't supported, feel free to make your own variant!  I'd appreciate
+it if you could let me know where on the Web to find it so I can make a link on
+this page to it.  Thomas K&ouml;hler has made his <a
+href="http://jeanluc-picard.de/vim/gerspchk/create">create</a> script which
+uses the Bourne shell available; it merges a dictionary with engspchk.vim to
+create a spelling checker for another language.
+<P>
+For a while I've included French and German dictionaries that work with
+version 19 of &lt;engspchk.vim&gt;.  To use one of these dictionaries either
+rename &lt;engspchk.vim&gt; to &lt;frspchk.vim&gt; or &gt;gerspchk.vim&gt; as
+appropriate, or put either <tt>let spchklang="fr"</tt> or <tt>let spchklang="ger"</tt>
+in your &lt;.vimrc&gt; file.
+<P>
+<CENTER><TABLE width=90%><TR><TD align=left> <font size="-1"><a href=..>Home Page</a></font></TD>
+		              <TD align=right><font size="-1"><a href=#Contents>Contents</a>&#032;&#032;&#032;&#032;&#032;
+				                                      <a href=#vimlinks>Links</a></font></TD></TR>
+</TABLE></CENTER>
+<HR>
+<!-- ======================================================================== -->
+
+<P><a name="Tags"></a>
+<H2><FONT color=cyan>Tag Generation</FONT></H2>
+<FONT size="+1">
+<P>
+I have written my own <EM>tag generating program</EM> (see <a href="#vimlinks_src">Links</a>);
+although Exuberant Ctags is good, I know how to modify <EM>hdrtag</EM>
+to suit me.  It contains tagging generation for c/c++, c/c++ header files,
+lex, yacc, TeX (cites and labels), vim scripts (functions and syntax), and Maple V.
+<P>
+Exuberant Ctags will no longer be distributed with vim as of v6.0i.  I've provided
+a link to its homesite in the source code-related <a href="#vimlinks_src">links</a> below.
+<CENTER><TABLE width=90%><TR><TD align=left> <font size="-1"><a href=..>Home Page</a></font></TD>
+		              <TD align=right><font size="-1"><a href=#Contents>Contents</a>&#032;&#032;&#032;&#032;&#032;
+				                                      <a href=#vimlinks>Links</a></font></TD></TR>
+</TABLE></CENTER>
+<HR>
+<!-- ======================================================================== -->
+
+<P><a name="Align"></a>
+<H2><FONT color=cyan>Text Alignment</FONT></H2>
+<FONT size="+1">
+<P>
+The alignment scripts (&lt;Align.vim&gt; and &lt;AlignMaps.vim&gt;) now supplant
+the older external filter approach.  The new scripts, which include help and
+plentiful examples, provide:
+<P>
+<UL><LI> cyclic left, right, and centering justification of fields</LI>
+    <LI> cyclic or equivalent regular-expression separators</LI>
+	<LI> cyclic left, right, and centering of multi-length separators</LI>
+    <LI> improved initial white space control: retain, eliminate, re-use first</LI>
+	<LI> specifiable separator padding</LI>
+	<LI> visual range specified alignment, including via visual-block</LI>
+	<LI> multiple maps in &lt;AlignMaps.vim&gt; which tackle complex
+	     alignment problems, such as aligning C/C++ declarations,
+		 function argument lists, etc.</LI>
+</UL>
+<P>
+See my <a href=textab.html>DrChip's Alignment Tool for Vim</a> page for links and examples.
+Alternative aligners are available from
+<a href=http://vim.sourceforge.net/script.php?script_id=176>Gergely Kontra</a> and
+<a href=http://www.zellner.org/vim/>Johannes Zellner</a>.
+<P>
+<CENTER><TABLE width=90%><TR><TD align=left> <font size="-1"><a href=..>Home Page</a></font></TD>
+		              <TD align=right><font size="-1"><a href=#Contents>Contents</a>&#032;&#032;&#032;&#032;&#032;
+				                                      <a href=#vimlinks>Links</a></font></TD></TR>
+</TABLE></CENTER>
+<HR>
+<!-- ======================================================================== -->
+
+<P><a name="Maps"></a>
+<H2><FONT color=cyan>Useful Maps</FONT></H2>
+<FONT size="+1">
+<P>
+The <em>useful maps</em> in <a href=#vimlinks_scripts>Links</a> contains a medley
+of things: several maps to handle difference files, a map (F10 key) for
+determining the highlighting groups that the word the cursor is on belongs to,
+an autocmd which uses viminfo to cause subsequent invocations of vim on a file
+saved by viminfo (I use <em>set viminfo='10,\"100,:20,%,n~/.viminfo</em>) to
+open in the same place in the file as when it was closed, some maps for
+inserting dates, some maps for gzip and gunzip, and a pair of maps for writing
+text to a temporary file (great for moving info between vim invocations).  The
+maps file is internally documented.  Enjoy!
+<CENTER><TABLE width=90%><TR><TD align=left> <font size="-1"><a href=..>Home Page</a></font></TD>
+		              <TD align=right><font size="-1"><a href=#Contents>Contents</a>&#032;&#032;&#032;&#032;&#032;
+				                                      <a href=#vimlinks>Links</a></font></TD></TR>
+</TABLE></CENTER>
+<HR>
+<!-- ======================================================================== -->
+
+<P><a name="VimFuncs"></a> </TD></TR>
+<H2><FONT color=cyan>Vim Functions, Plugs, and Stubs</FONT></H2>
+<FONT size="+1">
+<P>
+Various functions, plug-ins, and quick-insertion stubs follow alphabetically.  There are several
+plugins that I post both here and at vim.sf.net.  I tend to post updates here more often than
+at vim.sf.net, so these are the most up-to-date!
+<ul>
+  <li><a href=vimscript/AnsiEsc.vim>Ansi Highlighting</a> Source this in and ansi escape coloring sequences,
+                                                  generally of the forms ^[[3#m or ^[[3#;4#m, will be
+												  colored appropriately.  The escape sequence itself
+												  takes space but will itself use "Ignore" highlighting.  Ideally
+												  the escape sequences would be folded out but that capability
+												  isn't in vim 6.0 yet (folding is line-based).
+                                                  Also available at <a href="http://vim.sourceforge.net/scripts/script.php?script_id=302">vim.sf.net</a>
+												  where you may rank it.
+  <li><a href=vimscript/AsNeeded.vim>AsNeeded</a> Supports automatic sourcing (loading) of functions as needed.  AsNeeded.vim is a plugin
+                                                  that sources other scripts in the .vim/AsNeeded directory when a function is called
+												  that is needed.  One may use :AsNeeded command or :AN command.  AsNeeded actually
+												  supports as-needed sourcing for functions, maps, and commands.
+												  <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>New! 02/06/04</em></font></tr></table></TD></TR>
+                                                  </li>
+  <li><a href=vimscript/drcstubs.vim>C Stubs</a>  supports quick entry of C constructs; ie. while in
+                                                  insert mode, a <em>if`</em> will result in
+                                                  a if(){} construct entered into your code with the
+                                                  cursor appropriately positioned for further insertion.
+												  <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Updated 02/06/04</em></font></tr></table></TD></TR>
+												  </li>
+ <li><a href=vimscript/CListFunc.vim>C Function Menu Generator</a> Marcel van der Laan wrote a function
+                                                 <em>:call C_ListFuncs()</em> which uses flist to
+												 generate a menu of functions in the current file.
+												 </li>
+ <li><a href=vimscript/calutil.vim>Calendar Utilities</a> Used by <a href=tarfiles/visincr.tar.gz>visincr.vim</a> which is described
+                                                 below, &lt;calutil.vim&gt; provides three calendar-related functions: DayOfWeek(y,m,d),
+												 Cal2Jul(y,m,d), and Jul2Cal(julday).  The first converts a date to a day of week name,
+												 and the other two convert between dates and Julian day.  Also available at
+                                                 <a href="http://vim.sourceforge.net/scripts/script.php?script_id=670">vim.sf.net</a>
+												 where you may rank it.
+                                                 </li>
+ <li><a href=tarfiles/DrawIt.tar.gz>DrawIt.tar.gz</a>   A plugin for drawing vertical, horizontal, and slanted lines.  You'll want to
+                                                 gunzip and "tar oxvf" it in your &lt;.vim&gt; (or &lt;vimfiles&gt; for windoz)
+												 directory.  One uses the number pad to leave a trail of dashes,
+												 bars, etc behind.  Furthermore, it also supports using visual-block specified
+												 to draw boxes, ellipses, arrowheads, and lines, and supports fills.
+                                                 Also available at <a href="http://vim.sourceforge.net/scripts/script.php?script_id=40">vim.sf.net</a>
+												 where you may rank it.
+												 Last updated: Aug 4, 2003
+												 </li>
+ <li><a href=vimscript/EasyAccents.vim>EasyAccents.vim</a> A plug-in that makes using accented characters easier
+                                                  Also available at <a href="http://vim.sourceforge.net/scripts/script.php?script_id=451">vim.sf.net</a>
+												  where you may rank it.
+                                                  </li>
+ <li><a href=vimscript/ls.vim>File Manager</a>    Ra'ul Segura Acevedo's file manager macros (unix only)</li>
+ <li><a href=vimscript/hilinks.vim>HiLinkTrace</a> A plugin (\hlt) which traces the highlighting linkages;
+                                                   ie. just what is the highlighting groups associated with
+												   the word under the cursor?
+												   </li>
+ <li><a href=vimscript/help.vim>Help.vim</a>put into .vim/after/syntax/ -- it will give a wee bit more highlighting to help files</li>
+ <li><a href=vimscript/HiCurLine.vim>Highlight Current Line</a> With this plugin the current line will be highlighted
+                                                  Also available at <a href="http://vim.sourceforge.net/scripts/script.php?script_id=555">vim.sf.net</a>
+												  where you may rank it.
+                                                  Last Updated: Feb 11, 2003
+                                                  </li>
+ <li><a href=tarfiles/HiMtchBrkt.vim.gz>Highlighting Matching Brackets</a> A Vim 6.0 plugin that highlights a matching bracket
+                                                  when the cursor moves on it.  Uses HelpExtractor to set up its help.
+												  Last Updated: Mar 26, 2004 (v12)
+ <li><a href=vimscript/texstubs.vim>LaTex Stubs</a>    supports quick entry of LaTeX constructs (ie. ".." becomes
+                                                  ``..'', enum` gets expanded to \begin{enumerate}, etc).
+												  Last Updated: Jun 12, 2002
+												  </li>
+ <li><a href=vimscript/maintainer.vim>Maintainer</a>
+												  Use <font color=yellow>":echo Maintainer"</font> to find
+												  out who the maintainer is of the syntax file you're
+												  currently using; <font color=yellow>":echo Maintainer("language")"</font>
+												  to determine the Maintainer of a specific language (ie.  c, vim, tex, jsp, etc).
+												  </li>
+ <li><a href=vimscript/manpageview.vim>Man Page Viewer</a>
+                                                  A plugin which facilitates the viewing of man pages under Unix systems;
+												  supports :Man topic, :Man topic booknumber, :Man booknumber topic, and
+												  :Man topic(booknumber).  While in a man page the K key will invoke manpaging
+												  on the word under the cursor.
+                                                  Also available at <a href="http://vim.sourceforge.net/scripts/script.php?script_id=489">vim.sf.net</a>
+												  where you may rank it.
+ <li><a href=vimscript/Rndm.vim>Rndm</a>          returns random variates
+ <ul>
+   <li><font color=cyan>Rndm()</font>             returns uniformly distributed variates on [0, 100,000,000)</li>
+   <li><font color=cyan>Urndm(a,b)</font>         returns uniformly distributed variates on [a,b])</li>
+   <li><font color=cyan>Dice(qty,sides)</font>    rolls <em>qty</em> of <em>sides</em>-sided dice and adds them up</li>
+ </ul>
+                                                  </li>
+ <li><a href=vimscript/vis.vim>Visual Block Commands</a> performs an Ex command on a ctrl-v highlighted block.
+                                                   I often use it to target substitutes onto just a visual-block selection.
+                                                   The original &lt;vis.vim&gt; was by Stefan Roemer, but this one
+												   has been radically modified to support embedded tabs.  It appears to operate
+												   considerably faster, and has no side effects on register usage, etc.
+												  <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Updated 06/13/03 (v11)</em></font></tr></table></TD></TR>
+												  </li>
+ <li><a href=tarfiles/vissort.vim.gz>Visual Block Sorting</a> sorts the lines based on a ctrl-v block selected portion thereof.
+                                                  Works with <a href=tarfiles/visincr.tar.gz>Visual Incrementing</a>, too, 
+												  to just sort the selected block.  Vissort also provides BlockSort() which
+												  enables sorting blocks of text based on a tag found in each block.
+												  <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Updated 01/22/04 (v3)</em></font></tr></table></TD></TR>
+												  </li>
+ <li><a href=tarfiles/visincr.tar.gz>Visual Incrementing</a> transforms a ctrl-v selected visual-block of numbers into an incremented
+                                                 list of numbers.  The first line's number initializes the incrementation.  The
+												 updated &lt;visincr.vim&gt; now uses virtual column information to allow leading
+												 tabs, handles ragged right visual blocks, will insert spaces as needed if
+												 the count's string-length exceeds the visual-block's constraints, and also
+												 accepts an optional incrementation argument (I [incr]) (which can be negative).
+												 By default incr is 1.  If the initial number is zero-padded on the left (ie. 001),
+												 then the column of numbers will also be zero-padded as needed.  For the maps
+												 which handle dates, you'll also need to have <a href=vimscript/calutil.vim>calutil.vim</a>.
+												 <ul>
+												   <li> I [incr]  - create an ascending or descending column of numbers, right padded
+												   <li> II [incr [zfill]] - create an ascending or descending column of numbers, left padded
+												   <li> IYMD [incr] - create an ascending or descending column of year/month/day dates
+												   <li> IMDY [incr] - create an ascending or descending column of month/day/year dates
+												   <li> IDMY [incr] - create an ascending or descending column of day/month/year dates
+												   <li> ID [incr]   - create an ascending or descending column of daynames
+												 </ul>
+												 The :R... versions (:RI :RII :RIYMD etc) restrict the renumbering/relabelling to
+												 those lines which have an appropriate pattern (numbers for :RI and :RII, daynames
+												 for :RID, etc).
+												 <P>
+												  <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Updated 10/21/03 (v6)</em></font></tr></table></TD></TR>
+                                                  Also available at <a href="http://vim.sourceforge.net/scripts/script.php?script_id=670">vim.sf.net</a>
+												  where you may rank it.
+                                                  </li>
+ <li><a href=tarfiles/visswap.vim.gz>Visual Mode Based Swapping</a> Swap text using visual modes!
+                                                 <ul>
+												   <li> Select first region using a visual mode (V, v, or ctrl-v), then press &lt;ctrl-y&gt;.
+												   <li> Select second region using a visual mode (V, v, or ctrl-v), then press &lt;ctrl-x&gt;.
+												 </ul>
+												 HelpExtractor technology is used to automatically install help for vswap.
+												 There's a tip about more swapping at <a href="http://vim.sourceforge.net/tips/tip.php?tip_id=329">Tip#329</a>
+ <li><a href=vimscript/zmaps.vim>Z Maps</a>      Helpful z maps
+                                                 <ul>
+                                                  <li>z&lt;  shift text on screen left</li>
+                                                  <li>z&gt;  shift text on screen right</li>
+                                                  <li>z,  put cursor in middle of screen</li>
+                                                  <li>z0  put cursor on left-hand-side of screen</li>
+                                                  <li>z$  put cursor on right-hand-side of screen</li>
+                                                  <li>zp  put text (like "p") but keep cursor in same column</li>
+                                                  <li>zP  Put text (like "P") but keep cursor in same column</li>
+                                                 </ul></li>
+                                                 </li>
+ <li><a href=tarfiles/ZoomWin.vim.gz>ZoomWin</a> Provides a brief-like ability to zoom into/out-of a window
+                                                  (by Ron Aaron and C Campbell) v16.  Version 14 was both
+												  about 2/3 the size and faster, and the latest handles quickfix windows, too.
+                                                  Also available at <a href="http://vim.sourceforge.net/scripts/script.php?script_id=508">vim.sf.net</a>
+												  where you may rank it.
+											     </li>
+<P>
+<CENTER><TABLE width=90%><TR><TD align=left> <font size="-1"><a href=..>Home Page</a></font></TD>
+		              <TD align=right><font size="-1"><a href=#Contents>Contents</a>&#032;&#032;&#032;&#032;&#032;
+				                                      <a href=#vimlinks>Links</a></font></TD></TR>
+</TABLE></CENTER>
+<HR>
+<!-- ======================================================================== -->
+
+<P><a name="vimlinks"></a>
+<H1><center><FONT color=cyan>Links</FONT></center></H1>
+<P>
+<CENTER><TABLE>
+  <TR><TD> <a name="vimlinks_color">----</a>           </TD><TD>                                                      </TD><TD>                                                                                       </TD><TD>   </TD></TR>
+  <TR><TD> <font color=yellow><EM>Category</font></EM> </TD><TD> <font color=yellow><EM>Description</font></EM>       </TD><TD> <font color=yellow><EM>Link</font></EM>                                               </TD><TD>   </TD></TR>
+  <TR><TD> <B>Color Scheme</B>                         </TD><TD> <a href=colors/index.html>DrChip's Colorscheme</A>   </TD><TD> <a href=colors/astronaut.vim>astronaut.vim</a>                                        </TD><TD>   </TD></TR>
+  <TR><TD> <a name="vimlinks_elsewhere">----</a>       </TD><TD>                                                      </TD><TD>                                                                                       </TD><TD>   </TD></TR>
+  <TR><TD> <font color=yellow><EM>Category</font></EM> </TD><TD> <font color=yellow><EM>Description</font></EM>       </TD><TD> <font color=yellow><EM>Link</font></EM>                                               </TD><TD>   </TD></TR>
+  <TR><TD> <B>Elsewhere</B>                            </TD><TD> <EM>Vim Online</EM>                                  </TD><TD> <a href=http://www.vim.org/><B>Vim Online</B></a>                                     </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> <EM>Vim Download Site</EM>                           </TD><TD> <a href=http://www.vim.org/download.php><B>Vim Source</B></a>                         </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> <EM>Vim FAQ</EM>                                     </TD><TD> <a href=http://vimdoc.sourceforge.net/vimfaq.html><B>Vim FAQ</B></a>                  </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> <EM>Vim CVS Repository</EM>                          </TD><TD> <a href=http://vim.sourceforge.net/cvsdocs/><B>Vim's CVS Repository</B></a>           </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Vim's Author                                         </TD><TD> <a href=http://www.moolenaar.net/vim.html>Bram Moolenaar's Vim Page</a>               </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Oualline's Vim Book                                  </TD><TD> <a href=http://www.newriders.com/books/opl/ebooks/0735710015.html>Vi Improved-VIM</a> </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Google's Comp.Editors                                </TD><TD> <a href=http://groups.google.com/groups?group=comp.editors>Comp.Editors</a>           </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Vi Lovers                                            </TD><TD> <a href=http://www.thomer.com/thomer/vi/vi.html> vi lovers home page</a>              </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Vim's Manual                                         </TD><TD> <a href=http://www.polarfox.com/vim/manual/v62>Vim's Manual</a>                       </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Vi Reference                                         </TD><TD> <a href=http://www.ungerhu.com/jxh/vi.html>Vi Reference</a>                           </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Vi/Ex Tutorial (UnixWorld)                           </TD><TD> <a href=http://www.nwc.com/unixworld/tutorial/009/009.html>Vi/Ex Tutorial</a>         </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Vim's Regular Expressions                            </TD><TD> <a href=http://www.geocities.com/volontir/>Vim Regular Expressions</a>                </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Less Home Page                                       </TD><TD> <a href=http://www.greenwoodsoftware.com/less/> The Less home page</a>                </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Vim and VMS                                          </TD><TD> <a href=http://www.polarfox.com/vim/>Vim and VMS</a>                                  </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Vim's Latest Syntax Highlighting Files               </TD><TD> <a href=ftp://ftp.vim.org/pub/vim/runtime>Syntax Highlighting Files</a>               </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Fellow Vim User (vine)                               </TD><TD> <a href=http://ronware.gotdns.com>Ron Aaron's Vim Page</a>                            </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Fellow Vim User (scripts latex)                      </TD><TD> <a href=http://home.tu-clausthal.de/~mwra/vim/>Ralf Arens</a>                         </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Fellow Vim User (hypertext)                          </TD><TD> <a href=http://www.bf-consulting.de/thlnk/vim/index.html>Stefan Bittner</a>           </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Fellow Vim User (vimail)                             </TD><TD> <a href=http://sourceforge.net/projects/vimail/>Cesar A.R. Crusius</a>                </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Fellow Vim User (tex latex matchit brkt)             </TD><TD> <a href=http://mywebpage.netscape.com/bbenjif/vim/>Benji Fisher</a>                   </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Fellow Vim User (jtags)                              </TD><TD> <a href=http://www.fleiner.com/vim/>Claudio Fleiner</a>                               </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Fellow Vim User (former vim home page)               </TD><TD> <a href=http://chronos.cs.msu.su/vim/>Sven Guckes</a>                                 </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Fellow Vim User (bufexplorer, rcs)                   </TD><TD> <a href=http://lanzarotta.tripod.com/vim.html>Jeff Lanzarotta</a>                     </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Fellow Vim User (tex latex)                          </TD><TD> <a href=http://hermitte.free.fr/vim/>Luc Hermite</a>                                  </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Fellow Vim User (macros)                             </TD><TD> <a href=http://www.wi.leidenuniv.nl/~jvhemert/vim/>Jano's Vim Macros</a>              </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Fellow Vim User (tips,uil,prolog)                    </TD><TD> <a href=http://jeanluc-picard.de/vim/>Thomas K&ouml;hler</a>                          </TD><TD>   </TD></TR>
+<!--  <TR><TD>                                         </TD><TD> Fellow Vim User (vimrc, vim faq)                     </TD><TD> <a href=http://www.math.fu-berlin.de/~leitner/vim/>Felix von Leitner</a>          </TD><TD>   </TD></TR> -->
+  <TR><TD>                                             </TD><TD> Fellow Vim User (vi v vim, outliner)                 </TD><TD> <a href=http://www.troubleshooters.com/lpm/200212/200212.htm>Steve Litt</a>           </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Fellow Vim User (map of vim users)                   </TD><TD> <a href=http://skawina.eu.org/mikolaj/vimlist>Mikolaj Machowski</a>                   </TD><TD>   </TD></TR>
+<!--  <TR><TD>                                         </TD><TD> Fellow Vim User (latex)                              </TD><TD> <a href=http://www.math.rochester.edu:8080/u/cmlr/vim/>Carl Mueller</a>           </TD><TD>   </TD></TR> -->
+  <TR><TD>                                             </TD><TD> Fellow Vim User (tips)                               </TD><TD> <a href=http://www.naglenet.org/vim/vim.html>Adrian Nagle</a>                         </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Fellow Vim User (tags, macros, maps)                 </TD><TD> <a href=http://www.xs4all.nl/~josvanr/vim.html>Jos Van Riswick</a>                    </TD><TD>   </TD></TR>
+<!--  <TR><TD>                                         </TD><TD> Fellow Vim User (alignment, email)                   </TD><TD> <a href=http://www.xnet.com/~darogers/projects.html>David Rogers</a>              </TD><TD>   </TD></TR> -->
+  <TR><TD>                                             </TD><TD> Fellow Vim User (vimrc, alignment)                   </TD><TD> <a href=http://users.adelphia.net/~bsturk/vim.html>Brian Sturk</a>                    </TD><TD>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Fellow Vim User (mac port)                           </TD><TD> <a href=http://www3.sympatico.ca/dany.stamant/vim/>Dany St-Amant</a>                  </TD><TD>   </TD></TR>
+<!--  <TR><TD>                                         </TD><TD> Fellow Vim User (vim Q and A)                        </TD><TD> <a href=http://www.websamba.com/a-vim-place/>Mark Thomas</a>                      </TD><TD>   </TD></TR> -->
+  <TR><TD>                                             </TD><TD> Fellow Vim User (autocorrect html latex)             </TD><TD> <a href=http://web.cs.uni-bonn.de/~zach/vim/>Gabe Zachmann's Vim Page</a>             </TD><TD>   </TD></TR>
+<!--  <TR><TD>                                         </TD><TD> Fellow Vim User (functions)                          </TD><TD> <a href=http://www.zellner.org/vim/>Johannes Zellner</a>                          </TD><TD>   </TD></TR> -->
+<!-- <TR><TD>                                          </TD><TD> Fellow Vim User (file-explorer scripts)              </TD><TD> <a href=http://www.freespeech.org/aziz/vim/>Aziz Ahmed</a>                       </TD><TD>   </TD></TR> -->
+<!-- <TR><TD>                                          </TD><TD> Fellow Vim User (brkt macros)                        </TD><TD> <a href=http://www.bigfoot.com/~stephen.riehm/vim>Stephen Riehm</a>              </TD><TD>   </TD></TR> -->
+  <TR><TD> <a name="vimlinks_misc">----</a>            </TD><TD>                                                                            </TD><TD>                                                                                                    </TD><TD>                                                                                                                                         </TD></TR>
+  <TR><TD> <font color=yellow><EM>Category</font></EM> </TD><TD> <font color=yellow><EM>Description</font></EM>                             </TD><TD> <font color=yellow><EM>Link</font></EM>                                                            </TD><TD>                                                                                                                                         </TD></TR>
+  <TR><TD> <B>Miscellaneous</B>                        </TD><TD> <a href=#Pcexe>Pre-compiled executables</a>                                </TD><TD> <a href=http://www.ee.cua.edu/~cec/pc_cec.zip>Pre-Compiled Executables</a>                         </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Upd 9/6/00</em></font></tr></table>    </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> (1999) Bill Joy, author of vi                                              </TD><TD> <a href=http://www.linux-mag.com/1999-11/joy_01.html>1999 Interview with Bill Joy</a>              </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Lnkd 9/14/00</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> (1984) Bill Joy, author of vi                                              </TD><TD> <a href=http://www.cs.pdx.edu/~kirkenda/joy84.html>1984 Interview with Bill Joy</a>                </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Lnkd 9/14/00</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Early Unix History                                                         </TD><TD> <a href=http://www.oreilly.com/catalog/opensources/book/kirkmck.html>Unix History</a>              </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Lnkd 9/27/00</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Vim Commands                                                               </TD><TD> <a href=vimcmd.txt.gz>Short Vim List of Commands</a>                                               </TD><TD>                                                                                                                                         </TD></TR>
+  <TR><TD>                                             </TD><TD> Vim Regular Expressions                                                    </TD><TD> <a href=http://www.geocities.com/volontir/>Vim Regular Expressions 101</a>                         </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Lnkd 3/14/01</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> <a href=#VimFuncs>Vim Functions, Plugs, and Stubs</a>                      </TD><TD> <a href=#VimFuncs>Vim Functions</a>                                                                </TD><TD>                                                                                                                                         </TD></TR>
+  <TR><TD>                                             </TD><TD> Vim Normal Mode Reference Card (Word97)                                    </TD><TD> <a href=VimRefCard.zip>Campbell&Troy's Vim 5 Reference Card</a>                                    </TD><TD>                                                                                                                                         </TD></TR>
+  <TR><TD>                                             </TD><TD> Oleg Raisky's Vim 5 Reference Card                                         </TD><TD> <a href=ftp://ftp.vim.org/pub/vim/doc>Vim 5 Reference Card</a>                                     </TD><TD>                                                                                                                                         </TD></TR>
+  <TR><TD>                                             </TD><TD> Vim-LaTeX Suite                                                            </TD><TD> <a href=http://vim-latex.sourceforge.net/>Vim LaTeX Suite</a>                                      </TD><TD>  <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Lnkd 12/09/02</em></font></tr></table></TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Vince Negri's ownsyntax/conceal patch                                      </TD><TD> <a href=http://www.angelfire.com/vt2/conceal/>Vince Negri's Ownsyntax/Conceal patch</a>            </TD><TD>                                                                                                                                         </TD></TR>   </TD></TR>
+  <TR><TD> <a name="vimlinks_scripts">----</a>         </TD><TD>                                                                            </TD><TD>                                                                                                    </TD><TD>                                                                                                                                         </TD></TR>
+  <TR><TD> <font color=yellow><EM>Category</font></EM> </TD><TD> <font color=yellow><EM>Description</font></EM>                             </TD><TD> <font color=yellow><EM>Link</font></EM>                                                            </TD><TD>                                                                                                                                         </TD></TR>
+  <TR><TD> <B>Scripts</B>                              </TD><TD> <a href=textab.html>Alignment</A>                                          </TD><TD> <a href=vimscript/Align.vim>Align.vim</a>                                                          </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Upd 08/22/03</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> <a href=textab.html>Alignment</A>                                          </TD><TD> <a href=vimscript/AlignMaps.vim>AlignMaps.vim</a>                                                  </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Upd 08/22/03</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> <a href=textab.html>Alignment</A>                                          </TD><TD> <a href=vimscript/ttalign.vim>ttalign.vim</a>                                                      </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Upd 12/ 1/00</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> <a href=#Columns>Columnizing</A>                                           </TD><TD> <a href=vimscript/mcol.vim>mcol.vim</a>                                                            </TD><TD>                                                                                                                                         </TD></TR>
+  <TR><TD>                                             </TD><TD> Decho, a vimL debugging aid                                                </TD><TD> <a href=tarfiles/Decho.tar.bz2>Decho.tar.bz2</a>                                                   </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Upd 04/21/04</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> <a href=#CAbbrv>DrChip's C Abbreviations</A>                               </TD><TD> <a href=vimscript/drcstubs.vim>Dr Chip's C Abbreviations</a>                                       </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Upd 02/28/01</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Dutch Spelling Checker                                                     </TD><TD> <a href=http://www.thomer.com/thomer/vi/nlspchk.vim.gz>Dutch Spelling Checker</a>                  </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>New 10/29/01</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> <a href=#Spelling>English Spelling Checker</A>                             </TD><TD> <a href=tarfiles/engspchk-v45.tar.bz2>engspchk.tar.bz2 v45</a>                                     </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Upd 04/19/04</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> <a href=http://jeanluc-picard.de/vim/gerspchk/>German Spelling Checker</A> </TD><TD> <a href=http://jeanluc-picard.de/vim/gerspchk/gerspchk.vim.gz>German Spelling Checker</a>          </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>New 01/25/01</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> French Spelling Dictionary                                                 </TD><TD> <a href=tarfiles/frspchk.dict.gz>French Spelling Dictionary</a>                                    </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>New 08/16/02</em></font></tr></table>  </TD></TR>   </TD></TR> 
+  <TR><TD>                                             </TD><TD> Galician Spelling Dictionary                                               </TD><TD> <a href=http://web.onetel.net.uk/~xurelo/galspchk.zip>Galician Spelling Dictionary</a>             </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>New 09/25/02</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> German Spelling Dictionary                                                 </TD><TD> <a href=tarfiles/gerspchk.dict.gz>German Spelling Dictionary</a>                                   </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>New 08/16/02</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Hungarian Spelling Dictionary                                              </TD><TD> <a href=tarfiles/hngspchk.dict.gz>Hungarian Spelling Dictionary</a>                                </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>New 09/12/02</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Italian Spelling Dictionary                                                </TD><TD> <a href=tarfiles/italspchk.dict.gz>Italian Spelling Dictionary</a>                                 </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>New 11/06/02</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Spanish Spelling Dictionary                                                </TD><TD> <a href=tarfiles/spanspchk.dict.gz>Spanish Spelling Dictionary</a>                                 </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>New 08/16/02</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Hungarian Spelling Checker                                                 </TD><TD> <a href=http://vim.sourceforge.net/scripts/script.php?script_id=22>Hungarian Spelling Checker </a> </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>New 06/21/01</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Polish Spelling Checker                                                    </TD><TD> <a href=http://strony.wp.pl/wp/kostoo/download.htm#vim>Polish Spelling Checker </a>                </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>New 06/21/01</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Yiddish Spelling Checker                                                   </TD><TD> <a href=http://www.cs.uky.edu/~raphael/yiddish/vim.tar.gz>Yiddish Spelling Checker</a>             </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>New 04/10/01</em></font></tr></table> </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Matt Corks' Spelling Corrector                                             </TD><TD> <a href=vimscript/wordlist.vim>Spelling Corrector</a>                                              </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Upd 12/ 1/00</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> Network Oriented Reading and Writing                                       </TD><TD> <a href=tarfiles/netrw_v43.tar.bz2>netrw.tar.bz2 v43</a>                                           </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Upd 04/21/04</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> <a href=#Cfunc>Scripts for flist</A>                                       </TD><TD> <a href=vimscript/flistmaps.vim.gz>flist scripts</a>                                               </TD><TD>                                                                                                                                         </TD></TR>
+  <TR><TD>                                             </TD><TD> <a href=#Cfunc>Flist-based Tree</A>                                        </TD><TD> <a href=tarfiles/FlistTree.tar.gz>flist plugin for tree</a>                                        </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Upd 03/14/02</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> <a href=#Maps>Useful Maps</A>                                              </TD><TD> <a href=vimscript/cecmaps.vim.gz>cecmaps.vim.gz</a>                                                </TD><TD>                                                                                                                                         </TD></TR>
+  <TR><TD> <a name="vimlinks_src">----</a>             </TD><TD>                                                                            </TD><TD>                                                                                                    </TD><TD>                                                                                                                                         </TD></TR>
+  <TR><TD> <font color=yellow><EM>Category</font></EM> </TD><TD> <font color=yellow><EM>Description</font></EM>                             </TD><TD> <font color=yellow><EM>Link</font></EM>                                                            </TD><TD>                                                                                                                                         </TD></TR>
+  <TR><TD> <B>Source Code</B>                          </TD><TD> <a href=#Align>Alignment                                                   </TD><TD> <a href=tarfiles/textab-1.09.tar.gz>textab-1.09.tar.gz</a>                                         </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Upd 09/6/00</em></font></tr></table>   </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> <a href=#Ccb>C/C++ Beautifier</A>                                          </TD><TD> <a href=tarfiles/ccb-1.07.tar.gz>ccb-1.07.tar.gz</a>                                               </TD><TD>                                                                                                                                         </TD></TR>
+  <TR><TD>                                             </TD><TD> <a href=#Cfunc>C/C++ Function Listing and Trees</A>                        </TD><TD> <a href=tarfiles/flist-v21.tar.bz2>flist-21.tar.bz2</a>                                            </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Upd 03/24/04</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> <a href=#Columns>Columnizing</A>                                           </TD><TD> <a href=tarfiles/mcol-1.03.tar.gz>mcol-1.03.tar.gz</a>                                             </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Upd 01/12/01</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> <a href=#Tags>Tag Generation</A>                                           </TD><TD> <a href=tarfiles/hdrtag-2.27.tar.gz>hdrtag-2.27.tar.gz</a>                                         </TD><TD> <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Upd 08/28/02</em></font></tr></table>  </TD></TR>   </TD></TR>
+  <TR><TD>                                             </TD><TD> <a href=#Tags>Tag Generation</A>                                           </TD><TD> <a href=http://ctags.sourceforge.net>Exuberant Ctags</a>                                           </TD><TD>                                                                                                                                         </TD></TR>
+  <TR><TD> <a name="vimlinks_syntax">----</a>          </TD><TD>                                                                            </TD><TD>                                                                                                    </TD><TD>                                                                                                                                         </TD></TR>
+  <TR><TD> <font color=yellow><EM>Category</font></EM> </TD><TD> <font color=yellow><EM>Description</font></EM>                             </TD><TD> <font color=yellow><EM>Link</font></EM>                                                            </TD><TD>                                                                                                                                         </TD></TR>
+  <TR><TD> <B>Syntax</B></TD><TD> Amiga Script           </TD><TD> <a href=syntax/amiga.vim.gz>amiga.vim.gz</a>     </TD><TD> <!-- _SYNTAX_ -->                                              </TD></TR>
+  <TR><TD>              </TD><TD> C shell                </TD><TD> <a href=syntax/csh.vim.gz>csh.vim.gz</a>         </TD><TD> <!-- _SYNTAX_ -->                                              </TD></TR>
+  <TR><TD>              </TD><TD> Dec's Control Language </TD><TD> <a href=syntax/dcl.vim.gz>dcl.vim.gz</a>         </TD><TD> <!-- _SYNTAX_ -->                                              </TD></TR>
+  <TR><TD>              </TD><TD> Elm Filter             </TD><TD> <a href=syntax/elmfilt.vim.gz>elmfilt.vim.gz</a> </TD><TD> <!-- _SYNTAX_ -->                                              </TD></TR>
+  <TR><TD>              </TD><TD> Unix's /etc/exports    </TD><TD> <a href=syntax/exports.vim.gz>exports.vim.gz</a> </TD><TD> <!-- _SYNTAX_ -->                                              </TD></TR>
+  <TR><TD>              </TD><TD> Lex                    </TD><TD> <a href=syntax/lex.vim.gz>lex.vim.gz</a>         </TD><TD> <!-- _SYNTAX_ -->                                              </TD></TR>
+  <TR><TD>              </TD><TD> Lisp                   </TD><TD> <a href=syntax/lisp.vim.gz>lisp.vim.gz</a>       </TD><TD> <!-- _SYNTAX_ -->                                              </TD></TR>
+  <TR><TD>              </TD><TD> Maple V                </TD><TD> <a href=syntax/maple.vim.gz>maple.vim.gz</a>     </TD><TD> <!-- _SYNTAX_ -->                                              </TD></TR>
+  <TR><TD>              </TD><TD> Rpcgen                 </TD><TD> <a href=syntax/rpcgen.vim.gz>rpcgen.vim.gz</a>   </TD><TD> <!-- _SYNTAX_ -->                                              </TD></TR>
+  <TR><TD>              </TD><TD> Sh Bash Ksh            </TD><TD> <a href=syntax/sh.vim.gz>sh.vim.gz</a>           </TD><TD> <!-- _SYNTAX_ -->                                              </TD></TR>
+  <TR><TD>              </TD><TD> Sendmail               </TD><TD> <a href=syntax/sm.vim.gz>sm.vim.gz</a>           </TD><TD> <!-- _SYNTAX_ -->                                              </TD></TR>
+  <TR><TD>              </TD><TD> Tags                   </TD><TD> <a href=syntax/tags.vim.gz>tags.vim.gz</a>       </TD><TD> <!-- _SYNTAX_ -->                                              </TD></TR>
+  <TR><TD>              </TD><TD> LaTeX, TeX             </TD><TD> <a href=syntax/tex.vim.gz>tex.vim.gz</a>         </TD><TD> <!-- _SYNTAX_ -->                                              </TD></TR>
+  <TR><TD>              </TD><TD> Vim                    </TD><TD> <a href=syntax/vim.vim.gz>vim.vim.gz</a>         </TD><TD> <!-- _SYNTAX_ -->                                              </TD></TR>
+  <TR><TD>              </TD><TD> Xmath                  </TD><TD> <a href=syntax/xmath.vim.gz>xmath.vim.gz</a>     </TD><TD> <!-- _SYNTAX_ -->                                              </TD></TR>
+  <TR><TD>              </TD><TD> Xxd                    </TD><TD> <a href=syntax/xxd.vim.gz>xxd.vim.gz</a>         </TD><TD> <!-- _SYNTAX_ -->                                              </TD></TR>
+  <TR><TD>              </TD><TD> Yacc                   </TD><TD> <a href=syntax/yacc.vim.gz>yacc.vim.gz</a>       </TD><TD> <!-- _SYNTAX_ -->                                              </TD></TR>
+</TABLE></CENTER>
+<!-- <IMG src=../pix/newscroll.gif ></TD></TR> -->
+<!-- <table border="0" cellspacing="0" bgcolor="BB7700"><tr><td><font size="-1"><font color=black><em>Updated</em></font></tr></table></TD></TR> -->
+<P>
+Note: <font size="-1">An <em>Astro-Only</em> syntax file has not yet been sent to Bram Moolenaar
+but has been made available here for downloading and testing. Sometimes syntax
+files are in-between: for example, &lt;csh.vim&gt;, &lt;sh.vim&gt;, and &lt;tex.vim&gt; have been
+sent to Bram Moolenaar but, sigh, missed the 6.0 release.</font>
+<P>
+<HR>
+<P>
+<CENTER>
+	<a href="http://bible.gospelcom.net/bible?passage=2TIM+2&language=english&version=NASB">2 Tim 2:22</a>
+</CENTER>
+Now flee from youthful lusts, and pursue after righteousness, faith, love, and
+peace, with those who call on the Lord from a pure heart.
+<P>
+<!--<HR>-->
+<!--<P><CENTER><FONT size=+2>Hits on DrChip's Vim page.</FONT><P>-->
+<!--<img src=../usage/u_vim.gif>-->
+<!--</CENTER>-->
+<!--<P>-->
+<HR>
+<CENTER><TABLE width=90%>
+ <TR><TD align=left>  <a href=../index.html><font size="-1">Home </TD>
+     <TD align=center><font size="-1">You are visitor <img src="http://cgibin.erols.com/cgi-bin/Count.cgi?df=astrovimindx&ft=3&tr=N&dd=D&md=6"></TD>
+     <TD align=right> <a href=#Contents><font size="-1">Contents </TD>
+	 <TD></TR>
+</TABLE></CENTER>
+<P>
+<!-- =================================================== -->
+<!-- Begin The Vi IMproved Editor Web Ring HTML Fragment -->
+<center>
+<table border="0" bordercolor="#00CC00"><tr><td>
+<table><tr>
+<!-- Left VimFire+Arrow -->
+<a href="http://www.webring.org/cgi-bin/webring?ring=vim;id=9;prev"> <img src="../pix/left_arrow.gif" border="0" alt="Previous"></a></tr>
+<a href="http://www.webring.org/cgi-bin/webring?ring=vim;id=9;prev"> <img src="../pix/gindikin_vim_on_fire.gif" width="35" border="0"  height="50" alt="Previous"></a></tr><tr>
+</table></td>
+
+<td width=80%>
+<center><font size="-1">The site you are viewing is a part of
+<a href="http://sites.netscape.net/pottsdl1/webring.html">
+The Vi IMproved Editor Webring</a>.<br>
+<table align="center" valign="middle" border cellspacing="4" bgcolor="#000044">
+<tr><td> <font face="Arial,Helvetica" size="1"><a href="http://www.webring.org/cgi-bin/webring?ring=vim;id=9;prev5">Previous 5 Sites</a></font>
+</td><td><font face="Arial,Helvetica" size="1"><a href="http://www.webring.org/cgi-bin/webring?ring=vim;id=9;prev">Previous</a></font>
+</td><td><font face="Arial,Helvetica" size="1"><a href="http://www.webring.org/cgi-bin/webring?ring=vim;id=9;next">Next</a></font>
+</td><td><font face="Arial,Helvetica" size="1"><a href="http://www.webring.org/cgi-bin/webring?ring=vim;id=9;next5">Next 5 Sites</a></font>
+</td><td><font face="Arial,Helvetica" size="1"><a href="http://www.webring.org/cgi-bin/webring?ring=vim;random"> Random Site</a></font>
+</td><td><font face="Arial,Helvetica" size="1"><a href="http://u.webring.com/hub?ring=vim&id=8&hub">List Sites</a></font>
+</td></tr>
+</table>
+
+<td>
+<!-- Right VimFire+Arrow -->
+<table><tr><a href="http://www.webring.org/cgi-bin/webring?ring=vim;id=9;next">
+<img src="../pix/gindikin_vim_on_fire.gif" width="35"
+     border="0"  height="50" alt="Next"></a></tr><tr>
+<a href="http://www.webring.org/cgi-bin/webring?ring=vim;id=9;next">
+<img src="../pix/right_arrow.gif"
+     border="0" alt="Next"></a></tr></table></td>
+</tr></table></center>
+<!-- =================================================== -->
+<P>
+<CENTER><TABLE width=100%>
+ <TR><TD align=left>  <font size="-1"><em>Last Modified </em><!-- DATE -->Apr 21, 2004 11:14:42 AM</font> </TD>
+     <TD align=right> <font size="-1"><em></em><!-- COPYRIGHT -->&copy; 2004, Charles E Campbell, Jr.</font><br> </TD>
+	 <TD></TR>
+</TABLE></CENTER>
+<script><!--
+function PrivoxyWindowOpen(a, b, c){return(window.open(a, b, c));}
+//--></script></BODY>

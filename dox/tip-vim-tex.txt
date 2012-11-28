@@ -1,0 +1,25 @@
+Fuer vim-Benutzer
+
+Paralleles Editieren geht natuerlich auch mit vim als Editor.
+
+Dazu wird mit :vsplit der Editierbereich vertikal in zwei sog. Fenster geteilt, mit :bn im aktuellen Fenster der naechste Buffer ausgewaehlt und mit einem Aufruf von :set scrollbind in beiden Fenstern(!) die Cursorbewegung gekoppelt.
+
+Man kann sich auch eine Script-Datei parallel.scr anlegen mit folgendem Inhalt: 
+
+        :vsplit^M:bn^M:set scrollbind^M^W^W:set scrollbind^M^W^W
+
+(^M ist Ctrl-M, ^W ist Ctrl-W), dann kann man direkt aus der Kommandozeile den gewuenschten Effekt in vim erreichen: 
+
+        vim -s parallel.scr datei1.tex datei2.tex
+
+Praktisch ist es auch, wenn man vims Session-Management benutzt.
+
+Der aktuelle Status von vim, inklusive aller Optionen, der Commandhistory und der editierten Dateien, kann mit: 
+
+        :mksession sessiondatei
+
+in die Datei sessiondatei gesichert werden. Mit dem Aufruf: 
+
+        vim -S sessiondatei
+
+kann dieser Status restauriert werden, inklusive Cursorposition.

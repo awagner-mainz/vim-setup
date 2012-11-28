@@ -1,0 +1,2340 @@
+version 6.0
+" See ":help version" to see why this command is in the first line.
+" =============================================================================
+" Filename: ~/.vimrc
+" Purpose:  Setup file for the editor Vim (Vi IMproved)
+" Author:   Michael Prokop / www.michael-prokop.at / www.grml.org
+" Availability: check out http://config.michael-prokop.at
+"
+" Latest change:  Fre Mai 21 11:42:47 CEST 2004
+"
+" Notices:  this file is based on the one of Sven Guckes   -->
+" http://www.guckes.net/setup/ - vimrc.forall. Thanks to Sven!
+"
+" 031116 I outsorced a lot of stuff:
+" $ ls ~/.vim/ftplugin/
+"   TagsBase.vim
+"   c.vim
+"   cpp.vim
+"   html.vim
+"   java.vim
+"   latex.vim
+"   mail.vim
+"   make.vim
+"   tex.vim
+" $
+" I could reduce the filesize from >116KB (>3005 lines!) to
+" about 85KB (=~2250 lines ;)) -> it shouldn't be that complicate to check
+" out where option $X is set
+" =============================================================================
+" History:
+" 040521 modified statusline (show bufferlist) - based on idea of Thomas Winkler
+" 040420 introduced history 8-) and slightly modified 'boxes'-stuff
+" =============================================================================
+" Some notes
+" ==========
+"
+" You don't know vi[m] already?
+"   Ok, I will tell you - vi chooses his friends on it's own :-)
+"
+" To learn vi
+"   1.) run "vimtutor" from your Unix/Linux-prompt and go through it
+"   2.) run ":help" or ":help keyword" in vim
+"   3.) RTFM - read the f****** - ah - FINE manual ;-)
+"   4.) visit the websites mentioned in this document
+" and you will become a vim-expert (at least I hope so ;-))
+"
+" Not enough information? Ok, some nice pages with information on vi[m]:
+"
+"   http://www.vim.org/                     -> vim-homepage
+"   http://www.liacs.nl/~jvhemert/vim/      -> Jano's Vim Macro Page
+"   http://users.erols.com/astronaut/vim/   -> Dr Chip's Vim Page
+"   http://www.thomer.com/vi/vi.html        -> VI Lover's Homepage :-)
+"   http://vim.sourceforge.net/             -> nice scripts and tips (many of
+"                                              them are used in this
+"                                              config-file)
+"   http://www.rayninfo.co.uk/vimtips.html  -> Best of Vim Tips by
+"                                              David Rayner (zzapper)
+"
+" A good place for questions not answered at the websites listed above are the
+" google-archives:
+"         http://www.google.com
+"         http://groups.google.com
+"
+" If you could not find the answer it's time to contact the geeks in the
+" appropriate newsgroup[s] - so have a look at:
+"
+"   news://de.comp.editoren -> german newsgroup with topic editors
+"   news://comp.editors     -> international newsgroup with topic editors
+"
+" Feeling bored? Need some stats of your vimrc?
+"   All rows are commented out with a '"' so you can grep it:
+"   $ egrep -v '(#|^$)' .vimrc | wc
+"   to get some values of your .vimrc :-)
+"
+" Installation of this setup file:
+"   To use this setup file, copy it to this filename on these systems:
+"     ~/.vimrc       Unix, Linux and OS/2
+"     s:.vimrc       Amiga
+"     $VIM\_vimrc    MS-DOS and Win32
+" =============================================================================
+" NOTE:  If your read this then please send me an email!
+" I welcome all feedback on this file - especially improvements,
+" bugfixing and new ideas such as abbreviations and mappings.
+" Thanks!  And enjoy Vim!  :-)
+" Michael Prokop - <vim@michael-prokop.at>
+" =============================================================================
+" version check:
+" The first line of this setup file contains the information
+" "version xxx" which allows VIM to check whether the setup file
+" fits the syntax that it understands.
+" Versions of VIM other than of version 5 then will give a warning
+" as they do not understand this setup file command - a feature:
+" Give a warning so the user knows that there is something odd
+" about the setup file.
+" =============================================================================
+" Structure of this file:
+" Lines starting with an inverted comma (") are comments.
+" Some mappings are commented out.  Remove the comment to enable them.
+"
+" There are three kinds of things which are defined in this file:
+" Mapping ("map"), settings ("set"), and abbreviations ("ab").
+"   Settings affect the behaviour of commands.
+"   Mappings maps a key sequence to a command.
+"   Abbreviations define words which are replaced
+"   right *after* they are typed in.
+" =============================================================================
+" Note on mappings - "angle notation" (see ":help <>"):
+" VIM allows you to define mappings with special characters
+" with a notation that uses non-special characters:
+" The notation encloses decriptive words in angle brackets (<>).
+" The characters you will most often are:
+" <C-M> for control-m
+" <C-V> for control-v which quotes the following character
+" <ESC> for the escape character.
+" All control characters have been replaced to use the angle notation
+" so you should be able to read this file without problems.
+" (Well, sometimes I leave some tabs [control-i] in the file. ;-)
+" =============================================================================
+" External programs:
+" Some mappings make use of external programs.
+" The following you should find/have on every UNIX system:
+" cut, date, awk, [e]grep, [a|i]spell, perl, sed.
+" If you are using DOS/Windows then you should get these for you system,
+" for example via cygwin (<URL:http://www.cygwin.com/>).
+" =============================================================================
+" Online Help - jump to help positions with "\\":
+" On some keyboards you will have some trouble with C-],
+" the command to jump to the current help tag.
+" The following mapping allows to use "\\", too:
+  map \\  <C-]>
+" =============================================================================
+" The command ":version" does not show the current value of
+" VIMRUNTIME - dang!  So I need a fast way to display that value:
+"  map :V :echo $VIMRUNTIME<c-m>
+  nmap VV :echo $VIMRUNTIME<c-m>
+" =============================================================================
+" Source some files
+" =================
+"
+" 030215 zoomwin.vim -> zoom window in and out with Ctrl+W+O
+ let ZOOM=expand("~/.vim/macros/zoomwin.vim")
+ if filereadable(ZOOM)
+    exe "source " ZOOM
+ endif
+"
+" 020826 A few of quick commands to switch between source files and header
+" files quickly.
+"
+" :A switches to the header file corresponding to the current file being edited (or vise versa)
+" :AS splits and switches
+" :AV vertical splits and switches
+"
+" E.g. if you are editing foo.c and need to edit foo.h simply execute :A and
+" you will be editting foo.h, to switch back to foo.c execute :A again.
+"
+ let AFILE=expand("~/.vim/macros/a.vim")
+ if filereadable(AFILE)
+    exe "source " AFILE
+ endif
+"
+" 020826 stuff specifically for GUI-mode...
+  if has("gui_running")
+    "set guifont=Courier_New:h9:cANSI
+    set guifont="Courier New 9"
+    " make the command line one line high
+    set ch=1
+    " Let Windows process the Alt-key
+    " set winaltkeys
+    set mousehide
+    " Set text below the last line to the application workspace color
+    " highlight NonText       guifg=White guibg=Black gui=bold
+    " highlight StatusLine    guibg=Grey  guifg=Black gui=bold
+    " highlight StatusLineNC  guibg=Grey  guifg=Black gui=NONE
+    " highlight VISUAL        guibg=Grey  guifg=Black gui=NONE
+    " Use a black-background/grey text...
+    " highlight Normal guibg=Black guifg=Grey
+    let SENSFILE=expand("~/.vim/sensitive.vim")
+    if filereadable(SENSFILE)
+      exe "source " SENSFILE
+    endif
+  endif
+"
+" 030915 kvim
+  if has("gui_kde")
+    "set guifont=Terminal/14/-1/5/50/0/0/0/1/0
+    "set guifont=Courier_New:h9:cANSI
+    " To see the name of the currently active color scheme:
+    "                                 :echo colors_name
+    "colorscheme evening
+  endif
+"
+" =============================================================================
+" SETTING OPTIONS
+" =============================================================================
+"       autoindent, paste, textwidth:
+  set   noautoindent
+"
+"       autowrite: Automatically save modifications to files
+"       when you use critical (rxternal) commands.
+  set   autowrite
+"
+"       backup: write backup into special directory if it exists,
+"       otherwise don't make backups ;-)
+ let BACKUPDIR=expand("~/.vim_backup")
+ if isdirectory(BACKUPDIR)
+  set   backup
+  set   backupdir=~/.vim_backup
+ else
+  set   nobackup
+ endif
+"
+"       backspace:  '2' allows backspacing" over
+"       indentation, end-of-line, and start-of-line.
+"       see also "help bs".
+" set   backspace=indent,eol,start
+  set   backspace=2
+"
+"       background:  Are we using a "light" or "dark" background?
+" set   background=dark
+"
+"       While typing a search pattern, show immediately where the so far
+"       typed pattern matches.
+"       see also "help incsearch"
+  set   incsearch
+"
+"       compatible: let Vim behave like Vi? Hell, no!
+  set   nocompatible
+"
+"       comments default: s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+"  set   comments=b:#,:%,fb:-,n:>,n:)
+"
+"       cpoptions you should get to know - source of many FAQs!  ;-)
+"       cpoptions:  "compatible options" to match Vi behaviour
+" set   cpoptions="aABceFs"   "default!
+"       FAQ:  Do NOT include the flag '<' if you WANT angle notation!
+"
+"       dictionary: english words first
+  set   dictionary=/usr/share/dict/words,$HOME/.vim/words.german,$HOME/.vim/word­completion
+"
+"       runtimepath: list of dirs to search for runtime files ":he rtp"
+" set rtp=~/.vim,/usr/share/vim/vim62,/usr/local/share/vim/vimfiles,/usr/local/share/vim/vim62,/usr/local/share/vim/vimfiles/after
+" set rtp=~/.vim,/usr/local/share/vim/vimfiles,/usr/local/share/vim/vim62,/usr/local/share/vim/vimfiles/after,~/.vim/after
+" set runtimepath+=~/.vim/after
+"
+"       set notagbsearch = no "binaryfilesearch" -> ":he tagbsearch"
+"       030404 was necessary for vim 6.1[405] to FIX:
+"          E432: Tags file not sorted: /usr/local/share/vim/vim61/doc/tags
+"          E426: tag not found: gp
+  set   notagbsearch
+"
+"       digraph: required for those umlauts
+  set   digraph
+"
+"       errorbells: damn this beep!  ;-)
+  set   noerrorbells
+"
+"       esckeys: allow usage of cursor keys within insert mode
+"       You will find this useful when working, eg, on SunOS.
+  set   esckeys
+"
+" In case you want this for SunOS only:
+" if system('uname')=='SunOS'
+"   set ek
+" endif
+"
+"       expandtab:  Expand Tabs?
+"                   see 'listchars' to make Tabs visible ->
+"                   :set list -> see unprintable characters
+" set noexpandtab
+  set   noexpandtab
+"
+"       formatoptions:  Options for the "text format" command ("gq")
+  set   formatoptions=cqrt
+"
+"       helpheight: zero disables this.
+  set   helpheight=0
+"
+"       helpfile:  path+filename of the main helpfile, ie "help.txt"
+" set   helpfile=/usr/local/share/vim/vim62e/doc/help.txt
+"
+"       helptags: generate the help tags file for the given directory
+      let MYDOC=expand("~/.vim/doc")
+      if isdirectory(MYDOC)
+        helptags ~/.vim/doc
+        map <Leader>re :help regexpref<cr> 
+      endif
+" 
+" For use from a WindowsNT machine which mounts
+" the user's home directory on drive 'Z':
+" if has("dos16") || has("dos32") || has("gui_w32")
+"   set helpfile=Z:\share\vim\runtime\doc\help.txt
+" endif
+"
+"       hidden:  Allow "hidden" buffers.  A must-have!
+  set   hidden
+"
+"       highlight=8b,db,es,hs,mb,Mn,nu,rs,sr,tb,vr,ws
+" set   highlight=8r,db,es,hs,mb,Mr,nu,rs,sr,tb,vr,ws
+"       see ":he highlight-term"
+" highlight=
+"  8:SpecialKey,@:NonText,d:Directory,e:ErrorMsg,i:IncSearch,l:Search,m:MoreMsg,
+"  M:ModeMsg,n:LineNr,r:Question,s:StatusLine,S:StatusLineNC,c:VertSplit,t:Title,
+"  v:Visual,V:VisualNOS,w:WarningMsg,W:WildMenu,f:Folded,F:FoldColumn,A:DiffAdd,
+"  C:DiffChange,D:DiffDelete,T:DiffText
+  set   highlight=8r,db,es,hs,mb,Mr,nb,rs,sr,tb,vr,ws
+"
+"       hlsearch: highlight search - show the current search pattern
+"       This is a nice feature sometimes - but it sure can get in the
+"       way sometimes when you edit.
+  set   nohlsearch
+"
+"       icon: the icon text of the window will be set to the value of 'iconstring'
+  set   noicon
+"
+"       iconstring: file of icon (icons? on a terminal? pff!)
+" set   iconstring
+"
+"       ignorecase: ignore the case in search patterns?
+  set   noignorecase
+"
+"       insertmode:
+" FAQ:  Q: How can I quit insertmode when using this option?
+"       A: The option "insertmode" was not meant for "start Vim in
+"       insert mode" only; the idea is to *stay* in insert mode.
+"       Anyway, you can use the command |i_CTRL-O| to issue commands.
+  set   noinsertmode
+"
+"       iskeyword:
+"       iskeyword=@,48-57,_,192-255   (default)
+" Add the dash ('-'), the dot ('.'), and the '@' as "letters" to "words".
+" This makes it possible to expand email and html addresses,
+" eg vim@michael-prokop.at and http://www.vim.org/
+  set   iskeyword=@,48-57,_,192-255,-,.,:,/,@-@
+" map ,isk :set isk=@,48-57,_,192-255,-,.,:,/,@-@
+"
+"       joinspaces:
+"       insert two spaces after a period with every joining of lines.
+"       I like this as it makes reading texts easier (for me, at least).
+" set   joinspaces
+"
+"       keywordprg: Program to use for the "K" command.
+" set   keywordprg=man\ -s
+"
+"       laststatus: show status line? Yes, always!
+"       laststatus: Even for only one buffer.
+  set   laststatus=2
+"
+" [VIM5]lazyredraw:  do not update screen while executing macros
+  set   lazyredraw
+"
+"       'list' + 'listchars': new feature of vim-5.3
+"       This tells Vim which characters to show for expanded TABs,
+"       trailing whitespace, and end-of-lines. *very* useful!
+" Standard settings:
+" set   list
+" set   listchars=tab:>-,trail:·,eol:$
+" set   listchars=eol:$,precedes:«,extends:»,tab:··
+"
+" However: The '$' at the end of lines is a bit too much, though.
+" And I quite like the character that shows a dot in the middle:
+" set   listchars=tab:>·,trail:·
+"
+" Some people might prefer a double right angle (>>)
+" to show the start of expanded tabs, though:
+" set   listchars=tab:»·,trail:·
+"
+" However, this all breaks up when viewing high-bit characters
+" through some brain-dead telnet programs (there are many).
+" Sometimes a change of the font does the trick. Try it!
+"
+"       magic: Use 'magic' patterns (extended regular expressions)
+"       in search patterns? Certainly! (I just *love* "\s\+"!)
+  set   magic
+"
+"       modeline: Allow the last line to be a modeline - useful when
+"       the last line in sig gives the preferred textwidth for replies.
+  set   modeline
+  set   modelines=1
+"
+"       number: Same as :print, but precede each line with its line number.
+  set   nonumber
+"
+"       path: The list of directories to search when you specify
+"             a file with an edit command.
+"             Note: "$VIM/syntax" is where the syntax files are.
+" set   path=.,,~/,$VIM/syntax/,~/.vim/syntax/,~/.vim/macros/,~/.vim/after/,~/.vim/plugin/
+  set   path=.,,~/,$VIM/syntax/,~/.vim/**
+"
+"       pastetoggle
+  if version>=508
+    set pastetoggle=<f11>
+  endif
+"
+"       report: show a report when N lines were changed.
+"               report=0 thus means "show all changes"!
+  set   report=0
+"
+"       ruler: show the line and column number of the cursor position,
+"              separated by a comma.
+  set   ruler
+"
+" Setting the "shell" is always tricky - especially when you are
+" trying to use the same vimrc on different operatin systems.
+"       shell for DOS
+" set   shell=command.com
+"       shell for UNIX
+" set   shell=zsh
+"       shell for UNIX
+" set   shell=/bin/tcsh
+" Now that vim-5 has ":if" I am trying to automate the setting:
+"
+  if has("dos16") || has("dos32")
+    " because I only work on "real" windows-machines ;-) I call cmd and not
+    " command.com :-)))
+    let shell='cmd'
+    " let shell='command.com'
+  endif
+"
+" start the zsh as a login shell:
+  if has("linux")
+    let &shell="zsh\ -l"
+  endif
+"
+"       shiftwidth: Number of spaces to use for each
+"                   insertion of (auto)indent.
+" set   shiftwidth=8
+  set   shiftwidth=2
+"
+"       shortmess: Kind of messages to show. Abbreviate them all!
+"          New since vim-5.0v: flag 'I' to suppress "intro message".
+  set   shortmess=at
+"
+"       showcmd: Show current uncompleted command? Absolutely!
+  set   showcmd
+"
+"       showmatch: Show the matching bracket for the last ')'?
+  set   showmatch
+"
+"       showmode: Show the current mode? YES!
+  set   showmode
+"
+"       suffixes: Ignore filename with any of these suffixes
+"                 when using the ":edit" command.
+"                 Most of these are files created by LaTeX.
+  set   suffixes=.aux,.bak,.dvi,.gz,.idx,.log,.ps,.pdf,.swp,.tar
+"
+"       startofline: no: do not jump to first character with page
+"       commands, ie keep the cursor in the current column.
+  set   nostartofline
+"
+"       splitbelow:  Create new window below current one.
+  set   splitbelow
+"
+"       statusline:  customize contents of the windows' status line.
+"       Can't see it? Check out "set laststatus"!
+"       I prefer it this way:
+"       Show the current buffer number and filename with info on
+"       modification, read-only, and whether it is a help buffer
+"       (show only when applied).
+" set   statusline=[%n]\ %f\ %(\ %M%R%H)%)
+"
+"       Move the rest to the right side, eg a copyright text:
+" set   statusline=[%n]\ %f\ %(\ %M%R%H)%)%=(c)\ Michael\ Prokop
+"
+"       Show the value of the current character in ASCII and Hex:
+" set   statusline=[%n]\ %f\ %(\ %M%R%H)%)\=ASCII=%b\ HEX=%B
+"
+"       Show the current position with line+column+virtual_column:
+" set   statusline=[%n]\ %f\ %(\ %M%R%H)%)\=Pos=<%l\,%c%V>\ %P
+"
+"       Adding color through UserN groups:
+" set   statusline=%1*[%02n]%*\ %2*%F%*\ %(\ %M%R%H)%)%=%3*Pos=<%l,%c%V>%*
+"
+"       One favourite:
+" set   statusline=[%n]\ %f\ %(\ %M%R%H)%)\=Pos=<%l\,%c%V>\ %P\=ASCII=%b\ HEX=%B)%=(c)\ Michael\ Prokop
+"
+"       My favourite statusline is:
+"    set statusline=%<[%n]\ %f\ %y\ %r\ %1*%m%*%w%=%(Column:\ %c%V%)%4(%)%-10(Line:\ %l%)\ %4(%)%p%%\ %P\ \ \ \ \ \ ASCII=%b\ HEX=%B\ \ \ \ \ %=(c)\ Michael\ Prokop
+"
+" 040519 $HOME/.vim/plugin/minibufexpl.vim - see:
+" http://www.vim.org/scripts/script.php?script_id=159
+" Thomas Winkler modified this script and wrote an own function (see above):
+  set statusline=%<\ %{GetBufferList()}\ %1*%*%w%=%(Col:\ %c%V%)%2(%)%-1(Line:\ %l/%L%)\ \ \ %p%%\ \ \ ASCII=%b\ HEX=%B\ %=
+"
+" function for bufferlist in statusline - written by Thomas Winkler
+  function! GetBufferList()
+    let l:numBuffers = bufnr('$')
+    let l:i = 0
+    
+    let l:bufferList = ''
+    
+    while(l:i <= l:numBuffers)
+    let l:i = l:i + 1
+       
+    " check if buffer is listed
+    if(getbufvar(l:i, '&buflisted') == 1)
+    let l:bufName = bufname(l:i)
+    
+    if(strlen(l:bufName))
+    let l:shortBufName = fnamemodify(l:bufName, ":t")                  
+    let l:shortBufName = substitute(l:shortBufName, '[][()]', '', 'g') 
+    
+    " check if buffer is readonly
+    if (getbufvar(l:i, '&readonly'))
+    let l:shortBufName = l:shortBufName . '|RO'
+    endif
+      
+    " check if buffer is currently open in a window
+    if bufwinnr(l:i) != -1
+    let l:bufferList = l:bufferList . '[' . l:i . ':' . l:shortBufName . ']*'
+    else
+    let l:bufferList = l:bufferList . '|' . l:i . ':' . l:shortBufName . '|'
+    endif
+    
+    " check if buffer is modified 
+    if(getbufvar(l:i, '&modified') == 1)
+    let l:bufferList = l:bufferList . '+'
+    endif
+    
+    let l:bufferList = l:bufferList  . ' '
+    
+    endif
+    endif
+    endwhile
+    
+    return bufferList
+  endfunction
+"
+"       tabstop: number of spaces that a <Tab> in the file counts for
+  set   tabstop=8
+"
+"       tags: file for "tags" - search words
+" set   tags=~/.vim/vim.tags,./tags,../tags
+  set   tags=~/.vim/vim.tags,tags;/
+" Tip #94: Questions & Answers about using tags with Vim
+" http://www.vim.org/tips/tip.php?tip_id=94
+"
+" 990503: I have to set the "term" explicitly
+" because the standard setups are broken.
+" set   term=builtin_pcansi
+" set   term=xterm
+"
+" Set the colors for vim on "xterm"
+" if &term=="xterm"
+" set t_Co=8
+" set t_AB=[%?%p1%{8}%<%t%p1%{40}%+%e%p1%{92}%+%;%dm
+" set t_AF=[%?%p1%{8}%<%t%p1%{30}%+%e%p1%{82}%+%;%dm
+" endif
+"
+"      textmode: no - I am using Vim on UNIX!
+"  set notextmode
+"
+"       textwidth
+"  set  textwidth=72
+"
+"       title: default value is off
+"       When on, the title of the window will be set to the value of
+"          'titlestring' (if it is not empty), or to:
+"          filename [+=-] (path) - VIM
+  set   title
+"
+"       ttyfast: are we using a fast terminal?
+"                seting depends on where I use Vim...
+  set   nottyfast
+"
+"       ttybuiltin: default value is on
+"       When on, the builtin termcaps are searched before the external ones.
+"       When off the builtin termcaps are searched after the external ones.
+  set   nottybuiltin
+"
+"       ttyscroll: turn off scrolling -> faster!
+  set   ttyscroll=0
+"
+"       ttytype: string (default from $TERM)
+" set   ttytype=rxvt
+"
+"       viminfo: What info to store from an editing session
+"                in the viminfo file;  can be used at next session.
+  set   viminfo=%,'50,\"100,:100,n~/.viminfo
+"
+"       visualbell: Use visual bell instead of beeping. Very usefull if you
+"       don't like sound or try to keep your neighbours friendly ;-))
+  set   visualbell
+"
+"       t_vb:  terminal's visual bell - turned off to make Vim quiet!
+"       Please use this as to not annoy cow-orkers in the same room.
+"       Thankyou! :-)
+  set   t_vb=
+"
+"       whichwrap: Allow jump commands for left/right motion to wrap to
+"       previous/next line when cursor is on first/last character in the line:
+  set   whichwrap=<,>,h,l,[,]
+"
+"       wildchar  the char used for "expansion" on the command line
+"                 default value is "<C-E>" but I prefer the tab key
+  set   wildchar=<TAB>
+"
+"       wrapmargin:
+"       When do you want the line to break? A value of 1 means that 1
+"       "cursor" before the end of the visible screen.
+"       if wrapmargin=n, then the wrapping occurs if the distance to the
+"       right screen-border is "n" spaces
+  set   wrapmargin=1
+"
+"       writebackup: Make a backup before overwriting a file.  The backup is
+"       removed after the file was successfully written, unless the 'backup'
+"       option is also on.
+  set   nowritebackup
+"
+" 020628 By default, Vim displays the current line of each minimized file,
+" which (to me) isn't much help and takes up too much screen real estate.
+"  if version>=600
+"    set wmw=0
+"  endif
+"
+" 030731 split window changes - maximize the window
+"  set wmw=0
+"  set winminheight=0 
+"  set winheight=999 
+"  nmap <c-h> <c-w>h<c-w><bar>
+"  nmap <c-l> <c-w>l<c-w><bar>
+"
+" =============================================================================
+" Abbreviations
+" =============================================================================
+"  Moved the abbreviations *before* the mappings as
+"  some of the abbreviations get used with some mappings.
+"
+"  Let's start of with some standard strings
+"  like the alphabet and the digits:
+"
+"     Yalpha : The lower letter alphabet.
+  iab Yalpha abcdefghijklmnopqrstuvwxyz
+"
+"     YALPHA : The upper letter alphabet.
+  iab YALPHA ABCDEFGHIJKLMNOPQRSTUVWXYZ
+"
+"     Ydigit: The ten digits.
+  iab Ydigit  1234567890
+"
+"     Yruler: A "ruler" - nice for counting the length of words.
+  iab Yruler  1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
+"
+" Abbreviations for some important numbers:
+  iab Npi 3.1415926535897932384626433832795028841972
+  iab Ne  2.7182818284590452353602874713526624977573
+"
+" Abbreviations for some classic long words:
+"  iab YDD Donaudampfschifffahrtgesellschaftskapitaenwitwenrentengesetzzusatzparagraph
+"
+" Some more weird sentences in KrautLang
+" using as many umlauts as possible:
+" "Jörg möchte fünf Frühstücksbrötchen
+"  um äußerstes Völlegefühl zu spüren."
+" "Äßen Löwen Möwen, zögen Möwen über Löwen rüber."
+" "Äße Öko-Jörg große Bärenfüße in äußerst süßer Nußölkäsesoße
+"  müßte er in ein übermäßig häßliches Güllefaß."
+"
+" and now a word with all three umlauts and the 'ß', too:
+"  iab YHRA "Heizölrückstoßabdämpfung"
+"
+" But some languages are even weirder - Welsh, for example:
+"     YLL : The name of a town in Wales.
+"  iab YLL    LLanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch
+" http://www.llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch.co.uk
+" http://194.159.85.168/ - I am not making this up!  :-)
+"
+" and now something from down under:
+"     YTauma: The name of a hill in New Zealand.
+"  iab YTauma Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwenuakitanatahu
+"
+" Longest Word in the second edition of the Oxford English Dictionary?
+"  iab YNNMSVC pneumonoultramicroscopicsilicovolcanoconiosis
+"
+"     Yi18n: .123456789012345678. - yup, 18 characters betwwen 'i' and 'n'
+"  iab Yi18n  internationalization
+"
+"     Ysuper: A nice long word from the musical "Mary Poppins".
+"  iab Ysuper supercalifragilisticexpialidocious
+"
+"     Phrases.
+"     Yanfs: Changing the Subject within a message.  (Hi, Monty Python!)
+"  iab Yanfs  And now for something completely different...
+"
+"     Yanti:  The longest proper word in the English language?!
+"  iab Yanti   antidisestablishmentarianism
+"
+"     Ybtdt:  It's been dejavu all over again.
+"  iab Ybtdt   Been there, done that, got the tshirt.
+"
+"     Yicty:  Some people should really RTFM!
+"  iab Yicty   I could tell you - but then I'd have to kill you.
+"
+"     Ypass:  Standard answer to Usenet posts
+"             with the "Subject: HELP"  (hehe)
+"  iab Ypass  "You are in a maze of twisty little passages, all alike."
+"
+"     Ywyot:  people who use the browser for email and news...
+"  iab Ywyot when your only tool is a hammer - every problem looks like a nail.
+"
+"
+" classic pangrams (which include every letter of the alphabet):
+" German:
+"   kaufen sie jede woche vier gute bequeme pelze [missing: 'xy' :-/]
+"   sylvia wagt quick den jux bei pforzheim
+"   bayerische jagdwitze von maxl querkopf
+"   zwei boxkaempfer jagen eva quer durch sylt
+"   falsches üben von xylophonmusik quält jeden größeren zwerg.
+"   Bei jedem klugen Wort von Sokrates rief Xanthippe zynisch: Quatsch!
+" English:
+"       the quick brown fox jumps over the lazy dog
+"       The five boxing wizards jump quickly
+" French:
+"        voyez le brick geant que j'examine pres du wharf.
+" Polish:
+"       Pchn±æ w tê ³ód¼ je¿a lub o¶m skrzyñ fig.
+"       Koñ i ¿ó³w grali w ko¶ci z piêkn± æm± u ¼ród³a.
+"       Têgi koñ i ma³y ¿ó³w ¶piewali z piêkn± æm± u ¼ród³a ¿ycia.
+"
+" And a sentence to break some quoing levels:
+"       "This man's house (which 's yellow) burned down."
+"
+" And now for something completely different:
+"       I couldn't bear to bear bears over the border.
+"
+" Inserting an ellipsis to indicate deleted text
+"  iab  Yell  [...]
+  iab  Yel  [...]<CR>
+"
+" 020704 This mapping I often use when posting in newsgroup or writing
+" mail-replies
+  iab  Ysc <ESC>o[schnipp]<CR><ESC>k$i
+"  vmap ,ell c[...]<ESC>
+"
+" some words I type often enough:
+  iab eig       eigentlich
+  iab merkw     merkwuerdig
+  iab Latex     LaTeX
+  iab Tex       TeX
+  iab Infeldgasse Inffeldgasse
+  iab insb      insbesondere
+  iab led       lediglich
+  iab merkw     merkwürdig
+  iab mitt      mittlerweile
+  iab sicherl   sicherlich
+  iab sog       sogenannt
+  iab viell     vielleicht
+"
+" typing smileys slows me down..
+"  iab BAH   :-(
+  iab BAH :-(
+  iab SMILE :-)
+  iab WINK  ;-)
+"
+" Correcting some typos.
+  iab alos      also
+  iab aslo      also
+  iab acuh      auch
+  iab becuase   because
+  iab bianry    binary
+  iab bianries  binaries
+  iab charcter  character
+  iab charcters characters
+  iab exmaple   example
+  iab exmaples  examples
+  iab shoudl    should
+  iab seperate  separate
+  iab teh       the
+  iab tpyo      typo
+" Some frequent typos in German:
+  iab bracuht   braucht
+  iab doer      oder
+  iab nciht     nicht
+  iab Dreckfuhler Druckfehler
+  iab Micheal   Michael
+  iab Netwokr   Network
+  iab Srever    Server
+  iab Standart  Standard
+  iab standart  standard
+  iab SIe       Sie
+  iab ICh       Ich
+  iab Packetmanagement Paketmanagement
+  iab paketmanagement packetmanagement
+"
+" 040128 Neoreformierte Rechtschreibung: 
+" http://www.leckse.net/profilieren/rechtschreibung#neoreformiert
+"
+"  iab Addresse		Adresse	
+"  iab aggressiv	agressiv	
+"  iab assozial		asozial	
+"  iab authorisieren	autorisieren	
+"  iab brilliant	brillant	
+"  iab Billiard		Billard	
+"  iab bischen		bißchen	
+"  iab blos		bloß	
+"  iab Chatt		Chat	
+"  iab detailiert	detailliert	
+"  iab dilletantisch	dilettantisch	
+"  iab Diphtong		Diphthong	
+"  iab entgültig	endgültig	
+"  iab erwiedern	erwidern	
+"  iab Flachbrettscanner Flachbettscanner	
+"  iab Gallerie		Galerie	
+"  iab Gebahren		Gebaren	
+"  iab Gelantine	Gelatine	
+"  iab Geradewohl	Geratewohl	
+"  iab grabschen	grapschen	
+"  iab Gradwanderung	Gratwanderung	
+"  iab hahnebüchen	hanebüchen	
+"  iab hälst		hältst	
+"  iab Imobilien	Immobilien	
+"  iab intollerant	intolerant	
+"  iab Kaffe		Kaffee	
+"  iab Karussel		Karussell	
+"  iab Klemptner	Klempner	
+"  iab kranker		kränker	
+"  iab lethal		letal	
+"  iab lizensiert	lizenziert	
+"  iab Looser		Loser	
+"  iab Lybien		Libyen	
+"  iab Millenium	Millennium	
+"  iab morgentlich	morgendlich	
+"  iab Packet		Paket	
+"  iab Pasta!		Basta!	
+"  iab Progrom		Pogrom	
+"  iab projezieren	projizieren	
+"  iab Psychater	Psychiater	
+"  iab Pupertät		Pubertät	
+"  iab Quartz		Quarz	
+"  iab Reperatur	Reparatur	
+"  iab Replay		Reply	
+"  iab Resource		Ressource	
+"  iab Rückgrad		Rückgrat	
+"  iab Rückrad		Rückgrat	
+"  iab Rückrat		Rückgrat	
+"  iab seelig		selig	
+"  iab seit		seid	
+"  iab Serösität	Seriosität	
+"  iab Sattelit		Satellit	
+"  iab seperat		separat	
+"  iab Spilunke		Spelunke	
+"  iab Standart		Standard	
+"  iab Stehgreif	Stegreif	
+"  iab symphatisch	sympathisch	
+"  iab Terrabyte	Terabyte	
+"  iab Threat		Thread	
+"  iab Vierenscanner	Virenscanner	
+"  iab Vorraussetzung	Voraussetzung	
+"  iab ward		wart	
+"  iab warscheinlich	wahrscheinlich	
+"  iab Webseite		Website	
+"  iab wiederlich	widerlich
+"
+" See http://www.guckes.net/sig/:
+  iab YDDS dash-dash-space
+"
+" For reports and texts on my studies:
+" iab YKT Komplexitaetstheorie
+" iab YPM Pattern Matching
+" iab YRA Rechnerarchitektur
+" iab YRKN Rechner- und Kommunikationsnetze
+  iab YRO Rechnerorganisation
+  iab YPP Programmierpraktikum
+  iab YUFO Unternehmungsführung und Organisation
+  iab YBS Betriebssysteme
+"
+" Often used filenames - only needed these on the command line:
+  cab Mrc       ~/.muttrc
+  cab Src       ~/.slrnrc
+  cab Brc       ~/.bashrc
+  cab Zrc       ~/.zshrc
+"
+" Usenet header lines (used when composing a post):
+  iab UFT  Followup-To:
+  iab UMCT Mail-Copies-To: ng@michael-prokop.at
+  iab UNG  Newsgroups:
+  iab URT  Reply-To: ng@michael-prokop.at
+  iab UFUB Organization: TU-Graz
+"
+" Current version numbers of my favourite programs:
+" [Last update: 031116]
+"  iab Vmutt mutt-1.5.4 [2003-03­19]
+  iab Vmutt mutt-1.5.5.1 [2003-11-05]
+  iab Vslrn slrn-0.9.8.0 [2003-08-25]
+  iab Vvim  vim-6.2 [2003-06-01]
+"
+" My phone number:
+  iab Yphone GSM: +43(0)664/1646346
+  iab Ybuero TEL: +43(316)/873-7504
+" My snailmail address. Postcards, anyone?
+  iab Ysnail Michael Prokop<C-M>Wienerstraße 58a-8<C-M>A-8020 Graz
+" My ICQ number.  Chat, anyone?
+  iab YICQ ICQ#: 52179636
+"
+" My addresses (Email and WWW)
+" makes it easy to type them without typos  ;-)
+  iab UALL Michael Prokop / www.michael-prokop.at
+  iab Umail <mail@michael-prokop.at>
+  iab Umaili <prokop@iwb.tu-graz.ac.at>
+  iab Umailt <michael.prokop@tugraz.at>
+  iab Umails <prokop@sbox.tugraz.at>
+  iab Umaill <michael@linuxtage.at>
+  iab Uweb http://www.michael-prokop.at/
+  iab USTG http://www.michael-prokop.at/stg/
+  iab UICQ http://www.michael-prokop.at/internet/icq.html
+  iab ULap http://www.michael-prokop.at/computer/laptop.html
+  iab ULin http://www.michael-prokop.at/computer/
+  iab ULAT http://www.karl-voit.at/howtos/de/latex.shtml
+  iab YGLT Grazer LinuxTage 2004 (GLT04) [www.linuxtage.at]
+  imap Umfg mfg,<CR>(-: Michael
+  imap Mmfg mfg,<CR>-mika-
+  imap Nmfg Mit freundlichen Grüßen,<CR>Michael Prokop
+  imap UVPN <http://www.zid.tugraz.at/ki/netz/extern/vpn/>
+  iab UMP Michael Prokop
+"
+" Other important WWW addresses
+  iab HPV <http://vim.sourceforge.net/> + <http://www.vim.org/>
+  iab HPS <http://slrn.sourceforge.net/>
+  iab HPG <http://www.google.de/search?q=>
+  iab HGM <http://groups.google.com/groups?selm=>
+  iab HPC <URL:http://www.michael-prokop.at/sonstiges/wissenswertes.html#chat>
+  iab Hsec <URL:http://linkblock.de.vu/>
+  iab Hsof <URL:http://linuxshop.ru/linuxbegin/win-lin-soft-en/>
+"  ab HPF <http://www.iks-jena.de/mitarb/lutz/usenet/Firewall.html><CR><http://www.fefe.de/pffaq/><CR><http://home.arcor.de/nhb/pf-umgehen.html>
+"
+" 021027 Usefull things for Usenet
+  iab HLU <URL:http://www.michael-prokop.at/newsgroup/>
+  iab HLM <URL:http://www.michael-prokop.at/internet/newsgroup.html#message-id>
+  iab HLD <URL:http://www.michael-prokop.at/internet/newsgroup.html#details>
+  iab HLA <URL:http://www.michael-prokop.at/internet/newsgroup.html#attribution>
+  iab HLQ <URL:http://www.michael-prokop.at/internet/newsgroup.html#quoting>
+  iab HLS <URL:http://www.michael-prokop.at/internet/newsgroup.html#signatur>
+  iab HLY <URL:http://homepages.tesco.net/~J.deBoynePollard/FGA/questions-with-yes-or-no-answers.html>
+  iab HLR Das Reply-To ist redundant da die selbe Information bereits im "From" vorhanden ist.
+  iab HAC <URL:http://pamer.net/cgi-local/erklaer-mir.pl?xpost&fup2>
+  iab HFROM <URL:http://www.faqs.org/faqs/de-net-abuse/falsche-email-adressen-faq><CR><URL:http://www.faqs.org/faqs/de-net-abuse/mail-faq/><CR><URL:http://www.faqs.org/rfcs/rfc1036.html> /Abschnitt "2.1.1.  From"
+  iab HLTS Signatur bitte richtig ("-- " statt "--") abtrennen.<CR><URL:http://www.michael-prokop.at/internet/newsgroup.html#signatur>
+  iab HL4S Signatur bitte auf 4 Zeilen beschränken.<CR><URL:http://www.michael-prokop.at/internet/newsgroup.html#signatur>
+  iab HLTQ Außerhalb von tug.test bitte kein TOFU.<CR><URL:http://www.michael-prokop.at/internet/newsgroup.html#quoting>
+  iab HLTM Achtung, Message-ID ist kaputt:<CR><CR>\| Message-ID: <.....@sbox.tugraz.at><CR>                     ^^^^^^^^^^^^^^<CR>das ist nicht dein FQDN ;)<CR><ESC>o<URL:http://www.michael-prokop.at/internet/newsgroup.html#message-id>
+  iab HLN  Wenn du Netscape in Version 7.0.x verwendest, sind folgende Einstellungen in Ordnung:<CR><CR><URL:http://www.michael-prokop.at/newsgroup/netscape-7.0.png><CR><CR>Wenn du Netscape in Version 7.1.x verwendest, sind folgende Einstellungen in Ordnung:<CR><CR><URL:http://www.michael-prokop.at/newsgroup/netscape-7.1.png>
+  iab HLTA Einleitungszeile bitte auf 1 Zeile beschränken.<CR><URL:http://www.michael-prokop.at/internet/newsgroup.html#attribution><CR><URL:http://www.guckes.net/faq/attribution.html>
+  iab HLT [TOFU/Fullquote stilgerecht entsorgt. Bitte in Zukunft unterlassen:<CR><URL:http://www.michael-prokop.at/internet/newsgroup.html#quoting> ]
+  iab HTA Rettet den Apostroph:<CR><URL:http://www.weihenstephan.org/orte/moosburg/design/apo.html><CR><http://www.cl.cam.ac.uk/~mgk25/ucs/apostrophe.html>
+  iab HLC Deinem Posting fehlen die Charset-Header zur Deklarierung des verwendeten Zeichensatz. Umlaute müssen gemäß des MIME-Standards kodiert werden.<CR><URL:http://www.michael-prokop.at/internet/newsgroup.html#character><CR><URL:http://www.paefken.westfalen.de/de.newusers/umlaute-faq.txt>
+  iab HOE @Outlook Express:<CR><URL:http://piology.org/news/oe-erste-schritte.html><CR><URL:http://oe-faq.de><CR><URL:http://www.guckes.net/outlookexpress/>
+  iab HWIN <URL:http://www.ntsvcfg.de/>
+
+"  ab HLQ <http://learn.to/quote>
+"  ab HLA <http://learn.to/attribute>
+"  iab HL1S s/\s{2,}$/ / -> Eine Signatur wird durch "-- " und nicht durch "--"<CR>gekennzeichnet. Bitte beachten und aendern. Infos auch unter:<CR><http://www.michael-prokop.at/internet/newsgroup.html#signatur>
+"  iab HL2S Die Laenge der Signatur soll nur maximal 4 Zeilen zu je maximal <CR>80 Zeichen betragen. Bitte beachten und aendern. Infos auch unter:<CR><http://www.michael-prokop.at/internet/newsgroup.html#signatur>
+  "iab HL1A ^^^<CR>Es heisst Einleitungszeile und nicht Roman, bitte lesen und aendern:<CR><URL:http://www.michael-prokop.at/internet/newsgroup.html#attribution>
+  "iab HL2A Das Weglassen der Einleitungszeile gilt als unhoeflich - bitte <CR>in Zukunft beachten. Informationen dazu auch unter:<CR><URL:http://www.michael-prokop.at/internet/newsgroup.html#attribution>
+
+"  ab URLrpmfind   http://rpmfind.net/
+"  ab URLsource    http://sourceforge.net/
+"  ab URLslashdot  http://slashdot.org/
+"  ab URLfreshmeat http://freshmeat.net/
+"
+" =============================================================================
+" Abbreviations - General Editing - Inserting Dates and Times
+" =============================================================================
+"
+" First, some command to add date stamps (with and without time).
+" I use these manually after a substantial change to a webpage.
+" [These abbreviations are used with the mapping for ",L".]
+"
+  iab Ydate <C-R>=strftime("%y%m%d")<CR>
+" Example: 020523
+
+  iab Cdate <C-R>=strftime("%d.%m.%y - %H:%M")<CR>
+" Example: 23.05.02 - 17:06
+"
+  iab Ytime <C-R>=strftime("%H:%M")<CR>
+" Example: 17:06
+"
+" man strftime:     %T      time as %H:%M:%S
+" iab YDT           <C-R>=strftime("%y%m%d %T")<CR>
+" Example: 971027 12:00:00
+"
+" man strftime:     %X      locale's appropriate time representation
+  iab YDT           <C-R>=strftime("%y%m%d %X")<CR>
+" Example: 020523 17:06:49
+"
+  iab YDATE <C-R>=strftime("%a %b %d %T %Z %Y")<CR>
+" Example: Don Mai 23 17:06:56 CEST 2002
+"
+" On Windows the functions "strftime" seems to have a different
+" format.  Therefore the following may be necessary:  [980730]
+" if !has("unix")
+" iab YDATE <C-R>=strftime("%c %a")<CR>
+" else
+" iab YDATE <C-R>=strftime("%D %T %a")<CR>
+" endif
+"
+" 000306: These two lines at the start of a Perl script
+" will start the first Perl in your Shell's $PATH.
+"  iab Yperlhead eval 'exec perl -w -S $0 ${1+"$@"}'<c-m>if 0;<c-m>
+"
+" function WQHelper() 
+"    let x = confirm("Current Mode ==  Insert-Mode!\n Would you like ':wq'?"," &Yes \n &No",1,1) 
+"    if x == 1 
+"    silent! :wq 
+"    else 
+"        "??? 
+"    endif 
+" endfunction 
+" iab wq <bs><esc>:call WQHelper()<CR>
+"
+" =============================================================================
+" MAPpings
+" =============================================================================
+" Caveat:  Mapping must be "prefix free", ie no mapping must be the
+" prefix of any other mapping.  Example:  "map ,abc foo" and
+" "map ,abcd bar" will give you the error message "Ambigous mapping".
+"
+" The backslash ('\') is the only(?) unmapped key, so this is the best
+" key to start mappings with as this does not take away a command key.
+" However, the backslash is never in the same position with keyboards.
+" Eg on German keyboards it is AltGr-sz - don't ask.
+" Anyway, I have decided to start mappings with the comma as this
+" character is always on the same position on almost all keyboards
+" and I hardly have a need for that command.
+"
+" The following maps get rid of some basic problems:
+"
+" When the backspace key sends a "delete" character
+" then you simply map the "delete" to a "backspace" (CTRL-H):
+" map <Del> <C-H>
+"
+" With Vim-4 the format command was just 'Q' and
+" I am too used to it.  So I need this back!
+"  nnoremap Q gq
+"  vnoremap Q gq
+"
+" 980527 I often reformat a paragraph to fit some textwidth -
+" and I use the following mapping to adjust it to the
+" current position of the cursor:
+  map #tw :set textwidth=<C-R>=col(".")<C-M>
+"
+" 040131 insert just a single letter
+  map <C-x> i?<Esc>r
+" noremap <C-x> i<space><Esc>r
+" map ,a a?<Esc>r
+"
+" 981210 Whenever I paste some text into VIM I have to
+" toggle from "nopaste" to "paste" and back again:
+" map <f4>   :set paste!<C-M>:set paste?<C-M>
+" map <esc>[14~ :set paste!<C-M>:set paste?<C-M>
+" --> new option for this:  'pastetoggle'
+"
+" "tal" is the "trailer alignment" filter program
+" http://thomasjensen.com/software/tal/
+" Hopefully it will ship with Vim one day.
+" vmap #t !tal<CR>
+  vmap #t !tal -p 1<CR>
+"
+" Disable the command 'K' (keyword lookup) by mapping it
+" to an "empty command".  (thanks, Lawrence! :-):
+" map K :<CR>
+" map K :<BS>
+" More elegant:  (Hi Aziz! :-)
+" map K <NUL>
+"
+" Disable the suspend for ^Z.
+" I use Vim under "screen" where a suspend would lose the
+" connection to the " terminal - which is what I want to avoid.
+"  map <C-Z> :shell
+"
+" 031025 move lines
+"  map <C-Up> ddkP
+"  map <C-Down> ddp
+" 031116 because of a problem with termcaps ->
+" ^[O5A entered as Ctrl-V followed by Ctrl-UpArrow sequence
+  map O5A ddkP
+  map O5B ddp
+  imap O5A <ESC>ddkP
+  imap O5B <ESC>ddp
+"
+" 030529 Ctrl-A is not available when running screen, so map it to ";A"
+"  map ;A <CTRL-A>
+"
+" Make CTRL-^ rebound to the *column* in the previous file
+" noremap <C-^> <C-^>`"
+"
+" Make "gf" rebound to last cursor position (line *and* column)
+" noremap gf gf`"
+"
+" When I let Vim write the current buffer I frequently mistype the
+" command ":w" as ":W" - so I have to remap it to correct this typo:
+  nmap :W :w
+"
+" Are you used to the Unix commands "alias" and "which"?
+" I sometimes use these to look up my abbreviations and mappings.
+" So I need them available on the command line:
+"  map :alias map
+"  map :which map
+"
+" The command {number}CTRL-G show the current nuffer number, too.
+" This is yet another feature that vi does not have.
+" As I always want to see the buffer number I map it to CTRL-G.
+" Pleae note that here we need to prevent a loop in the mapping by
+" using the comamnd "noremap"!
+  noremap <C-G> 2<C-G>
+"
+" 001010  Do the Color Test!
+  map ,CT :sp $VIMRUNTIME/syntax/colortest.vim<cr>:so %<cr>
+"
+" 021116 Vimfootnotes
+"   <Leader>f (in insert mode) - inserts footnotemark
+"   <Leader>r (in insert mode) - closes footnote window
+  map ,F :so ~/.vim/macros/vimfootnotes.vim
+"
+" 021125 Footnotes for mail
+"  ab (1 [1]<esc>:/^--\s/-1/<cr>o<insert><cr>Footnotes:<cr>----------<cr>[1]
+"  ab (2 [2]<esc>:/^Footnotes\:/+2/<cr>o<insert>[2]
+"  ab (3 [3]<esc>:/^Footnotes\:/+3/<cr>o<insert>[3]
+"  ab (4 [4]<esc>:/^Footnotes\:/+4/<cr>o<insert>[4]
+"  ab (5 [5]<esc>:/^Footnotes\:/+5/<cr>o<insert>[5]
+"
+" 000329  View the file which defines the "filetypes":
+"  map ;F :view $VIMRUNTIME/filetype.vim
+"
+" 030407 set list with listchars
+  map ;SL :set list listchars=tab:··,trail:·,eol:$,precedes:«,extends:»<CR>
+"
+" 980311  Sourcing syntax files::
+  map ,SO :source $VIMRUNTIME/syntax/
+"
+" 980706,000310 View a syntax file:
+  map ,V  :view $VIMRUNTIME/syntax/
+"
+" 000801 Hilite Test - show all current highlight groups
+" see ":help hitest.vim"
+  map ,HI :so $VIMRUNTIME/syntax/hitest.vim
+"
+" 990614 Quick insertion of an empty line:
+" nmap <CR> o<ESC>
+  nmap <CR> o
+"
+" 020709 "G" puts the cursor in the last line of the current file, but I
+" prefer to get directly to the last line AND at the end of the last line.
+  map G G$
+"
+" 020523 Create html-file based on text:
+  map ,t2h :so $VIMRUNTIME/syntax/2html.vim
+"
+" 020628 I find this a very useful command to use. Use "Make" instead of "make"
+" Command Make will call make and then cwindow which 
+" opens a 3 line error window if any errors are found. 
+" if no errors, it closes any open cwindow. 
+" command! -nargs=* Make make <args> | cwindow 3
+  command! -nargs=* Make make <args> | cwindow 3
+" use \j ("\" is the standard-<leader>-key) - faster than typing ":Make"
+  map <Leader>j :Make<cr>
+" Commands:
+"  copen  => open
+"  cwin   => update
+"  cclose => close
+"  cl     => list errors
+"  cl!    => list messages
+"  cn     => next error
+"  cp     => previous error
+"  cold   => older list
+"  cnew   => newer list
+"
+" 020628 This maping simply inserts the current filename, at the cursor position,
+" when you are in insert mode:
+" imap \fn   <C-R>=expand("%:t:r")<CR>
+" Notice: An easy alternate is just to press <C-R>% when in insert mode!
+"
+" 020628 In order to move to the file in the split above the current window, I
+" was typing Ctrl-W, Up (move up a window) Ctrl-W, _ (maximize the menu).
+" That's four keystrokes (more if you count Ctrl and Shift), and they are all
+" over the keyboard. To help avoid this problem I use this mapping:
+  map <C-J> <C-W>j<C-W>_
+  map <C-K> <C-W>k<C-W>_
+" Now I can hold down Ctrl and move between windows with the standard Vim
+" movement keys. Much, much quicker!
+"
+" 020628 This does the dual thing from above for vertical splits/window changes:
+  nmap <c-h> <c-w>h<c-w><bar>
+  nmap <c-l> <c-w>l<c-w><bar>
+"
+" 020628 To automatically insert a closing parenthesis when typing an opening
+" parenthesis:
+"  inoremap ( ()<ESC>i
+"  inoremap { {}<ESC>i
+"  inoremap [ []<ESC>i
+" -> it ends up with the cursor between the opening and the closing parenthesis
+" in insert mode.
+"
+" 020628 If you are ready with filling the parenthesis/brackets, you likely want to
+" "escape" from the brackets again to continue coding.
+" To make this pretty comfortable, I invented the following kind of mappings,
+" which get out of the last expanded parenthesis/bracket, regardless of the actual
+" type of it, and enter append mode again. I mapped this kind of "getaway" with CTRL_j
+" -> notice: activate all three mappings together!
+"  inoremap ( ()<ESC>:let leavechar=")"<CR>i
+"  inoremap [ []<ESC>:let leavechar="]"<CR>i
+"  imap <C-j> <ESC>:exec "normal f" . leavechar<CR>a
+" Explanation: The variable "leavechar" contents the actual char which is to
+" "escape" from.
+"
+" 020628 The following code will add a function heading and position your
+" cursor just after Description so that one can document as one proceeds with
+" code.
+  function! FileHeading()
+    let s:line=line(".")
+    call setline(s:line,"/***************************************************")
+    call append(s:line,"* Filename:    ")
+    call append(s:line+1,"* Description: ")
+    call append(s:line+2,"* Author:      Michael Prokop")
+    call append(s:line+3,"* Date:        ".strftime("%b %d %Y"))
+    call append(s:line+4,"* *************************************************/")
+    unlet s:line
+  endfunction
+" -> define the keymapping:
+  map ,fh <esc>mz:execute FileHeading()<CR>`zjA
+"
+" 020628 I'm used to complete words with <tab>, however when editing source I
+" can't just map that to vim keyword completion because I sometime need to
+" insert real tabs, since it mostly happen when at the beginning of the line
+" or after a ; and before a one line comma (java, c++ or perl anyone...)
+" I've come to find the following really usefull.
+" This is how you can map the <tab> key in insert mode while still being able
+" to use it when at the start of a line or when the preceding char is not a
+" keyword character.
+"
+" Simple function:
+" function InsertTabWrapper()
+"      let col = col('.') - 1
+"      if !col || getline('.')[col - 1] !~ '\k'
+"          return "\<tab>"
+"      else
+"          return "\<c-p>"
+"      endif
+" endfunction
+" -> then define the appropriate mapping:
+"  inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+"
+" I have found a more complex functions which also works in either direction:
+  function! InsertTabWrapper(direction)
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    elseif "backward" == a:direction
+        return "\<c-p>"
+    else
+        return "\<c-n>"
+    endif
+  endfunction
+" -> then definde the appropriate mappings:
+  inoremap <tab> <c-r>=InsertTabWrapper ("forward")<cr>
+  inoremap <s-tab> <c-r>=InsertTabWrapper ("backward")<cr>
+"
+" 020628 Occasionally I later want already written text parts to put in parenthesis.
+" I use the following macro, which brackets previously visually selected text.
+" I mapped it with _(.
+  vnoremap _( <ESC>`>a)<ESC>`<i(<ESC>
+" Furthermore, a sort of mapping for bracketing a *single word* is
+" conceivable.
+" Because this is not as general like the kind of visual mode mapping, I use
+" this kind of "word bracketing" only for surrounding the word right behind
+" the cursor in insert mode with **.  I use the following macro to "emphasize"
+" the word i just typed, for newsgroup articles.
+  imap _* <Esc>bi*<Esc>ea*<Space>
+"
+" Spellchecking
+" =============
+" 020628 To check the english spelling I use the engspchk.vim
+"  map ,sp <ESC>:so ~/.vim/dictionary/engspchk.vim<CR>i
+"
+" 020628 To check the german spelling I use the following packes:
+" wgerman - The German dictionary for /usr/share/dict.
+" wngerman - New German orthography dictionary for /usr/share/dict
+" -> this packages are provided by apt-get under Debian/GNU Linux :-)
+"
+" Included Maps:
+"  \et : add  word under cursor into database (temporarily - ie. just this file)
+"  \es : save word under cursor into database (permanently)  (requires $CVIMSYN)
+"  \en : move cursor to the next     spelling error
+"  \ep : move cursor to the previous spelling error
+"  \ea : look for alternative spellings of word under cursor
+" 
+  map ,gp1 <ESC>:so ~/.vim/dictionary/gerspchk.vim<CR>i
+  map ,gp2 :w!<CR>:!aspell --lang=de check %<CR>:e! %<CR>
+" -> now I can write german and english text together (!) in one file and it
+"  will get checked :-) cool, ey ;-)
+"  Notice: a variable CVIMSYN has to be set for adding entries into a
+"  user-defined file. I have set the following line in my ~/.zshrc
+"  (I use the zsh instead of bash, so you might want to use it in
+"  your ~/.bashrc):
+"    export CVIMSYN=/home/mika/.vim/
+"
+"  Info: the gerspchk.vim I created with the script available at:
+"        <http://jeanluc-picard.de/vim/gerspchk/create>
+"
+" 021201 vimispell - check spelling via ispell
+" Info: for keymappings have a look at the vimispell.vim-file!
+  map ,sp <ESC>:so ~/.vim/macros/vimispell.vim<CR>i
+"
+" 020708 Often I know I'm likely to edit many files. I run 'vim *.extension' and get
+" a whole bunch of open files. To make jumping between files to a pleasure, I defined
+" two mappings:
+  map ;C :previous<cr>
+  map ;V :next<cr>
+  map <C-N> <ESC>:n <CR>
+  map <C-P> <ESC>:prev <CR>
+"
+" 020629 Read in the output of a programm
+"  map  #Z gg}-:r !prog<cr>
+" 020629 Read in a file
+"  map  #R gg}-:r ~/filename<cr>
+" 020629 Put there a defined valu
+"  map  #H gg}OX-Header: Value<Esc>
+"
+" 020629 VIM can calculate :-) really cool feature
+" http://vim.sourceforge.net/tips/tip.php?tip_id=73
+  ino ;cal <C-O>yiW<End>=<C-R>=<C-R>0<CR>
+" -> then, just type 8*8;cal and you will get 8*8=64
+"
+" 020629 To rotate the signature (for example with the best mail-client called
+" mutt) just need the binary "autosig" and this mapping:
+" nmap ,t mQG:?^-- $<CR>:nohl<CR>o<ESC>dG:r !~/bin/autosig ~/.quotes \%<CR>`Q
+"
+" 030219 VBlockquote.vim - like the tool "boxes" works ;-)
+" map ;b <ESC>:so ~/.vim/macros/VBlockquote.vim<cr>
+" map ;B <ESC>:call VBlockquote("")<Left><Left>
+"
+" 030219 Call boxes - with some funny box-styles ;o)
+  map ;0 <ESC>:'<,'>!boxes
+  map ;1 <ESC>:'<,'>!boxes -d boxquote
+  map ;2 <ESC>:'<,'>!boxes -d peek -a c -s 40x5
+  map ;3 <ESC>:'<,'>!boxes -d c-cmt
+  map ;4 <ESC>:'<,'>!boxes -d dog -a c
+  map ;5 <ESC>:'<,'>!boxes -d simple -a jr
+  map ;6 <ESC>:'<,'>!boxes -d headline
+"  map ;7 <ESC>:s/^/\| /<cr>'<O ,-----[ TITEL ]<esc>'>o `--------------<esc>
+"  map ;7 <ESC>s,----[]<CR>`----<ESC>Pv`]:s/^/\| /<CR>'[k$i
+"
+" 030307 Idea from Rene Schickbauer on Linux-User-Group-Graz: Print File
+  map ,hc <Esc> :hardcopy <CR>
+"
+" Set up fancy printing
+"  set printexpr=PrintFile(v:fname_in)
+"  function PrintFile(fname)
+"    call system("gv " . a:fname)
+"    call delete(a:fname)
+"    return v:shell_error
+"  endfunc
+"
+" The function Nr2Hex() returns the Hex string of a number.
+  func! Nr2Hex(nr)
+    let n = a:nr
+    let r = ""
+    while n
+      let r = '0123456789ABCDEF'[n % 16] . r
+      let n = n / 16
+    endwhile
+    return r
+  endfunc
+" 
+" The function String2Hex() converts each character in a string to a two
+" character Hex string.
+  func! String2Hex(str)
+    let out = ''
+    let ix = 0
+    while ix < strlen(a:str)
+      let out = out . Nr2Hex(char2nr(a:str[ix]))
+      let ix = ix + 1
+    endwhile
+    return out
+  endfunc
+"
+" 030424 When running hevea all "->" are replaced with ® -> run following command:
+"  %s#<FONT FACE=symbol>®</FONT>#-\&gt;#g
+"
+" 020523 Change files from windoof-format to unix-format
+" easy or? ;-)
+  map ,w2u1 :se ff=unix
+" Remove <CR> that disturb
+  map ,w2u2 :1,$s/^M//g
+"
+" 030103  Switch between nlsearch and nohlsearc
+"         <http://www.vim.org/tip_view.php?tip_id=163>
+"  map ;hl :set hls!<bar>set hls?<CR>
+  map ;hl :set invhlsearch<CR>
+"
+" 030321 Display context (5 lines) for all occurences of a pattern
+" :g//z#.5|echo "=========="<right>
+  map  ;g :g//z#.5<S-Left><right><right>
+"
+" 020523
+" ,dir shows the current directory-content
+" ,gf  edits the file in the current row respectively shows the
+"      content of the current directory
+  map ,dir :sp ~/tmp/vimdir<CR>G1dG:r!ls -al<CR>:se nomod<CR>
+  no ,gf $T y$:if isdirectory("<C-R>"")<CR>:cd <C-R>"<CR>:bd<CR>:norm ,dir<CR>else<CR>:norm gf<CR>endif<CR>
+"
+" 020526 search the current word in all files in the working directory
+  map ,x vawy:! grep <C-R>" .* *<CR>
+"
+" 020526 Very nice file-browser - enable it with _ls
+  map ,ls :so ~/.vim/macros/browser.vim<CR>
+"
+" 020526 ROT13 Macro for coding - enable it with gr
+  map ,rot :so ~/.vim/macros/rot13.vim<CR>
+"
+" 020526 Enable a nice ruler - enable it with @r
+  map ,ru :so ~/.vim/macros/ruler2.vim<CR>
+"
+" 020526 A macro which allows you to open a "shell" in a new window - enable it with :vish
+  map ,sh :so ~/.vim/macros/vish.vim<CR>
+"
+" 020526 Abbreviation for the $macro-directory
+  map ,mc :so ~/.vim/macros/
+"
+" 020921 the word will be swapped with the next word.  The words may
+" even be separated by punctuation (such as "abc = def"):
+  nmap <silent> gw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<cr><c-o><c-l>
+"
+" 020921 a map for swapping characters:
+  nmap <silent> gc    xph
+"
+" 040202 uniq - Removing duplicate lines
+" http://vim.sourceforge.net/tips/tip.php?tip_id=648
+"
+" leave only the last line:
+"  g/^\(.*\)$\n\1$/d
+" leave only the first line:
+"  g/\%(^\1$\n\)\@<=\(.*\)$/d
+" =============================================================================
+" Customizing the command line
+" =============================================================================
+" Valid names for keys are:  <Up> <Down> <Left> <Right> <Home> <End>
+" <S-Left> <S-Right> <S-Up> <PageUp> <S-Down> <PageDown>  <LeftMouse>
+"
+" Many shells allow editing in "Emacs Style".
+" Although I love Vi, I am quite used to this kind of editing now.
+" So here it is - command line editing commands in emacs style:
+  cnoremap <C-A>      <Home>
+  cnoremap <C-B>      <Left>
+"  cnoremap <C-B>      <Del>
+  cnoremap <C-E>      <End>
+  cnoremap <C-F>      <Right>
+  cnoremap <C-N>      <End>
+  cnoremap <C-P>      <Up>
+  cnoremap <ESC>b     <S-Left>
+  cnoremap <ESC><C-B> <S-Left>
+  cnoremap <ESC>f     <S-Right>
+  cnoremap <ESC><C-F> <S-Right>
+  cnoremap <ESC><C-H> <C-W>
+" Note:  More info about this is in the helptexts:  :help emacs-keys
+"
+" Additional codes for that "English" keyboard at the Xterminal
+  cnoremap <ESC>[D <Left>
+  cnoremap <ESC>[C <Right>
+"
+" =============================================================================
+" VIM - Editing and updating the vimrc:
+" As I often make changes to this file I use these commands
+" to start editing it and also update it:
+  if has("unix")
+    let vimrc='~/.vimrc'
+  else
+" ie:  if has("dos16") || has("dos32") || has("win32")
+    let vimrc='$VIM\_vimrc'
+  endif
+  nn  ;u :source <C-R>=vimrc<CR><CR>
+  nn  ;v :edit   <C-R>=vimrc<CR><CR>
+"     ,v = vimrc editing (edit this file)
+" map ,v :e ~/.vimrc<CR>
+"     ,u = "update" by reading this file
+" map ,u :source ~/.vimrc<CR>
+" =============================================================================
+" General Editing
+"
+" Define "del" char to be the same backspace (saves a LOT of trouble!)
+" As the angle notation cannot be use with the LeftHandSide
+" with mappings you must type this in *literally*!
+"
+" 021029 I am not sure what to use ;-)
+"  map <C-V>127 <C-H>
+"  cmap <C-V>127 <C-H>
+" the same for Linux Debian which uses:
+"  imap <Esc>[3~ <C-H>
+"
+"      ;rcm = remove "control-m"s - for those mails sent from DOS:
+  cmap ;rcm %s/<C-M>//g
+"
+"     Make whitespace visible:
+"     Sws = show whitespace
+  nmap ,Sws :%s/ /_/g<C-M>
+  vmap ,Sws :%s/ /_/g<C-M>
+"
+"     Sometimes you just want to *see* that trailing whitespace:
+"     Stws = show trailing whitespace
+  nmap ,Stws :%s/  *$/_/g<C-M>
+  vmap ,Stws :%s/  *$/_/g<C-M>
+"
+" Turning german umlauts into ascii (for German keyboards)
+"
+"  imap ä ae
+"  imap ö oe
+"  imap ü ue
+"  imap ß ss
+"  imap Ä Ae
+"  imap Ö Oe
+"  imap Ü Ue
+"
+" 020526 I turned the turning of umlauts off because sometimes it is necessary
+" to use umlauts, but as an alternate I make a maping if I really need them
+  map ,um :so ~/.vim/macros/umlaute.vim<CR>
+" -> and notice: you could autocmd this mapping but latex also provides
+"  packages which are capable of compiling german umlauts so I think the
+"  manual mapping is the best way of using mappings in this case
+"
+" &#196; -> Ä  :%s/\&#196;/Ä/gc  -> D
+" &#214; -> Ö  :%s/\&#214;/Ö/gc  -> V
+" &#220; -> Ü  :%s/\&#220;/Ü/gc  -> \
+" &#228; -> ä  :%s/\&#228;/ä/gc  -> d
+" &#246; -> ö  :%s/\&#246;/ö/gc  -> v
+" &#252; -> ü  :%s/\&#252;/ü/gc  -> |
+"
+" =============================================================================
+" Inserting Dates and Times / Updating Date+Time Stamps
+" =============================================================================
+"     ,L  = "Last update" - replace old time stamp with a new one
+"        preserving whitespace and using internal "strftime" command:
+"       requires the abbreviation  "YDATE"
+  map ,L  1G/Latest change:\s*/e+1<CR>CYDATE<ESC>
+  map ,,L 1G/Last update:\s*/e+1<CR>CYDATE<ESC>
+  map ,,,L 1G/Last Change:\s*/e+1<CR>CYDT<ESC>
+" Example:
+" before:  "Last update:   Thu Apr  6 12:07:00 CET 1967"
+" after:   "Last update:   Tue Dec 16 12:07:00 CET 1997"
+"
+"  I used to read in the output from the external command "date"
+"  but this is a little slow and does not work on all systems -  have a look:
+"  map ,L 1G/Last update: */e+1<CR>D:r!date<CR>kJ
+"
+" Apply to "mika:~/.vimrc"! - old values still exist(!)
+" map ,C  1G/Character count:\s*/e+1<CR>:r!wc -c %
+" map ,,C  1G/Line count:\s*/e+1<CR>:r!wc -l % \| sed "s/%//"<ESC>d0k$C^[[3~<SPACE><ESC>
+"
+" =============================================================================
+" General Editing - link to program "screen"
+" =============================================================================
+"
+"       ,Et = edit temporary file of "screen" program
+"  map   ,Et :e /tmp/screen-exchange
+  map   ## :e /tmp/screen-exchange
+"
+" 030511 edit centericq-logfile [see config.michael-prokop.at/.centericq/external
+  map   ;i :e ~/.centericq/icq_log_<C-R>=strftime("%y%m%d")<CR>
+"
+"       as a user of Unix systems you *must* have this program!
+"       see also:  http://www.guckes.net/screen/
+"
+" Email/News - Editing replies/followups
+"
+" Part 1 - prepare for editing
+"
+" Part 2 - getting rid of empty (quoted) lines and space runs.
+"
+" remove/delete trailing whitespace:
+  nmap ;tr :%s/\s\+$//
+  vmap ;tr  :s/\s\+$//
+"
+"      ,cel = "clear empty lines"
+"       - delete the *contents* of all lines which contain only whitespace.
+"         note:  this does not delete lines!
+" map ,cel :g/^[<C-I> ]*$/d
+  map ,cel :%s/^\s\+$//
+"
+"      ,del = "delete 'empty' lines"
+"       - delete all lines which contain only whitespace
+"         note:  this does *not* delete empty lines!
+  map ,del :g/^\s\+$/d
+"
+"      ,cqel = "clear quoted empty lines"
+"       Clears (makes empty) all lines which start with '>'
+"       and any amount of following spaces.
+" nmap ,cqel :%s/^[> ]*$//
+" vmap ,cqel  :s/^[> ]*$//
+" nmap ,cqel :%s/^[><C-I> ]\+$//
+" vmap ,cqel  :s/^[><C-I> ]\+$//
+  nmap ,cqel :%s/^[>]\+$//
+  vmap ,cqel  :s/^[><C-I> ]\+$//
+" NOTE: If the meta sequence "\s"
+" The following does not work because "\s" is not a character
+" and thus cannot be part of a "character set".
+"  map ,cqel  :%s/^[>\s]\+$//
+"
+" Some people have strange habits within their writing.
+" But if you cannot educate them - rewrite their text!  ;-)
+"
+" Jason "triple-dots" King elephant@onaustralia.com.au
+" does uses ".." or "..." rather than the usual punctuation
+" (comma, semicolon, colon, full stop). So...
+"
+" Turning dot runs with following spaces into an end-of-sentence,
+" ie dot-space-space:
+  vmap ,dot :s/\.\+ \+/.  /g
+"
+" Gary Kline (kline@tera.tera.com) indents his
+" own text in replies with TAB or spaces.
+" Here's how to get rid of these indentation:
+  vmap ,gary :s/^>[ <C-I>]\+\([^>]\)/> \1/
+"
+"      ,ksr = "kill space runs"
+"             substitutes runs of two or more space to a single space:
+" nmap ,ksr  :%s/  */ /g
+" vmap ,ksr   :s/  */ /g
+" nmap ,ksr  :%s/  \+/ /g
+" vmap ,ksr   :s/  \+/ /g
+  nmap <F11> vip:s/  \+/ /g
+  vmap <F11>    :s/  \+/ /g
+"
+" Why can't the removal of space runs be
+" an option of "text formatting"? *hrmpf*
+"
+"    ,Sel = "squeeze empty lines"
+"    Convert blocks of empty lines (not even whitespace included)
+"    into *one* empty line (within current visual):
+   map ,Sel :g/^$/,/./-j
+"
+"    ,Sbl = "squeeze blank lines"
+"    Convert all blocks of blank lines (containing whitespace only)
+"    into *one* empty line (within current visual):
+"  map ,Sbl :g/^\s*$/,/[^ <C-I>]/-j
+"  map ,Sbl :g/^\s*$/,/[^ \t]/-j
+   map ,Sbl :g/^\s*$/,/\S/-j
+"
+" 020709 To copy text from one file to a different one I created this mappings
+  nmap    _Y      :!echo ""> ~/.vi_tmp<CR><CR>:w! ~/.vi_tmp<CR>
+  vmap    _Y      :w! ~/.vi_tmp<CR>
+  nmap    _E      :r ~/.vi_tmp<CR>
+"
+" 030305 Set background dark (often needed when using putty with strange
+" color-scheme
+  map ,bg :set background=dark<CR>
+"
+" =============================================================================
+" AUTOCOMMANDS:
+" Editing of email replies and Usenet followups - using autocommands
+" =============================================================================
+"
+" First step:  Remove ALL auto-commands.  This avoids having the
+" autocommands twice when the vimrc file is sourced again.
+  autocmd!
+"
+" Add/change some filename patterns to filetypes:
+  let MYFILETYPE=expand("~/.vim/filetypes")
+  if filereadable(MYFILETYPE) | exe "source " . MYFILETYPE | endif
+"
+"
+" 021125 Start new session at line last edited position.
+" Remembers where you left off. -> cool feature!
+" Following mapping does not work:
+" au BufReadPost * if line("'\"") | exe "normal '\"" | endif
+" - but this one does:
+  autocmd BufReadPost * if line("'\"") && line("'\"") <= line("$") | exe "normal `\"" | endif
+"
+" 030724 folding in source-files
+  map ;FO :syn region myFold start="{" end="}" transparent fold\| set foldmethod=syntax\| set foldclose=all\| syn sync fromstart
+  map ;FN :set nofoldenable
+  map ;FE :set foldenable
+"
+" 021126 Some usefull programming mappings
+  map <F9> :cn<CR>       " F9 gives next error
+  map <F10> :make<CR>    " F10 makes
+"
+" Try to use the mapping ",D" when doing a followup.
+" autocmd BufNewFile ~/.followup ,D|
+"
+" 030305 set "X-Uptime" up2date ;-)
+  map ,X "1G/X-Uptime: */e+1<CR>D:r!uptime<CR>kJ"
+" 030306 -"-
+  map ,UP 1G/^$<cr>OX-Uptime:<esc>:r!uptime<cr>kJ
+"
+" 030305 Insert TimeStamp into files - very usefull!
+" first add a function that returns a time stamp in the desired format
+  if !exists("*TimeStamp")
+    fun TimeStamp()
+      return "Time-stamp: <" . strftime("%d %b %Y %X") . " Michael Prokop>"
+    endfun
+  endif
+" this function searches for an existing time stamp and updates it using the
+" function declared above
+ if !exists("*UpdateTimeStamp")
+   fun UpdateTimeStamp()
+     if (match(getline(1),"Time-stamp: <.*>")) > 1
+       exe "1,1 s/Time-stamp: <.*>/" . TimeStamp()
+     endif
+   endfun
+ endif
+" abbreviation to manually enter a timestamp. Just type YTS in insert mode
+  iab YTS <C-R>=TimeStamp()<CR>
+" add an autocommand to update an existing time stamp when writing the file
+" It uses the functions above to replace the time stamp and restores cursor
+" position afterwards (this is from the FAQ)
+ autocmd BufWritePre,FileWritePre *   ks|call UpdateTimeStamp()|'s
+"
+" 001006:  Commenting selected lines in C style:
+  vmap ## :s#^#// #<cr>'<O/*<esc>'>o*/<esc>gv
+"
+" Example of result:
+" /*
+" // foo
+" // bar
+" /*
+"
+" Reformatting Text
+" =================
+"
+"  NOTE:  The following mapping require formatoptions to include 'r'
+"    and "comments" to include "n:>" (ie "nested" comments with '>').
+"
+" Formatting the current paragraph according to
+" the current 'textwidth' with ^J (control-j):
+" imap <C-J> <C-O>gqap  " too dangerous for my editing ;-)
+  nmap <C-I>      gqap
+  vmap <C-I>      gq
+"
+" Here is a variation of this command.  It inserts the character
+" CTRL-Z at the current position to enable to rebound to the
+" previous position within the text.  [Hello, Y. K. Puckett!]
+   map <C-I> i<C-Z><esc>gqip?<C-Z><cr>x
+  imap <C-I>  <C-Z><esc>gqip?<C-Z><cr>xi
+"
+" 030321 apt-get show par :-)
+  map ;p {!}par
+"
+" Some people prefer to use extrernal formatting utilities
+" such as "fmt" or "par":
+" nmap <C-J>   !}fmt<cr>
+" vmap <C-J>    !fmt<cr>
+"
+"
+"      ,b = break line in commented text (to be used on a space)
+" nmap ,b dwi<CR>> <ESC>
+  nmap ;b r<CR>
+"      ,j = join line in commented text
+"           (can be used anywhere on the line)
+" nmap ,j Jxx
+  nmap ;j Vjgq
+"
+"      ,B = break line at current position *and* join the next line
+" nmap ,B i<CR>><ESC>Jxx
+  nmap ,B r<CR>Vjgq
+"
+"      ,,, break current line at current column,
+"          inserting ellipsis and "filling space":
+" nmap ,,,  ,,1,,2
+" nmap ,,1  a...X...<ESC>FXr<CR>lmaky$o<CC-R>"<ESC>
+" nmap ,,2  :s/./ /g<C-M>3X0"yy$dd`a"yP
+"
+"
+" 030519 Create random number
+  map ;ZU1 :r!dd if=/dev/random bs=14 count=1 \| hexdump \| cut -c 9-<esc>3k2dd
+  map ;ZU2 :r!dd if=/dev/random count=1 \| md5sum \| cut -f1<esc>2k2dd
+"
+" 030708 Generate password
+" iab PWD8 <c-r>=system("apg -MCNL -d -n 1 -m 8 -x 8")<cr>
+" iab PWD8 <c-r>=system("apg -m 8 -x 12 -s")<cr>
+  iab PWD8 <c-r>=system("apg -MCNL -d -n 1 -m 8 -x 8")<cr>
+"
+" =============================================================================
+" PGP - encryption and decryption
+" =============================================================================
+" 020628 Notice that I am using GnuPG - a free implementation of PGP
+" for details have a look at <http://www.gnupg.org/>
+"
+" encrypt and sign the message then armor it too:
+" map ;e :%!/bin/sh -c 'gpg -se -a 2>/dev/tty'
+" this one is the mapping for using my User-ID of GnuPG
+  map ;e :%!/bin/sh -c 'gpg -r 37E272E8 -se -a 2>/dev/tty'
+"
+" just encrypt and armor the message:
+" map ;E :%!/bin/sh -c 'gpg -e -a 2>/dev/tty'
+" this one is the mapping for using my User-ID of Gnupg
+  map ;E :%!/bin/sh -c 'gpg -e -a -r 37E272E8 2>/dev/tty'
+"
+" decrypt
+  map ;d :/^-----BEG/,/^-----END/!/bin/sh -c 'gpg -d 2>/dev/tty'
+"
+" sign
+  map ;s :,$! /bin/sh -c 'gpg --clearsign 2>/dev/tty'
+"
+" =============================================================================
+" Original PGP-Mappings by Sven Guckes
+" =============================================================================
+" encrypt
+"  map ;e :%!/bin/sh -c 'pgp -feast 2>/dev/tty'
+" decrypt
+"  map ;d :/^-----BEG/,/^-----END/!/bin/sh -c 'pgp -f 2>/dev/tty'
+" sign
+"  map ;s :,$! /bin/sh -c 'pgp -fast +clear 2>/dev/tty'
+"  map ;v :,/^-----END/w !pgp -m
+"
+" PGP - original mappings
+"
+"       encrypt and sign (useful for mailing to someone else)
+"csh: map #1 :,$! /bin/sh -c 'pgp -feast 2>/dev/tty^V|^V|sleep 4'
+" sh: map #1 :,$! pgp -feast 2>/dev/tty^V|^V|sleep 4
+"
+"       sign (useful for mailing to someone else)
+"csh: map #2 :,$! /bin/sh -c 'pgp -fast +clear 2>/dev/tty'
+" sh: map #2 :,$! pgp -fast +clear 2>/dev/tty
+"
+"       decrypt
+"csh: map #3 :/^-----BEG/,/^-----END/!\
+"             /bin/sh -c 'pgp -f 2>/dev/tty^V|^V|sleep 4'
+" sh: map #3 :/^-----BEG/,/^-----END/!\
+"             pgp -f 2>/dev/tty^V|^V|sleep 4
+"
+"       view (pages output, like more)
+"csh: map #4 :,/^-----END/w !pgp -m
+" sh: map #4 :,/^-----END/w !pgp -m
+"
+"       encrypt alone (useful for encrypting for oneself)
+"csh: map #5 :,$! /bin/sh -c 'pgp -feat 2>/dev/tty^V|^V|sleep 4'
+" sh: map #5 :,$! pgp -feat 2>/dev/tty^V|^V|sleep 4
+"
+" Elijah http://www.mathlab.sunysb.edu/~elijah/pgppub.html says :
+" The significant feature is that stderr is redirected independently
+" of stdout, and it is redirected to /dev/tty which is a synonym for
+" the current terminal on Unix.  I don't know why the ||sleep 4
+" stuff is there, but it is harmless so I left it. Since csh is such
+" junk, special rules are used if you are using it (tcsh, too).
+" ksh and bash should use the sh form. zsh, et al: consult your
+" manual.  The #<num> format is used to map function keys. If your
+" terminal does not support the requested function key, use a
+" literal #<num>.  Not all of the clones correctly support this.
+"
+" ===================================================================
+" Useful stuff.  At least these are nice examples.  :-)
+" =============================================================================
+"
+"     ,t = "transpose" - aXb -> bXa
+"     This exchanges the characters 'a' and 'b'
+"     which are next to the current position on 'X':
+" map ,t XpxphXp
+" map ,t xphXpxp
+"
+"     #b = "browse" - send selected URL to Netscape
+"vmap #b y:!netscape -remote "openurl <C-R>""
+"vmap #b y:!netscape -remote 'openFile(<c-r>")' \|\| netscape <c-r>" &
+"vmap #b y:!netscape -remote 'openFile(%:p)' || netscape file:%:p &
+"
+"
+" make space move the cursor to the right - much better than a *beep*
+" nmap \  l
+"
+"     ,E = execute line
+" map ,E 0/\$<CR>w"yy$:<C-R>y<C-A>r!<C-E>
+" This command excutes a shell command from the current line and
+" reads in its output into the buffer.  It assumes that the command
+" starts with the fist word after the first '$' (the shell prompt
+" of /bin/sh).  Try ",E" on that line, ie place the cursor on it
+" and then press ",E":
+" $ ls -la
+" Note: The command line commands have been remapped to tcsh style!!
+"
+" ROT13 rot13
+"      ,dr = decode/encode rot13 text
+" vmap ,dr :!tr A-Za-z N-ZA-Mn-za-m
+" Use this with an external "rot13" script:
+" "    ,13 - rot13 the visual text
+" vmap ,13 :!rot13<CR>
+" NOTE:  Vim now has ROT13 built-in - see ":help g?".
+" see also:  http://www.guckes.net/rot13/
+"
+" Give the URL under the cursor to Netscape
+" map ,net yA:!netscape -remote "openurl <C-R>""
+"
+" =============================================================================
+" Mapping of special keys - arrow keys and function keys.
+" =============================================================================
+" Buffer commands (split,move,delete) -
+" this makes a little more easy to deal with buffers.
+" (works for Linux PCs in room 030)
+" map <F4>  :split<C-M>
+" map <F5>  :bp<C-M>
+" map <F6>  :bn<C-M>
+" map <F12> :bd<C-M>
+"
+" 030206 Esc is too hard to reach, so remap it - <http://www.karpfenteich.net/pit/>
+" notice - i use english keyboard layout, i mapped capslock to esc, this
+" mapping is only for those fu%$#@%^ windows machines..
+  imap öö  <esc> " maps öö to ESC in insert mode
+"
+" Buffer commands (split,move,delete) -
+" for Mac keyboard (Performa 5200, US keyboard)
+"
+" map <ESC>[19~ :split<C-M>
+" map <ESC>[20~ :bp<C-M>
+" map <ESC>[23~ :bn<C-M>
+" map <ESC>[31~ :bd<C-M>
+"
+" Obvious mappings
+"
+" map <PageUp>   <C-B>
+" map <PageDown> <C-F>
+"
+" =============================================================================
+" FAQ:  Emacs editing"
+" Q: How can I stay in insert mode and move around like within Emacs?
+" A: Get the following file and source it like it is done here:
+" URL:  http://www.guckes.net/vim/source/emacs.vim
+" let FILE="/home/robinson/emailer/guckes/.P/vim/source/emacs.vim"
+" if filereadable(FILE)
+"    let RESULT="file readable"
+"    exe "source " . FILE
+" else
+"    let RESULT="file not readable"
+" endif
+"
+" Make the up and down movements move by "display/screen lines":
+"      map j      gj
+"      map <Down> gj
+"      map k      gk
+"      map <Up>   gk
+"
+" Normal mode - tcsh style movements [960425]
+"
+" nmap <C-A>  0
+" nmap <C-B>  h
+" nmap <C-D>  x
+" nmap <C-E>  $
+" nmap <C-F>  l
+" nmap <ESC>b b
+" nmap <ESC>f w
+"
+" DOS keyboard mapping for cursor keys
+"
+"  map <ESC>[A <Up>
+"  map <ESC>[B <Down>
+"  map <ESC>[C <Right>
+"  map <ESC>[D <Left>
+" imap <ESC>[A <Up>
+" imap <ESC>[B <Down>
+" imap <ESC>[C <Right>
+" imap <ESC>[D <Left>
+"
+" DOS keyboard
+" "insert"
+"  map <ESC>[1~ i
+"  map <ESC>[1~ <insert>
+" "home"
+"  map <ESC>[2~ ^
+"  map <ESC>[2~ 0
+"  map <ESC>[2~ <Home>
+" "pgup"
+"  map <ESC>[3~ <C-B>
+"  map <ESC>[3~ <PageUp>
+" "delete"
+"  map <ESC>[4~ x
+"  map <ESC>[4~ <Del>
+" "end"
+"  map <ESC>[5~ $
+"  map <ESC>[5~ <END>
+" "pgdn"
+"  map <ESC>[6~ <C-F>
+"  map <ESC>[6~ <PageDown>
+"
+" Keyboard mapping for cursor keys
+" [works for SUNs in Solarium (room 030) - 970815]
+"
+   map <ESC>OA <Up>
+   map <ESC>OB <Down>
+   map <ESC>OC <Right>
+   map <ESC>OD <Left>
+  imap <ESC>OA <Up>
+  imap <ESC>OB <Down>
+  imap <ESC>OC <Right>
+  imap <ESC>OD <Left>
+"
+" Keyboard mapping for cursor keys
+" [works for XTerminals - 970818]
+   map <ESC>[A <Up>
+   map <ESC>[B <Down>
+   map <ESC>[C <Right>
+   map <ESC>[D <Left>
+  imap <ESC>[A <Up>
+  imap <ESC>[B <Down>
+  imap <ESC>[C <Right>
+  imap <ESC>[D <Left>
+"
+" 000810:
+" Keyboard mapping for numeric keypad:
+" imap <esc>ON ???
+  imap <esc>OM <c-m>
+   map <esc>OM <c-m>
+  imap <esc>OP <nop>
+   map <esc>OP <nop>
+  imap <esc>OQ /
+   map <esc>OQ /
+  imap <esc>OR *
+   map <esc>OR *
+  imap <esc>OS -
+   map <esc>OS -
+"
+  imap <esc>Ol +
+  imap <esc>Om -
+  imap <esc>On ,
+  imap <esc>Op 0
+  imap <esc>Oq 1
+  imap <esc>Or 2
+  imap <esc>Os 3
+  imap <esc>Ot 4
+  imap <esc>Ou 5
+  imap <esc>Ov 6
+  imap <esc>Ow 7
+  imap <esc>Ox 8
+  imap <esc>Oy 9
+  imap <esc>Oz 0
+"
+" =============================================================================
+" AutoCommands
+" =============================================================================
+"
+" Autocommands are the key to "syntax coloring".
+" There's one command in your vimrc that should
+" load/source the file $VIM/syntax/syntax.vim
+" which contains the definition for colors and
+" the autocommands that load other syntax files
+" when necessary, ie when the filename matches
+" a given pattern, eg "*.c" or *".html".
+"
+" just load the main syntax file when Vim was compiled with "+syntax"
+  if has("syntax")
+    " The following sources the main syntax file,
+    " ie. "$VIM/syntax/syntax.vim", see ":help :syn-on":
+    syntax on
+    let MYSYNTAX=expand("~/.vim/sensitive.vim")
+    if filereadable(MYSYNTAX) | exe "source " . MYSYNTAX | endif
+    " Redefine the color for "Comment":
+    " hi! Comment  term=bold ctermfg=cyan ctermbg=black guifg=blue guibg=black
+    " hi! Comment            ctermfg=blue ctermbg=black guifg=blue guibg=black
+    " hi! Comment  term=NONE cterm=NONE
+    " hi! Comment  ctermfg=cyan ctermbg=black guifg=blue guibg=black
+    "
+    " The standard background color for the GUI Vim is "blue".
+    " No, I don't know why.  But many users want to change this
+    " color to black so they can read the blue colored text.  ;-)
+    " Here's how:
+    " hi normal ctermbg=black guibg=black
+    "
+    " au Syntax mail  source ~guckes/.vim.mail.vim
+    " endif
+  endif
+"
+" EXAMPLE: Restricting mappings to some files only:
+" An autocommand does the matching on the filenames -
+" but abbreviations are not expanded within autocommands.
+" Workaround:  Use "exe" for expansion:
+" let aucommand = "au BufNewFile,BufRead ".MAILNEWSFILES
+" exe aucommand." :map ,hi 1G}oHi!<CR><ESC>"
+" exe aucommand." :map ,ha 1G}oHello, again!<CR><ESC>"
+" exe aucommand." :map ,H G/Quoting /e+1<CR>ye1G}oHallo, !<ESC>Po<ESC>"
+" exe aucommand." :map ,re 1G}oRe!<CR><ESC>"
+"
+" Automatically place the cursor onto the first line of the mail body:
+" autocmd BufNewFile,BufRead MAILNEWSFILES :normal 1G}j
+"
+" Toggle syntax coloring on/off with "__":
+" nn __ mg:if has("syntax_items")<Bar>syn clear<CR>else<Bar>syn on<CR>en<CR>`g
+" Note:  It works - but the screen flashes are quite annoying.  :-/
+"
+" 021125 I often press <ESC> multiple times, so I deactivated this mapping
+" map <esc><esc> :if exists("syntax_on")\| syntax off\| else\| syntax on\| endif
+"
+" 021109 FIXME - not sure if it is correct
+" Highlight always some keywords
+  syn keyword TODO FIXME XXX MIKA
+"
+" =============================================================================
+" EXAMPLES
+" =============================================================================
+"
+" 020121:  Adding stars/brackets/inverted commas around selected text:
+" vmap #* <esc>`>a*<esc>`<i*<esc>gv
+" vmap #( <esc>`>a)<esc>`<i(<esc>gv
+  vmap #* c**<left><c-r>"<esc>
+  vmap #( c()<left><c-r>"<esc>
+"
+" Visualizing trailing whitespace:
+" :set hls
+" /\s\+$
+"
+" Toggling a numerical variable between two values.
+" Example:  Switch the textwidth (tw) between values "70" and "80":
+" map \1 :let &tw = 150 - &tw<CR>
+"
+" Capitalizing the previously typed word,
+" returning to the previous position:
+" imap CAP <ESC>mzB~`za
+"
+" Uppercasing the previously typed word,
+" returning to the previous position:
+" imap CAP <ESC>mzvBU`za
+" imap CAP <ESC>mzBvaWU`za
+"
+" =============================================================================
+" TEMPORARY STUFF - TESTING THINGS
+" =============================================================================
+" Usefull would be an automatic "Rechtschreibungs-Checker" :-)
+" I am trying to implement aspend (ispend) with ~/.vim/words.german
+"  map ,check <ESC>:shell aspend -c %s
+"  map ,c :!ispell -d ndeutsch -T latin1 -w \"äöüÄÖÜß\" -x %<CR>
+"
+" 020110:
+" reformat current paragraph up to current
+" column position as the textwidth:
+"  nmap ## :let tw2=&tw<cr>:let &tw=col(".")<cr>gqip:let &tw=tw2<cr>
+" hint:  use the mappings for F5 and F6 to narrow/widen the text.
+"
+" 020107: reversing a selected block of text
+" provided that either "rev" or "tac"
+" has been installed on your system:
+" vmap ## :!rev<CR>
+" vmap ## :!tac<CR>
+"
+" 020105:
+" reversing the lines within the current text selection:
+" vmap ## :g/^/m'<<cr>
+" vmap ## :g/^/co '<<cr>gvd
+"
+" 001201:  Deleting text in normal mode
+" using the BackSpace and Delete keys:
+  nmap <BS>  X
+  nmap <DEL> x
+"
+" 001107
+" Use "bc" to evaluate the arithmetic expression on the current line
+" with a precision of '6' digits after the comma.
+" It is assumed that the current line contains only the expression.
+" The rsult is read in after the current line.
+   map #BC ^y$:r!echo 'scale=6; <c-r>"'\|bc<cr>
+"
+" 001010
+" Add all numbers in the current visual selection.
+  vmap ,add !awk '{total += $1 ; print} ; END {print total}'
+"
+" Example:
+" Remove comments from lines, select them with 'V'
+" then type ",add" and <CR> to execute "awk":
+" 123
+" 456
+" -789
+" The result should be "210".
+"
+" Narrow/Widen current paragraph by
+" adjusting the current textwidth
+" and using internal formatting:
+  map <F5>          :set tw-=2<cr>gqip
+  map <esc>[[E      :set tw-=2<cr>gqip
+  vmap <F5>     <esc>:set tw-=2<cr>gvgqgv
+  vmap <esc>[[E <esc>:set tw-=2<cr>gvgqgv
+"
+  vmap (        <esc>:set tw-=2<cr>gvgqgv
+  map <F6>          :set tw+=2<cr>gqip
+  vmap <F6>     <esc>:set tw+=2<cr>gvgqgv
+  vmap )        <esc>:set tw+=2<cr>gvgqgv
+"
+" 001107: Use an explicit width for reformatting (here: 72):
+" map <c-j> :let foo=&tw<cr>:se tw=72<cr>gqip:set tw=&foo<cr>
+"
+" screenshot from webpage shown with "links"
+" contains escape codes which need deleting.
+  vmap p :s#<c-v><esc>([0B]##g
+"
+"   View a html document (or part of it) with lynx. You need
+"   a system that supports the /def/fd/* file descriptors :-(
+" nmap ,ly :w !lynx -force_html /dev/fd/0<CR>
+" vmap ,ly :w !lynx -force_html /dev/fd/0<CR>
+"
+" Make Vim jump back one word in normal mode with <Left>,
+" when it produces the code "<Esc>OD":
+" nmap <Esc>OD b
+"
+" Some simple example of the "expand modifiers":
+" insert the current filename *with* path:
+  iab YPATHFILE <C-R>=expand("%:p")<cr>
+" insert the current filename *without* path:
+  iab YFILE <C-R>=expand("%:t:r")<cr>
+" insert the path of current file:
+  iab YPATH <C-R>=expand("%:h")<cr>
+  iab YDIR  <C-R>=expand("%:p:h")<cr>
+" For more help see ":help filename-modifiers".
+"
+" Toggle highlight search and report the current value:
+" map #1 :set hls!<cr>
+" map #2 :echo "HLSearch: " . strpart("OffOn",3*&hlsearch,3)<cr>
+" map ## #1#2
+"
+" Sorting current line containing a list of numbers
+" map ## :s/ /<C-M>/g<CR>vip!sort -n
+"
+" Replying to the mutt mailing list:
+" Remove header lines Cc: and Bcc: and insert [mutt] at the beginning
+" map ,MM 1G/^Cc:<CR>2dd}o[mutt]<CR>
+"
+" map ,U %s#<URL:\(.*\)>#<a href="\1"></a>#gc
+" map ,F {jma}kmb:'a,'b!sed -e "s/^>//"<C-V><C-V>|\
+"        sed -f ~/.P/elm/scripts/weedout.sed
+" map ,mb ebi<CR><b><ESC>Ea</b><CR><ESC>dw
+"
+" stripping netscape bookmarks and making them list items
+" vmap ,ns :.,$s/^ *<DT><\(A.*"\) ADD.*">\(.*\)$/<li> <\1><C-M><C-I>\2/
+"
+" Jump to the last space before the 80th column.
+" map ,\| 80\|F<space>
+"
+" extracting variable names from mutt's init.c
+" :%s/^.*"\([a-z0-9_]*\)".*$/\1/
+"
+"     \<> = change to <> notation by substituting ^M and ^[
+" cab \<> s/<C-V><ESC>/<ESC>/gc<C-M>:s/<C-V><C-M>/<C-M>/gc<C-M>
+"
+" Changing the From_ line in pseudo mail folders to an appropriate
+"  value - so you can read them with a mailer.
+" %s/^From /From guckes Thu Apr  6 12:07:00 1967/
+"
+" =============================================================================
+" ASCII tables
+" =============================================================================
+"
+" 001005: In need of an ASII table?  Perl is your friend:
+"         perl -e 'while($i++<256) { print chr($i); }'
+"
+" convert to HEX: %!xxd
+" convert back:   %!xxd -r
+" 
+" ASCII Table - | octal value - name/char |
+"
+" |000 nul|001 soh|002 stx|003 etx|004 eot|005 enq|006 ack|007 bel|
+" |010 bs |011 ht |012 nl |013 vt |014 np |015 cr |016 so |017 si |
+" |020 dle|021 dc1|022 dc2|023 dc3|024 dc4|025 nak|026 syn|027 etb|
+" |030 can|031 em |032 sub|033 esc|034 fs |035 gs |036 rs |037 us |
+" |040 sp |041  ! |042  " |043  # |044  $ |045  % |046  & |047  ' |
+" |050  ( |051  ) |052  * |053  + |054  , |055  - |056  . |057  / |
+" |060  0 |061  1 |062  2 |063  3 |064  4 |065  5 |066  6 |067  7 |
+" |070  8 |071  9 |072  : |073  ; |074  < |075  = |076  > |077  ? |
+" |100  @ |101  A |102  B |103  C |104  D |105  E |106  F |107  G |
+" |110  H |111  I |112  J |113  K |114  L |115  M |116  N |117  O |
+" |120  P |121  Q |122  R |123  S |124  T |125  U |126  V |127  W |
+" |130  X |131  Y |132  Z |133  [ |134  \ |135  ] |136  ^ |137  _ |
+" |140  ` |141  a |142  b |143  c |144  d |145  e |146  f |147  g |
+" |150  h |151  i |152  j |153  k |154  l |155  m |156  n |157  o |
+" |160  p |161  q |162  r |163  s |164  t |165  u |166  v |167  w |
+" |170  x |171  y |172  z |173  { |174  | |175  } |176  ~ |177 del|
+"
+" =============================================================================
+" ASCII Table - | decimal value - name/char |
+"
+" |000 nul|001 soh|002 stx|003 etx|004 eot|005 enq|006 ack|007 bel|
+" |008 bs |009 ht |010 nl |011 vt |012 np |013 cr |014 so |015 si |
+" |016 dle|017 dc1|018 dc2|019 dc3|020 dc4|021 nak|022 syn|023 etb|
+" |024 can|025 em |026 sub|027 esc|028 fs |029 gs |030 rs |031 us |
+" |032 sp |033  ! |034  " |035  # |036  $ |037  % |038  & |039  ' |
+" |040  ( |041  ) |042  * |043  + |044  , |045  - |046  . |047  / |
+" |048  0 |049  1 |050  2 |051  3 |052  4 |053  5 |054  6 |055  7 |
+" |056  8 |057  9 |058  : |059  ; |060  < |061  = |062  > |063  ? |
+" |064  @ |065  A |066  B |067  C |068  D |069  E |070  F |071  G |
+" |072  H |073  I |074  J |075  K |076  L |077  M |078  N |079  O |
+" |080  P |081  Q |082  R |083  S |084  T |085  U |086  V |087  W |
+" |088  X |089  Y |090  Z |091  [ |092  \ |093  ] |094  ^ |095  _ |
+" |096  ` |097  a |098  b |099  c |100  d |101  e |102  f |103  g |
+" |104  h |105  i |106  j |107  k |108  l |109  m |110  n |111  o |
+" |112  p |113  q |114  r |115  s |116  t |117  u |118  v |119  w |
+" |120  x |121  y |122  z |123  { |124  | |125  } |126  ~ |127 del|
+"
+" =============================================================================
+" ASCII Table - | hex value - name/char |
+"
+" | 00 nul| 01 soh| 02 stx| 03 etx| 04 eot| 05 enq| 06 ack| 07 bel|
+" | 08 bs | 09 ht | 0a nl | 0b vt | 0c np | 0d cr | 0e so | 0f si |
+" | 10 dle| 11 dc1| 12 dc2| 13 dc3| 14 dc4| 15 nak| 16 syn| 17 etb|
+" | 18 can| 19 em | 1a sub| 1b esc| 1c fs | 1d gs | 1e rs | 1f us |
+" | 20 sp | 21  ! | 22  " | 23  # | 24  $ | 25  % | 26  & | 27  ' |
+" | 28  ( | 29  ) | 2a  * | 2b  + | 2c  , | 2d  - | 2e  . | 2f  / |
+" | 30  0 | 31  1 | 32  2 | 33  3 | 34  4 | 35  5 | 36  6 | 37  7 |
+" | 38  8 | 39  9 | 3a  : | 3b  ; | 3c  < | 3d  = | 3e  > | 3f  ? |
+" | 40  @ | 41  A | 42  B | 43  C | 44  D | 45  E | 46  F | 47  G |
+" | 48  H | 49  I | 4a  J | 4b  K | 4c  L | 4d  M | 4e  N | 4f  O |
+" | 50  P | 51  Q | 52  R | 53  S | 54  T | 55  U | 56  V | 57  W |
+" | 58  X | 59  Y | 5a  Z | 5b  [ | 5c  \ | 5d  ] | 5e  ^ | 5f  _ |
+" | 60  ` | 61  a | 62  b | 63  c | 64  d | 65  e | 66  f | 67  g |
+" | 68  h | 69  i | 6a  j | 6b  k | 6c  l | 6d  m | 6e  n | 6f  o |
+" | 70  p | 71  q | 72  r | 73  s | 74  t | 75  u | 76  v | 77  w |
+" | 78  x | 79  y | 7a  z | 7b  { | 7c  | | 7d  } | 7e  ~ | 7f del|
+" =============================================================================
+" "[VIM6] foldmethod:
+"  {Visual}zf => Operator to create a fold
+"  zi => enable/disable folds
+"  zf => create fold
+"  zv => view cursor-line
+"  zd => delete one fold at the cursor
+"  zD => delete all folds
+"  za => toggle fold (open or close)
+"  zc => close fold
+"  zm => close more folds
+"  zM => close all folds: set foldlevel to 0 (zero)
+"  zo => open fold
+"  zr => open more folds
+"  zR => open all folds
+" =============================================================================
+" 020708 Just for my information - I often need the current filename without
+" extension and so on....
+"
+"        %               current file name
+"        %<              current file name without extension
+"        #               alternate file name for current window
+"        #<              idem, without extension
+"        #31             alternate file number 31
+"        #31<            idem, without extension
+"        <cword>         word under the cursor
+"        <cWORD>         WORD under the cursor (see |WORD|)
+"        <cfile>         path name under the cursor
+"        <cfile><        idem, without extension
+"  zx => update folds: close manually opend folds
+" =============================================================================
+" Yet another example for an autocommand:  [980616]
+"  au VimLeave * echo "Thanks for using Vim"version". --Michael Prokop!"
+" =============================================================================
+" Last but not least...
+" =============================================================================
+" The last line is allowed to be a "modeline" with my setup.
+" It gives vim commands for setting variable values that are
+" specific for editing this file.  Used mostly for setting
+" the textwidth (tw) and the "shiftwidth" (sw).
+" Note that the colon within the value of "comments" needs to
+" be escaped with a backslash!  (Thanks, Thomas!)
+" ######### END OF FILE ########################################################
+" vim:tw=80 et sw=4 comments=\:\"
