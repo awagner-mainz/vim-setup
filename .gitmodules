@@ -22,3 +22,6 @@
 [submodule "bundle/vim-visualmark"]
 	path = bundle/vim-visualmark
 	url = https://github.com/awagner-mainz/visualmark.vim
+[submodule "bundle/vim-ultisnips"]
+	path = bundle/vim-ultisnips
+	url = https://github.com/SirVer/ultisnips
