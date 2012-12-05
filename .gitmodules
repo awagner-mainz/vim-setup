@@ -16,3 +16,6 @@
 [submodule "bundle/vim-mru"]
 	path = bundle/vim-mru
 	url = https://github.com/awagner-mainz/mru.vim.git
+[submodule "bundle/vim-homekey"]
+	path = bundle/vim-homekey
+	url = https://github.com/awagner-mainz/vim-homekey
