@@ -34,6 +34,3 @@
 [submodule "bundle/vundle"]
 	path = bundle/vundle
 	url = git://github.com/gmarik/vundle.git
-[submodule "bundle/vim-todotxt"]
-	path = bundle/vim-todotxt
-	url = git://github.com/freitass/todo.txt-vim.git

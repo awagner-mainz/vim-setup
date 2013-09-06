@@ -55,6 +55,9 @@ TexLet g:Tex_Debug = 0
 " this name.
 TexLet g:Tex_DebugLog = ''
 
+TexLet g:tex_indent_brace = 0
+
+
 " }}}
 " ==============================================================================
 " Rules: specifications of programs for compiling and viewing {{{
@@ -520,7 +523,7 @@ TexLet g:Tex_SmartBSPattern =
 " Pressing " (english double quote) will insert `` or '' by making an
 " intelligent guess about whether we intended to open or close a quote.
 " Default: 1
-TexLet g:Tex_SmartKeyQuote = 1
+TexLet g:Tex_SmartKeyQuote = 0
 
 " Users of other languages might want to change the quote characters to suit
 " their locale.  These global values will be ignored if there are buffer-local

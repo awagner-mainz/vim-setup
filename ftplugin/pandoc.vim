@@ -2,7 +2,7 @@
 " Personal filetype commands for pandoc (*.pdc) files...
 " latest changes on 2011-03-12...
 
-let b:pdc_tex_template  ="/home/wagner/.pandoc/templates/default.latex"
+let b:pdc_tex_template  ="/home/wagner/.pandoc/templates/default-aw.latex"
 let b:pdc_odt_template  ="/home/wagner/.pandoc/templates/reference.odt"
 let b:pdc_docx_template ="/home/wagner/.pandoc/templates/reference.docx"
 " let b:pdc_odt_template  ="/usr/share/pandoc-1.9.4.2/reference.odt"
@@ -14,12 +14,14 @@ let b:biblatex_style="citestyle=authoryear-icomp,bibstyle=authoryear"
 let b:pdc_bib       ="/home/wagner/Dokumente/uni/Literaturlisten/AW.bib"
 let b:pdc_biblatex  ="1"
 let b:pdc_class     ="scrartcl"
+" let b:pdc_papersize ="a4,landscape"
+let b:pdc_papersize ="a4"
 let b:pdc_lang      ="english,french,ngerman"
-let b:pdc_fontsize  ="11pt"
-let b:pdc_komaoptions ="DIV=11"
+let b:pdc_fontsize  ="12pt"
+let b:pdc_komaoptions =""
 let b:pdc_debug     =""
 
-" Assemble pandoc_options from variables given above ======= {{{
+" Assemble pandoc_ options from variables given above ======= {{{
 
 let b:pandoc_binary ="/usr/bin/pandoc"
 " let b:pandoc_options=" --xetex --variable=biblatex:true"
@@ -62,6 +64,10 @@ if b:pdc_lang != ''
     let b:pandoc_tex_options .=" --variable=lang:" . b:pdc_lang
 endif
 
+if b:pdc_papersize != ''
+    let b:pandoc_tex_options .=" --variable=papersize:" . b:pdc_papersize
+endif
+
 if b:pdc_fontsize != ''
     let b:pandoc_tex_options .=" --variable=fontsize:" . b:pdc_fontsize
 endif
@@ -81,10 +87,12 @@ let g:pandoc_use_bibtool = 1
 
 " Set Formatting and other Variables =============================== {{{
 
-setlocal fo+=wra                    " make it format-flowed: before: (2tcq)
+" setlocal fo+=wra                    " make it format-flowed: before: (2tcq)
+setlocal fo+=2tcq
 setlocal spell spelllang=de_20      " spell check with new german spellings
 setlocal textwidth=120
 setlocal ch=1                       " I don't want a commandline that's several lines high
+let g:pandoc_no_folding = 1	    " I don't want automatic folding
 
 "}}}
 
@@ -124,8 +132,15 @@ map <leader>lv  :lcd %:p:h<CR>
               \ :exe "silent !" . shellescape(b:viewer_binary) . " "
               \ . shellescape(expand("%:p:r") . ".pdf") . "&"<CR>
 
+
+" make a shortcut for cleaning tex temporary files {{{
+if has('unix')
+    map <Leader>cl		:lcd %:p:h<CR>:!cleantexfiles.sh<CR>
+endif
+
 " }}}
 
+" }}}
 
 " make F8 call aspell {{{
 map <F8> 		:w!<CR>:!aspell --lang=de check "%"<CR>:e! "%"<CR><CR>

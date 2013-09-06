@@ -11,6 +11,8 @@ set ch=1
 " Enable spell checking
 setlocal spell spelllang=de_20	" spell check with new german spellings
 
+" filetype indent off
+
 " re-enable e-acute key as per FAQ. and this works with Alt-i... {{{
 imap <buffer> <leader>item <Plug>Tex_InsertItemOnThisLine
 " }}}
@@ -34,7 +36,7 @@ map <Leader>rml		:%!rmligs -q -f<CR>
 
 " make a shortcut for cleaning tex temporary files {{{
 if has('unix')
-    map <Leader>cl		:lcd %:p:h<CR>:!cleantextempfiles.sh<CR>
+    map <Leader>cl		:lcd %:p:h<CR>:!cleantexfiles.sh<CR>
 endif
 " }}}
 
@@ -82,8 +84,9 @@ endfunction
 " :%s/\(\a\)-,/\1"\~,/gc
 
 " 4. d.h. -> d.\,h.~ -- dgl. fuer i.O.,m.E.,i.A.,u.a.,d.h., z.B., s.o., s.u.
-" :%s/\(\a\)\.\(\a\).\_s/\1.\\,\2.\~/gc
-" (das deckt nicht folgende ab: m.a.W.)
+" :%s/\(\a\)\.\(\a\)\.\_s/\1.\\,\2.\~/gc
+" :%s/\(\a\)\.\(\a\)\./\1.\\,\2./gc
+" :%s/\(\a\)\.\(\a\)\.\(\a\)\./\1.\\,\2.\\,\3./gc
 
 " 4b. d.\,h.\ -> d.\,h.~
 " :%s/\(\a\).\\,\(\a\).\_s\(\a\)/\1.\\,\2.\~\3/gc

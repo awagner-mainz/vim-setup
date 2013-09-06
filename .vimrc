@@ -5,11 +5,6 @@
 " * Date:        Apr 21 2005
 " * *************************************************/
 " Header {{{ -----------------------------------------
-" viele Anregungen von Michael Prokop's vimrc uebernommen
-" (check out http://config.michael-prokop.at) Thanks to Michael
-"  which in turn is based on the one of Sven Guckes   -->
-"  http://www.guckes.net/setup/ - vimrc.forall. Thanks to Sven!
-"
 
 " In this file, there are the following sections
 " - OPTIONS
@@ -40,7 +35,7 @@
 "
 
 " First, fix path:
-set runtimepath=$HOME/.vim,$HOME/vimfiles,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after,$HOME/vimfiles/after
+" set runtimepath=HOME/vimfiles,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after,$HOME/vimfiles/after
 
 " then, in alphabetical order
 
@@ -79,6 +74,7 @@ set noerrorbells
 set errorformat=%f:%l:%c:%m		" that's the way tex-wrapper reports
 " set errorformat=%f:%l:%m,\"%f\"\\,\ line\ %l\:\ %m
 set esckeys						" allow cursor keys in insert mode
+set noexpandtab
 set fenc=utf-8
 " set filetype					" use filetype auto-recognition
 set fileformat=unix				" use unix linebreaks (not dos cr/lf)
@@ -156,6 +152,7 @@ set smartcase					" override ignorecase when search pattern contains UpperCase l
 set smarttab					" chose wisely between tabwidth and indent-width
 set nosmartindent				" don't, or we end up with indented lines in plain text
 " We're setting spelling options/mappings etc. all below...
+set softtabstop=4               " how many spaces is a tab to count for and vice versa
 set nostartofline				" keep cursor at column on page commands
 " Statuslines
 "       One favourite:
@@ -178,7 +175,7 @@ else
     set t_Sb=[4%dm
 endif
 " let g:tex_flavor = "latex"
-set tabstop=4
+set tabstop=8
 if has("unix")
     set tags=$VIMRUNTIME/../vim.tags,~/.vim/vim.tags,~/tags,./tags;/    " where are tags files
 else
@@ -209,14 +206,6 @@ set wrapmargin=10
 " My variable settings {{{
 " =============================================================================
 "
-
-" TABSTOPS and other FORMATTING VALUES {{{ - - -
-let my_tab=4
-
-" this is for vim-pandoc:
-" let g:pandoc_auto_format = 1
-
-" }}}
 
 " TAGLIST {{{ - - - - -
 if has("unix")
@@ -365,7 +354,12 @@ source $VIMRUNTIME/syntax/syntax.vim
 " }}}
 
 " Load Pathogen to handle bundles in .vim/bundle {{{ ---
-call pathogen#infect()
+
+" To disable a plugin, add it's bundle name to the following list
+let g:pathogen_disabled = ["vim-supertab"]
+
+execute pathogen#infect()
+execute pathogen#helptags()
 
 " }}}
 
@@ -763,26 +757,6 @@ imap <C-Q>  <C-O>Qi
   map  ,>          :set tw+=2<CR>gqip
   vmap ,>     <esc>:set tw+=2<CR>gvgqgv
 
-" Tabstops - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-" virtual tabstops using spaces
-execute "set shiftwidth=".my_tab
-execute "set softtabstop=".my_tab
-set expandtab
-
-" allow toggling between local and default mode
-function! TabToggle()
-    if &expandtab
-        set shiftwidth=8
-        set softtabstop=0
-        set noexpandtab
-    else
-        execute "set shiftwidth=".g:my_tab
-        execute "set softtabstop=".g:my_tab
-        set expandtab
-    endif
-endfunction
-map ,tt mz:execute TabToggle()<CR>'z
 
 
 " ANDERES - - - - - - - - - - - - - - - - - - - - - - - - - - - -
