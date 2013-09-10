@@ -36,4 +36,4 @@
 	url = git://github.com/gmarik/vundle.git
 [submodule "bundle/vim-todotxt"]
 	path = bundle/vim-todotxt
-	url = git://github.com/awagner-mainz/todo.txt-vim.git
+	url = https://github.com/awagner-mainz/todo.txt-vim.git
