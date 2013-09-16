@@ -1,15 +1,9 @@
-[submodule "bundle/fugitive"]
-	path = bundle/fugitive
-	url = http://github.com/tpope/vim-fugitive.git
 [submodule "bundle/vim-pandoc"]
 	path = bundle/vim-pandoc
 	url = https://github.com/awagner-mainz/vim-pandoc.git
 [submodule "bundle/vim-latex-suite"]
 	path = bundle/vim-latex-suite
 	url = https://github.com/gerw/vim-latex-suite.git
-[submodule "bundle/vim-fugitive"]
-	path = bundle/vim-fugitive
-	url = http://github.com/tpope/vim-fugitive.git
 [submodule "bundle/vim-favmenu"]
 	path = bundle/vim-favmenu
 	url = https://github.com/awagner-mainz/FavMenu.vim.git
@@ -22,18 +16,9 @@
 [submodule "bundle/vim-visualmark"]
 	path = bundle/vim-visualmark
 	url = https://github.com/awagner-mainz/visualmark.vim
-[submodule "bundle/vim-ultisnips"]
-	path = bundle/vim-ultisnips
-	url = https://github.com/SirVer/ultisnips
-[submodule "bundle/vim-supertab"]
-	path = bundle/vim-supertab
-	url = https://github.com/ervandew/supertab
 [submodule "bundle/mediawiki"]
 	path = bundle/mediawiki
 	url = git://github.com/chikamichi/mediawiki.vim.git
-[submodule "bundle/vundle"]
-	path = bundle/vundle
-	url = git://github.com/gmarik/vundle.git
 [submodule "bundle/vim-todotxt"]
 	path = bundle/vim-todotxt
 	url = https://github.com/awagner-mainz/todo.txt-vim.git
