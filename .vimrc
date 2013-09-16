@@ -324,17 +324,7 @@ endif
   iab  Ysc <C-O>o[schnipp]<CR><C-O>k$
 "  vmap ,ell c[...]<ESC>
 
-" Often used filenames - only needed these on the command line:
-if has("unix")
-  cab Mrc	~/.mutt/main
-"  cab Vrc	~/.vim/.vimrc
-else
-"  cab Vrc	d:\daten\aw\vim\.vimrc
-endif
-cab Vrc 	$HOME/.vim/.vimrc'
-
 " read my 'autocorrection' list...
-" source $HOME/.vim/.abbreviations
 if has("unix")
     source $HOME/.vim/.abbreviations
 else
@@ -1095,7 +1085,11 @@ map ,www :call Browser ()<CR>
 " use VV to display VIMRUNTIME (which :version doesn't do)
   nmap VV :echo $VIMRUNTIME<CR>
 
+if has("unix")
   let vimrc=$HOME . '.vim/.vimrc'
+else
+  let vimrc=$HOME . '/vimfiles/.vimrc'
+endif
   nn  ,lrc :source <C-R>=vimrc<CR><CR>
   nn  ,erc :edit   <C-R>=vimrc<CR><CR>
 
