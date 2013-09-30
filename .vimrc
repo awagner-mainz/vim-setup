@@ -244,7 +244,7 @@ endif
 " in the temporary (/tmp, /var/tmp and d:\temp) directories, you can set the
 " MRU_Exclude_Files variable to
 
-let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*\|^d:\\temp\\.*\|c:\\temp\\.*'
+let g:MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*\|^d:\\temp\\.*\|c:\\temp\\.*'
 " if has("unix")
 "    let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*\|^/home/wagner/.w3m/w3mtmp.*'		" For Unix
 " else
@@ -253,9 +253,9 @@ let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*\|^d:\\temp\\.*\|c:\\temp\\.*'
 let MRU_num = 8
 
 if has('unix')
-        let MRU_File = $HOME . '/.vim/.vim_mru_files'
+        let g:MRU_File = $HOME . '/.vim/.vim_mru_files'
     else
-        let MRU_File = $HOME . '/vimfiles/_vim_mru_files'
+        let g:MRU_File = $HOME . '/vimfiles/_vim_mru_files'
 "        if has('win32')
 "            " MS-Windows
 "            if $USERPROFILE != ''
