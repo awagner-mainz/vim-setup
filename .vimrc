@@ -273,11 +273,7 @@ if has('gui_running')
   let g:toggleTabs = 1
   " use tabs in mru and favmenu (undefine it to not open in tabs)
   let g:openInTabs = 1
-<<<<<<< HEAD
   let g:MRU_Open_File_Use_Tabs = 1
-=======
-  let MRU_Open_File_Use_Tabs = 1
->>>>>>> 02dfee176829d1cfcf554c38c6590d3bf960af00
 else
   " general control variable
   let g:toggleTabs = 0
