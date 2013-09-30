@@ -244,13 +244,27 @@ endif
 " in the temporary (/tmp, /var/tmp and d:\temp) directories, you can set the
 " MRU_Exclude_Files variable to
 
-let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*\|^/home/wagner/.w3m/w3mtmp.*|^d:\\temp\\.*\|c:\\temp\\.*'
+let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*\|^d:\\temp\\.*\|c:\\temp\\.*'
 " if has("unix")
 "    let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*\|^/home/wagner/.w3m/w3mtmp.*'		" For Unix
 " else
 "    let MRU_Exclude_Files = '^d:\\temp\\.*\|c:\\temp\\.*'       " For MS-Windows
 " endif
-let MRU_num = 6
+let MRU_num = 8
+
+if has('unix')
+        let MRU_File = $HOME . '/.vim/.vim_mru_files'
+    else
+        let MRU_File = $HOME . '/vimfiles/_vim_mru_files'
+"        if has('win32')
+"            " MS-Windows
+"            if $USERPROFILE != ''
+"                let MRU_File = $USERPROFILE . '\_vim_mru_files'
+"            endif
+"        endif
+endif
+
+
 " }}}
 
  " Tabs {{{ - - - - - -
@@ -259,6 +273,7 @@ if has('gui_running')
   let g:toggleTabs = 1
   " use tabs in mru and favmenu (undefine it to not open in tabs)
   let g:openInTabs = 1
+  let MRU_Open_File_Use_Tabs = 1
 else
   " general control variable
   let g:toggleTabs = 0
