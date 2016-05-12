@@ -44,9 +44,10 @@ set autoread					" reload if file changed on disc
 set autowrite					" saves buffer before launching shellcommands etc.
 set nobackup					" don't use backups (use versions?)
 if has ('gui_running')
-	set background=light		" my gvim uses bright background
+	set background=dark			" my gvim uses dark background
 	let psc_style = 'warm'
-	colo ps_color
+	colo solarized
+"	colo ps_color
 "	colo peachpuff
 else
 	set background=dark			" my xterm/screen is dark.
@@ -203,7 +204,7 @@ set wrapmargin=10
 
 " }}}
 " =============================================================================
-" My variable settings {{{
+" My variable settings {{{ 
 " =============================================================================
 "
 
@@ -286,6 +287,58 @@ endif
     let g:snips_author = "Andreas Wagner"
 " }}}
 
+" NEOCOMPLETE {{{ - - - - -  - -
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+
+let g:neocomplete#sources#omni#input_patterns.behat = '\(When\|Then\|Given\|And\)\s.*$'
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+" }}}
+
 " }}}
 " =============================================================================
 " Abbreviations {{{
@@ -365,6 +418,10 @@ let g:pathogen_disabled = ["vim-supertab"]
 
 execute pathogen#infect()
 execute pathogen#helptags()
+" call pathogen#runtime_append_all_bundles()
+" call pathogen#helptags()
+
+
 
 " }}}
 
@@ -383,6 +440,10 @@ autocmd FileType text 	let b:show_doublons_active = 0
 if has("unix")
     au! BufRead,BufNewFile /tmp/mutt*   setfiletype mail
 endif
+
+" Set feature file flavour to behat (instead of cucumber)
+let g:feature_filetype='behat'
+autocmd FileType behat setlocal compiler behat
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler

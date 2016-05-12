@@ -1,10 +1,10 @@
 " ==============================================================================
 " Personal filetype commands for pandoc (*.pdc) files...
-" latest changes on 2011-03-12...
+" latest changes on 2013-09-30...
 
-let b:pdc_tex_template  ="/home/wagner/.pandoc/templates/default-aw.latex"
-let b:pdc_odt_template  ="/home/wagner/.pandoc/templates/reference.odt"
-let b:pdc_docx_template ="/home/wagner/.pandoc/templates/reference.docx"
+let b:pdc_tex_template  ="default-aw.latex"
+let b:pdc_odt_template  ="reference.odt"
+let b:pdc_docx_template ="reference.docx"
 " let b:pdc_odt_template  ="/usr/share/pandoc-1.9.4.2/reference.odt"
 " let b:pdc_odt_template  ="/usr/share/pandoc-1.9.4.2/reference.docx"
 "let b:pdc_csl       =""

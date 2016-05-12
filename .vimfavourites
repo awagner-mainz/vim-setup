@@ -5,7 +5,7 @@
 /home/wagner/.vim/ftplugin/tex/tex.vim
 /home/wagner/.vim/ftplugin/tex/texrc
 /home/wagner/.vim/ftplugin/pandoc.vim
-/home/wagner/.vim/syntax/pandoc.vim
+/home/wagner/.vim/bundle/vim-pandoc/syntax/pandoc.vim
 /home/wagner/.pandoc/templates/default-aw.latex
 /home/wagner/Temp/TeX/test.tex
 /home/wagner/Temp/software/pandoc/test.pdc
